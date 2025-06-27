@@ -25,16 +25,26 @@
       width: 100vw;
       height: 100vh;
       z-index: -1;
+      animation: scrollStars 200s linear infinite;
+    }
+    @keyframes scrollStars {
+      from { background-position: 0 0; }
+      to { background-position: 0 10000px; }
     }
     .fomo-bar {
-      background-color: #111;
+      background: linear-gradient(to right, #003300, #004d00);
       color: #fff;
       text-align: center;
-      padding: 10px;
+      padding: 12px;
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid red;
+      border-bottom: 2px solid #00ff00;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
     }
     .container {
       padding: 40px 20px;
@@ -44,7 +54,7 @@
     }
     h1 {
       font-weight: 700;
-      font-size: 36px;
+      font-size: 38px;
       margin-bottom: 20px;
     }
     .red {
@@ -62,9 +72,11 @@
       text-decoration: none;
       border-radius: 5px;
       transition: 0.3s;
+      box-shadow: 0 0 10px red;
     }
     .btn:hover {
       background: #cc0000;
+      box-shadow: 0 0 20px red;
     }
     .section {
       margin-top: 60px;
@@ -134,9 +146,11 @@
         <li>🔐 The exact systems I used to make $15K with just a phone</li>
         <li>📲 How AI + content + proof = financial escape</li>
         <li>🔥 Step-by-step empire blueprint built for Pacific men</li>
-        <li>💼 Private Discord vault + Telegram drops</li>
-        <li>📦 Hidden prompts and automated client-getting systems</li>
-        <li>🏦 Stripe setup, offshore protection, anonymous empire design</li>
+        <li>💼 Private NCS Discord Vault + Elite Telegram Drops</li>
+        <li>📦 Plug-and-play prompts + ready-to-use automations</li>
+        <li>🏦 Stripe setup, offshore privacy, income protection tactics</li>
+        <li>🎯 Phase 0: Kill the Weak Man | Phase 1: Build the Empire</li>
+        <li>💰 Real money from real proof — not theory</li>
       </ul>
     </div>
 
@@ -155,8 +169,11 @@
         <div class="review-name">Mosese R., Fiji 🇫🇯</div>
         <div>“No fluff, no theory. Just daily war, money systems, and brotherhood.”</div>
       </div>
+      <div class="review">
+        <div class="review-name">Jacob Tua, PNG 🇵🇬</div>
+        <div>“I didn’t even have a laptop. I ran everything from my phone. First time I made money online that fast.”</div>
+      </div>
     </div>
-
   </div>
   <a href="https://t.me/+N9mPSOW1dFlhMjc1" class="telegram-float">Join Telegram</a>
 </body>
