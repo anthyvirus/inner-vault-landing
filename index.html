@@ -17,43 +17,34 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.5;text-align:center}
-    a{text-decoration:none;color:inherit}/* Top notice */
-.notice{background:var(--section);padding:10px;font-size:.9rem;font-weight:700;color:var(--accent)}
-
-/* Logo */
+    a{text-decoration:none;color:inherit}.notice{background:var(--section);padding:10px;font-size:.9rem;font-weight:700;color:var(--accent)}
 .logo{width:90px;margin:30px auto 10px;display:block}
 
-/* Hero */
-.hero h1{font-size:2.3rem;font-weight:700;padding:0 20px;margin-bottom:10px}
+.hero h1{font-size:2.2rem;font-weight:700;padding:0 20px;margin-bottom:12px}
 .hero .red{color:#ff3c3c}
-.hero p{max-width:620px;margin:0 auto 25px;font-size:1.1rem;color:#b8bcc4;padding:0 20px}
+.hero p{max-width:620px;margin:0 auto 22px;font-size:1.1rem;color:#b8bcc4;padding:0 20px}
 
-/* CTA Buttons */
 .btn{display:inline-block;background:var(--accent);color:#000;font-weight:700;padding:14px 40px;border-radius:6px;box-shadow:0 0 12px rgba(255,191,0,.4);transition:.25s;margin:18px 10px 0}
 .btn:hover{background:var(--accent-dark);transform:translateY(-2px)}
 
-/* Sections */
 section{max-width:780px;margin:45px auto;padding:0 20px}
 .card{background:var(--section);border:1px solid #252634;border-left:5px solid var(--accent);border-radius:10px;padding:22px;margin-bottom:22px;text-align:left}
 .card h3{font-size:1.25rem;font-weight:700;margin-bottom:8px;color:var(--accent)}
 .card p{font-size:1rem;color:#c4c6cc}
 
-/* Bullet list */
-.benefits li{list-style:none;background:url('https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/check.svg') no-repeat 0 4px/18px var(--text);padding-left:28px;margin:10px 0;font-weight:600;color:#d7d9df}
+ul.benefits{padding:0}
+.benefits li{list-style:none;display:flex;align-items:center;gap:12px;border:1px solid #252634;border-radius:8px;padding:14px 18px;margin:10px 0;font-weight:600;color:var(--text);background:var(--section);transition:background .25s}
+.benefits li:hover{background:rgba(255,191,0,0.08)}
+.benefits li i{color:var(--accent)}
 
-/* FAQ */
-details{background:var(--section);border:1px solid #252634;border-radius:8px;margin:10px 0;padding:14px}
+details{background:var(--section);border:1px solid #252634;border-radius:8px;margin:10px 0;padding:14px;text-align:left}
 details summary{cursor:pointer;font-weight:700;color:var(--accent)}
-details p{margin-top:6px;text-align:left;color:#c4c6cc}
+details p{margin-top:6px;color:#c4c6cc}
 
-/* Sticky footer */
 .sticky{position:fixed;width:100%;bottom:0;left:0;background:var(--section);padding:12px;font-weight:700;color:var(--accent);display:flex;justify-content:center;align-items:center;gap:14px;box-shadow:0 -2px 10px rgba(0,0,0,.6)}
 .sticky a{padding:10px 22px;background:var(--accent);border-radius:5px;color:#000;font-weight:700}
 
-/* Responsive */
-@media(max-width:600px){
-  .hero h1{font-size:1.6rem}
-}
+@media(max-width:600px){.hero h1{font-size:1.6rem}}
 
   </style>
 </head>
@@ -67,7 +58,7 @@ details p{margin-top:6px;text-align:left;color:#c4c6cc}
   </section>  <section>
     <div class="card">
       <h3>⚔ KILL THE WEAK MAN</h3>
-      <p><strong>Phase 0:</strong> Destroy porn, doom‑scrolling &amp; soft identity. War routine that buries the old you.<br>📸 <em>$982 earned in 7 days – Tim, PNG</em></p>
+      <p><strong>Phase 0:</strong> Destroy porn, doom‑scrolling &amp; soft identity. War routine that buries the old you.<br>📸 <em>$982 earned in 7 days – Tim, PNG</em></p>
     </div>
     <div class="card">
       <h3>💼 AI‑POWERED INCOME</h3>
@@ -75,12 +66,12 @@ details p{margin-top:6px;text-align:left;color:#c4c6cc}
     </div>
   </section>  <section>
     <h2 style="color:var(--accent);margin-bottom:18px">WHAT YOU GET</h2>
-    <ul class="benefits" style="text-align:left">
-      <li>7‑Step War Mindset Blueprint</li>
-      <li>AI Prompt Bank &amp; Revenue Scripts</li>
-      <li>90‑Day Execution Calendar</li>
-      <li>Daily Voice Logs &amp; Brotherhood Access</li>
-      <li>Private Leaderboard &amp; Client Pipeline</li>
+    <ul class="benefits">
+      <li><i class="fa-solid fa-circle-check"></i> 7‑Step War Mindset Blueprint</li>
+      <li><i class="fa-solid fa-circle-check"></i> AI Prompt Bank &amp; Revenue Scripts</li>
+      <li><i class="fa-solid fa-circle-check"></i> 90‑Day Execution Calendar</li>
+      <li><i class="fa-solid fa-circle-check"></i> Daily Voice Logs &amp; Brotherhood Access</li>
+      <li><i class="fa-solid fa-circle-check"></i> Private Leaderboard &amp; Client Pipeline</li>
     </ul>
   </section>  <section>
     <h2 style="color:var(--accent);margin-bottom:18px">FAQ</h2>
