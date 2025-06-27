@@ -1,333 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>No Code Society | Inner Vault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gold: #FFD600;
-      --dark: #10131a;
-      --card: #181b20;
-      --accent: #8a30ff;
-      --blue: #00c3ff;
-      --gradient: linear-gradient(90deg,#8a30ff 0,#00c3ff 100%);
-      --radius: 16px;
+      --gold: #FFD700;
+      --gold-shadow: #FFD70044;
+      --bg-dark: #10131A;
+      --text-main: #EAEAEA;
+      --section: #181B20;
+      --container-pad: 28px;
+      --radius: 20px;
+      --maxw: 440px;
     }
     body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: var(--dark);
-      color: #fff;
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
     }
     .dopamine-banner {
-      width: 100%;
-      padding: 15px 0 13px 0;
-      text-align: center;
-      background: var(--gradient);
+      width: 100vw;
+      padding: 11px 0;
+      background: linear-gradient(90deg,#6f22e9 0,#15d4e7 100%);
       color: #fff;
-      font-size: 1.06em;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-shadow: 0 1px 14px #0009;
-      animation: glow 2s infinite alternate;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border-bottom-left-radius: var(--radius);
-      border-bottom-right-radius: var(--radius);
+      font-size: 1.04em;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: 1.5px;
+      border-bottom-left-radius: 13px;
+      border-bottom-right-radius: 13px;
       margin-bottom: 0;
     }
-    @keyframes glow {
-      from { box-shadow: 0 0 8px var(--gold);}
-      to   { box-shadow: 0 0 24px var(--accent);}
-    }
     .container {
-      max-width: 480px;
+      max-width: var(--maxw);
       margin: 0 auto;
-      padding: 48px 16px 0 16px;
+      padding: 0 var(--container-pad);
     }
     .main-logo {
-      width: 100px;
-      border-radius: 18px;
-      box-shadow: 0 2px 36px #FFD60033;
       display: block;
-      margin: 0 auto 38px auto;
-      filter: drop-shadow(0 0 14px #FFD60033);
-      transition: transform 0.17s;
-    }
-    .main-logo:hover {
-      transform: scale(1.05) rotate(-2deg);
-      box-shadow: 0 5px 48px #FFD60055;
+      margin: 36px auto 36px auto;
+      width: 78px;
+      border-radius: 20px;
+      box-shadow: 0 2px 32px var(--gold-shadow);
+      background: #222;
     }
     .hero-title {
-      color: var(--gold);
-      font-size: 2.5rem;
+      font-size: 2.08rem;
       font-weight: 900;
-      letter-spacing: 2.5px;
-      margin-bottom: 4px;
-      line-height: 1.08;
-      text-transform: uppercase;
+      color: var(--gold);
       text-align: center;
-      text-shadow: 0 1px 20px #FFD60030;
-      transition: text-shadow 0.23s;
-    }
-    .hero-title:hover {
-      text-shadow: 0 1px 28px #FFD60099;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+      line-height: 1.1;
+      text-shadow: 0 2px 22px #ffd70024;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     }
     .hero-sub {
-      color: #fff;
-      font-size: 2.03rem;
+      font-size: 1.32rem;
       font-weight: 700;
-      margin-bottom: 26px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      color: #fff;
       text-align: center;
+      letter-spacing: 1.2px;
+      margin-bottom: 34px;
+      text-transform: uppercase;
     }
     .ai {
       color: var(--gold);
-      text-shadow: 0 1px 12px #FFD60033;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 1.32em;
     }
     .copy-tate {
-      color: #cfcfcf;
-      font-size: 1.15em;
-      margin-bottom: 34px;
-      font-weight: 500;
-      line-height: 1.6;
-      text-align: left;
-      background: linear-gradient(90deg, #1a1e27 0%, #16191f 100%);
-      padding: 18px 17px;
+      background: var(--section);
       border-radius: var(--radius);
-      box-shadow: 0 2px 16px #0008;
+      padding: 22px 24px 20px 24px;
+      margin-bottom: 38px;
+      font-size: 1.1em;
+      color: #d6d6d6;
+      line-height: 1.6;
+      box-shadow: 0 4px 18px #0007;
+      text-align: center;
+      font-weight: 500;
     }
     .cta-btn {
       display: block;
+      margin: 0 auto 16px auto;
+      width: 95%;
+      max-width: 330px;
+      padding: 21px 0 20px 0;
       background: var(--gold);
-      color: var(--dark);
-      border: none;
-      border-radius: 16px;
+      color: #10131a;
       font-size: 1.22rem;
       font-weight: 900;
-      letter-spacing: 2px;
-      padding: 24px 0;
-      margin: 0 auto 33px auto;
-      width: 100%;
-      max-width: 410px;
+      border: none;
+      border-radius: 34px;
+      box-shadow: 0 4px 28px var(--gold-shadow);
+      letter-spacing: 1.7px;
       cursor: pointer;
-      box-shadow: 0 7px 38px #ffd60045;
-      text-transform: uppercase;
-      transition: 
-        box-shadow 0.13s, 
-        transform 0.13s, 
-        background 0.12s;
+      transition: background 0.15s, box-shadow 0.18s, transform 0.15s;
       text-align: center;
-      position: relative;
+      outline: none;
     }
     .cta-btn:hover {
-      box-shadow: 0 18px 48px #ffd60065;
-      transform: scale(1.04) translateY(-2px);
-      background: #ffe34d;
+      background: #ffeb80;
+      box-shadow: 0 6px 44px #ffd70077;
+      transform: translateY(-2px) scale(1.018);
     }
     .cta-sub {
-      color: #FFD600;
-      font-size: 0.97em;
-      text-align: center;
+      color: var(--gold);
+      font-size: 0.98em;
       font-weight: 700;
-      margin: -15px 0 24px 0;
+      text-align: center;
+      margin-bottom: 26px;
     }
     .proof-row {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      font-size: 1.12em;
+      margin: 0 0 36px 0;
+      font-size: 1.05em;
       font-weight: 600;
-      margin-bottom: 36px;
-      color: #FFD600;
-      gap: 13px;
-      text-align: left;
     }
     .proof-row span {
-      background: #25282c;
-      border-radius: 7px;
-      padding: 5px 10px;
-      margin-right: 8px;
-      display: inline-block;
-      font-size: 0.98em;
-      font-weight: 700;
-    }
-    .testi {
-      color: #ececec;
-      font-style: italic;
-      margin-bottom: 12px;
-      font-size: 1.08em;
-      line-height: 1.59;
-      text-align: left;
-      background: #181b20;
-      padding: 18px 14px 12px 14px;
-      border-radius: var(--radius);
-      box-shadow: 0 1px 12px #0008;
-    }
-    .divider {
-      border-bottom: 1px solid #22252a;
-      margin: 42px 0 38px 0;
-    }
-    .upgrade {
-      color: #fff;
-      font-size: 1.17em;
-      font-weight: 900;
-      letter-spacing: 1.6px;
-      margin: 41px 0 16px 0;
-      text-transform: uppercase;
-      text-align: left;
-    }
-    .logos-row {
       display: flex;
       align-items: center;
-      gap: 33px;
-      margin: 32px 0 24px 0;
-      justify-content: left;
+      background: #181b20;
+      color: var(--gold);
+      border-radius: 9px;
+      padding: 6px 13px 6px 11px;
+      margin: 0 2px;
+      font-size: 0.99em;
+      box-shadow: 0 1px 9px #ffd70021;
+    }
+    .divider {
+      border-bottom: 1.4px solid #22252a;
+      margin: 42px 0 28px 0;
+    }
+    .upgrade-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 39px 0 30px 0;
+      gap: 22px;
     }
     .logo-block {
       text-align: center;
-      color: #b5b5b5;
-      font-size: 1.01rem;
-      width: 45%;
     }
     .logo-block img {
-      border-radius: 16px;
+      border-radius: 13px;
       background: #181b20;
-      margin-bottom: 7px;
-      box-shadow: 0 2px 18px #FFD60044;
-      width: 68px;
-      height: 68px;
+      margin-bottom: 6px;
+      width: 55px;
+      height: 55px;
       object-fit: cover;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      border: 2px solid #FFD600;
-      padding: 6px;
-      transition: box-shadow 0.22s;
-    }
-    .logo-block img:hover {
-      box-shadow: 0 2px 44px #FFD60090;
+      box-shadow: 0 2px 13px var(--gold-shadow);
+      border: 2.2px solid var(--gold);
     }
     .logo-block span {
       display: block;
-      color: #FFD600;
+      color: var(--gold);
       font-size: 1em;
-      letter-spacing: 0.4px;
-      font-weight: 700;
-      margin-top: 8px;
+      font-weight: 800;
+      margin-top: 4px;
     }
     .arrow {
-      font-size: 2.2rem;
-      color: #FFD600;
-      margin-top: 13px;
-      margin-right: 13px;
-      margin-left: 13px;
-      animation: flash 1s infinite alternate;
-      vertical-align: middle;
+      font-size: 2.1rem;
+      color: var(--gold);
+      margin: 0 4px;
+      font-weight: 900;
+      transition: color 0.22s;
     }
-    @keyframes flash {
-      0% { opacity: 0.5;}
-      100% {opacity: 1;}
+    .arrow:hover {
+      color: #fff;
     }
     .links-row {
-      margin: 33px 0 0 0;
-      text-align: left;
-      font-size: 1.08em;
-      font-weight: 700;
-      color: #FFD600;
-      text-transform: uppercase;
       display: flex;
-      gap: 20px;
+      justify-content: center;
+      gap: 24px;
+      margin: 23px 0 18px 0;
+      font-size: 1.06em;
     }
     .links-row a {
-      color: #FFD600;
+      color: var(--gold);
       text-decoration: none;
-      position: relative;
-      transition: color 0.15s;
+      font-weight: 800;
+      letter-spacing: 1.1px;
+      border-bottom: 2.5px solid transparent;
+      padding-bottom: 1.5px;
+      transition: border 0.14s, color 0.14s;
     }
-    .links-row a:hover {color:#fff;}
-    .review-block {
-      margin-top: 36px;
-      background: #181b20;
-      border-radius: var(--radius);
-      padding: 19px 17px;
+    .links-row a:hover {
+      border-bottom: 2.5px solid var(--gold);
       color: #fff;
-      font-size: 1.16em;
-      box-shadow: 0 2px 16px #0008;
-      text-align: left;
-      border: 2px solid #FFD60040;
-      position: relative;
+    }
+    .review-block {
+      background: var(--section);
+      border-radius: var(--radius);
+      padding: 23px 21px 12px 21px;
+      margin-bottom: 27px;
+      color: #fff;
+      font-size: 1.13em;
+      font-weight: 500;
+      box-shadow: 0 1px 16px #0007;
+      border: 1.2px solid var(--gold-shadow);
+      line-height: 1.4;
+      text-align: center;
     }
     .review-block .header {
-      font-size: 1.12em;
+      font-size: 1.08em;
       font-weight: 900;
-      margin-bottom: 11px;
-      color: #FFD600;
+      margin-bottom: 10px;
+      color: var(--gold);
       text-transform: uppercase;
+      letter-spacing: 1.2px;
     }
-    .review-block div {margin-bottom:8px;}
-    .review-block div:last-child {margin-bottom:0;}
     .faq-block {
-      margin: 41px 0 0 0;
-      text-align: left;
+      margin: 31px 0 0 0;
     }
     .faq-block h2 {
-      font-size: 1.19em;
-      color: #FFD600;
+      font-size: 1.15em;
+      color: var(--gold);
       font-weight: 900;
-      letter-spacing: 1.1px;
       margin-bottom: 14px;
       text-transform: uppercase;
+      letter-spacing: 1.1px;
     }
-    .faq-block .faq-q {
-      font-weight: 700;
-      color: #FFD600;
-      margin-bottom: 2px;
+    .faq-q {
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 3px;
+      font-size: 1.01em;
     }
-    .faq-block .faq-a {
-      color: #bfbfbf;
-      margin-bottom: 14px;
+    .faq-a {
+      color: #cacaca;
+      margin-bottom: 15px;
       font-size: 0.98em;
     }
     .footer {
-      margin-top: 44px;
-      padding: 19px 0 34px 0;
-      color: #8a8a8a;
-      font-size: 0.91em;
+      margin-top: 36px;
+      color: #858585;
+      font-size: 0.93em;
       text-align: left;
-      border-top: 1px solid #181b20;
+      padding-bottom: 33px;
+      max-width: var(--maxw);
+      margin-left: auto;
+      margin-right: auto;
     }
     .footer .disclaimer {
-      font-size: 0.86em;
+      margin-top: 11px;
       color: #888;
-      margin-top: 13px;
-      max-width: 410px;
+      font-size: 0.85em;
+      font-weight: 400;
     }
-    @media (max-width: 540px) {
-      .container { padding: 12px 2px 0 2px; }
-      .logos-row { gap: 6px; }
-      .logo-block img { width: 43px; height: 43px; }
-      .links-row { gap: 6px; font-size: 0.92em;}
-      .review-block { padding: 8px 3px; font-size:1em;}
+    @media (max-width: 600px) {
+      .container { padding: 0 8px;}
+      .main-logo { margin: 26px auto 23px auto;}
+      .review-block { padding: 11px 5px;}
+      .links-row { gap: 8px; font-size: 0.94em;}
     }
   </style>
 </head>
 <body>
   <div class="dopamine-banner">🔥 DOORS CLOSING SOON — JOIN BEFORE IT'S TOO LATE</div>
   <div class="container">
-    <img class="main-logo" src="/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo" />
+    <img class="main-logo" src="/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo"/>
     <div class="hero-title">EMPLOYEE.</div>
     <div class="hero-sub">BUILD AN <span class="ai">AI</span> EMPIRE.</div>
     <div class="copy-tate">
-      Most men are slaves to routine.<br>
-      Clock in, clock out. Die broke.<br>
-      <span style="color:#FFD600;font-weight:700;">Inner Vault</span> is where you kill the employee mindset.<br>
-      One phone. Savage proof. Ruthless leverage.<br>
-      Print your own money with ChatGPT.<br>
-      Stay a spectator, or rewrite the rules.
+      Inner Vault is the <span style="color:#FFD700;font-weight:800;">underground gym</span> for your mind and bank account.<br>
+      One phone. Brutal discipline. ChatGPT leverage.<br>
+      <b style="color:#FFD700;">Either you print money, or you stay a spectator.</b>
     </div>
     <a class="cta-btn" href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank">Join Inner Vault</a>
     <div class="cta-sub">No excuses. No refunds for weakness.</div>
@@ -336,31 +285,27 @@
       <span>💰 $11K Prompt System</span>
       <span>👥 6,000+ Students</span>
     </div>
-    <div class="testi">
-      “This isn’t a course. It’s a war room. I joined with $0 and a cracked phone. Now I get paid to think.”<br>— Anonymous
+    <div class="review-block">
+      <div class="header">What Our Students Say</div>
+      <div>“Best $39 I’ve ever spent. The prompts alone made me $1,400 in 3 days.”</div>
+      <div>“If you’re hesitating, you’re already late. This is proof-based resurrection.”</div>
+      <div>“Joined from my village with $10 left. Now I’m on $300/week just prompting clients.”</div>
     </div>
     <div class="divider"></div>
-    <div class="upgrade">Introducing a Massive Upgrade</div>
-    <div class="logos-row">
+    <div class="upgrade-row">
       <div class="logo-block">
-        <img src="/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Old Logo" />
+        <img src="/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Old Logo"/>
         <span>Old Logo</span>
       </div>
-      <span class="arrow">&#8594;</span>
+      <div class="arrow">&#8594;</div>
       <div class="logo-block">
-        <img src="/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="Current Logo" />
+        <img src="/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="Current Logo"/>
         <span>Current Logo</span>
       </div>
     </div>
     <div class="links-row">
       <a href="https://t.me/+N9mPSOW1dFlhMjc1">Join Telegram</a>
       <a href="#">Student Reviews</a>
-    </div>
-    <div class="review-block">
-      <div class="header">What Our Students Say</div>
-      <div>“Best $39 I’ve ever spent. The prompts alone made me $1,400 in 3 days.”</div>
-      <div>“If you’re hesitating, you’re already late. This is proof-based resurrection.”</div>
-      <div>“Joined from my village with $10 left. Now I’m on $300/week just prompting clients.”</div>
     </div>
     <div class="faq-block">
       <h2>Frequently Asked Questions</h2>
@@ -379,4 +324,16 @@
       <div>
         <div class="faq-q">What if I’m not tech savvy?</div>
         <div class="faq-a">If you can use WhatsApp, you’re in. If you complain, stay broke.</div>
-      </
+      </div>
+    </div>
+    <div class="footer">
+      <div>Not Andrew Tate. Not The Real World.<br>
+        <span style="color:#FFD700;font-weight:700;">This is No Code Society. Pacific dominance.</span>
+      </div>
+      <div class="disclaimer">
+        Everything inside Inner Vault is for education only. No guaranteed profits, just proof-based systems. You are responsible for your own execution.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
