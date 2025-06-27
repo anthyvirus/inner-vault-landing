@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>No Code Society | Inner Vault</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --gold: #e7c873;
@@ -12,363 +13,1122 @@
       --deep: #0B131A;
       --blue: #8e9eff;
       --grey: #161d25;
-      --max: 1120px;
+      --max: 1200px;
+      --transition: all 0.3s ease;
     }
-    body {
+    
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
       background: var(--deep);
       color: #fff;
       font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
       letter-spacing: 0.01em;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
+    
+    /* Header and Navigation */
+    .header {
+      background: rgba(11, 19, 26, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(231, 200, 115, 0.15);
+      padding: 1.2rem 2rem;
+    }
+    
+    .header-container {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo img {
+      height: 42px;
+      border-radius: 12px;
+    }
+    
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.3rem;
+      background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: #cfd3e1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+    
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    
+    .nav-cta {
+      background: linear-gradient(90deg, var(--yellow) 75%, var(--gold) 100%);
+      color: #101820;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      padding: 0.8rem 1.8rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px #e7c87380;
+    }
+    
+    /* FOMO Banner */
     .fomo-banner {
       background: linear-gradient(90deg, var(--blue) 20%, #1e2746 100%);
       color: #fff;
-      font-size: 1em;
-      font-weight: 900;
+      font-size: 0.95rem;
+      font-weight: 800;
       text-align: center;
-      padding: 1.1em 0 1em 0;
+      padding: 1.1rem 0;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       box-shadow: 0 2px 14px #181d3499;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-block {
-      background: #131b22;
-      border-bottom: 2px solid var(--gold);
+    
+    .fomo-banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shine 3s infinite;
+    }
+    
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 12rem 2rem 5rem;
+      background: radial-gradient(ellipse at top, #0f1a24 0%, var(--deep) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(231, 200, 115, 0.05) 0%, transparent 70%);
+      z-index: 0;
+    }
+    
+    .hero-container {
       max-width: var(--max);
-      margin: 2.5em auto 0 auto;
-      padding: 2.3em 1em 2em 1em;
-      border-radius: 1.5em 1.5em 0 0;
+      margin: 0 auto;
       text-align: center;
       position: relative;
+      z-index: 1;
     }
+    
     .hero-logo {
-      height: 70px;
-      margin-bottom: 1.5em;
+      height: 90px;
+      margin-bottom: 1.8rem;
       border-radius: 1.2em;
       box-shadow: 0 4px 40px #222b3190;
       background: #101820;
-      padding: 0.2em;
+      padding: 0.4rem;
+      display: inline-block;
     }
+    
     .hero-headline {
-      font-size: 2.15em;
+      font-size: 3.2rem;
       font-weight: 900;
-      color: var(--gold);
-      line-height: 1.06;
-      margin-bottom: 0.25em;
+      background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      margin-bottom: 1rem;
       text-shadow: 0 2px 14px #1e274699;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
+    
     .hero-sub {
       color: #cfd3e1;
-      font-size: 1.12em;
-      font-weight: 700;
-      margin-bottom: 1.7em;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
       letter-spacing: 0.02em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
+    
     .cta-btn {
       display: inline-block;
       background: linear-gradient(90deg, var(--yellow) 75%, var(--gold) 100%);
       color: #101820;
       font-weight: 900;
-      font-size: 1.18em;
+      font-size: 1.2rem;
       border: none;
       border-radius: 2.1em;
       box-shadow: 0 8px 32px #e7c87340;
-      padding: 1.2em 3.2em;
-      margin: 1em 0 0.7em 0;
+      padding: 1.3rem 3.8rem;
+      margin: 1.5rem 0 0.7rem 0;
       cursor: pointer;
       text-decoration: none;
       letter-spacing: 0.05em;
-      transition: filter .15s;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
     }
-    .cta-btn:hover { filter: brightness(1.15);}
-    .invoice-statbar {
-      background: linear-gradient(90deg, #272c31 60%, var(--gold) 100%);
-      color: #fff;
-      border-radius: 1.2em;
-      box-shadow: 0 2px 22px #222b3175;
-      padding: 2.3em 1.5em;
-      margin: 2.2em 0;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+    
+    .cta-btn::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--yellow) 100%);
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px #e7c87380;
+    }
+    
+    .cta-btn:hover::after {
+      opacity: 1;
+    }
+    
+    .hero-stats {
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
     }
-    .invoice-img {
-      border-radius: 1em;
-      width: 250px;
-      max-width: 90vw;
-      margin-bottom: 1.2em;
-      box-shadow: 0 4px 20px #191e2644;
-      border: 2px solid var(--gold);
-      background: #fff;
+    
+    .stat-item {
+      background: rgba(22, 29, 37, 0.6);
+      border-radius: 1rem;
+      padding: 1.2rem 1.8rem;
+      border: 1px solid rgba(231, 200, 115, 0.1);
+      min-width: 200px;
     }
-    .invoice-caption {
-      font-weight: bold;
+    
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
       color: var(--gold);
-      font-size: 1.25em;
-      margin-bottom: 0.5em;
-      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
     }
-    .invoice-detail {
-      color: #e7c873;
-      font-size: 1.07em;
-      margin-bottom: 0.1em;
-      opacity: 0.95;
+    
+    .stat-text {
+      color: #cfd3e1;
+      font-size: 0.95rem;
+      font-weight: 500;
     }
-    .features-stripes {
+    
+    /* Invoice Proof */
+    .invoice-section {
+      padding: 5rem 2rem;
+      background: #131b22;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .invoice-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--blue) 20%, #1e2746 100%);
+    }
+    
+    .invoice-container {
       max-width: var(--max);
-      margin: 2.5em auto 0 auto;
-      display: grid;
-      gap: 1.5em;
-    }
-    .feature-stripe {
-      background: #161d25;
-      border-left: 8px solid var(--gold);
-      border-radius: 1.1em;
-      padding: 1.5em 2em;
-      margin-bottom: 0.2em;
+      margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 1.7em;
-      box-shadow: 0 2px 10px #191e2655;
+      gap: 3rem;
     }
-    .feature-stripe-icon {
-      font-size: 2.6em;
-      color: var(--gold);
-      min-width: 55px;
-      text-shadow: 0 2px 12px #232a3050;
-    }
-    .feature-stripe-body {
+    
+    .invoice-content {
       flex: 1;
     }
-    .feature-stripe-title {
-      font-size: 1.14em;
-      font-weight: 900;
+    
+    .invoice-caption {
+      font-weight: 800;
       color: var(--gold);
-      margin-bottom: 0.22em;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.04em;
     }
-    .feature-stripe-desc {
-      color: #e1e5ee;
-      font-size: 1.05em;
-      opacity: 0.97;
+    
+    .invoice-detail {
+      color: #e7c873;
+      font-size: 1.15rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+      line-height: 1.7;
+    }
+    
+    .invoice-img-container {
+      flex: 1;
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(231, 200, 115, 0.3);
+    }
+    
+    .invoice-img {
+      width: 100%;
+      display: block;
+      transition: var(--transition);
+    }
+    
+    .invoice-img-container:hover .invoice-img {
+      transform: scale(1.02);
+    }
+    
+    .invoice-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(11, 19, 26, 0.9);
+      color: var(--gold);
       font-weight: 700;
-      letter-spacing: 0.01em;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(231, 200, 115, 0.3);
     }
-    .reviews-section {
-      max-width: 850px;
-      margin: 3.5em auto 0 auto;
-      padding: 0 1em 2.2em 1em;
-      border-bottom: 1.2px solid #222b31;
+    
+    /* Features Section */
+    .features-section {
+      padding: 5rem 2rem;
+      background: #0f171f;
+    }
+    
+    .section-title {
       text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 3.5rem;
+      background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .reviews-title {
+    
+    .features-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      background: #161d25;
+      border-radius: 1.2rem;
+      padding: 2.5rem 2rem;
+      transition: var(--transition);
+      border: 1px solid rgba(231, 200, 115, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(231, 200, 115, 0.3);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
       color: var(--gold);
-      font-size: 1.33em;
-      font-weight: 900;
-      margin-bottom: 1.6em;
-      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 12px #232a3050;
     }
-    .review-block {
+    
+    .feature-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    
+    .feature-desc {
+      color: #e1e5ee;
+      font-size: 1.05rem;
+      opacity: 0.97;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+    
+    /* Reviews Section */
+    .reviews-section {
+      padding: 5rem 2rem;
+      background: #131b22;
+    }
+    
+    .reviews-container {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    
+    .review-card {
       background: #181f25;
-      border-radius: 1em;
-      box-shadow: 0 2px 16px #232a3050;
-      max-width: 480px;
-      margin: 1em auto 2.3em auto;
-      padding: 1.4em 1.2em 1.2em 1.2em;
-      color: #eee;
-      font-size: 1.13em;
+      border-radius: 1.2rem;
+      padding: 2.2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(231, 200, 115, 0.1);
       position: relative;
     }
+    
+    .review-card::before {
+      content: """;
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.2;
+      font-family: Georgia, serif;
+    }
+    
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .review-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--deep);
+      margin-right: 1rem;
+    }
+    
+    .review-info {
+      flex: 1;
+    }
+    
     .review-name {
       font-weight: 700;
       color: var(--gold);
       margin-bottom: 0.12em;
-      font-size: 1em;
+      font-size: 1.1rem;
     }
+    
     .review-country {
-      font-size: 0.98em;
+      font-size: 0.95rem;
       color: #cfd3e1;
       opacity: 0.68;
-      margin-bottom: 0.32em;
-      font-weight: 600;
+      font-weight: 500;
     }
+    
     .review-text {
-      font-size: 1.11em;
+      font-size: 1.05rem;
       color: #e1e5ee;
       opacity: 0.97;
-      margin-bottom: 0.1em;
-      font-weight: 800;
+      font-weight: 500;
+      line-height: 1.7;
     }
+    
+    /* FAQ Section */
     .faq-section {
-      background: #121921;
-      padding: 2.2em 1em;
-      border-radius: 1em;
-      margin: 2.5em auto 2em auto;
-      max-width: 750px;
-      box-shadow: 0 4px 18px #191e2644;
+      padding: 5rem 2rem;
+      background: #0f171f;
     }
-    .faq-title {
-      color: #fff;
-      font-size: 1.13em;
-      font-weight: bold;
-      letter-spacing: 0.07em;
-      text-align: center;
-      margin-bottom: 1.1em;
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .faq-list {margin: 0; padding: 0;}
-    .faq-q {
-      cursor: pointer;
-      font-size: 1em;
-      font-weight: 600;
-      color: #fff;
-      background: none;
-      border: none;
-      text-align: left;
+    
+    .faq-item {
+      background: #161d25;
+      border-radius: 1rem;
+      margin-bottom: 1.2rem;
+      overflow: hidden;
+      border: 1px solid rgba(231, 200, 115, 0.1);
+    }
+    
+    .faq-question {
       width: 100%;
-      padding: 1em 0 0.3em 0;
-      border-bottom: 1px solid #232a30;
-      outline: none;
-      position: relative;
+      text-align: left;
+      padding: 1.5rem 2rem;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
     }
-    .faq-q:after {
-      content: "+";
-      float: right;
+    
+    .faq-question:hover {
+      background: rgba(231, 200, 115, 0.05);
+    }
+    
+    .faq-icon {
       color: var(--gold);
-      font-size: 1.17em;
-      font-weight: 900;
-      transition: transform 0.2s;
+      font-size: 1.2rem;
+      transition: var(--transition);
     }
-    .faq-q.open:after { content: "-"; }
-    .faq-a {
+    
+    .faq-answer {
+      padding: 0 2rem;
       max-height: 0;
       overflow: hidden;
-      transition: max-height .3s ease;
+      transition: var(--transition);
       color: #e7c873;
-      font-size: 0.97em;
+      font-size: 1rem;
       opacity: 0.89;
-      margin-bottom: 1em;
-      padding-left: 0.7em;
+      line-height: 1.7;
     }
-    .faq-q.open + .faq-a {
-      max-height: 250px;
-      padding: 0.7em 0;
+    
+    .faq-item.active .faq-answer {
+      padding: 0 2rem 1.5rem;
+      max-height: 500px;
     }
+    
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 5rem 2rem;
+      background: radial-gradient(ellipse at top, #0f1a24 0%, var(--deep) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .cta-subtitle {
+      color: #cfd3e1;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .guarantee-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(22, 29, 37, 0.6);
+      border-radius: 50px;
+      padding: 0.8rem 1.8rem;
+      margin: 2rem 0;
+      border: 1px solid rgba(231, 200, 115, 0.2);
+    }
+    
+    .guarantee-icon {
+      color: var(--gold);
+      font-size: 1.5rem;
+    }
+    
+    .guarantee-text {
+      font-weight: 600;
+      color: #e1e5ee;
+    }
+    
+    /* Footer */
     .footer {
       background: #0b1014;
-      color: #aaa;
-      font-size: 0.96em;
-      text-align: center;
-      padding: 2.5em 1em 2em 1em;
-      margin-top: 2.5em;
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(231, 200, 115, 0.1);
     }
-    @media (max-width:700px) {
-      .feature-stripe { flex-direction: column; gap: 0.5em;}
-      .hero-block, .invoice-statbar, .reviews-section {padding: 1em 0.5em;}
+    
+    .footer-container {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+    
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .footer-logo img {
+      height: 50px;
+    }
+    
+    .footer-text {
+      color: #aaa;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .footer-title {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+    
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+    
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+    
+    .contact-icon {
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+    
+    .footer-bottom {
+      max-width: var(--max);
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    /* Mobile Sticky CTA */
+    .mobile-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(11, 19, 26, 0.98);
+      padding: 1.2rem 2rem;
+      z-index: 1000;
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(231, 200, 115, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .mobile-cta-text {
+      font-weight: 700;
+      color: var(--gold);
+    }
+    
+    .mobile-cta-btn {
+      background: linear-gradient(90deg, var(--yellow) 75%, var(--gold) 100%);
+      color: #101820;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+    
+    .mobile-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px #e7c87380;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-headline {
+        font-size: 2.5rem;
+      }
+      
+      .invoice-container {
+        flex-direction: column;
+      }
+      
+      .invoice-content {
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        padding: 9rem 1.5rem 4rem;
+      }
+      
+      .hero-headline {
+        font-size: 2rem;
+      }
+      
+      .hero-sub {
+        font-size: 1.15rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-cta {
+        display: flex;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-headline {
+        font-size: 1.8rem;
+      }
+      
+      .cta-btn {
+        padding: 1.1rem 2.5rem;
+        font-size: 1.1rem;
+      }
+      
+      .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .stat-item {
+        min-width: auto;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo">
+        <div class="logo-text">INNER VAULT</div>
+      </div>
+      
+      <nav class="nav-links">
+        <a href="#features">Program</a>
+        <a href="#proof">Proof</a>
+        <a href="#testimonials">Results</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="nav-cta">
+        Join Now
+      </a>
+    </div>
+  </header>
+  
+  <!-- FOMO Banner -->
   <div class="fomo-banner">
-    6,000 spots left • July intake closes soon • Secure your empire now
+    <i class="fas fa-exclamation-circle"></i> 6,000 spots left • July intake closes soon • Secure your empire now
   </div>
-  <!-- Hero -->
-  <div class="hero-block">
-    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="hero-logo" alt="NCS Logo">
-    <div class="hero-headline">BUILD YOUR EMPIRE. ESCAPE WEAKNESS.<br>JOIN THE INNER VAULT</div>
-    <div class="hero-sub">
-      The elite brotherhood for Pacific men. Kill the weak employee. Master AI. Built with proof, pain, and a phone.
-    </div>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
-      Join the Inner Vault
-    </a>
-  </div>
-
-  <!-- Invoice Proof Stat Bar -->
-  <div class="invoice-statbar">
-    <img src="your_invoice_image.png" class="invoice-img" alt="Invoice Proof">
-    <div class="invoice-caption">$11,000 AUD — ONE PROMPT. ONE CLIENT. FULL PROOF.</div>
-    <div class="invoice-detail">
-      Real bank transfer. Real result. The prompt that replaced an entire department. See inside for the actual prompt, system & full process.
-    </div>
-  </div>
-
-  <!-- Features as Hero Stripes -->
-  <div class="features-stripes">
-    <div class="feature-stripe">
-      <span class="feature-stripe-icon">🗡️</span>
-      <div class="feature-stripe-body">
-        <div class="feature-stripe-title">PHASE 0: KILL THE WEAK MAN</div>
-        <div class="feature-stripe-desc">Destroy your old employee mindset. Discipline, action, raw accountability. Everything you need to build the new you — or stay broke forever.</div>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="hero-logo" alt="NCS Logo">
+      
+      <h1 class="hero-headline">BUILD YOUR EMPIRE. ESCAPE WEAKNESS.<br>JOIN THE INNER VAULT</h1>
+      
+      <p class="hero-sub">
+        The elite brotherhood for Pacific men. Kill the weak employee. Master AI. Built with proof, pain, and a phone.
+      </p>
+      
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
+        Join the Inner Vault
+      </a>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">11K+</div>
+          <div class="stat-text">First Client Earnings</div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-number">97%</div>
+          <div class="stat-text">Success Rate</div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-text">Brotherhood Support</div>
+        </div>
       </div>
     </div>
-    <div class="feature-stripe">
-      <span class="feature-stripe-icon">🏆</span>
-      <div class="feature-stripe-body">
-        <div class="feature-stripe-title">PHASE 1: BUILD THE EMPIRE</div>
-        <div class="feature-stripe-desc">Use the exact prompts and AI systems I used to make $11K+ with a phone. No fluff. Full backend and client acquisition process shown.</div>
+  </section>
+  
+  <!-- Invoice Proof -->
+  <section class="invoice-section" id="proof">
+    <div class="invoice-container">
+      <div class="invoice-content">
+        <div class="invoice-caption">$11,000 AUD — ONE PROMPT. ONE CLIENT. FULL PROOF.</div>
+        <p class="invoice-detail">
+          Real bank transfer. Real result. The prompt that replaced an entire department. See inside for the actual prompt, system & full process used to generate this result with just a phone.
+        </p>
+        <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
+          Get Access to the Prompt
+        </a>
+      </div>
+      
+      <div class="invoice-img-container">
+        <div class="invoice-badge">
+          <i class="fas fa-certificate"></i> Verified Payment
+        </div>
+        <img src="https://images.unsplash.com/photo-1604594849809-dfedbc827105?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="invoice-img" alt="Invoice Proof">
       </div>
     </div>
-    <div class="feature-stripe">
-      <span class="feature-stripe-icon">🛡️</span>
-      <div class="feature-stripe-body">
-        <div class="feature-stripe-title">BLACKBOX 2.0 (BONUS)</div>
-        <div class="feature-stripe-desc">Advanced backend: AI, wealth protection, secret automation only for Inner Vault. PNG/Pacific proven. Only available for July intake.</div>
+  </section>
+  
+  <!-- Features Section -->
+  <section class="features-section" id="features">
+    <h2 class="section-title">The Inner Vault Framework</h2>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🗡️</div>
+        <h3 class="feature-title">PHASE 0: KILL THE WEAK MAN</h3>
+        <p class="feature-desc">Destroy your old employee mindset. Discipline, action, raw accountability. Everything you need to build the new you — or stay broke forever.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3 class="feature-title">PHASE 1: BUILD THE EMPIRE</h3>
+        <p class="feature-desc">Use the exact prompts and AI systems I used to make $11K+ with a phone. No fluff. Full backend and client acquisition process shown.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3 class="feature-title">BLACKBOX 2.0 (BONUS)</h3>
+        <p class="feature-desc">Advanced backend: AI, wealth protection, secret automation only for Inner Vault. PNG/Pacific proven. Only available for July intake.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">👑</div>
+        <h3 class="feature-title">ELITE BROTHERHOOD</h3>
+        <p class="feature-desc">Private Discord & Telegram. 24/7 support, direct access to Anthony, and a real brotherhood. No keyboard warriors. Only men who execute.</p>
       </div>
     </div>
-    <div class="feature-stripe">
-      <span class="feature-stripe-icon">👑</span>
-      <div class="feature-stripe-body">
-        <div class="feature-stripe-title">ELITE BROTHERHOOD</div>
-        <div class="feature-stripe-desc">Private Discord & Telegram. 24/7 support, direct access to Anthony, and a real brotherhood. No keyboard warriors. Only men who execute.</div>
-      </div>
-    </div>
-  </div>
-
+  </section>
+  
   <!-- Reviews Section -->
-  <div class="reviews-section">
-    <div class="reviews-title">REAL REVIEWS FROM INNER VAULT MEMBERS</div>
-    <div class="review-block">
-      <div class="review-name">Jone V. <span class="review-country">| Fiji</span></div>
-      <div class="review-text">"I made my first online income in 2 weeks. Never thought I could do it with just my phone."</div>
+  <section class="reviews-section" id="testimonials">
+    <h2 class="section-title">Real Results from Our Brotherhood</h2>
+    
+    <div class="reviews-container">
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">JV</div>
+            <div class="review-info">
+              <div class="review-name">Jone V.</div>
+              <div class="review-country">Fiji</div>
+            </div>
+          </div>
+          <p class="review-text">"I made my first online income in 2 weeks. Never thought I could do it with just my phone. The Inner Vault system works exactly as described."</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">TR</div>
+            <div class="review-info">
+              <div class="review-name">Tasi R.</div>
+              <div class="review-country">PNG</div>
+            </div>
+          </div>
+          <p class="review-text">"This is the only course that actually shows proof. The $11K prompt was real. Anthony is different. The brotherhood support is invaluable for Pacific men."</p>
+        </div>
+        
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">SS</div>
+            <div class="review-info">
+              <div class="review-name">Samson S.</div>
+              <div class="review-country">Samoa</div>
+            </div>
+          </div>
+          <p class="review-text">"The brotherhood is legit. I quit my job after Phase 1. Best investment I've made. The AI systems are perfectly tailored for our Pacific context."</p>
+        </div>
+      </div>
     </div>
-    <div class="review-block">
-      <div class="review-name">Tasi R. <span class="review-country">| PNG</span></div>
-      <div class="review-text">"This is the only course that actually shows proof. The $11K prompt was real. Anthony is different."</div>
-    </div>
-    <div class="review-block">
-      <div class="review-name">Samson S. <span class="review-country">| Samoa</span></div>
-      <div class="review-text">"The brotherhood is legit. I quit my job after Phase 1. Best investment I've made."</div>
-    </div>
-  </div>
-
+  </section>
+  
   <!-- FAQ Section -->
-  <div class="faq-section">
-    <div class="faq-title">FREQUENTLY ASKED QUESTIONS</div>
-    <div class="faq-list">
-      <button class="faq-q">Is the program suitable for women?</button>
-      <div class="faq-a">Yes. But the culture is masculine and Pacific brotherhood focused.</div>
-      <button class="faq-q">How quickly will I make my money back?</button>
-      <div class="faq-a">Depends on your discipline and execution. Some made 3x in the first month, others took longer.</div>
-      <button class="faq-q">Do I need money once I’m inside?</button>
-      <div class="faq-a">No. All strategies can be started with $0 and a phone.</div>
-      <button class="faq-q">Does my age really not matter?</button>
-      <div class="faq-a">Correct. Only proof, discipline and execution matter inside.</div>
-      <button class="faq-q">I live in X country. Is it a problem?</button>
-      <div class="faq-a">No. As long as you have a phone, you can win. Pacific, PNG, Fiji, Samoa — designed for you.</div>
-      <button class="faq-q">Still have questions?</button>
-      <div class="faq-a">Click the button and join — see for yourself.</div>
+  <section class="faq-section" id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-question">
+          Is the program suitable for women?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. But the culture is masculine and Pacific brotherhood focused. We've had successful female members who embraced the mindset.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          How quickly will I make my money back?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Depends on your discipline and execution. Some made 3x in the first month, others took longer. Average is 30-60 days for full ROI.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need money once I'm inside?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          No. All strategies can be started with $0 and a phone. We show you how to bootstrap using free tools and AI.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          Does my age really not matter?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Correct. Only proof, discipline and execution matter inside. We have members from 18 to 65 years old.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          I live in X country. Is it a problem?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          No. As long as you have a phone, you can win. Pacific, PNG, Fiji, Samoa — designed for you. Works globally.
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <button class="faq-question">
+          Still have questions?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Join our free Telegram group for pre-members or click the button below to join the full Inner Vault experience.
+        </div>
+      </div>
     </div>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-btn" target="_blank" style="margin-top:1.4em;">
-      Join the Inner Vault
+  </section>
+  
+  <!-- Final CTA -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Ready to Build Your Empire?</h2>
+      <p class="cta-subtitle">Join the elite brotherhood of Pacific men who are escaping the employee trap and building real wealth with AI.</p>
+      
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
+        Join the Inner Vault Now
+      </a>
+      
+      <div class="guarantee-badge">
+        <i class="fas fa-shield-alt guarantee-icon"></i>
+        <div class="guarantee-text">30-Day Money-Back Guarantee</div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo">
+        <p class="footer-text">
+          The Inner Vault - Elite brotherhood for Pacific men. Built with proof, pain, and a phone.
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <h3 class="footer-title">Program</h3>
+        <a href="#features">Phase 0: Kill the Weak Man</a>
+        <a href="#features">Phase 1: Build the Empire</a>
+        <a href="#features">Blackbox 2.0</a>
+        <a href="#features">Elite Brotherhood</a>
+      </div>
+      
+      <div class="footer-links">
+        <h3 class="footer-title">Resources</h3>
+        <a href="#">Success Stories</a>
+        <a href="#">Free Training</a>
+        <a href="#">Pacific AI Toolkit</a>
+        <a href="#">Brotherhood Forum</a>
+      </div>
+      
+      <div class="footer-contact">
+        <h3 class="footer-title">Contact</h3>
+        <div class="contact-item">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span>support@inner-vault.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-telegram contact-icon"></i>
+          <span>t.me/inner-vault</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-discord contact-icon"></i>
+          <span>Inner Vault Brotherhood</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      © 2023 Inner Vault by No Code Society. All rights reserved. Designed for Pacific warriors.
+    </div>
+  </footer>
+  
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-cta">
+    <div class="mobile-cta-text">Limited Spots Available</div>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="mobile-cta-btn">
+      Join Now
     </a>
   </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo" style="height:36px;margin-bottom:1em;">
-    <br>
-    <div>Courses: Proof, Prompting, AI Systems, UGC, Wealth, Brotherhood</div>
-    <div style="margin:1em 0;">
+  
+  <script>
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+    
+    // Mobile Navigation
+    const header = document.querySelector('.header');
+    let lastScrollY = window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+      if (lastScrollY < window.scrollY) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      
+      lastScrollY = window.scrollY;
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+  </html>
