@@ -2,117 +2,222 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>No Code Society | Inner Vault</title><!-- =============== FONTS (Helvetica Now) =============== -->
+    <title>No Code Society | Inner Vault</title><!-- Fonts: Helvetica Now Slim + Bold -->
 <style>
   @font-face {
     font-family: "Helvetica Now";
-    src: url("fonts/HelveticaNowDisplay-Regular.woff2") format("woff2");
+    src: url("fonts/HelveticaNowDisplay-Slim.woff2") format("woff2");
     font-weight: 400;
-    font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: "Helvetica Now";
     src: url("fonts/HelveticaNowDisplay-Bold.woff2") format("woff2");
     font-weight: 700;
-    font-style: normal;
     font-display: swap;
   }
-.reveal{opacity:1 !important;transform:none !important;}
 </style>
 
-<!-- =============== CORE STYLES =============== -->
 <style>
   :root {
-    --bg-1: #07070c;
-    --bg-2: #0e0e17;
+    --bg: #0a0a0f;
     --text: #ffffff;
-    --gold: #d4a533;
-    --gold-light: #e9cb5b;
-    --accent-start: #001d5c; /* deep navy */
-    --accent-end: #4d2bff;  /* neon indigo */
+    --primary: #d4a533;
+    --primary-hover: #e9cb5b;
+    --accent-start: #00204f;
+    --accent-end: #6c4fff;
   }
-  *,*::before,*::after{box-sizing:border-box;}
-  body{margin:0;font-family:"Helvetica Now","Helvetica Neue",Helvetica,Arial,sans-serif;background:var(--bg-1);color:var(--text);line-height:1.55;overflow-x:hidden;}
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  .container{width:min(92%,1400px);margin-inline:auto;}
-  .reveal{opacity:0;transform:translateY(42px);transition:.8s cubic-bezier(.34,1.2,.68,1);} .reveal.active{opacity:1;transform:translateY(0);}
 
-  /* banner */
-  .banner{position:relative;background:linear-gradient(90deg,var(--accent-start) 0%,var(--accent-end) 100%);color:#fff;font-family:"Helvetica Now",sans-serif;font-weight:700;letter-spacing:.09em;text-transform:uppercase;text-align:center;padding:.7rem 1rem;overflow:hidden;}
-  .banner::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(110deg,rgba(255,255,255,.06) 0 8px,transparent 8px 16px);animation:slide 6s linear infinite;mix-blend-mode:overlay;}
-  @keyframes slide{to{transform:translateX(-50%);}}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-  /* header */
-  header{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;z-index:10;position:relative;}
-  .logo img{width:48px;height:auto;}
-  nav{display:flex;gap:1.6rem;font-weight:700;}
+  body {
+    font-family: "Helvetica Now", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-  /* buttons */
-  .btn{display:inline-block;padding:.9rem 2rem;border-radius:6px;font-weight:700;letter-spacing:.045em;transition:transform .25s,background .25s;background:transparent;}
-  .btn-gold{background:var(--gold);color:#000;}
-  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px) scale(1.04);} 
-  .btn-outline{border:2px solid var(--text);} .btn-outline:hover{background:var(--text);color:#000;transform:translateY(-2px) scale(1.04);} 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-  /* hero */
-  .hero{text-align:center;padding:8rem 0 5rem;position:relative;}
-  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 40%,hsla(48,100%,50%,.35) 0%,transparent 60%);filter:blur(140px);opacity:.65;}
-  .hero h1{font-size:clamp(2.8rem,7vw,4.8rem);font-weight:700;line-height:1.08;margin-bottom:1.6rem;text-transform:uppercase;}
-  .hero h1 span{color:var(--gold);} 
-  .hero p{max-width:700px;margin-inline:auto;font-size:1.18rem;opacity:.9;}
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 
-  /* courses */
-  #courses{padding:5rem 0 4rem;}
-  #courses h2{text-align:center;font-size:2.25rem;margin-bottom:2.7rem;font-weight:700;text-transform:uppercase;}
-  .grid{display:grid;gap:1.8rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-  .card{background:var(--bg-2);border:1px solid #1a1a22;padding:2rem 1.8rem;border-radius:10px;transition:transform .3s,box-shadow .3s;}
-  .card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(0,0,0,.35);} 
-  .card-header{display:flex;align-items:center;gap:.9rem;margin-bottom:1rem;}
-  .icon{font-size:1.55rem;line-height:1;}
-  .card-header h3{margin:0;font-size:1.36rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:1.3;}
-  .subtitle{font-size:.97rem;opacity:.9;margin-bottom:.6rem;}
-  .meta{font-size:.9rem;font-weight:700;color:var(--gold);}
+  .banner {
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: white;
+  }
 
-  /* CTA */
-  .cta{text-align:center;padding:3.6rem 1rem;position:relative;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#000;}
-  .cta::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,rgba(0,0,0,.1) 0 8px,transparent 8px 16px);mix-blend-mode:multiply;opacity:.4;animation:slide 6s linear infinite reverse;}
-  .cta h2{font-size:2.2rem;font-weight:700;margin-bottom:1.4rem;position:relative;text-transform:uppercase;}
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-  /* footer */
-  footer{font-size:.82rem;text-align:center;padding:2.5rem 0;opacity:.68;display:flex;flex-direction:column;gap:1rem;}
-  footer a{font-weight:700;text-decoration:underline;}
+  .logo img {
+    height: 42px;
+    width: auto;
+  }
 
-  @media(max-width:600px){nav{display:none;}}
+  .nav-link {
+    font-weight: 700;
+    margin-left: 1rem;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 5rem 1rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .hero h1 span {
+    color: var(--primary);
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    opacity: 0.85;
+  }
+
+  .hero .cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.85rem 1.8rem;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+    color: #000;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
+
+  .btn-outline {
+    border: 2px solid #fff;
+    color: #fff;
+  }
+
+  .btn-outline:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+  }
+
+  .feature {
+    background: #111116;
+    padding: 2rem;
+    border-radius: 6px;
+    border: 1px solid #1f1f2c;
+    transition: 0.3s;
+  }
+
+  .feature:hover {
+    transform: translateY(-4px);
+  }
+
+  .feature h3 {
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+    font-size: 1.25rem;
+  }
+
+  .feature p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+  }
+
+  .footer {
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    padding: 2rem 1rem;
+  }
+
+  .footer a {
+    color: var(--primary);
+    font-weight: bold;
+  }
 </style>
 
-  </head>
-  <body>
-    <!-- banner -->
-    <div class="banner">Price increasing again — secure access now</div><div class="container">
-  <!-- header -->
-  <header>
-    <div class="logo"><img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo" /></div>
-    <nav>
-      <a href="#courses">Courses</a>
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-gold" target="_blank" rel="noopener">Join Now</a>
-    </nav>
-  </header>
+  </head>  <body>
+    <div class="banner">Price Increasing Again — Secure Access Now</div><header>
+  <div class="logo">
+    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo" />
+  </div>
+</header>
 
-  <!-- hero -->
-  <section class="hero reveal">
-    <h1><span>Kill the Weak Employee.</span> Build an AI Empire.</h1>
-    <p>Inner Vault is the underground gym for your mind and your bank account. One phone, brutal discipline, and AI leverage—either you print money or you stay a spectator.</p>
-    <div style="margin-top:2rem;display:flex;justify-content:center;flex-wrap:wrap;">
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-gold" target="_blank" rel="noopener">Join the Inner Vault Now</a>
-    </div>
-  </section>
+<section class="hero">
+  <h1><span>Kill the Weak Employee.</span> Build an AI Empire.</h1>
+  <p>Inner Vault is the underground gym for your mind and bank account. One phone. Brutal discipline. ChatGPT leverage. Either you print money, or you stay a spectator.</p>
+  <div class="cta">
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-primary" target="_blank">Join Inner Vault</a>
+  </div>
+</section>
 
-  <!-- courses -->
-  <section id="courses" class="reveal">
-    <h2>What You Unlock</h2>
-    <div class="grid">
-      <div class="card"><div class="card-header"><span class="icon">🗡️</span><h3>Kill the Weak Man</h3></div><p class="subtitle">Phase 0: Destroy porn, scrolling, and soft identity. Build a war plan that buries your old self.</p><p class="meta">📸 $982 earned in 7 days after Phase 0 — Tim, PNG</p></div>
-      <div class="card"><div class="card-header"><span class="icon">📒</span><h3>AI-Powered Income</h3></div><p class="subtitle">Phase 1 turns your phone into a money machine using ChatGPT. Learn to build income systems with zero capital. Simple. Ruthless. Proven.</p><p class="meta">⚡ $1,442 wired after Phase 1 — Shelby, Samoa</p></div>
-      <
+<section class="features">
+  <div class="feature">
+    <h3>🗡️ Kill the Weak Man</h3>
+    <p>Phase 0: Destroy porn, scrolling, and your soft identity. Build a war plan that buries the weak version of you forever.</p>
+  </div>
+  <div class="feature">
+    <h3>📒 AI-Powered Income</h3>
+    <p>Phase 1 turns your phone into a money machine using ruthless prompts and ChatGPT workflows. No capital. No excuses.</p>
+  </div>
+  <div class="feature">
+    <h3>🔑 Master Prompt Vault</h3>
+    <p>Fill-in-the-blank prompts that replace full-time jobs. Used by consultants, creators, and underground entrepreneurs daily.</p>
+  </div>
+</section>
 
+<footer class="footer">
+  <p>© 2025 No Code Society. All Rights Reserved.</p>
+  <p><a href="https://t.me/+N9mPSOW1dFlhMjc1" target="_blank">Join our Telegram</a> — where real execution happens.</p>
+</footer>
+
+  </body>
+</html>
