@@ -3,135 +3,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>No Code Society | Inner Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'HelveticaNowBold';
-      src: url('HelveticaNowDisplay-Bold.woff2') format('woff2');
+    body {
+      margin: 0;
+      background-color: #0b0b0b;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: white;
+    }
+    .banner {
+      background: linear-gradient(to right, #002fff, #a32eff);
+      color: white;
+      text-align: center;
+      padding: 12px;
       font-weight: bold;
-    }@font-face {
-  font-family: 'HelveticaNowSlim';
-  src: url('HelveticaNowDisplay-Light.woff2') format('woff2');
-  font-weight: 300;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'HelveticaNowSlim', sans-serif;
-  background-color: #0d0d0d;
-  color: #fff;
-  overflow-x: hidden;
-}
-
-.banner {
-  background: linear-gradient(90deg, #0008ff, #8a2be2);
-  text-align: center;
-  padding: 12px 0;
-  color: white;
-  font-weight: bold;
-  font-size: 0.85rem;
-  font-family: 'HelveticaNowBold';
-  letter-spacing: 0.05em;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  background: #0d0d0d;
-}
-
-header img {
-  width: 52px;
-  height: 52px;
-}
-
-.hero {
-  text-align: center;
-  padding: 4rem 2rem 2rem 2rem;
-}
-
-.hero h1 {
-  font-family: 'HelveticaNowBold';
-  font-size: 2rem;
-  color: #ffcc40;
-  margin-bottom: 0.5rem;
-}
-
-.hero h2 {
-  font-family: 'HelveticaNowBold';
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-}
-
-.hero p {
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ccc;
-}
-
-.cta-button {
-  background: #f2b300;
-  color: #000;
-  padding: 1rem 2.2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
-  font-family: 'HelveticaNowBold';
-  box-shadow: 0 6px 14px rgba(255, 204, 0, 0.3);
-}
-
-.cta-button:hover {
-  transform: scale(1.05);
-  background: #ffcf00;
-}
-
-.section {
-  padding: 3rem 1.5rem;
-}
-
-.section-title {
-  font-family: 'HelveticaNowBold';
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-}
-
-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  font-size: 0.75rem;
-  color: #666;
-}
-
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .logo-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+    .logo-section img {
+      height: 48px;
+      margin-right: 12px;
+    }
+    .logo-section span {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .hero {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-weight: bold;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #cfcfcf;
+      margin-bottom: 24px;
+    }
+    .cta-button {
+      background-color: #ffc72c;
+      color: black;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ffc72c;
+    }
+    .proof-strip {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      padding: 20px 10px;
+      background-color: #111;
+      font-size: 14px;
+      color: #fff;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+    .quote-strip {
+      text-align: center;
+      font-style: italic;
+      color: #999;
+      margin: 30px 20px 10px;
+    }
+    .sticky-footer {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 24px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
+      .proof-strip {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .sticky-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #111;
+        padding: 12px 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 14px;
+        z-index: 100;
+      }
+      .sticky-footer button {
+        background-color: #ffc72c;
+        color: black;
+        border: none;
+        padding: 8px 16px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="banner">PRICE INCREASING AGAIN — SECURE ACCESS NOW</div>  <header>
-    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo" />
-  </header>  <main>
-    <section class="hero">
-      <h1>KILL THE WEAK EMPLOYEE.</h1>
-      <h2>BUILD AN AI EMPIRE.</h2>
-      <p>Inner Vault is the underground gym for your mind and bank account. One phone. Brutal discipline. ChatGPT leverage. Either you print money, or you stay a spectator.</p>
-      <button class="cta-button">Join Inner Vault</button>
-    </section><section class="section">
-  <h3 class="section-title">🗡 Kill the Weak Man</h3>
-  <p>Exterminate the old you. Replace weak habits with execution. No more theory. Only proof.</p>
-</section>
-
-  </main>  <footer>
-    &copy; 2025 No Code Society | Telegram: <a href="https://t.me/+N9mPSOW1dFlhMjc1" style="color:#aaa">Join Here</a>
-  </footer>
+  <div class="banner">PRICE INCREASING AGAIN — SECURE ACCESS NOW</div>
+  <div class="logo-section">
+    <img src="https://cdn.jsdelivr.net/gh/anthonycade/ncs-brand-assets/logo.png" alt="NCS Logo">
+    <span>No Code Society</span>
+  </div>
+  <div class="hero">
+    <h1><span style="color: #ffc72c">KILL THE WEAK EMPLOYEE.</span> BUILD AN AI EMPIRE.</h1>
+    <p>Inner Vault is the underground gym for your mind and bank account. One phone. Brutal discipline. ChatGPT leverage. Either you print money, or you stay a spectator.</p>
+    <button class="cta-button">Join Inner Vault</button>
+  </div>
+  <div class="proof-strip">
+    ✅ Built with 1 Phone &nbsp; | &nbsp; 💰 $11K Prompt System &nbsp; | &nbsp; 👥 6,000+ Students Enrolled
+  </div>
+  <div class="quote-strip">
+    “This isn’t a course. It’s a war room. I joined with $0 and a cracked phone. Now I get paid to think.” — Anonymous
+  </div>
+  <div class="sticky-footer">
+    <span>🔥 Inner Vault enrollment closing soon</span>
+    <button>Join Now</button>
+  </div>
 </body>
 </html>
