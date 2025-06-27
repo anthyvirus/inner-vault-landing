@@ -1,148 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>No Code Society | Inner Vault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inner Vault | No Code Society</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Helvetica Neue', sans-serif;
-    }
-    body {
-      background-color: #0d0d0d;
-      color: white;
-    }
-    .banner {
-      background: linear-gradient(90deg, #7F00FF, #E100FF);
-      color: white;
-      text-align: center;
-      font-weight: bold;
-      padding: 10px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .logo {
-      width: 100px;
-      margin: 30px auto;
-    }
-    .headline {
-      font-size: 28px;
-      font-weight: bold;
-      margin-top: 20px;
-      text-transform: uppercase;
-    }
-    .subheadline {
-      color: #ccc;
-      font-size: 16px;
-      margin-top: 10px;
-      margin-bottom: 30px;
-    }
-    .cta-button {
-      background-color: #FFD700;
-      color: black;
-      font-weight: bold;
-      padding: 14px 28px;
-      border-radius: 12px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
-      transition: background 0.3s ease;
-    }
-    .cta-button:hover {
-      background-color: #ffcc00;
-    }
-    .learn-section {
-      margin-top: 60px;
-      text-align: center;
-    }
-    .learn-section h2 {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-    .learn-section p {
-      color: #aaa;
-      font-size: 14px;
-      margin-top: 8px;
-    }
-    .course-list {
-      margin-top: 20px;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-    .upgrade-section {
-      background-color: #0a0a0a;
-      padding: 60px 20px;
-      margin-top: 80px;
-      text-align: center;
-      position: relative;
-    }
-    .upgrade-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      margin-bottom: 25px;
-    }
-    .dimmed {
-      opacity: 0.2;
-      filter: grayscale(100%);
-      width: 100px;
-    }
-    .bright {
-      width: 100px;
-      filter: drop-shadow(0 0 8px gold);
-    }
-    .upgrade-title {
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .upgrade-sub {
-      font-size: 16px;
-      color: #ccc;
-    }
+    }body {
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #000;
+  color: white;
+  overflow-x: hidden;
+}
+
+.top-banner {
+  background: linear-gradient(to right, #7f00ff, #3f00ff);
+  padding: 12px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: white;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+header img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.main {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.main h1 {
+  font-size: 32px;
+  color: #FFD700;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.main h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.main p {
+  max-width: 600px;
+  margin: 0 auto 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.cta-button {
+  background-color: #FFD700;
+  color: black;
+  font-weight: bold;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e6c200;
+}
+
+.features {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.quote {
+  margin: 40px auto;
+  max-width: 600px;
+  font-style: italic;
+  color: #888;
+}
+
+.footer-banner {
+  background-color: #111;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-banner span {
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-banner .cta-button {
+  font-size: 14px;
+  padding: 10px 20px;
+}
+
+.logo-upgrade-section {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.logo-upgrade-section h3 {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo-compare {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.logo-compare img {
+  height: 80px;
+  opacity: 0.5;
+  filter: brightness(0.3);
+  transition: 0.3s ease;
+}
+
+.logo-compare img.main {
+  opacity: 1;
+  filter: brightness(1.2);
+}
+
+@media (max-width: 600px) {
+  .main h1 {
+    font-size: 24px;
+  }
+  .main h2 {
+    font-size: 22px;
+  }
+}
+
   </style>
-</head>
-<body>
-  <div class="banner">PRICE INCREASING AGAIN</div>
-
-  <div class="container">
-    <img src="YOUR_NCS_LOGO_URL_HERE" alt="NCS Logo" class="logo" />
-    <h1 class="headline">ESCAPE THE WEAK EMPLOYEE MINDSET</h1>
-    <p class="subheadline">
-      Join the No Code Society and build your digital empire with AI, proof, and execution.
-    </p>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-button">JOIN INNER VAULT</a>
-
-    <div class="learn-section">
-      <h2>What You'll Learn Inside</h2>
-      <div class="course-list">
-        🧠 Phase 0 — Kill The Weak Man<br/>
-        ⚔️ Phase 1 — Build The Empire
-      </div>
-      <p>1-on-1 advice from real builders.</p>
+</head><body>
+  <div class="top-banner">
+    PRICE INCREASING AGAIN — SECURE ACCESS NOW
+  </div>  <header>
+    <img src="ncs-logo.png" alt="NCS Logo" />
+    <h1 style="font-weight: bold; font-size: 18px;">No Code Society</h1>
+  </header>  <div class="main">
+    <h1>KILL THE WEAK EMPLOYEE.</h1>
+    <h2>BUILD AN AI EMPIRE.</h2>
+    <p>Inner Vault is the underground gym for your mind and bank account. One phone. Brutal discipline. ChatGPT leverage. Either you print money, or you stay a spectator.</p>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-button">Join Inner Vault</a>
+  </div>  <div class="features">
+    ✅ Built with 1 Phone &nbsp; | &nbsp; 💰 $11K Prompt System &nbsp; | &nbsp; 👥 6,000+ Students Enrolled
+  </div>  <div class="quote">
+    “This isn’t a course. It’s a war room. I joined with $0 and a cracked phone. Now I get paid to think.” — Anonymous
+  </div>  <div class="logo-upgrade-section">
+    <h3>INTRODUCING A MASSIVE UPGRADE</h3>
+    <div class="logo-compare">
+      <img src="old-logo.png" alt="Old Logo" />
+      <img src="main-logo.png" alt="Main Logo" class="main" />
     </div>
+  </div>  <div class="footer-banner">
+    <span>🔥 Inner Vault enrollment closing soon</span>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-button">Join Now</a>
   </div>
-
-  <div class="upgrade-section">
-    <div class="upgrade-logos">
-      <img src="OLD_LOGO_URL_HERE" class="dimmed" alt="Old Logo">
-      <img src="NEW_LOGO_URL_HERE" class="bright" alt="New Logo">
-    </div>
-    <h2 class="upgrade-title">INTRODUCING A MASSIVE UPGRADE</h2>
-    <p class="upgrade-sub">The modern education system is designed to make you poor.</p>
-  </div>
-</body>
-</html>
+</body></html>
