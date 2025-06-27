@@ -1,164 +1,112 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inner Vault — Escape the 9–5</title>
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>No Code Society – Inner Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #000;
-      color: #fff;
-      overflow-x: hidden;
+      margin: 0;
+      background-color: #0A0A0A;
+      font-family: 'Helvetica', sans-serif;
+      color: white;
     }
-    .neon-banner {
-      background-color: #0ff;
-      color: #000;
-      font-weight: bold;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      letter-spacing: 1px;
+    .neon-bar {
+      background: linear-gradient(90deg, #00f0ff, #004cff);
+      height: 4px;
+      animation: move 3s linear infinite;
+    }
+    @keyframes move {
+      from { background-position: 0 0; }
+      to { background-position: 200% 0; }
     }
     .container {
-      max-width: 960px;
-      margin: 60px auto;
-      padding: 0 20px;
+      max-width: 900px;
+      margin: auto;
+      padding: 3rem 1rem;
       text-align: center;
     }
-    .logo-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .logo-section img.old-logo {
-      opacity: 0.2;
-      height: 60px;
-    }
-    .logo-section img.new-logo {
-      height: 60px;
+    .logo {
+      max-width: 150px;
+      margin-bottom: 2rem;
     }
     h1 {
-      font-size: 38px;
+      font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
     }
     .highlight {
       color: red;
     }
     p {
-      font-size: 18px;
-      margin-bottom: 10px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 2rem auto;
     }
-    .btn {
-      display: inline-block;
-      background-color: #ffd700;
-      color: #000;
-      padding: 14px 32px;
-      border-radius: 5px;
-      text-decoration: none;
+    .button {
+      background-color: #bfa14e;
+      color: black;
+      padding: 1rem 2rem;
       font-weight: bold;
-      font-size: 16px;
-      margin-top: 30px;
-      transition: 0.3s;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 1rem;
     }
-    .btn:hover {
-      background-color: #e6c200;
-    }
-    .section {
-      margin-top: 60px;
+    .review-section {
+      margin-top: 4rem;
       text-align: left;
     }
-    .section h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #ffd700;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    ul li {
-      margin-bottom: 12px;
-      font-size: 16px;
-    }
-    .reviews {
-      margin-top: 60px;
-      background-color: #111;
-      padding: 30px;
-      border-radius: 10px;
-    }
     .review {
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
+      background: #121212;
+      padding: 1rem;
+      border-left: 4px solid #bfa14e;
+      border-radius: 8px;
     }
-    .review-name {
-      font-weight: bold;
-      margin-bottom: 5px;
+    .review strong {
+      color: #bfa14e;
     }
-    .telegram-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #0088cc;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-      z-index: 999;
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <div class="neon-banner">ONLY FOR MEN WHO ARE DONE BEING WEAK. THIS IS NOT A COURSE. IT’S A RESCUE MISSION.</div>
+  <div class="neon-bar"></div>
+
   <div class="container">
-    <div class="logo-section">
-      <img src="/your-logo-path/ncs-logo-old.png" alt="Old Logo" class="old-logo">
-      <img src="/your-logo-path/ncs-logo-new.png" alt="New Logo" class="new-logo">
-    </div>
-    <h1><span class="highlight">Escape</span> Your Weak Life</h1>
-    <p>You weren’t born soft. You were trained to obey.</p>
-    <p><span class="highlight">School, TikTok, quiet parenting</span> made you into a slave who scrolls and hopes.</p>
-    <p>This is not a brand. It’s a rebellion.</p>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn">JOIN INNER VAULT NOW</a><div class="section">
-  <h2>What You’ll Get</h2>
-  <ul>
-    <li>🔥 Private Discord & Telegram community</li>
-    <li>📲 AI + UGC money systems (no laptop needed)</li>
-    <li>💼 Stripe setup, client automation, prompts</li>
-    <li>🔒 Offshore protection + hidden infrastructure</li>
-    <li>📦 Access to Phase 0 (Kill Weak Man) & Phase 1 (Build Empire)</li>
-  </ul>
-</div>
+    <img src="ncs-logo.png" alt="No Code Society" class="logo" />
 
-<div class="section">
-  <h2>They Escaped</h2>
-  <div class="reviews">
-    <div class="review">
-      <div class="review-name">Ratu Jone, Fiji 🇫🇯</div>
-      <div>“I joined with $39. I now run everything from my phone. This isn’t a course. It’s my new life.”</div>
+    <h1>They Trained You to Be <span class="highlight">Weak</span></h1>
+    <p>The school system was never built to make you rich. It was designed to tame lions.  
+    <br><br><span class="highlight">No skills. No money. No identity.</span>  
+    <br>And now you're 25, broke, confused, and watching rich men talk about AI while you scroll.</p>
+
+    <button class="button" onclick="location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">
+      Join The Inner Vault
+    </button>
+
+    <button class="button" onclick="location.href='https://t.me/+N9mPSOW1dFlhMjc1'">
+      Telegram Channel
+    </button>
+
+    <div class="review-section">
+      <h2>What They’re Saying</h2>
+      <div class="review"><strong>Jone T. (Fiji):</strong> I used to think AI was for tech guys. Now I earn more from my phone than my last job.</div>
+      <div class="review"><strong>Lucy N. (PNG):</strong> I was scared to leave my job. Now I have clients paying me every week for automations I learned inside.</div>
+      <div class="review"><strong>Ronil D. (Fiji):</strong> I joined out of desperation. I stayed because this system works. Period.</div>
     </div>
-    <div class="review">
-      <div class="review-name">Elijah Walo, PNG 🇵🇬</div>
-      <div>“I was broke and confused. Now I’ve automated income while working a full-time job.”</div>
-    </div>
-    <div class="review">
-      <div class="review-name">Mosese R., Fiji 🇫🇯</div>
-      <div>“This isn’t for everyone. But if you’re real, it’ll change your life.”</div>
+
+    <div class="footer">
+      © 2025 No Code Society. Built in darkness. Raised by fire.
     </div>
   </div>
-</div>
-
-  </div>
-  <a href="https://t.me/+N9mPSOW1dFlhMjc1" class="telegram-float">Join Telegram</a>
 </body>
 </html>
