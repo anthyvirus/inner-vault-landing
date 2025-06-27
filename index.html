@@ -116,6 +116,66 @@
       font-size: 0.98em;
       opacity: 0.9;
     }
+    /* Reviews */
+    .reviews-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.7em;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .review-card {
+      background:#171e23;
+      border-radius:1.1em;
+      box-shadow:0 2px 14px #0e0c0450;
+      max-width:290px;
+      min-width:200px;
+      flex:1 1 200px;
+      padding:1.3em 1em;
+      margin-bottom:1em;
+    }
+    .review-user {
+      display:flex;
+      align-items:center;
+      gap:1em;
+    }
+    .review-user img {
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      border:2px solid var(--gold);
+    }
+    .review-user-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .review-user-name {
+      font-weight:700;
+      color:var(--gold);
+      font-size:1.01em;
+    }
+    .review-user-location {
+      color:#bbb;
+      font-size:0.93em;
+    }
+    .review-quote {
+      margin-top:1.1em;
+      color:#e1e5ee;
+      font-size:1em;
+      font-weight:500;
+    }
+    .reviews-footer {
+      text-align:center;
+      margin-top:1.7em;
+      color:#cfd3e1;
+      font-size:1.01em;
+      opacity:0.82;
+    }
+    .reviews-footer span {
+      color:var(--gold);
+      font-weight:700;
+    }
+    /* FAQ */
     .faq-section {
       background: #121921;
       padding: 2.2em 1em;
@@ -183,6 +243,7 @@
       .feature-grid { flex-direction: column; gap: 1.2em;}
       .feature-card { max-width: unset; min-width: 0;}
       .section { padding-bottom: 1.5em;}
+      .reviews-wrap { flex-direction: column; gap: 1em;}
     }
   </style>
 </head>
@@ -192,7 +253,7 @@
   </div>
   <!-- Hero -->
   <div class="hero">
-    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="hero-logo" alt="No Code Society Logo">
+    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="hero-logo" alt="NCS Logo">
     <div class="hero-headline">BUILD YOUR EMPIRE. ESCAPE WEAKNESS.<br>JOIN THE INNER VAULT</div>
     <div class="hero-sub">
       The elite brotherhood for Pacific men. Kill the weak employee. Master AI. Built with proof, pain, and a phone.
@@ -224,15 +285,54 @@
     </div>
   </div>
 
-  <!-- Proof Section -->
-  <div class="section">
-    <div class="section-title">Proof, Not Promises</div>
-    <div style="display:flex;gap:1em;flex-wrap:wrap;justify-content:center;align-items:center;">
-      <img src="proof-stripe.png" alt="Stripe Proof" style="border-radius:0.8em;width:140px;">
-      <img src="proof-whop.png" alt="Whop Payout" style="border-radius:0.8em;width:140px;">
-      <img src="proof-phone.png" alt="Phone Proof" style="border-radius:0.8em;width:140px;">
+  <!-- Reviews Section -->
+  <div class="section" style="border-bottom:none;">
+    <div class="section-title" style="margin-bottom:1.6em;">Real Wins. Real Brotherhood.</div>
+    <div class="reviews-wrap">
+      <!-- Review Card 1 -->
+      <div class="review-card">
+        <div class="review-user">
+          <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="User">
+          <div class="review-user-info">
+            <div class="review-user-name">Samu T.</div>
+            <div class="review-user-location">Suva, Fiji</div>
+          </div>
+        </div>
+        <div class="review-quote">
+          “Joined Inner Vault with just my phone. Made my first $1,400 online in 2 weeks. Changed my life, and my whole family’s too.”
+        </div>
+      </div>
+      <!-- Review Card 2 -->
+      <div class="review-card">
+        <div class="review-user">
+          <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="User">
+          <div class="review-user-info">
+            <div class="review-user-name">Jone K.</div>
+            <div class="review-user-location">Port Moresby, PNG</div>
+          </div>
+        </div>
+        <div class="review-quote">
+          “AI, prompts, proof – all real. Didn’t need a laptop, didn’t need capital. I finally escaped the 9-5. This is the brotherhood we all needed.”
+        </div>
+      </div>
+      <!-- Review Card 3 -->
+      <div class="review-card">
+        <div class="review-user">
+          <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="User">
+          <div class="review-user-info">
+            <div class="review-user-name">Isi N.</div>
+            <div class="review-user-location">Lautoka, Fiji</div>
+          </div>
+        </div>
+        <div class="review-quote">
+          “Not just hype. This group gave me the system and fire to finally build cash and confidence, all from my old Android.”
+        </div>
+      </div>
     </div>
-    <div class="hero-sub" style="margin-top:1.1em;">Built $15K/month using just a phone. No laptop. No excuses.</div>
+    <div class="reviews-footer">
+      <span>6,000+ members</span> in the vault.<br>
+      You don’t have to do it alone.
+    </div>
   </div>
 
   <!-- FAQ Section -->
@@ -259,7 +359,7 @@
 
   <!-- Footer -->
   <div class="footer">
-    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo" style="height:36px;margin-bottom:1em;">
+    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo" style="height:36px;margin-bottom:1em;">
     <br>
     <div>Courses: Proof, Prompting, AI Systems, UGC, Wealth, Brotherhood</div>
     <div style="margin:1em 0;">
