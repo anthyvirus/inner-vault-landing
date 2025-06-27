@@ -16,6 +16,23 @@
       color: white;
       line-height: 1.6;
     }
+    .fomo-banner {
+      background: black;
+      color: #ffd700;
+      text-align: center;
+      padding: 0.8rem 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 12px #ffd700aa;
+      animation: pulseGlow 1.6s infinite ease-in-out;
+    }
+    @keyframes pulseGlow {
+      0% { text-shadow: 0 0 10px #ffd70044; }
+      50% { text-shadow: 0 0 20px #ffd700aa; }
+      100% { text-shadow: 0 0 10px #ffd70044; }
+    }
     header {
       padding: 4rem 1.5rem 2rem;
       text-align: center;
@@ -60,20 +77,20 @@
       margin-top: 2rem;
     }
     .cta-btn {
-      background: #cba44b;
+      background: #ffd700;
       color: black;
       padding: 1.2rem 3rem;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: bold;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
-      box-shadow: 0 0 25px #cba44b44;
+      box-shadow: 0 0 25px #ffd70055;
       transition: all 0.3s ease-in-out;
     }
     .cta-btn:hover {
-      background: #e3c669;
-      box-shadow: 0 0 30px #cba44b88;
+      background: #ffe65a;
+      box-shadow: 0 0 30px #ffd700aa;
     }
     .cta-bar {
       background: #191919;
@@ -128,7 +145,14 @@
   </style>
 </head>
 <body>
-  <header>
+  <div class="fomo-banner">
+    ⚠️ FINAL CALL: MOST MEN QUIT — THIS IS FOR THE ONES WHO FINISH.
+  </div>  <header>
+    <div class="cta-container">
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/">
+        <button class="cta-btn">JOIN THE INNER VAULT</button>
+      </a>
+    </div>
     <h1>You’re Not Stuck.</h1>
     <h2>You’re Addicted, Soft, and Full of Excuses.</h2>
     <p class="sub">
@@ -151,9 +175,9 @@
   </div>  <section class="upgrade-section">
     <h2>INTRODUCING A MASSIVE UPGRADE</h2>
     <div class="upgrade-logos">
-      <img src="/inner-vault-landing/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Old NCS Logo">
+      <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Old NCS Logo">
       <span style="color:#cba44b; font-size: 2rem;">→</span>
-      <img src="/inner-vault-landing/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="New NCS Logo">
+      <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="New NCS Logo">
     </div>
     <p class="upgrade-text">The modern education system is designed to make you poor. This is your escape plan.</p>
   </section>  <footer>
