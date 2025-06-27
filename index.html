@@ -2,94 +2,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INNER VAULT — ESCAPE THE SYSTEM</title>
+  <title>Inner Vault — Escape the 9–5</title>
   <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Helvetica Neue', sans-serif;
       color: #fff;
       background: #000;
       overflow-x: hidden;
     }
-    .stars {
-      background: url('https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/starfield.gif') repeat;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-    }
     .fomo-bar {
-      background: #0f0f0f;
-      color: #00ffff;
+      background-color: #070707;
+      color: #fff;
       text-align: center;
       padding: 12px;
+      font-size: 15px;
       font-weight: bold;
-      font-size: 14px;
-      border-bottom: 2px solid #00ffff;
-      text-shadow: 0 0 5px #00ffff;
+      border-bottom: 2px solid #ffdc5c;
+      letter-spacing: 0.6px;
     }
-    .header {
-      padding: 40px 20px;
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 50px 20px;
       text-align: center;
     }
     .logos {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 20px;
       margin-bottom: 30px;
     }
-    .logos img:first-child { filter: brightness(30%); height: 60px; }
-    .logos img:last-child { height: 60px; }
+    .logos img {
+      max-height: 60px;
+      margin: 0 10px;
+    }
+    .logos img.dimmed {
+      opacity: 0.2;
+    }
     h1 {
-      font-size: 38px;
+      font-size: 42px;
       font-weight: bold;
       margin-bottom: 20px;
     }
-    .red { color: red; }
-    .green { color: #b7ff2a; }
+    .highlight {
+      color: red;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
     .btn {
+      margin-top: 30px;
       display: inline-block;
-      margin-top: 25px;
-      background: #b7ff2a;
+      background: #ffdc5c;
       color: #000;
       padding: 15px 35px;
       font-weight: bold;
       font-size: 18px;
       text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 12px #b7ff2a;
+      border-radius: 4px;
+      transition: 0.3s;
     }
-    .btn:hover { background: #d8ff57; }
+    .btn:hover {
+      background-color: #ffe88f;
+    }
     .section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
+      margin-top: 60px;
     }
-    ul { list-style: none; padding-left: 0; text-align: left; }
+    .section h2 {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      text-align: left;
+      padding-left: 0;
+    }
     ul li {
-      font-size: 16px;
-      margin-bottom: 10px;
+      margin: 12px 0;
       line-height: 1.6;
     }
     .reviews {
-      background: #111;
+      margin-top: 60px;
+      background-color: #111;
       padding: 30px;
-      border-radius: 12px;
-      margin-top: 40px;
+      border-radius: 8px;
     }
     .review {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
     .review-name {
       font-weight: bold;
-      font-size: 16px;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
     }
     .telegram-float {
       position: fixed;
@@ -101,47 +113,50 @@
       border-radius: 25px;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 0 10px #0088cc;
       z-index: 999;
     }
   </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="fomo-bar">⚔️ THIS ISN’T A COURSE. IT’S AN ESCAPE PLAN FOR DISCIPLINED MEN ONLY.</div>  <div class="header">
+  <div class="fomo-bar">MOST MEN QUIT — INNER VAULT IS ONLY FOR FINISHERS. THIS ISN’T A COURSE. IT’S A MISSION.</div>  <div class="container">
     <div class="logos">
-      <img src="/your-logo-path/old-logo.png" alt="Old NCS Logo">
-      <img src="/your-logo-path/gold-logo.png" alt="New NCS Logo">
-    </div>
-    <h1><span class="red">Still Broke?</span> Still Confused? <br> You're not alone. <span class="green">You're just not free yet.</span></h1>
-    <p><span class="red">You were trained to obey</span> — we trained to conquer.</p>
-    <p>This is where weak men give up — <strong>and Pacific Warriors rise.</strong></p>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn">ENTER INNER VAULT</a>
-  </div>  <div class="section">
-    <h2>🧠 What You'll Learn</h2>
-    <ul>
-      <li>🔓 How to escape the 9–5 slavery trap using only your phone</li>
-      <li>📲 The $11K AI prompt that replaced a full marketing team</li>
-      <li>🔥 Super UGC: Proof-powered content strategy to go viral</li>
-      <li>💻 Prompt systems that get clients, cash, and domination</li>
-      <li>🔐 Offshore systems to protect your empire (no tax advice)</li>
-      <li>🎯 Step-by-step plan built for Pacific men — no fluff, just proof</li>
-    </ul>
-    <div style="margin-top: 30px; font-size: 20px; font-weight: bold; color: red;">Most men consume content. You’ll use it to escape.</div>
-  </div>  <div class="section reviews">
-    <h2>💬 Real Feedback from the Pacific</h2>
-    <div class="review">
-      <div class="review-name">Ratu Jone, Fiji 🇫🇯</div>
-      <div>“Joined with $39. Now I earn $400 a week through prompts. This is real.”</div>
-    </div>
-    <div class="review">
-      <div class="review-name">Elijah Walo, PNG 🇵🇬</div>
-      <div>“Retail worker to mobile operator in 30 days. All from Inner Vault.”</div>
-    </div>
-    <div class="review">
-      <div class="review-name">Mosese R., Suva 🇫🇯</div>
-      <div>“This isn't a course. It's a brotherhood. It's a system. It's escape.”</div>
-    </div>
+      <img src="old-logo.png" alt="Old NCS Logo" class="dimmed">
+      <img src="ncs-logo.png" alt="NCS Logo">
+    </div><h1><span class="highlight">Escape</span> Your Weak Life</h1>
+<p>You weren’t born soft — you were trained that way.</p>
+<p><span class="highlight">TikTok, teachers, and society</span> lied to you.</p>
+<p>This is your one shot to build income, proof, and power using your phone.</p>
+<p>No laptop. No excuses. Just real execution with elite systems.</p>
+
+<a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn">JOIN THE INNER VAULT</a>
+
+<div class="section">
+  <h2>What You’ll Unlock</h2>
+  <ul>
+    <li>🔥 The Phase 0 Resurrection System</li>
+    <li>📦 AI Prompts that Replace Entire Departments</li>
+    <li>📲 Content + Proof Strategy (Super UGC)</li>
+    <li>🏦 Stripe Setup + Anonymous Empire Tactics</li>
+    <li>💼 Discord Vault + Private Telegram Drops</li>
+    <li>🌍 Systems Designed for PNG, Fiji, and Island Warriors</li>
+  </ul>
+</div>
+
+<div class="reviews">
+  <div class="review">
+    <div class="review-name">Ratu Jone, Fiji 🇫🇯</div>
+    <div>“I joined with just $39. Now I'm making $500/week on my phone. This isn’t school. It’s war.”</div>
+  </div>
+  <div class="review">
+    <div class="review-name">Elijah Walo, PNG 🇵🇬</div>
+    <div>“One prompt changed my life. I used to mop floors. Now I close clients.”</div>
+  </div>
+  <div class="review">
+    <div class="review-name">Mosese R., Fiji 🇫🇯</div>
+    <div>“No fluff. No BS. Just tools, power, and brotherhood.”</div>
+  </div>
+</div>
+
   </div><a href="https://t.me/+N9mPSOW1dFlhMjc1" class="telegram-float">Join Telegram</a>
 
 </body>
