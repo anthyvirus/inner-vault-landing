@@ -6,109 +6,166 @@
   <title>No Code Society | Inner Vault</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --gold: #FFD600;
+      --dark: #10131a;
+      --card: #181b20;
+      --accent: #8a30ff;
+      --blue: #00c3ff;
+      --gradient: linear-gradient(90deg,#8a30ff 0,#00c3ff 100%);
+      --radius: 16px;
+    }
     body {
-      background: #10131a;
-      color: #fff;
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
       padding: 0;
-    }
-    .banner {
-      width: 100%;
-      padding: 13px 0 10px 0;
-      text-align: center;
-      background: linear-gradient(90deg,#8a30ff 0,#00c3ff 100%);
+      background: var(--dark);
       color: #fff;
-      font-size: 1.05em;
-      font-weight: 700;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    }
+    .dopamine-banner {
+      width: 100%;
+      padding: 15px 0 13px 0;
+      text-align: center;
+      background: var(--gradient);
+      color: #fff;
+      font-size: 1.06em;
+      font-weight: 800;
       letter-spacing: 2px;
-      text-shadow: 0 1px 8px #1118;
+      text-shadow: 0 1px 14px #0009;
+      animation: glow 2s infinite alternate;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
       margin-bottom: 0;
+    }
+    @keyframes glow {
+      from { box-shadow: 0 0 8px var(--gold);}
+      to   { box-shadow: 0 0 24px var(--accent);}
     }
     .container {
-      max-width: 520px;
+      max-width: 480px;
       margin: 0 auto;
-      padding: 38px 20px 0 20px;
+      padding: 48px 16px 0 16px;
     }
     .main-logo {
-      width: 106px;
-      border-radius: 15px;
-      margin-bottom: 30px;
+      width: 100px;
+      border-radius: 18px;
+      box-shadow: 0 2px 36px #FFD60033;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto 38px auto;
+      filter: drop-shadow(0 0 14px #FFD60033);
+      transition: transform 0.17s;
+    }
+    .main-logo:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 5px 48px #FFD60055;
     }
     .hero-title {
-      color: #FFD600;
-      font-size: 2.25rem;
+      color: var(--gold);
+      font-size: 2.5rem;
       font-weight: 900;
-      letter-spacing: 2.2px;
-      margin-bottom: 0;
+      letter-spacing: 2.5px;
+      margin-bottom: 4px;
       line-height: 1.08;
       text-transform: uppercase;
       text-align: center;
+      text-shadow: 0 1px 20px #FFD60030;
+      transition: text-shadow 0.23s;
+    }
+    .hero-title:hover {
+      text-shadow: 0 1px 28px #FFD60099;
     }
     .hero-sub {
       color: #fff;
-      font-size: 2.05rem;
+      font-size: 2.03rem;
       font-weight: 700;
-      line-height: 1.13;
       margin-bottom: 26px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       text-align: center;
     }
+    .ai {
+      color: var(--gold);
+      text-shadow: 0 1px 12px #FFD60033;
+    }
     .copy-tate {
-      color: #bfbfbf;
-      font-size: 1.11em;
-      margin-bottom: 30px;
+      color: #cfcfcf;
+      font-size: 1.15em;
+      margin-bottom: 34px;
       font-weight: 500;
-      line-height: 1.58;
+      line-height: 1.6;
       text-align: left;
-      max-width: 420px;
-      margin-left: auto;
-      margin-right: auto;
+      background: linear-gradient(90deg, #1a1e27 0%, #16191f 100%);
+      padding: 18px 17px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 16px #0008;
     }
     .cta-btn {
       display: block;
-      background: #FFD600;
-      color: #10131a;
+      background: var(--gold);
+      color: var(--dark);
       border: none;
-      border-radius: 13px;
-      font-size: 1.18rem;
+      border-radius: 16px;
+      font-size: 1.22rem;
       font-weight: 900;
-      letter-spacing: 1.4px;
-      padding: 21px 0;
+      letter-spacing: 2px;
+      padding: 24px 0;
       margin: 0 auto 33px auto;
       width: 100%;
-      max-width: 390px;
+      max-width: 410px;
       cursor: pointer;
-      box-shadow: 0 6px 38px #ffd60025;
+      box-shadow: 0 7px 38px #ffd60045;
       text-transform: uppercase;
-      transition: box-shadow 0.18s;
+      transition: 
+        box-shadow 0.13s, 
+        transform 0.13s, 
+        background 0.12s;
       text-align: center;
+      position: relative;
     }
     .cta-btn:hover {
-      box-shadow: 0 12px 38px #ffd6003a;
-      transform: translateY(-1px) scale(1.03);
-      opacity: 0.97;
+      box-shadow: 0 18px 48px #ffd60065;
+      transform: scale(1.04) translateY(-2px);
+      background: #ffe34d;
+    }
+    .cta-sub {
+      color: #FFD600;
+      font-size: 0.97em;
+      text-align: center;
+      font-weight: 700;
+      margin: -15px 0 24px 0;
     }
     .proof-row {
-      color: #FFD600;
-      font-size: 1.08rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.12em;
       font-weight: 600;
       margin-bottom: 36px;
+      color: #FFD600;
+      gap: 13px;
       text-align: left;
+    }
+    .proof-row span {
+      background: #25282c;
+      border-radius: 7px;
+      padding: 5px 10px;
+      margin-right: 8px;
+      display: inline-block;
+      font-size: 0.98em;
+      font-weight: 700;
     }
     .testi {
       color: #ececec;
       font-style: italic;
-      margin-bottom: 0px;
-      font-size: 1.09em;
-      line-height: 1.6;
+      margin-bottom: 12px;
+      font-size: 1.08em;
+      line-height: 1.59;
       text-align: left;
-      max-width: 430px;
-      margin-left: auto;
-      margin-right: auto;
+      background: #181b20;
+      padding: 18px 14px 12px 14px;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 12px #0008;
     }
     .divider {
       border-bottom: 1px solid #22252a;
@@ -116,17 +173,17 @@
     }
     .upgrade {
       color: #fff;
-      font-size: 1.11em;
+      font-size: 1.17em;
       font-weight: 900;
-      letter-spacing: 1.4px;
-      margin: 43px 0 18px 0;
+      letter-spacing: 1.6px;
+      margin: 41px 0 16px 0;
       text-transform: uppercase;
       text-align: left;
     }
     .logos-row {
       display: flex;
       align-items: center;
-      gap: 38px;
+      gap: 33px;
       margin: 32px 0 24px 0;
       justify-content: left;
     }
@@ -134,54 +191,75 @@
       text-align: center;
       color: #b5b5b5;
       font-size: 1.01rem;
-      width: 50%;
+      width: 45%;
     }
     .logo-block img {
-      border-radius: 13px;
+      border-radius: 16px;
       background: #181b20;
       margin-bottom: 7px;
-      box-shadow: 0 2px 16px #000a;
-      width: 70px;
-      height: auto;
+      box-shadow: 0 2px 18px #FFD60044;
+      width: 68px;
+      height: 68px;
+      object-fit: cover;
       display: block;
       margin-left: auto;
       margin-right: auto;
+      border: 2px solid #FFD600;
+      padding: 6px;
+      transition: box-shadow 0.22s;
+    }
+    .logo-block img:hover {
+      box-shadow: 0 2px 44px #FFD60090;
     }
     .logo-block span {
       display: block;
       color: #FFD600;
-      font-size: 0.96rem;
+      font-size: 1em;
       letter-spacing: 0.4px;
       font-weight: 700;
       margin-top: 8px;
     }
     .arrow {
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       color: #FFD600;
-      margin-top: 16px;
+      margin-top: 13px;
       margin-right: 13px;
       margin-left: 13px;
+      animation: flash 1s infinite alternate;
       vertical-align: middle;
     }
+    @keyframes flash {
+      0% { opacity: 0.5;}
+      100% {opacity: 1;}
+    }
     .links-row {
-      margin: 39px 0 0 0;
+      margin: 33px 0 0 0;
       text-align: left;
-      font-size: 1.1em;
+      font-size: 1.08em;
       font-weight: 700;
       color: #FFD600;
       text-transform: uppercase;
       display: flex;
       gap: 20px;
     }
+    .links-row a {
+      color: #FFD600;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.15s;
+    }
+    .links-row a:hover {color:#fff;}
     .review-block {
-      margin-top: 42px;
+      margin-top: 36px;
       background: #181b20;
-      border-radius: 13px;
-      padding: 16px 14px;
+      border-radius: var(--radius);
+      padding: 19px 17px;
       color: #fff;
-      font-size: 1.13em;
-      box-shadow: 0 2px 16px #0005;
+      font-size: 1.16em;
+      box-shadow: 0 2px 16px #0008;
       text-align: left;
+      border: 2px solid #FFD60040;
+      position: relative;
     }
     .review-block .header {
       font-size: 1.12em;
@@ -190,80 +268,78 @@
       color: #FFD600;
       text-transform: uppercase;
     }
-    .review-block div {margin-bottom:9px;}
+    .review-block div {margin-bottom:8px;}
     .review-block div:last-child {margin-bottom:0;}
     .faq-block {
-      margin: 46px 0 0 0;
+      margin: 41px 0 0 0;
       text-align: left;
     }
     .faq-block h2 {
-      font-size: 1.29em;
-      color: #fff;
+      font-size: 1.19em;
+      color: #FFD600;
       font-weight: 900;
-      letter-spacing: 1.4px;
+      letter-spacing: 1.1px;
       margin-bottom: 14px;
       text-transform: uppercase;
     }
     .faq-block .faq-q {
       font-weight: 700;
       color: #FFD600;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
     }
     .faq-block .faq-a {
       color: #bfbfbf;
-      margin-bottom: 13px;
-      font-size: 0.97em;
+      margin-bottom: 14px;
+      font-size: 0.98em;
     }
     .footer {
       margin-top: 44px;
-      padding: 21px 0 42px 0;
+      padding: 19px 0 34px 0;
       color: #8a8a8a;
-      font-size: 0.92em;
+      font-size: 0.91em;
       text-align: left;
       border-top: 1px solid #181b20;
     }
     .footer .disclaimer {
-      font-size: 0.87em;
+      font-size: 0.86em;
       color: #888;
-      margin-top: 16px;
-      max-width: 420px;
+      margin-top: 13px;
+      max-width: 410px;
     }
     @media (max-width: 540px) {
-      .container { padding: 16px 3px 0 3px; }
-      .logos-row { gap: 10px; }
-      .logo-block img { width: 44px; }
-      .links-row { gap: 7px; font-size: 0.95em;}
-      .review-block { padding: 8px 4px; font-size:1em;}
+      .container { padding: 12px 2px 0 2px; }
+      .logos-row { gap: 6px; }
+      .logo-block img { width: 43px; height: 43px; }
+      .links-row { gap: 6px; font-size: 0.92em;}
+      .review-block { padding: 8px 3px; font-size:1em;}
     }
   </style>
 </head>
 <body>
-  <div class="banner">🔥 DOORS CLOSING SOON — JOIN BEFORE IT'S TOO LATE</div>
+  <div class="dopamine-banner">🔥 DOORS CLOSING SOON — JOIN BEFORE IT'S TOO LATE</div>
   <div class="container">
     <img class="main-logo" src="/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo" />
-
     <div class="hero-title">EMPLOYEE.</div>
-    <div class="hero-sub">BUILD AN AI EMPIRE.</div>
-
+    <div class="hero-sub">BUILD AN <span class="ai">AI</span> EMPIRE.</div>
     <div class="copy-tate">
       Most men are slaves to routine.<br>
-      They clock in, clock out, and die broke.<br>
-      <span style="color:#FFD600;font-weight:700;">Inner Vault</span> is where you kill the employee mindset for good.<br>
-      One phone. Savage proof. Real leverage.<br>
+      Clock in, clock out. Die broke.<br>
+      <span style="color:#FFD600;font-weight:700;">Inner Vault</span> is where you kill the employee mindset.<br>
+      One phone. Savage proof. Ruthless leverage.<br>
       Print your own money with ChatGPT.<br>
-      Stay average, or break the system. You choose.
+      Stay a spectator, or rewrite the rules.
     </div>
-
     <a class="cta-btn" href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank">Join Inner Vault</a>
+    <div class="cta-sub">No excuses. No refunds for weakness.</div>
     <div class="proof-row">
-      Built with 1 Phone &nbsp;&nbsp;|&nbsp;&nbsp; $11K Prompt System &nbsp;&nbsp;|&nbsp;&nbsp; 6,000+ Students Enrolled
+      <span>✔️ 1 Phone</span>
+      <span>💰 $11K Prompt System</span>
+      <span>👥 6,000+ Students</span>
     </div>
     <div class="testi">
-      “This isn’t a course. It’s a war room. I joined with $0 and a cracked phone. Now I get paid to think.” — Anonymous
+      “This isn’t a course. It’s a war room. I joined with $0 and a cracked phone. Now I get paid to think.”<br>— Anonymous
     </div>
-
     <div class="divider"></div>
-
     <div class="upgrade">Introducing a Massive Upgrade</div>
     <div class="logos-row">
       <div class="logo-block">
@@ -276,45 +352,31 @@
         <span>Current Logo</span>
       </div>
     </div>
-
     <div class="links-row">
-      <a href="https://t.me/+N9mPSOW1dFlhMjc1" style="color:#FFD600;text-decoration:none;">Join Telegram</a>
-      <a href="#" style="color:#FFD600;text-decoration:none;">Student Reviews</a>
+      <a href="https://t.me/+N9mPSOW1dFlhMjc1">Join Telegram</a>
+      <a href="#">Student Reviews</a>
     </div>
-
     <div class="review-block">
       <div class="header">What Our Students Say</div>
       <div>“Best $39 I’ve ever spent. The prompts alone made me $1,400 in 3 days.”</div>
       <div>“If you’re hesitating, you’re already late. This is proof-based resurrection.”</div>
       <div>“Joined from my village with $10 left. Now I’m on $300/week just prompting clients.”</div>
     </div>
-
     <div class="faq-block">
       <h2>Frequently Asked Questions</h2>
       <div>
-        <div class="faq-q">Is this program suitable for beginners?</div>
-        <div class="faq-a">Yes. If you can follow instructions and want to print money, you belong here.</div>
+        <div class="faq-q">Is this program for beginners?</div>
+        <div class="faq-a">Yes. If you want to print money, you belong here. Weak men will be exposed.</div>
       </div>
       <div>
         <div class="faq-q">How fast can I make money?</div>
-        <div class="faq-a">Some do it in 3 days. Some never do. Discipline is the difference.</div>
+        <div class="faq-a">Some do it in 3 days. Most never will. Discipline is the difference.</div>
       </div>
       <div>
         <div class="faq-q">Do I need money to start?</div>
-        <div class="faq-a">No. Everything I built started with a $0 phone and ruthless focus.</div>
+        <div class="faq-a">No. Everything here started with a $0 phone and relentless proof.</div>
       </div>
       <div>
         <div class="faq-q">What if I’m not tech savvy?</div>
-        <div class="faq-a">If you can use WhatsApp, you can use this. This is built for Pacific men, no fluff.</div>
-      </div>
-    </div>
-    <div class="footer">
-      <div><b>No Code Society &copy; 2025</b></div>
-      <div>Contact: <a href="mailto:tonypepena17@gmail.com" style="color:#FFD600;">tonypepena17@gmail.com</a></div>
-      <div class="disclaimer">
-        Inner Vault is for education and entertainment only. No financial guarantees, no advice. Results depend on your action and discipline. This site is not affiliated with Andrew Tate or The Real World.
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+        <div class="faq-a">If you can use WhatsApp, you’re in. If you complain, stay broke.</div>
+      </
