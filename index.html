@@ -1,112 +1,206 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>No Code Society – Inner Vault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@400;700&display=swap" rel="stylesheet">
+  <title>No Code Society | Inner Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Now:wght@300;700&display=swap" rel="stylesheet">
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin: 0;
-      background-color: #0A0A0A;
-      font-family: 'Helvetica', sans-serif;
+      font-family: 'Helvetica Now', sans-serif;
+      background: #0e1b14;
       color: white;
-    }
-    .neon-bar {
-      background: linear-gradient(90deg, #00f0ff, #004cff);
-      height: 4px;
-      animation: move 3s linear infinite;
-    }
-    @keyframes move {
-      from { background-position: 0 0; }
-      to { background-position: 200% 0; }
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    .logo {
-      max-width: 150px;
-      margin-bottom: 2rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .highlight {
-      color: red;
-    }
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto 2rem auto;
-    }
-    .button {
-      background-color: #bfa14e;
-      color: black;
-      padding: 1rem 2rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 1rem;
-    }
-    .review-section {
-      margin-top: 4rem;
-      text-align: left;
-    }
-    .review {
-      margin-bottom: 1rem;
-      background: #121212;
-      padding: 1rem;
-      border-left: 4px solid #bfa14e;
-      border-radius: 8px;
-    }
-    .review strong {
-      color: #bfa14e;
-    }
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
+      overflow-x: hidden;
+    }header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background: #0e1b14;
+  position: relative;
+}
+
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-old {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px;
+  opacity: 0.1;
+  filter: blur(2px);
+}
+
+.logo-new {
+  width: 120px;
+  z-index: 2;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  line-height: 1.3;
+}
+
+.red {
+  color: #ff3c3c;
+}
+
+.subhead {
+  color: #ccc;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+.gold-btn {
+  background: #cba44b;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  color: black;
+  cursor: pointer;
+  margin-top: 2rem;
+  box-shadow: 0 0 10px #cba44b66;
+}
+
+.hero {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 3rem 1rem;
+  background: #0a1510;
+}
+
+.features ul {
+  list-style: none;
+  margin: 1rem;
+  max-width: 300px;
+}
+
+.features li {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.red-bold {
+  color: #ff3c3c;
+  font-weight: bold;
+}
+
+.review-section {
+  background: #0e1b14;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.review-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.review {
+  font-style: italic;
+  color: #aaa;
+  margin: 1.2rem 0;
+  font-size: 1rem;
+}
+
+.fomoro {
+  background: #122118;
+  color: #cba44b;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-top: 1px solid #2e442f;
+  border-bottom: 1px solid #2e442f;
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 10px #cba44b66; }
+  50% { text-shadow: 0 0 20px #cba44b; }
+  100% { text-shadow: 0 0 10px #cba44b66; }
+}
+
+footer {
+  background: #000;
+  color: #555;
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+}
+
+.links {
+  padding: 2rem;
+  text-align: center;
+  background: #0e1b14;
+}
+
+.links a {
+  display: block;
+  color: #cba44b;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
   </style>
 </head>
 <body>
-  <div class="neon-bar"></div>
-
-  <div class="container">
-    <img src="ncs-logo.png" alt="No Code Society" class="logo" />
-
-    <h1>They Trained You to Be <span class="highlight">Weak</span></h1>
-    <p>The school system was never built to make you rich. It was designed to tame lions.  
-    <br><br><span class="highlight">No skills. No money. No identity.</span>  
-    <br>And now you're 25, broke, confused, and watching rich men talk about AI while you scroll.</p>
-
-    <button class="button" onclick="location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">
-      Join The Inner Vault
-    </button>
-
-    <button class="button" onclick="location.href='https://t.me/+N9mPSOW1dFlhMjc1'">
-      Telegram Channel
-    </button>
-
-    <div class="review-section">
-      <h2>What They’re Saying</h2>
-      <div class="review"><strong>Jone T. (Fiji):</strong> I used to think AI was for tech guys. Now I earn more from my phone than my last job.</div>
-      <div class="review"><strong>Lucy N. (PNG):</strong> I was scared to leave my job. Now I have clients paying me every week for automations I learned inside.</div>
-      <div class="review"><strong>Ronil D. (Fiji):</strong> I joined out of desperation. I stayed because this system works. Period.</div>
+  <header>
+    <div class="logo-container">
+      <img class="logo-old" src="/your-logo-path/old-logo.png" alt="Old Logo">
+      <img class="logo-new" src="/your-logo-path/ncs-logo.png" alt="NCS Logo">
     </div>
-
-    <div class="footer">
-      © 2025 No Code Society. Built in darkness. Raised by fire.
-    </div>
-  </div>
+    <h1><span class="red">They trained you</span> to obey.<br>We train you to dominate.</h1>
+    <p class="subhead">This is not school. This is war. If you're weak — leave. If you're ready — enter.</p>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/">
+      <button class="gold-btn">Enter Inner Vault</button>
+    </a>
+  </header>  <section class="hero">
+    <p><span class="red-bold">No fluff. No theory. No escape.</span><br>Everything is built on a phone. In your hands. Now.</p>
+  </section>  <section class="features">
+    <ul>
+      <li><span class="red-bold">NO THEORY</span> – Just raw execution.</li>
+      <li><span class="red-bold">NO DISTRACTIONS</span> – Just real results.</li>
+      <li><span class="red-bold">NO EXCUSES</span> – Just pressure and proof.</li>
+    </ul>
+    <ul>
+      <li>Build an empire from a $99 Android phone.</li>
+      <li>Turn ChatGPT into your workforce.</li>
+      <li>Monetize your story. Weaponize your pain.</li>
+    </ul>
+  </section>  <section class="review-section">
+    <h2>Real Men. Real Resurrection.</h2>
+    <div class="review">“Suva market vendor to online killer. I earn 5x with just a phone. – Semi T.”</div>
+    <div class="review">“Never used a laptop in PNG. Now I run 2 content brands. – David R.”</div>
+    <div class="review">“Fiji to Aussie. Labourer to digital warlord. – Manasa V.”</div>
+  </section>  <div class="fomoro">
+    ⚠️ Final warning: Inner Vault closes soon. This is your last door before you die average.
+  </div>  <section class="links">
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/">💰 Secure Your Spot – Join the Inner Vault</a>
+    <a href="https://t.me/+N9mPSOW1dFlhMjc1">🔒 Join the Private NCS Telegram Channel</a>
+  </section>  <footer>
+    &copy; 2025 No Code Society. Built for the ghost who refuses to die poor.
+  </footer>
 </body>
 </html>
