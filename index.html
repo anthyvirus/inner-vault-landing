@@ -2,8 +2,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>No Code Society | Inner Vault</title><!-- ========================= FONTS ========================= -->
-<!-- Host Helvetica Now locally. Remove if served elsewhere -->
+    <title>No Code Society | Inner Vault</title><!-- =============== FONTS =============== -->
+<!-- Swap in your licensed Helvetica Now files or serve from your CDN -->
 <style>
   @font-face {
     font-family: "Helvetica Now";
@@ -21,22 +21,18 @@
   }
 </style>
 
-<!-- ========================= CORE STYLES ========================= -->
+<!-- =============== CORE STYLES =============== -->
 <style>
   :root {
     --bg-1: #07070c;
     --bg-2: #0e0e17;
     --text: #ffffff;
     --gold: #d4a533;
-    --gold-light: #e8c75c;
+    --gold-light: #e9cb5b;
     --accent: #00f6ff;
   }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
   body {
     margin: 0;
     font-family: "Helvetica Now", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -45,268 +41,140 @@
     overflow-x: hidden;
     line-height: 1.55;
   }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-  img {
-    max-width: 100%;
-    display: block;
-  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
 
-  /* Utilities */
-  .container {
-    width: min(92%, 1400px);
-    margin-inline: auto;
-  }
-  .reveal {
-    opacity: 0;
-    transform: translateY(42px);
-    transition: 0.8s cubic-bezier(0.34, 1.2, 0.68, 1);
-  }
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  /* util */
+  .container { width: min(92%, 1400px); margin-inline: auto; }
+  .reveal { opacity: 0; transform: translateY(42px); transition: 0.8s cubic-bezier(.34,1.2,.68,1); }
+  .reveal.active { opacity: 1; transform: translateY(0); }
 
-  /* Banner */
+  /* banner */
   .banner {
-    position: relative;
-    background: var(--accent);
-    color: #000;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-align: center;
-    padding: 0.6rem 1rem;
-    overflow: hidden;
+    position: relative; background: var(--accent); color:#000;
+    font-weight: 700; letter-spacing:.08em; text-align:center; padding:.65rem 1rem;
+    overflow:hidden;
   }
-  .banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(120deg, transparent 0 8px, rgba(0, 0, 0, 0.07) 8px 16px);
-    animation: slide 5s linear infinite;
-    mix-blend-mode: multiply;
-    opacity: 0.55;
-  }
-  @keyframes slide {
-    to {
-      transform: translateX(-50%);
-    }
-  }
+  .banner::after { content:""; position:absolute; inset:0;
+    background:repeating-linear-gradient(120deg,transparent 0 8px,rgba(0,0,0,.07) 8px 16px);
+    animation:slide 5s linear infinite; mix-blend-mode:multiply; opacity:.55; }
+  @keyframes slide { to { transform:translateX(-50%);} }
 
-  /* Header */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0;
-    position: relative;
-    z-index: 10;
-  }
-  .logo img {
-    width: 46px;
-  }
-  nav {
-    display: flex;
-    gap: 1.6rem;
-    font-weight: 700;
-  }
+  /* header */
+  header{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0;z-index:10;position:relative;}
+  .logo img{width:46px;}
+  nav{display:flex;gap:1.6rem;font-weight:700;}
 
-  /* Buttons */
-  .btn {
-    display: inline-block;
-    padding: 0.9rem 1.9rem;
-    border-radius: 6px;
-    font-weight: 700;
-    letter-spacing: 0.045em;
-    transition: transform 0.25s, background 0.25s;
-  }
-  .btn-gold {
-    background: var(--gold);
-    color: #000;
-  }
-  .btn-gold:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px) scale(1.04);
-  }
-  .btn-outline {
-    border: 2px solid var(--text);
-  }
-  .btn-outline:hover {
-    background: var(--text);
-    color: #000;
-    transform: translateY(-2px) scale(1.04);
-  }
+  /* buttons */
+  .btn{display:inline-block;padding:.9rem 1.9rem;border-radius:6px;font-weight:700;letter-spacing:.045em;transition:transform .25s,background .25s;}
+  .btn-gold{background:var(--gold);color:#000;}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px) scale(1.04);}
+  .btn-outline{border:2px solid var(--text);} .btn-outline:hover{background:var(--text);color:#000;transform:translateY(-2px) scale(1.04);} 
 
-  /* Hero */
-  .hero {
-    text-align: center;
-    padding: 8rem 0 5rem;
-    position: relative;
-  }
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: radial-gradient(circle at 50% 40%, hsla(48, 100%, 50%, 0.4) 0%, transparent 60%);
-    filter: blur(140px);
-    opacity: 0.6;
-  }
-  .hero h1 {
-    font-size: clamp(2.8rem, 7vw, 4.7rem);
-    font-weight: 700;
-    line-height: 1.08;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-  }
-  .hero h1 span {
-    color: var(--gold);
-  }
-  .hero p {
-    max-width: 700px;
-    margin-inline: auto;
-    font-size: 1.16rem;
-    opacity: 0.9;
-  }
+  /* hero */
+  .hero{text-align:center;padding:8rem 0 5rem;position:relative;}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 40%,hsla(48,100%,50%,.4) 0%,transparent 60%);filter:blur(140px);opacity:.6;}
+  .hero h1{font-size:clamp(2.8rem,7vw,4.7rem);font-weight:700;line-height:1.08;margin-bottom:1.5rem;text-transform:uppercase;}
+  .hero h1 span{color:var(--gold);} .hero p{max-width:700px;margin-inline:auto;font-size:1.16rem;opacity:.9;}
 
-  /* Courses */
-  #courses {
-    padding: 5rem 0 4rem;
-  }
-  #courses h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 2.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-  .grid {
-    display: grid;
-    gap: 1.8rem;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
+  /* courses */
+  #courses{padding:5rem 0 4rem;}
+  #courses h2{text-align:center;font-size:2.2rem;margin-bottom:2.7rem;font-weight:700;text-transform:uppercase;}
+  .grid{display:grid;gap:1.8rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
 
-  .card {
-    background: var(--bg-2);
-    border: 1px solid #1a1a22;
-    padding: 2rem 1.7rem;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  }
+  .card{background:var(--bg-2);border:1px solid #1a1a22;padding:2rem 1.8rem;border-radius:10px;transition:transform .3s,box-shadow .3s;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(0,0,0,.35);} 
 
-  /* Consistent header style */
-  .card-header {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    margin-bottom: 1.1rem;
-  }
-  .icon {
-    flex-shrink: 0;
-    font-size: 1.55rem;
-    line-height: 1;
-  }
-  .card-header h3 {
-    margin: 0;
-    font-size: 1.35rem;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    line-height: 1.25;
-  }
-  .card p {
-    font-size: 0.96rem;
-    opacity: 0.85;
-  }
+  .card-header{display:flex;align-items:center;gap:.9rem;margin-bottom:1rem;}
+  .icon{font-size:1.55rem;line-height:1;}
+  .card-header h3{margin:0;font-size:1.35rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;line-height:1.3;}
+
+  .subtitle{font-size:.96rem;opacity:.9;margin-bottom:.6rem;}
+  .meta{font-size:.9rem;font-weight:700;color:var(--gold);}
 
   /* CTA */
-  .cta {
-    text-align: center;
-    padding: 3.5rem 1rem;
-    position: relative;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    color: #000;
-  }
-  .cta::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(120deg, transparent 0 8px, rgba(0, 0, 0, 0.1) 8px 16px);
-    mix-blend-mode: multiply;
-    opacity: 0.4;
-    animation: slide 6s linear infinite reverse;
-  }
-  .cta h2 {
-    font-size: 2.15rem;
-    font-weight: 700;
-    margin-bottom: 1.4rem;
-    position: relative;
-    text-transform: uppercase;
-  }
-  .cta .btn {
-    position: relative;
-  }
+  .cta{text-align:center;padding:3.5rem 1rem;position:relative;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#000;}
+  .cta::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,transparent 0 8px,rgba(0,0,0,.1) 8px 16px);mix-blend-mode:multiply;opacity:.4;animation:slide 6s linear infinite reverse;}
+  .cta h2{font-size:2.15rem;font-weight:700;margin-bottom:1.4rem;position:relative;text-transform:uppercase;}
+  .cta .btn{position:relative;}
 
-  /* Footer */
-  footer {
-    font-size: 0.82rem;
-    text-align: center;
-    padding: 2.3rem 0;
-    opacity: 0.6;
-  }
+  /* footer */
+  footer{font-size:.82rem;text-align:center;padding:2.3rem 0;opacity:.6;}
 
-  /* Responsive tweak */
-  @media (max-width: 600px) {
-    nav {
-      display: none;
-    }
-  }
+  @media(max-width:600px){nav{display:none;}}
 </style>
 
   </head>
   <body>
-    <!-- ============ FOMO BANNER ============ -->
+    <!-- banner -->
     <div class="banner">⚡ FINAL SPOTS THIS MONTH — ACCESS CLOSES SOON</div><div class="container">
-  <!-- ============ HEADER ============ -->
+  <!-- header -->
   <header>
-    <div class="logo">
-      <img src="ncs-logo.png" alt="NCS Logo" />
-    </div>
+    <div class="logo"><img src="ncs-logo.png" alt="NCS Logo" /></div>
     <nav>
       <a href="#courses">Courses</a>
       <a href="https://t.me/+N9mPSOW1dFlhMjc1" target="_blank" rel="noopener">Telegram</a>
-      <a
-        href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/"
-        class="btn btn-gold"
-        target="_blank"
-        rel="noopener"
-        >JOIN NOW</a
-      >
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-gold" target="_blank" rel="noopener">JOIN NOW</a>
     </nav>
   </header>
 
-  <!-- ============ HERO ============ -->
+  <!-- hero -->
   <section class="hero reveal">
     <h1><span>Kill the Weak Employee.</span> Build an AI Empire.</h1>
-    <p>
-      Inner Vault is the underground gym for your mind and your bank account. One
-      phone, brutal discipline, and AI leverage—either you print money or you stay a spectator.
-    </p>
-    <div
-      style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;"
-    >
-      <a
-        href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/"
-        class="btn btn-gold"
-        target="_blank"
-        rel="noopener"
-        >SECURE YOUR KEY</a
-      >
-      <a href="https://
+    <p>Inner Vault is the underground gym for your mind and your bank account. One phone, brutal discipline, and AI leverage—either you print money or you stay a spectator.</p>
+    <div style="margin-top:2rem;display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-gold" target="_blank" rel="noopener">SECURE YOUR KEY</a>
+      <a href="https://therealworld.net/login" class="btn btn-outline" target="_blank" rel="noopener">Log In</a>
+    </div>
+  </section>
 
+  <!-- courses -->
+  <section id="courses" class="reveal">
+    <h2>What You Unlock</h2>
+    <div class="grid">
+      <!-- Phase 0 card -->
+      <div class="card">
+        <div class="card-header"><span class="icon">🗡️</span><h3>Kill the Weak Man</h3></div>
+        <p class="subtitle">Phase 0: Destroy porn, scrolling, and soft identity. Build a war plan that buries your old self.</p>
+        <p class="meta">📸 $982 earned in 7 days after Phase 0 — Tim, PNG</p>
+      </div>
+
+      <!-- Phase 1 card -->
+      <div class="card">
+        <div class="card-header"><span class="icon">📒</span><h3>AI‑Powered Income</h3></div>
+        <p class="subtitle">Phase 1 turns your phone into a money machine using ChatGPT. Learn to build income systems with zero capital. Simple. Ruthless. Proven.</p>
+        <p class="meta">⚡ $1,442 wired after Phase 1 — Shelby, Samoa</p>
+      </div>
+
+      <!-- Prompt Vault card -->
+      <div class="card">
+        <div class="card-header"><span class="icon">🔑</span><h3>Master Prompt Vault</h3></div>
+        <p class="subtitle">Fill‑in‑the‑blank power prompts that erase entire departments and wire cash to your Stripe while you sleep.</p>
+        <p class="meta">💬 Used by 300+ Pacific founders</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CTA ribbon -->
+<section class="cta reveal">
+  <h2>Stop Consuming. Start Printing.</h2>
+  <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-outline" target="_blank" rel="noopener">Join Waitlist</a>
+</section>
+
+<!-- footer -->
+<footer>
+  <p>© 2025 No Code Society. All Rights Reserved.</p>
+  <p>Disclaimer: The information inside Inner Vault is educational experience only — it is not financial, legal, or tax advice. Results are never guaranteed. Your actions are your own responsibility.</p>
+</footer>
+
+<!-- JS reveal -->
+<script>
+  document.addEventListener("DOMContentLoaded",()=>{
+    const obs=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add("active")),{threshold:.25});
+    document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+  });
+</script>
+
+  </body>
+</html>
