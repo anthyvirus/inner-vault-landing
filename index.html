@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inner Vault — Escape the 9–5</title>
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INNER VAULT — No Code Society</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -11,198 +11,104 @@
       box-sizing: border-box;
     }
     body {
+      background: radial-gradient(#000, #020202);
+      color: #fff;
       font-family: 'Helvetica Neue', sans-serif;
-      color: #fff;
-      background: black;
-      overflow-x: hidden;
-    }
-    .stars {
-      background: url('https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/starfield.gif') repeat;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-    }
-    .fomo-bar {
-      background-color: #111;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid red;
-    }
-    .container {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
+      padding: 20px;
       text-align: center;
     }
     h1 {
-      font-weight: 700;
-      font-size: 36px;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
     }
     .red {
       color: red;
     }
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      background: red;
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .cta-button {
+      background: #007bff;
+      border: none;
       color: white;
       padding: 15px 30px;
-      font-weight: bold;
-      font-size: 18px;
-      border: none;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
       text-decoration: none;
-      border-radius: 5px;
-      transition: 0.3s;
+      display: inline-block;
+      margin-top: 20px;
     }
-    .btn:hover {
-      background: #cc0000;
-    }
-    .section {
-      margin-top: 60px;
-    }
-    .section h2 {
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-    ul {
-      list-style: none;
-      text-align: left;
-      padding-left: 0;
-    }
-    ul li {
-      margin: 10px 0;
-      line-height: 1.6;
-    }
-    .cta-red {
-      font-weight: bold;
-      font-size: 20px;
-      color: red;
-      margin-top: 30px;
-    }
-    .reviews {
-      margin-top: 50px;
+    .testimonials {
       background-color: #111;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 500px;
+      margin: 40px auto;
+    }
+    .testimonials h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .testimonials p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .value-triggers {
+      background-color: #0a0a0a;
+      border: 1px solid red;
       padding: 30px;
       border-radius: 10px;
+      margin-top: 50px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .review {
+    .value-triggers h2 {
+      font-size: 22px;
+      font-weight: bold;
+      color: red;
       margin-bottom: 20px;
     }
-    .review-name {
-      font-weight: bold;
-      margin-bottom: 5px;
+    .value-triggers ul {
+      list-style: none;
+      padding: 0;
     }
-    .telegram-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #0088cc;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-      z-index: 999;
-    }
-    .upgrade-section {
-      text-align: center;
-      margin: 80px 20px;
-    }
-    .upgrade-logos {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 30px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .upgrade-logos img {
-      max-width: 80px;
-      height: auto;
-      opacity: 0.5;
-    }
-    .upgrade-arrow {
-      font-size: 32px;
-      color: white;
-    }
-    .upgrade-text {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      opacity: 0.7;
-      margin-bottom: 10px;
-    }
-    .upgrade-heading {
-      font-size: 28px;
-      font-weight: bold;
-    }
-    .upgrade-subtext {
+    .value-triggers li {
+      margin-bottom: 12px;
       font-size: 16px;
-      opacity: 0.7;
-      margin-top: 10px;
+      line-height: 1.6;
+    }
+    .logo {
+      margin-top: 40px;
+      max-width: 120px;
     }
   </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="fomo-bar">MOST MEN QUIT — WE FILTER FOR THOSE WHO FINISH. THIS ISN’T A COURSE. IT’S A MISSION.</div>
-  <div class="container">
-    <h1><span class="red">Escape</span> Your Weak Life</h1>
-    <p>If you're still broke, confused, or stuck — it's not your fault.</p>
-    <p><span class="red">You were trained to be soft</span> by a system that never wanted you free.</p>
-    <p>This is your only chance to build proof, power and income — <span class="red">without a laptop</span>, starting with just your phone.</p>
-    <p>We don’t want learners. <strong>We want winners.</strong></p><a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn">JOIN THE INNER VAULT</a>
+  <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo" class="logo" />
+  <h1><span class="red">INNER VAULT</span><br />No Code Society</h1>
+  <p><strong>Introducing</strong> <span class="red">a massive UPGRADE</span><br />The modern education system is designed to keep you weak and confused.</p>
+  <a href="https://t.me/+N9mPSOW1dFlhMjc1" class="cta-button">Join Telegram</a>  <div class="testimonials">
+    <h3>Ratu Jone, Fiji 🇫🇯</h3>
+    <p>“I joined with just $39. Now I'm making $500/week on my phone. This is not a course. It's a weapon.”</p><h3>Elijah Walo, PNG 🇵🇬</h3>
+<p>“I was stuck in retail for years. One prompt changed everything. I escaped the system with proof.”</p>
 
-<div class="section">
-  <h2>What You’ll Learn</h2>
-  <ul>
-    <li>❌ The 9–5 scam you were born into</li>
-    <li>🔐 The exact systems I used to make $15K with just a phone</li>
-    <li>📲 How AI + content + proof = financial escape</li>
-    <li>🔥 Step-by-step empire blueprint built for Pacific men</li>
-    <li>💼 Private Discord vault + Telegram drops</li>
-    <li>📦 Hidden prompts and automated client-getting systems</li>
-    <li>🏦 Stripe setup, offshore protection, anonymous empire design</li>
-  </ul>
-</div>
+<h3>Mosese R., Fiji 🇫🇯</h3>
+<p>“No fluff, no theory. Just daily war, money systems, and brotherhood.”</p>
 
-<div class="cta-red">You’re not buying education — you’re buying escape.</div>
-
-<div class="reviews">
-  <div class="review">
-    <div class="review-name">Ratu Jone, Fiji 🇫🇯</div>
-    <div>“I joined with just $39. Now I'm making $500/week on my phone. This is not a course. It's a weapon.”</div>
-  </div>
-  <div class="review">
-    <div class="review-name">Elijah Walo, PNG 🇵🇬</div>
-    <div>“I was stuck in retail for years. One prompt changed everything. I escaped the system with proof.”</div>
-  </div>
-  <div class="review">
-    <div class="review-name">Mosese R., Fiji 🇫🇯</div>
-    <div>“No fluff, no theory. Just daily war, money systems, and brotherhood.”</div>
-  </div>
-</div>
-
-<div class="upgrade-section">
-  <div class="upgrade-logos">
-    <img src="https://cdn-icons-png.flaticon.com/512/3416/3416046.png" alt="Old Logo">
-    <div class="upgrade-arrow">→</div>
-    <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/ncs-logo-gold.png" alt="NCS Logo">
-  </div>
-  <div class="upgrade-text">INTRODUCING</div>
-  <div class="upgrade-heading">A MASSIVE <span class="red">UPGRADE</span></div>
-  <div class="upgrade-subtext">The modern education system is designed to keep you weak and confused.</div>
-</div>
-
-  </div><a href="https://t.me/+N9mPSOW1dFlhMjc1" class="telegram-float">Join Telegram</a>
-
+  </div>  <div class="value-triggers">
+    <h2 class="red">Only 7% Finish The Mission</h2>
+    <ul>
+      <li>⚔️ 93% give up when it gets hard. We reward the 7% who finish.</li>
+      <li>📱 You don’t need a laptop. I built a $15K/month system with a phone.</li>
+      <li>⏳ Most men scroll TikTok. You’ll build cashflow machines using AI.</li>
+      <li>🚫 No fluff. No theory. This is daily war and tactical execution.</li>
+      <li>🔐 Built for Pacific men. Designed for escape. Proven with proof.</li>
+      <li>🧠 You’re not here to learn. You’re here to win.</li>
+    </ul>
+  </div>  <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="NCS Alt Logo" class="logo" />
 </body>
 </html>
