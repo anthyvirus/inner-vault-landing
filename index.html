@@ -1,176 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Inner Vault | No Code Society</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>No Code Society | Inner Vault — Elite Digital Brotherhood</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for Helvetica Now imitation -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #1b2d23;
-      --gold: #C9A441;
-      --gold-dark: #947635;
-      --main: #EAEAEA;
-      --grey: #B6B9C1;
-      --container: 450px;
+      --gold: #e7c873;
+      --deep-green: #121a12;
+      --rich-black: #111b15;
+      --card: #161e14;
+      --muted: #23281c;
     }
     body {
       margin: 0;
-      background: var(--bg);
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      color: var(--main);
+      font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--rich-black);
+      color: #fff;
+      line-height: 1.6;
+      letter-spacing: 0.01em;
+      scroll-behavior: smooth;
     }
-    .container {
-      max-width: var(--container);
+    .banner {
+      width: 100vw;
+      background: linear-gradient(90deg, var(--gold), #f8e7a2);
+      color: #111;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      padding: 0.8em 0;
+      box-shadow: 0 2px 24px 0 #dac67955;
+      text-transform: uppercase;
+      animation: pulse 1.6s infinite alternate;
+    }
+    @keyframes pulse {
+      to { filter: brightness(1.15); }
+    }
+    header, section {
+      max-width: 950px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 2.2em 1.5em;
     }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-top: 38px;
-      margin-bottom: 45px;
-    }
-    .logo {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: #263828;
-      box-shadow: 0 0 18px #0007;
-    }
-    .brand {
-      font-size: 1.45rem;
-      font-weight: 700;
-      letter-spacing: 1.15px;
-    }
-    .headline {
-      font-size: 2.05rem;
-      font-weight: 900;
-      color: var(--gold);
-      margin-top: 0;
-      margin-bottom: 14px;
-      letter-spacing: 2px;
-      line-height: 1.08;
-    }
-    .subline {
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: var(--grey);
-      margin-bottom: 33px;
-      margin-top: 0;
-      letter-spacing: 0.12px;
-      line-height: 1.22;
-    }
-    .btn {
-      display: inline-block;
-      width: 100%;
-      max-width: 320px;
-      border-radius: 32px;
-      background: var(--gold);
-      color: var(--bg);
-      font-size: 1.13rem;
-      font-weight: 900;
-      text-align: center;
-      letter-spacing: 1.2px;
-      border: none;
-      outline: none;
-      margin-top: 18px;
-      margin-bottom: 8px;
-      box-shadow: 0 4px 18px #C9A44144;
-      padding: 20px 0;
-      cursor: pointer;
-      transition: background 0.13s, box-shadow 0.13s, transform 0.13s;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background: var(--gold-dark);
-      box-shadow: 0 6px 38px #C9A44177;
-      transform: translateY(-2px) scale(1.03);
-    }
-    .massive-upgrade {
-      margin-top: 64px;
-      text-align: center;
-    }
-    .upgrade-title {
-      color: var(--main);
-      font-weight: 700;
-      font-size: 1.13rem;
-      letter-spacing: 1.2px;
-      margin-bottom: 6px;
-    }
-    .upgrade-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 28px;
-      margin-bottom: 10px;
-    }
-    .upgrade-logo-block {
+    header {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      padding-top: 3em;
+      padding-bottom: 2em;
     }
-    .upgrade-logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      margin-bottom: 7px;
-      background: #21321d;
-      object-fit: cover;
-      box-shadow: 0 2px 12px #0005;
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5em;
+      margin-bottom: 1.5em;
     }
-    .upgrade-label {
-      font-size: 1rem;
+    .logo-main {
+      height: 58px;
+    }
+    .headline {
+      font-size: 2.3em;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      color: var(--gold);
+      text-align: center;
+      line-height: 1.1;
+      margin-bottom: 0.5em;
+    }
+    .subheadline {
+      font-size: 1.22em;
+      font-weight: 400;
+      color: #e2e2e2;
+      text-align: center;
+      margin-bottom: 2em;
+      opacity: 0.88;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, var(--gold), #be9a44);
+      color: #151400;
+      border: none;
+      font-size: 1.15em;
+      font-weight: bold;
+      border-radius: 1.7em;
+      padding: 1em 2.5em;
+      margin-bottom: 0.5em;
+      box-shadow: 0 4px 18px 0 #e7c87355;
+      cursor: pointer;
+      transition: filter 0.18s;
+      margin-top: 0.4em;
+    }
+    .cta-btn:hover {
+      filter: brightness(1.14);
+    }
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 4px;
+      margin: 2em auto 2em auto;
+    }
+    section {
+      background: none;
+      border-bottom: 1.2px solid #23281c66;
+      margin-bottom: 0;
+      padding-top: 2.5em;
+      padding-bottom: 2.5em;
+    }
+    .section-title {
+      color: var(--gold);
+      font-size: 1.5em;
+      font-weight: 800;
+      margin-bottom: 0.5em;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .section-text {
+      color: #e0e0e0;
+      text-align: center;
+      font-size: 1.12em;
+      margin-bottom: 1.5em;
+      opacity: 0.85;
+      font-weight: 400;
+    }
+    .features-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.3em 2.2em;
+      max-width: 640px;
+      margin: 1.5em auto 1em auto;
+      color: #e7e7e7;
+      font-size: 1.07em;
+    }
+    @media (max-width: 700px) {
+      .features-list { grid-template-columns: 1fr; }
+    }
+    .testimonials-row {
+      display: flex;
+      gap: 1.4em;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.2em;
+    }
+    .testimonial {
+      background: var(--card);
+      color: #f6f6f6;
+      border-radius: 1.2em;
+      padding: 1.6em 1.1em;
+      font-size: 1em;
+      max-width: 300px;
+      min-width: 180px;
+      box-shadow: 0 2px 12px 0 #0e0c0450;
+      margin-bottom: 1em;
+      flex: 1 1 220px;
+    }
+    .testimonial strong {
+      color: var(--gold);
+      font-size: 1.1em;
+    }
+    .proof-row {
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 1.7em auto;
+    }
+    .proof-img {
+      border-radius: 1.1em;
+      width: 180px;
+      max-width: 44vw;
+      box-shadow: 0 2px 16px 0 #aeac9255;
+    }
+    .inside-list {
+      max-width: 480px;
+      margin: 1.2em auto 1em auto;
+      color: #e6e6e6;
+      font-size: 1.13em;
+      list-style: disc inside;
+      line-height: 1.8;
+    }
+    .infographic {
+      display: block;
+      width: 320px;
+      max-width: 90vw;
+      margin: 1em auto 1.2em auto;
+      border-radius: 1.2em;
+      box-shadow: 0 3px 18px 0 #dac67950;
+      border: 2px solid var(--gold);
+      background: #181f12;
+    }
+    .faq-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5em 2.5em;
+      max-width: 690px;
+      margin: 2em auto 1.5em auto;
+    }
+    @media (max-width: 700px) {
+      .faq-row { grid-template-columns: 1fr; }
+    }
+    .faq-q {
       color: var(--gold);
       font-weight: 700;
-      letter-spacing: 0.2px;
+      margin-bottom: 0.35em;
+      font-size: 1.09em;
     }
-    .upgrade-arrow {
-      font-size: 2rem;
+    .bonus-pack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9em;
+      margin-top: 2em;
+      margin-bottom: 1em;
+    }
+    .bonus-btn {
+      background: linear-gradient(90deg, var(--gold), #be9a44);
+      color: #151400;
+      font-weight: bold;
+      border-radius: 1em;
+      font-size: 1.01em;
+      padding: 0.8em 2em;
+      border: none;
+      box-shadow: 0 2px 12px 0 #e7c87355;
+      cursor: pointer;
+    }
+    .spots {
+      font-size: 1.4em;
+      font-family: 'Montserrat', monospace;
+      background: #0b0c05;
       color: var(--gold);
-      font-weight: 900;
+      border-radius: 0.4em;
+      padding: 0.22em 0.9em;
+      font-weight: bold;
+      margin-right: 0.4em;
+      letter-spacing: 0.03em;
     }
+    .footer {
+      background: var(--muted);
+      text-align: center;
+      color: #b1b1b1;
+      font-size: 0.97em;
+      padding: 2.5em 1em 2em 1em;
+      border-top: 1.5px solid #2a2f1b;
+      margin-top: 3em;
+    }
+    .avatar-row {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      margin-top: 1.3em;
+    }
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2.3px solid var(--gold);
+      object-fit: cover;
+      box-shadow: 0 2px 8px #5f542066;
+    }
+    /* Mobile Adjustments */
     @media (max-width: 600px) {
-      .container { max-width: 97vw; padding: 0 7px; }
-      .header { margin-bottom: 25px; }
-      .logo { width: 40px; height: 40px; }
-      .main-headline { font-size: 1.23rem; }
-      .subline { font-size: 0.99rem; }
-      .upgrade-row { gap: 13px; }
-      .upgrade-logo { width: 41px; height: 41px; }
+      .headline { font-size: 1.29em; }
+      .section-title { font-size: 1.15em; }
+      header, section { padding: 1.5em 0.8em; }
+      .divider { width: 50px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <img class="logo" src="YOUR_LOGO_IMAGE_HERE.png" alt="ANTH Logo">
-      <span class="brand">ANTH</span>
+  <!-- Banner -->
+  <div class="banner">
+    6,000 spots left • July intake closing soon • Secure your empire now
+  </div>
+
+  <!-- Hero Section -->
+  <header>
+    <div class="logo-row">
+      <img src="YOUR_NCS_LOGO.png" class="logo-main" alt="NCS logo">
+      <span style="color:var(--gold);font-weight:900;font-size:1.7em">|</span>
+      <img src="YOUR_INNER_VAULT_LOGO.png" class="logo-main" alt="Inner Vault logo">
     </div>
     <div class="headline">
-      BUILD AN AI EMPIRE.<br><span style="color:#fff;font-size:1.13rem;font-weight:400;">Money Making Is a Skill</span>
+      BUILD YOUR EMPIRE.<br>ESCAPE WEAKNESS.<br>
+      <span style="color:var(--gold);">JOIN THE INNER VAULT</span>
     </div>
-    <div class="subline">
-      One phone. Brutal discipline. ChatGPT leverage.<br>
-      Either you print money, or you stay a spectator.
+    <div class="subheadline">
+      The elite brotherhood for Pacific men. <br>
+      Kill the weak employee. Master AI. <br>
+      Built with proof, pain, and a phone.
     </div>
-    <a class="btn" href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank">Join Inner Vault</a>
-    <div class="massive-upgrade">
-      <div class="upgrade-title">INTRODUCING A MASSIVE UPGRADE</div>
-      <div class="upgrade-row">
-        <div class="upgrade-logo-block">
-          <img class="upgrade-logo" src="OLD_LOGO.png" alt="Old Logo">
-          <div class="upgrade-label">Old Logo</div>
-        </div>
-        <div class="upgrade-arrow">&#8594;</div>
-        <div class="upgrade-logo-block">
-          <img class="upgrade-logo" src="YOUR_LOGO_IMAGE_HERE.png" alt="Current Logo">
-          <div class="upgrade-label">Current Logo</div>
-        </div>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-btn" target="_blank">
+      Join the Inner Vault
+    </a>
+  </header>
+  <div class="divider"></div>
+
+  <!-- 2. About Section -->
+  <section>
+    <div class="section-title">Not a Course. A War Map.</div>
+    <div class="section-text">
+      For men who want to kill weakness, escape the 9-5, and build digital wealth.<br>
+      No fluff, no fake promises. Just war, proof, and execution.
+    </div>
+  </section>
+
+  <!-- 3. What You Get -->
+  <section>
+    <div class="section-title">What You Get</div>
+    <div class="features-list">
+      <div><b>Phase 0:</b> Kill The Weak Man</div>
+      <div><b>Phase 1:</b> Build The Empire</div>
+      <div>Bonus: BlackBox 2.0 (Advanced Playbook)</div>
+      <div>Step-by-step plans, AI prompts, and raw execution</div>
+    </div>
+  </section>
+
+  <!-- 4. Proof / Results -->
+  <section>
+    <div class="section-title">Proof, Not Promises</div>
+    <div class="proof-row">
+      <img src="proof-stripe.png" class="proof-img" alt="Stripe Proof">
+      <img src="proof-whop.png" class="proof-img" alt="Whop Payout">
+      <img src="proof-phone.png" class="proof-img" alt="Phone Build">
+    </div>
+    <div class="section-text">Built $15K/month using just a phone. No laptop. No excuses.</div>
+  </section>
+
+  <!-- 5. Member Wins / Testimonials -->
+  <section>
+    <div class="section-title">Real Results</div>
+    <div class="testimonials-row">
+      <div class="testimonial"><strong>Samu, PNG:</strong><br>“I was broke, now I’m making more than my old boss. Proof changes everything.”</div>
+      <div class="testimonial"><strong>Vili, Fiji:</strong><br>“Joined with $40. Now I pay my family’s bills. All from my phone.”</div>
+      <div class="testimonial"><strong>Manu, Samoa:</strong><br>“I thought AI was fake. Until I used the prompts and landed 2 clients. Life changed.”</div>
+    </div>
+  </section>
+
+  <!-- 6. What’s Inside: Core Lessons -->
+  <section>
+    <div class="section-title">Inside The Inner Vault</div>
+    <ul class="inside-list">
+      <li>Phase 0: Kill the Weak Employee Mindset</li>
+      <li>Phase 1: Build The Empire — AI, Proof, UGC</li>
+      <li>Battle-tested prompts for $10K+ jobs</li>
+      <li>Systems to replace departments (no tech degree)</li>
+      <li>Pacific-proof strategies (no fluff, all war)</li>
+    </ul>
+  </section>
+
+  <!-- 7. NCS System Map (Infographic) -->
+  <section>
+    <div class="section-title">Your War Path</div>
+    <img src="system-map.png" alt="System Map" class="infographic">
+    <div class="section-text">From weak employee to digital killer.<br>No theory, just battle-tested steps.</div>
+  </section>
+
+  <!-- 8. Private Channel -->
+  <section>
+    <div class="section-title">Private Channel Access</div>
+    <img src="private-chat.png" alt="Telegram/Discord" class="infographic" style="max-width:200px;">
+    <div class="section-text">
+      Secret Telegram + Discord. Live calls, proof drops, zero-bullshit mentorship.<br>
+      <a href="https://t.me/+N9mPSOW1dFlhMjc1" target="_blank" style="color:var(--gold);text-decoration:underline;">Join the chat</a>
+    </div>
+  </section>
+
+  <!-- 9. Community Culture -->
+  <section>
+    <div class="section-title">Brotherhood of Proof</div>
+    <div class="section-text">
+      This isn’t for weak men. <br>It’s for Pacific brothers ready to bleed, build, and rise together.
+    </div>
+    <div class="avatar-row">
+      <img src="group1.png" class="avatar" alt="Community 1">
+      <img src="group2.png" class="avatar" alt="Community 2">
+      <img src="group3.png" class="avatar" alt="Community 3">
+    </div>
+  </section>
+
+  <!-- 10. Bonus Content / Prompt Pack -->
+  <section>
+    <div class="section-title">BONUS: $11K Prompt Pack</div>
+    <div class="bonus-pack">
+      <a href="PromptPack.pdf" class="bonus-btn" target="_blank">Download Now (Free)</a>
+      <span style="font-size:0.95em;color:#e7c873bb">Real prompts used to land $11K clients. No fluff, no theory.</span>
+    </div>
+  </section>
+
+  <!-- 11. Scarcity / FOMO -->
+  <section>
+    <div class="section-title">Limited Access</div>
+    <div style="text-align:center;margin-bottom:1em;">
+      <span class="spots">6,000</span>SPOTS LEFT
+      <br>
+      <span style="color:#f6f6b1;font-size:1.08em;">July intake closing. After that, doors shut.</span>
+    </div>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-btn" target="_blank" style="font-size:1.05em;">Join The Inner Vault Now</a>
+  </section>
+
+  <!-- 12. FAQ -->
+  <section>
+    <div class="section-title">FAQs</div>
+    <div class="faq-row">
+      <div>
+        <div class="faq-q">Is this a scam?</div>
+        <div>No. Watch the proof. If you’re skeptical, stay broke.</div>
+      </div>
+      <div>
+        <div class="faq-q">What if I’m broke?</div>
+        <div>You can start with nothing. Built all of this with a phone. No excuses left.</div>
+      </div>
+      <div>
+        <div class="faq-q">Can I do this in PNG/Fiji/Samoa?</div>
+        <div>Yes. Designed for Pacific men. No one is coming to save you. Save yourself.</div>
+      </div>
+      <div>
+        <div class="faq-q">Can I get a refund?</div>
+        <div>No refunds. You want to win? Prove it. Go all in.</div>
       </div>
     </div>
-  </div>
-</body>
-</html>
+  </section>
+
+  <!-- 13. Why Different -->
+  <section>
+    <div class="section-title">Why This Is Different
