@@ -1,122 +1,130 @@
 <!DOCTYPE html><html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INNER VAULT — KILL THE WEAK MAN</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Now+Text:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Helvetica Now Text', sans-serif;
-        background: #000;
-        color: #fff;
-        overflow-x: hidden;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>No Code Society | Inner Vault</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #0e1b14;
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      background: #0e1b14;
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+    .logo {
+      max-width: 120px;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .red {
+      color: #ff3c3c;
+    }
+    .gold-btn {
+      background: #cba44b;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      color: black;
+      cursor: pointer;
+      margin-top: 2rem;
+      box-shadow: 0 0 10px #cba44b66;
+    }
+    section.hero {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .cta-sub {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+    .features {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .features h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .features ul {
+      list-style: none;
+    }
+    .features li {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    .review-section {
+      background: #0a1510;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .review {
+      margin: 1.5rem 0;
+      font-size: 1rem;
+      font-style: italic;
+      color: #ccc;
+    }
+    footer {
+      padding: 2rem;
+      background: #000;
+      text-align: center;
+      color: #555;
+      font-size: 0.9rem;
+    }
+    @media (min-width: 768px) {
+      .features {
+        flex-direction: row;
+        justify-content: space-around;
       }
-      .hero {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: url('https://assets-global.website-files.com/656ad6b93381c15957a076c5/656b832ef776ee8f824fdcf6_HeroGradient.svg') center/cover no-repeat;
+      .features ul {
+        width: 45%;
       }
-      .logo {
-        max-width: 180px;
-        margin-bottom: 1rem;
-      }
-      h1 {
-        font-size: 2.5rem;
-        text-transform: uppercase;
-        font-weight: bold;
-        line-height: 1.2;
-      }
-      .red {
-        color: #ff0000;
-      }
-      .gold {
-        color: #e5b80b;
-      }
-      .cta-btn {
-        margin-top: 2rem;
-        padding: 1rem 2rem;
-        font-weight: bold;
-        background-color: #e5b80b;
-        color: #000;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      .cta-btn:hover {
-        background-color: #fff;
-        color: #000;
-      }
-      .comparison {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 3rem;
-        gap: 2rem;
-      }
-      .comparison img {
-        max-height: 100px;
-        opacity: 0.3;
-      }
-      .comparison img.new {
-        opacity: 1;
-      }
-      .section {
-        max-width: 800px;
-        margin: 3rem auto;
-        padding: 0 1rem;
-        text-align: center;
-      }
-      .upgrade {
-        text-transform: uppercase;
-        font-size: 2rem;
-        font-weight: bold;
-        margin-top: 1rem;
-      }
-      .tagline {
-        font-size: 1.2rem;
-        opacity: 0.8;
-        margin-top: 1rem;
-      }
-      @media (max-width: 768px) {
-        .comparison {
-          flex-direction: column;
-        }
-        h1 {
-          font-size: 2rem;
-        }
-        .upgrade {
-          font-size: 1.5rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="hero">
-      <img class="logo" src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="Inner Vault Logo">
-      <h1>
-        The <span class="gold">modern world</span> is <br />
-        designed to make you <span class="red">weak</span>
-      </h1>
-      <button class="cta-btn">ENTER THE INNER VAULT</button>
-    </div><div class="comparison">
-  <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Old Logo">
-  <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="new" alt="New Logo">
-</div>
-
-<div class="section">
-  <p class="upgrade">A MASSIVE UPGRADE</p>
-  <p class="tagline">The education system trains you to obey. This trains you to build an empire.</p>
-</div>
-
-  </body>
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="logo" src="/your-logo-path/gold-logo.png" alt="No Code Society Logo">
+    <h1><span class="red">They trained you</span> to be an employee.<br>We train you to build an empire.</h1>
+    <p class="cta-sub">This is not school. This is a system. Enter if you’re ready to execute.</p>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/"><button class="gold-btn">Enter Inner Vault</button></a>
+  </header>  <section class="features">
+    <ul>
+      <li><span class="red">NO THEORY</span> – Just proof-based strategy.</li>
+      <li><span class="red">NO DISTRACTIONS</span> – Just focused execution.</li>
+      <li><span class="red">NO EXCUSES</span> – Just raw, ruthless results.</li>
+    </ul>
+    <ul>
+      <li>Build with just a phone and AI.</li>
+      <li>Zero capital strategies that work.</li>
+      <li>Daily vlogs. Daily proof. Daily pressure.</li>
+    </ul>
+  </section>  <section class="review-section">
+    <h2>Real Men. Real Results.</h2>
+    <div class="review">“Was working in Suva market. Now I make 5x more with just my phone. – Semi T.”</div>
+    <div class="review">“PNG bro here. Never touched a laptop. Now I run 2 UGC pages and teach others. – David R.”</div>
+    <div class="review">“Fiji to Australia. From labor to leverage. Inner Vault changed everything. – Manasa V.”</div>
+  </section>  <footer>
+    &copy; 2025 No Code Society. Built for the ghost who refuses to die poor.
+  </footer>
+</body>
 </html>
