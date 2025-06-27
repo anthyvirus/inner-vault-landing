@@ -2,135 +2,121 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INNER VAULT — Kill the Weak Man</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>INNER VAULT — KILL THE WEAK MAN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Now+Text:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      * {
+      body {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-        font-family: 'Helvetica Neue', sans-serif;
-      }body {
-    background: linear-gradient(180deg, #000 0%, #0c0c1f 100%);
-    color: #fff;
-    overflow-x: hidden;
-  }
-
-  .section {
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .intro {
-    font-size: 1.1rem;
-    opacity: 0.6;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-  }
-
-  .headline {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-
-  .highlight-red {
-    color: #ff4040;
-  }
-
-  .highlight-green {
-    color: #44ff88;
-  }
-
-  .cta-button {
-    margin-top: 30px;
-    background-color: #c3a639;
-    padding: 16px 32px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    color: black;
-    cursor: pointer;
-  }
-
-  .logo-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin: 60px 0;
-  }
-
-  .logo-block img {
-    max-width: 100px;
-    opacity: 0.4;
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  .logo-block img:last-child {
-    opacity: 1;
-  }
-
-  .reviews {
-    background: #111;
-    padding: 40px 20px;
-    border-top: 1px solid #333;
-  }
-
-  .review {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 30px;
-    color: #aaa;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .review span {
-    color: #fff;
-    font-weight: bold;
-  }
-
-  @media (max-width: 768px) {
-    .headline {
-      font-size: 2.2rem;
-    }
-
-    .logo-block {
-      flex-direction: column;
-    }
-  }
-</style>
-
+        font-family: 'Helvetica Now Text', sans-serif;
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+      }
+      .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: url('https://assets-global.website-files.com/656ad6b93381c15957a076c5/656b832ef776ee8f824fdcf6_HeroGradient.svg') center/cover no-repeat;
+      }
+      .logo {
+        max-width: 180px;
+        margin-bottom: 1rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+      .red {
+        color: #ff0000;
+      }
+      .gold {
+        color: #e5b80b;
+      }
+      .cta-btn {
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        font-weight: bold;
+        background-color: #e5b80b;
+        color: #000;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .cta-btn:hover {
+        background-color: #fff;
+        color: #000;
+      }
+      .comparison {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3rem;
+        gap: 2rem;
+      }
+      .comparison img {
+        max-height: 100px;
+        opacity: 0.3;
+      }
+      .comparison img.new {
+        opacity: 1;
+      }
+      .section {
+        max-width: 800px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+        text-align: center;
+      }
+      .upgrade {
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 1rem;
+      }
+      .tagline {
+        font-size: 1.2rem;
+        opacity: 0.8;
+        margin-top: 1rem;
+      }
+      @media (max-width: 768px) {
+        .comparison {
+          flex-direction: column;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .upgrade {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
   </head>
   <body>
-    <section class="section">
-      <div class="intro">INTRODUCING</div>
-      <div class="headline">A <span class="highlight-green">MASSIVE</span> <span class="highlight-red">UPGRADE</span></div>
-      <p style="margin-top: 20px; font-size: 1.2rem; color: #ccc">
-        The <span class="highlight-red">modern education system</span> is designed to keep you <span class="highlight-red">poor</span>.
-      </p>
-      <button class="cta-button">ENTER INNER VAULT</button>
-    </section><div class="logo-block">
-  <img src="/old-logo.png" alt="Old Logo" />
-  <img src="/new-logo.png" alt="New Logo" />
+    <div class="hero">
+      <img class="logo" src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="Inner Vault Logo">
+      <h1>
+        The <span class="gold">modern world</span> is <br />
+        designed to make you <span class="red">weak</span>
+      </h1>
+      <button class="cta-btn">ENTER THE INNER VAULT</button>
+    </div><div class="comparison">
+  <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Old Logo">
+  <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="new" alt="New Logo">
 </div>
 
-<section class="reviews">
-  <div class="review">
-    “Bro... this changed my life. I used to be stuck in 9-5 in Suva. Now I make more with AI and my phone.” — <span>Jone Ravai</span>
-  </div>
-  <div class="review">
-    “Never thought a PNG boy from Mt Hagen would run a business with zero capital. But here I am.” — <span>Peter Wama</span>
-  </div>
-  <div class="review">
-    “It felt like a cult at first. Then I realised... I needed to be brainwashed out of weakness.” — <span>Tevita Vuniwaqa</span>
-  </div>
-</section>
+<div class="section">
+  <p class="upgrade">A MASSIVE UPGRADE</p>
+  <p class="tagline">The education system trains you to obey. This trains you to build an empire.</p>
+</div>
 
   </body>
 </html>
