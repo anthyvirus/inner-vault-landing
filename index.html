@@ -116,66 +116,84 @@
       font-size: 0.98em;
       opacity: 0.9;
     }
-    /* Reviews */
-    .reviews-wrap {
+    /* Invoice Proof Section */
+    .invoice-proof-section {
+      max-width: 800px;
+      margin: 2.5em auto 0 auto;
+      padding: 0 1em 2.2em 1em;
+      border-bottom: 1.2px solid #222b31;
+      text-align: center;
+    }
+    .invoice-title {
+      color: var(--gold);
+      font-size: 1.23em;
+      font-weight: 800;
+      margin-bottom: 1em;
+      letter-spacing: 0.01em;
+    }
+    .invoice-img {
+      border-radius: 0.8em;
+      width: 280px;
+      max-width: 98vw;
+      margin-bottom: 1.2em;
+      box-shadow: 0 4px 20px #191e2644;
+      border: 2px solid var(--gold);
+    }
+    .invoice-caption {
+      color: #e7c873;
+      opacity: 0.97;
+      font-size: 1.05em;
+      margin-bottom: 0.8em;
+    }
+    /* Reviews Section */
+    .reviews-section {
+      max-width: 800px;
+      margin: 2.5em auto 0 auto;
+      padding: 0 1em 2.2em 1em;
+      border-bottom: 1.2px solid #222b31;
+    }
+    .reviews-title {
+      color: var(--gold);
+      font-size: 1.23em;
+      font-weight: 800;
+      margin-bottom: 1em;
+      letter-spacing: 0.01em;
+      text-align: center;
+    }
+    .reviews-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.7em;
+      gap: 2em;
       justify-content: center;
-      align-items: stretch;
     }
     .review-card {
-      background:#171e23;
-      border-radius:1.1em;
-      box-shadow:0 2px 14px #0e0c0450;
-      max-width:290px;
-      min-width:200px;
-      flex:1 1 200px;
-      padding:1.3em 1em;
-      margin-bottom:1em;
+      background: #171c22;
+      border-radius: 1em;
+      box-shadow: 0 2px 12px #0e0c0450;
+      max-width: 330px;
+      min-width: 210px;
+      padding: 1.2em 1.1em;
+      margin-bottom: 1em;
+      color: #eee;
+      font-size: 1em;
     }
-    .review-user {
-      display:flex;
-      align-items:center;
-      gap:1em;
+    .review-name {
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 0.3em;
     }
-    .review-user img {
-      width:45px;
-      height:45px;
-      border-radius:50%;
-      border:2px solid var(--gold);
+    .review-country {
+      font-size: 0.98em;
+      color: #cfd3e1;
+      opacity: 0.76;
+      margin-bottom: 0.6em;
     }
-    .review-user-info {
-      display: flex;
-      flex-direction: column;
+    .review-text {
+      font-size: 1.03em;
+      color: #e1e5ee;
+      opacity: 0.97;
+      margin-bottom: 0.1em;
     }
-    .review-user-name {
-      font-weight:700;
-      color:var(--gold);
-      font-size:1.01em;
-    }
-    .review-user-location {
-      color:#bbb;
-      font-size:0.93em;
-    }
-    .review-quote {
-      margin-top:1.1em;
-      color:#e1e5ee;
-      font-size:1em;
-      font-weight:500;
-    }
-    .reviews-footer {
-      text-align:center;
-      margin-top:1.7em;
-      color:#cfd3e1;
-      font-size:1.01em;
-      opacity:0.82;
-    }
-    .reviews-footer span {
-      color:var(--gold);
-      font-weight:700;
-    }
-    /* FAQ */
     .faq-section {
       background: #121921;
       padding: 2.2em 1em;
@@ -240,10 +258,9 @@
     }
     /* Responsive */
     @media (max-width:700px) {
-      .feature-grid { flex-direction: column; gap: 1.2em;}
-      .feature-card { max-width: unset; min-width: 0;}
+      .feature-grid, .reviews-grid { flex-direction: column; gap: 1.2em;}
+      .feature-card, .review-card { max-width: unset; min-width: 0;}
       .section { padding-bottom: 1.5em;}
-      .reviews-wrap { flex-direction: column; gap: 1em;}
     }
   </style>
 </head>
@@ -269,69 +286,68 @@
     <div class="feature-grid">
       <div class="feature-card">
         <div class="feature-card-icon">🗡️</div>
-        <div class="feature-card-title">Phase 0: Kill The Weak Man</div>
-        <div class="feature-card-desc">Erase old habits. Destroy the weak employee inside you.</div>
+        <div class="feature-card-title">PHASE 0: KILL THE WEAK MAN</div>
+        <div class="feature-card-desc">
+          - Destroy weak employee habits<br>
+          - Discipline, mindset, and action drills<br>
+          - Access the full Phase 0 system
+        </div>
       </div>
       <div class="feature-card">
         <div class="feature-card-icon">🏆</div>
-        <div class="feature-card-title">Phase 1: Build The Empire</div>
-        <div class="feature-card-desc">Leverage AI, prompts, and proof to print digital cash.</div>
+        <div class="feature-card-title">PHASE 1: BUILD THE EMPIRE</div>
+        <div class="feature-card-desc">
+          - Use my proven prompts & systems<br>
+          - Learn to print money with just your phone<br>
+          - Weekly updates, case studies & Q&A
+        </div>
       </div>
       <div class="feature-card">
         <div class="feature-card-icon">🛡️</div>
-        <div class="feature-card-title">BlackBox 2.0</div>
-        <div class="feature-card-desc">Bonus: Advanced backend systems and strategies.</div>
+        <div class="feature-card-title">BONUS: BLACKBOX 2.0</div>
+        <div class="feature-card-desc">
+          - Advanced backend systems & AI<br>
+          - Secret wealth automation<br>
+          - Pacific & PNG-specific proof
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">👑</div>
+        <div class="feature-card-title">ELITE COMMUNITY</div>
+        <div class="feature-card-desc">
+          - Private Discord & Telegram<br>
+          - Support, accountability, and direct access<br>
+          - 24/7 network of Pacific empire-builders
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Reviews Section -->
-  <div class="section" style="border-bottom:none;">
-    <div class="section-title" style="margin-bottom:1.6em;">Real Wins. Real Brotherhood.</div>
-    <div class="reviews-wrap">
-      <!-- Review Card 1 -->
-      <div class="review-card">
-        <div class="review-user">
-          <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="User">
-          <div class="review-user-info">
-            <div class="review-user-name">Samu T.</div>
-            <div class="review-user-location">Suva, Fiji</div>
-          </div>
-        </div>
-        <div class="review-quote">
-          “Joined Inner Vault with just my phone. Made my first $1,400 online in 2 weeks. Changed my life, and my whole family’s too.”
-        </div>
-      </div>
-      <!-- Review Card 2 -->
-      <div class="review-card">
-        <div class="review-user">
-          <img src="https://randomuser.me/api/portraits/men/14.jpg" alt="User">
-          <div class="review-user-info">
-            <div class="review-user-name">Jone K.</div>
-            <div class="review-user-location">Port Moresby, PNG</div>
-          </div>
-        </div>
-        <div class="review-quote">
-          “AI, prompts, proof – all real. Didn’t need a laptop, didn’t need capital. I finally escaped the 9-5. This is the brotherhood we all needed.”
-        </div>
-      </div>
-      <!-- Review Card 3 -->
-      <div class="review-card">
-        <div class="review-user">
-          <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="User">
-          <div class="review-user-info">
-            <div class="review-user-name">Isi N.</div>
-            <div class="review-user-location">Lautoka, Fiji</div>
-          </div>
-        </div>
-        <div class="review-quote">
-          “Not just hype. This group gave me the system and fire to finally build cash and confidence, all from my old Android.”
-        </div>
-      </div>
+  <!-- Invoice Proof Section -->
+  <div class="invoice-proof-section">
+    <div class="invoice-title">INVOICE PROOF</div>
+    <img src="your_invoice_image.png" class="invoice-img" alt="Invoice Proof">
+    <div class="invoice-caption">
+      $11,000 AUD wired direct — paid for a single prompt that replaced an entire department. Real client. Real money. Only inside the Vault.
     </div>
-    <div class="reviews-footer">
-      <span>6,000+ members</span> in the vault.<br>
-      You don’t have to do it alone.
+  </div>
+
+  <!-- Reviews Section -->
+  <div class="reviews-section">
+    <div class="reviews-title">REAL REVIEWS FROM INNER VAULT MEMBERS</div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-name">Jone V. <span class="review-country">| Fiji</span></div>
+        <div class="review-text">"I made my first online income in 2 weeks. Never thought I could do it with just my phone."</div>
+      </div>
+      <div class="review-card">
+        <div class="review-name">Tasi R. <span class="review-country">| PNG</span></div>
+        <div class="review-text">"This is the only course that actually shows proof. The $11K prompt was real. Anthony is different."</div>
+      </div>
+      <div class="review-card">
+        <div class="review-name">Samson S. <span class="review-country">| Samoa</span></div>
+        <div class="review-text">"The brotherhood is legit. I quit my job after Phase 1. Best investment I've made."</div>
+      </div>
     </div>
   </div>
 
@@ -363,7 +379,7 @@
     <br>
     <div>Courses: Proof, Prompting, AI Systems, UGC, Wealth, Brotherhood</div>
     <div style="margin:1em 0;">
-      <a href="mailto:support@nocodesociety.net" style="color:var(--gold);text-decoration:none;">support@nocodesociety.net</a>
+      <a href="mailto:anthmediapg@gmail.com" style="color:var(--gold);text-decoration:none;">anthmediapg@gmail.com</a>
     </div>
     <div style="font-size:0.96em;max-width:430px;margin:1em auto 0 auto;color:#777;">
       Everything inside No Code Society & Inner Vault is for education and documentation only.<br>
