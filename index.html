@@ -24,8 +24,8 @@
     --text: #ffffff;
     --primary: #d4a533;
     --primary-hover: #e9cb5b;
-    --accent-start: #00204f;
-    --accent-end: #6c4fff;
+    --accent-start: #0d0e2c;
+    --accent-end: #3d5aff;
   }
 
   * {
@@ -34,12 +34,13 @@
     padding: 0;
   }
 
-  body {
+  html, body {
     font-family: "Helvetica Now", sans-serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    scroll-behavior: smooth;
   }
 
   a {
@@ -54,32 +55,25 @@
 
   .banner {
     background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
-    padding: 0.75rem;
+    padding: 0.85rem;
     text-align: center;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     color: white;
+    font-family: "Helvetica Now", sans-serif;
   }
 
   header {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 1.5rem 1rem;
   }
 
   .logo img {
-    height: 42px;
-    width: auto;
-  }
-
-  .nav-link {
-    font-weight: 700;
-    margin-left: 1rem;
+    height: 44px;
   }
 
   .hero {
@@ -92,6 +86,7 @@
     font-weight: 700;
     margin-bottom: 1rem;
     text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   .hero h1 span {
@@ -100,9 +95,10 @@
 
   .hero p {
     font-size: 1.1rem;
-    max-width: 700px;
+    max-width: 680px;
     margin: 0 auto 2rem;
     opacity: 0.85;
+    font-weight: 400;
   }
 
   .hero .cta {
@@ -113,11 +109,12 @@
   }
 
   .btn {
-    padding: 0.85rem 1.8rem;
+    padding: 0.85rem 2rem;
     font-weight: 700;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: all 0.3s ease;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-family: "Helvetica Now", sans-serif;
   }
 
   .btn-primary {
@@ -127,16 +124,6 @@
 
   .btn-primary:hover {
     background: var(--primary-hover);
-  }
-
-  .btn-outline {
-    border: 2px solid #fff;
-    color: #fff;
-  }
-
-  .btn-outline:hover {
-    background: #fff;
-    color: #000;
   }
 
   .features {
@@ -151,7 +138,7 @@
   .feature {
     background: #111116;
     padding: 2rem;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #1f1f2c;
     transition: 0.3s;
   }
@@ -163,18 +150,19 @@
   .feature h3 {
     color: var(--primary);
     margin-bottom: 0.8rem;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
+    font-weight: 700;
   }
 
   .feature p {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     opacity: 0.85;
   }
 
   .footer {
     text-align: center;
     font-size: 0.85rem;
-    opacity: 0.6;
+    opacity: 0.65;
     padding: 2rem 1rem;
   }
 
@@ -182,18 +170,28 @@
     color: var(--primary);
     font-weight: bold;
   }
+
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+    }
+  }
 </style>
 
   </head>  <body>
     <div class="banner">Price Increasing Again — Secure Access Now</div><header>
   <div class="logo">
-    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo" />
+    <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo" />
   </div>
 </header>
 
 <section class="hero">
   <h1><span>Kill the Weak Employee.</span> Build an AI Empire.</h1>
-  <p>Inner Vault is the underground gym for your mind and bank account. One phone. Brutal discipline. ChatGPT leverage. Either you print money, or you stay a spectator.</p>
+  <p>Inner Vault is the underground gym for your mind and your bank account. One phone. Brutal discipline. ChatGPT leverage. Either you print money, or you stay a spectator.</p>
   <div class="cta">
     <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-primary" target="_blank">Join Inner Vault</a>
   </div>
