@@ -4,43 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inner Vault | Elite Brotherhood for Pacific Men</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/helvetica-now-display" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/helvetica-now-text" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
-      --gold: #e7c873;
-      --yellow: #FFC646;
-      --deep: #0B131A;
-      --blue: #2d6af7;
-      --grey: #161d25;
-      --max: 1200px;
-      --transition: all 0.3s ease;
-      --font-slim: 300;
-      --font-bold: 800;
-    }
-    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     }
     
     body {
-      background: var(--deep);
+      background: #0B131A;
       color: #fff;
+      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300; /* Slim weight */
+      line-height: 1.6;
       letter-spacing: -0.01em;
       overflow-x: hidden;
-      line-height: 1.6;
-      font-weight: var(--font-slim);
+    }
+    
+    /* Helvetica Now font classes */
+    .helvetica-bold {
+      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 700; /* Bold weight */
+    }
+    
+    .helvetica-slim {
+      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300; /* Slim weight */
     }
     
     /* FOMO Banner - TRW style */
     .fomo-banner {
-      background: linear-gradient(90deg, var(--blue) 0%, #2a4fc5 100%);
+      background: linear-gradient(90deg, #2d6af7 0%, #2a4fc5 100%);
       color: #fff;
-      font-size: 0.95rem;
-      font-weight: 700;
+      font-size: 0.9rem;
       text-align: center;
       padding: 0.9rem 0;
       letter-spacing: 0.05em;
@@ -77,28 +76,16 @@
     }
     
     .header-container {
-      max-width: var(--max);
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-    
-    .logo img {
-      height: 42px;
-      border-radius: 12px;
-    }
-    
     .logo-text {
-      font-weight: var(--font-bold);
-      font-size: 1.5rem;
-      background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
+      font-size: 1.6rem;
+      background: linear-gradient(90deg, #FFC646 0%, #e7c873 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.02em;
@@ -112,26 +99,24 @@
     .nav-links a {
       color: #cfd3e1;
       text-decoration: none;
-      font-weight: 500;
       font-size: 0.95rem;
-      transition: var(--transition);
+      transition: all 0.3s ease;
       letter-spacing: -0.01em;
     }
     
     .nav-links a:hover {
-      color: var(--gold);
+      color: #e7c873;
     }
     
     .nav-cta {
-      background: linear-gradient(90deg, var(--yellow) 75%, var(--gold) 100%);
+      background: linear-gradient(90deg, #FFC646 75%, #e7c873 100%);
       color: #101820;
-      font-weight: 700;
       border: none;
       border-radius: 50px;
       padding: 0.75rem 1.7rem;
       cursor: pointer;
       text-decoration: none;
-      transition: var(--transition);
+      transition: all 0.3s ease;
       font-size: 0.95rem;
       letter-spacing: -0.01em;
     }
@@ -144,71 +129,45 @@
     /* Hero Section */
     .hero {
       padding: 12rem 2rem 5rem;
-      background: radial-gradient(ellipse at top, #0f1a24 0%, var(--deep) 100%);
+      background: radial-gradient(ellipse at top, #0f1a24 0%, #0B131A 100%);
       position: relative;
       overflow: hidden;
-    }
-    
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(231, 200, 115, 0.05) 0%, transparent 70%);
-      z-index: 0;
+      text-align: center;
     }
     
     .hero-container {
-      max-width: var(--max);
+      max-width: 900px;
       margin: 0 auto;
-      text-align: center;
       position: relative;
       z-index: 1;
     }
     
-    .hero-logo {
-      height: 90px;
-      margin-bottom: 1.8rem;
-      border-radius: 1.2em;
-      box-shadow: 0 4px 40px #222b3190;
-      background: #101820;
-      padding: 0.4rem;
-      display: inline-block;
-    }
-    
     .hero-headline {
-      font-size: 3.5rem;
-      font-weight: var(--font-bold);
-      background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
+      font-size: 3.8rem;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #FFC646 0%, #e7c873 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 1.05;
-      margin-bottom: 1rem;
       text-shadow: 0 2px 14px #1e274699;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
       letter-spacing: -0.03em;
     }
     
     .hero-sub {
       color: #cfd3e1;
-      font-size: 1.4rem;
-      font-weight: 400;
+      font-size: 1.5rem;
       margin-bottom: 2.5rem;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
       letter-spacing: -0.01em;
+      line-height: 1.5;
     }
     
     .cta-btn {
       display: inline-block;
-      background: linear-gradient(90deg, var(--yellow) 75%, var(--gold) 100%);
+      background: linear-gradient(90deg, #FFC646 75%, #e7c873 100%);
       color: #101820;
-      font-weight: var(--font-bold);
       font-size: 1.2rem;
       border: none;
       border-radius: 2.1em;
@@ -217,24 +176,11 @@
       margin: 1.5rem 0 0.7rem 0;
       cursor: pointer;
       text-decoration: none;
-      transition: var(--transition);
+      transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
       z-index: 1;
       letter-spacing: -0.01em;
-    }
-    
-    .cta-btn::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--yellow) 100%);
-      z-index: -1;
-      opacity: 0;
-      transition: var(--transition);
     }
     
     .cta-btn:hover {
@@ -242,15 +188,11 @@
       box-shadow: 0 12px 40px #e7c87380;
     }
     
-    .cta-btn:hover::after {
-      opacity: 1;
-    }
-    
     .hero-stats {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 3rem;
+      margin-top: 4rem;
       flex-wrap: wrap;
     }
     
@@ -264,15 +206,13 @@
     
     .stat-number {
       font-size: 2.2rem;
-      font-weight: var(--font-bold);
-      color: var(--gold);
+      color: #e7c873;
       margin-bottom: 0.2rem;
     }
     
     .stat-text {
       color: #cfd3e1;
       font-size: 0.95rem;
-      font-weight: 400;
     }
     
     /* Features Section - TRW style */
@@ -284,9 +224,8 @@
     .section-title {
       text-align: center;
       font-size: 2.8rem;
-      font-weight: var(--font-bold);
       margin-bottom: 3.5rem;
-      background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
+      background: linear-gradient(90deg, #FFC646 0%, #e7c873 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.03em;
@@ -315,7 +254,7 @@
     }
     
     .feature-check {
-      color: var(--gold);
+      color: #e7c873;
       font-size: 1.8rem;
       margin-top: 0.2rem;
       flex-shrink: 0;
@@ -323,8 +262,7 @@
     
     .feature-content h3 {
       font-size: 1.5rem;
-      font-weight: var(--font-bold);
-      color: var(--gold);
+      color: #e7c873;
       margin-bottom: 0.5rem;
       letter-spacing: -0.01em;
     }
@@ -332,7 +270,6 @@
     .feature-content p {
       color: #e1e5ee;
       font-size: 1.1rem;
-      font-weight: 400;
       line-height: 1.7;
       letter-spacing: -0.01em;
     }
@@ -344,7 +281,7 @@
     }
     
     .testimonial-container {
-      max-width: var(--max);
+      max-width: 1200px;
       margin: 0 auto;
       text-align: center;
     }
@@ -361,7 +298,6 @@
     
     .testimonial-text {
       font-size: 1.5rem;
-      font-weight: 500;
       color: #e1e5ee;
       margin-bottom: 2rem;
       line-height: 1.6;
@@ -370,15 +306,13 @@
     
     .testimonial-author {
       font-size: 1.1rem;
-      font-weight: var(--font-bold);
-      color: var(--gold);
+      color: #e7c873;
       letter-spacing: -0.01em;
     }
     
     .testimonial-role {
       color: #cfd3e1;
       font-size: 0.95rem;
-      font-weight: 400;
       margin-top: 0.3rem;
       letter-spacing: -0.01em;
     }
@@ -386,7 +320,7 @@
     /* CTA Section */
     .cta-section {
       padding: 5rem 2rem;
-      background: radial-gradient(ellipse at top, #0f1a24 0%, var(--deep) 100%);
+      background: radial-gradient(ellipse at top, #0f1a24 0%, #0B131A 100%);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -401,9 +335,8 @@
     
     .cta-title {
       font-size: 2.8rem;
-      font-weight: var(--font-bold);
       margin-bottom: 1.5rem;
-      background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
+      background: linear-gradient(90deg, #FFC646 0%, #e7c873 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       letter-spacing: -0.03em;
@@ -412,12 +345,12 @@
     .cta-subtitle {
       color: #cfd3e1;
       font-size: 1.4rem;
-      font-weight: 400;
       margin-bottom: 2.5rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       letter-spacing: -0.01em;
+      line-height: 1.5;
     }
     
     .student-count {
@@ -432,12 +365,11 @@
     }
     
     .count-icon {
-      color: var(--gold);
+      color: #e7c873;
       font-size: 1.5rem;
     }
     
     .count-text {
-      font-weight: 600;
       color: #e1e5ee;
       letter-spacing: -0.01em;
     }
@@ -450,21 +382,11 @@
     }
     
     .footer-container {
-      max-width: var(--max);
+      max-width: 1200px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 3rem;
-    }
-    
-    .footer-logo {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .footer-logo img {
-      height: 50px;
     }
     
     .footer-text {
@@ -481,8 +403,7 @@
     }
     
     .footer-title {
-      color: var(--gold);
-      font-weight: 700;
+      color: #e7c873;
       font-size: 1.1rem;
       margin-bottom: 1rem;
       letter-spacing: -0.01em;
@@ -491,13 +412,13 @@
     .footer-links a {
       color: #aaa;
       text-decoration: none;
-      transition: var(--transition);
+      transition: all 0.3s ease;
       font-size: 0.95rem;
       letter-spacing: -0.01em;
     }
     
     .footer-links a:hover {
-      color: var(--gold);
+      color: #e7c873;
     }
     
     .footer-contact {
@@ -516,12 +437,12 @@
     }
     
     .contact-icon {
-      color: var(--gold);
+      color: #e7c873;
       font-size: 1.2rem;
     }
     
     .footer-bottom {
-      max-width: var(--max);
+      max-width: 1200px;
       margin: 3rem auto 0;
       padding-top: 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -548,21 +469,19 @@
     }
     
     .mobile-cta-text {
-      font-weight: 700;
-      color: var(--gold);
+      color: #e7c873;
       letter-spacing: -0.01em;
     }
     
     .mobile-cta-btn {
-      background: linear-gradient(90deg, var(--yellow) 75%, var(--gold) 100%);
+      background: linear-gradient(90deg, #FFC646 75%, #e7c873 100%);
       color: #101820;
-      font-weight: 700;
       border: none;
       border-radius: 50px;
       padding: 0.8rem 1.5rem;
       cursor: pointer;
       text-decoration: none;
-      transition: var(--transition);
+      transition: all 0.3s ease;
       font-size: 0.95rem;
       letter-spacing: -0.01em;
     }
@@ -575,7 +494,7 @@
     /* Responsive */
     @media (max-width: 992px) {
       .hero-headline {
-        font-size: 2.8rem;
+        font-size: 3rem;
       }
       
       .features-container {
@@ -589,7 +508,7 @@
       }
       
       .hero-headline {
-        font-size: 2.3rem;
+        font-size: 2.5rem;
       }
       
       .hero-sub {
@@ -615,7 +534,7 @@
     
     @media (max-width: 480px) {
       .hero-headline {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       
       .cta-btn {
@@ -641,26 +560,23 @@
 </head>
 <body>
   <!-- FOMO Banner -->
-  <div class="fomo-banner">
+  <div class="fomo-banner helvetica-slim">
     <i class="fas fa-exclamation-circle"></i> 6,000 spots left • July intake closes soon • Secure your empire now
   </div>
   
   <!-- Header -->
   <header class="header">
     <div class="header-container">
-      <div class="logo">
-        <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo">
-        <div class="logo-text">INNER VAULT</div>
-      </div>
+      <div class="logo-text helvetica-bold">INNER VAULT</div>
       
-      <nav class="nav-links">
+      <nav class="nav-links helvetica-slim">
         <a href="#features">Program</a>
         <a href="#testimonials">Results</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Support</a>
       </nav>
       
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="nav-cta">
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="nav-cta helvetica-bold">
         Join Now
       </a>
     </div>
@@ -669,32 +585,31 @@
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <div class="hero-container">
-      <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="hero-logo" alt="NCS Logo">
+      <h1 class="hero-headline helvetica-bold">BUILD YOUR EMPIRE. ESCAPE WEAKNESS.</h1>
+      <h2 class="hero-headline helvetica-bold">JOIN THE INNER VAULT</h2>
       
-      <h1 class="hero-headline">BUILD YOUR EMPIRE. ESCAPE WEAKNESS.<br>JOIN THE INNER VAULT</h1>
-      
-      <p class="hero-sub">
+      <p class="hero-sub helvetica-slim">
         The elite brotherhood for Pacific men. Kill the weak employee. Master AI. Built with proof, pain, and a phone.
       </p>
       
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn helvetica-bold">
         Join the Inner Vault
       </a>
       
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-number">11K+</div>
-          <div class="stat-text">First Client Earnings</div>
+          <div class="stat-number helvetica-bold">11K+</div>
+          <div class="stat-text helvetica-slim">First Client Earnings</div>
         </div>
         
         <div class="stat-item">
-          <div class="stat-number">97%</div>
-          <div class="stat-text">Success Rate</div>
+          <div class="stat-number helvetica-bold">97%</div>
+          <div class="stat-text helvetica-slim">Success Rate</div>
         </div>
         
         <div class="stat-item">
-          <div class="stat-number">24/7</div>
-          <div class="stat-text">Brotherhood Support</div>
+          <div class="stat-number helvetica-bold">24/7</div>
+          <div class="stat-text helvetica-slim">Brotherhood Support</div>
         </div>
       </div>
     </div>
@@ -702,38 +617,38 @@
   
   <!-- Features Section -->
   <section class="features-section" id="features">
-    <h2 class="section-title">THE INNER VAULT SYSTEM</h2>
+    <h2 class="section-title helvetica-bold">THE INNER VAULT SYSTEM</h2>
     
     <div class="features-container">
       <div class="feature-item">
-        <div class="feature-check">✓</div>
+        <div class="feature-check helvetica-bold">✓</div>
         <div class="feature-content">
-          <h3>World class learning application</h3>
-          <p>Access our proprietary platform designed specifically for Pacific men to build empires from anywhere with just a phone.</p>
+          <h3 class="helvetica-bold">World class learning application</h3>
+          <p class="helvetica-slim">Access our proprietary platform designed specifically for Pacific men to build empires from anywhere with just a phone.</p>
         </div>
       </div>
       
       <div class="feature-item">
-        <div class="feature-check">✓</div>
+        <div class="feature-check helvetica-bold">✓</div>
         <div class="feature-content">
-          <h3>Scale from Zero to $10k/month</h3>
-          <p>Step-by-step system proven to take you from employee mindset to $10k/month in 90 days or less using AI systems.</p>
+          <h3 class="helvetica-bold">Scale from Zero to $10k/month</h3>
+          <p class="helvetica-slim">Step-by-step system proven to take you from employee mindset to $10k/month in 90 days or less using AI systems.</p>
         </div>
       </div>
       
       <div class="feature-item">
-        <div class="feature-check">✓</div>
+        <div class="feature-check helvetica-bold">✓</div>
         <div class="feature-content">
-          <h3>1-on-1 advice from industry experts</h3>
-          <p>Direct access to Anthony and our team of millionaire mentors who've built empires in the Pacific region.</p>
+          <h3 class="helvetica-bold">1-on-1 advice from industry experts</h3>
+          <p class="helvetica-slim">Direct access to Anthony and our team of millionaire mentors who've built empires in the Pacific region.</p>
         </div>
       </div>
       
       <div class="feature-item">
-        <div class="feature-check">✓</div>
+        <div class="feature-check helvetica-bold">✓</div>
         <div class="feature-content">
-          <h3>Pacific-focused wealth strategies</h3>
-          <p>Methods specifically designed for PNG, Fiji, Samoa and other Pacific nations - no generic Western tactics.</p>
+          <h3 class="helvetica-bold">Pacific-focused wealth strategies</h3>
+          <p class="helvetica-slim">Methods specifically designed for PNG, Fiji, Samoa and other Pacific nations - no generic Western tactics.</p>
         </div>
       </div>
     </div>
@@ -742,14 +657,14 @@
   <!-- Testimonial Section -->
   <section class="testimonial-section" id="testimonials">
     <div class="testimonial-container">
-      <h2 class="section-title">REAL RESULTS FROM OUR BROTHERHOOD</h2>
+      <h2 class="section-title helvetica-bold">REAL RESULTS FROM OUR BROTHERHOOD</h2>
       
       <div class="testimonial-card">
-        <p class="testimonial-text">
+        <p class="testimonial-text helvetica-slim">
           "I made my first online income in just 2 weeks. Never thought I could do it with just my phone. The Inner Vault system works exactly as described. This isn't theory - it's real execution."
         </p>
-        <div class="testimonial-author">Jone V.</div>
-        <div class="testimonial-role">Fiji • Former Construction Worker</div>
+        <div class="testimonial-author helvetica-bold">Jone V.</div>
+        <div class="testimonial-role helvetica-slim">Fiji • Former Construction Worker</div>
       </div>
     </div>
   </section>
@@ -757,18 +672,18 @@
   <!-- Final CTA -->
   <section class="cta-section">
     <div class="cta-container">
-      <h2 class="cta-title">JOIN THE REAL WORLD</h2>
-      <p class="cta-subtitle">
+      <h2 class="cta-title helvetica-bold">JOIN THE REAL WORLD</h2>
+      <p class="cta-subtitle helvetica-slim">
         The modern education system is designed to make you poor. We're designed to make you wealthy.
       </p>
       
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
+      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn helvetica-bold">
         Join the Inner Vault Now
       </a>
       
       <div class="student-count">
         <i class="fas fa-users count-icon"></i>
-        <div class="count-text">Join 113,000+ like-minded students</div>
+        <div class="count-text helvetica-slim">Join 113,000+ like-minded students</div>
       </div>
     </div>
   </section>
@@ -777,73 +692,59 @@
   <footer class="footer" id="contact">
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo">
-        <p class="footer-text">
-          The Inner Vault - Elite brotherhood for Pacific men. Built with proof, pain, and a phone.
+        <div class="logo-text helvetica-bold" style="margin-bottom: 1.5rem;">INNER VAULT</div>
+        <p class="footer-text helvetica-slim">
+          The elite brotherhood for Pacific men. Built with proof, pain, and a phone.
         </p>
       </div>
       
       <div class="footer-links">
-        <h3 class="footer-title">Program</h3>
-        <a href="#features">Phase 0: Kill the Weak Man</a>
-        <a href="#features">Phase 1: Build the Empire</a>
-        <a href="#features">Blackbox 2.0</a>
-        <a href="#features">Elite Brotherhood</a>
+        <h3 class="footer-title helvetica-bold">Program</h3>
+        <a href="#features" class="helvetica-slim">Phase 0: Kill the Weak Man</a>
+        <a href="#features" class="helvetica-slim">Phase 1: Build the Empire</a>
+        <a href="#features" class="helvetica-slim">Blackbox 2.0</a>
+        <a href="#features" class="helvetica-slim">Elite Brotherhood</a>
       </div>
       
       <div class="footer-links">
-        <h3 class="footer-title">Resources</h3>
-        <a href="#">Success Stories</a>
-        <a href="#">Free Training</a>
-        <a href="#">Pacific AI Toolkit</a>
-        <a href="#">Brotherhood Forum</a>
+        <h3 class="footer-title helvetica-bold">Resources</h3>
+        <a href="#" class="helvetica-slim">Success Stories</a>
+        <a href="#" class="helvetica-slim">Free Training</a>
+        <a href="#" class="helvetica-slim">Pacific AI Toolkit</a>
+        <a href="#" class="helvetica-slim">Brotherhood Forum</a>
       </div>
       
       <div class="footer-contact">
-        <h3 class="footer-title">Contact Support</h3>
+        <h3 class="footer-title helvetica-bold">Contact Support</h3>
         <div class="contact-item">
           <i class="fas fa-envelope contact-icon"></i>
-          <span>anthmediapg@gmail.com</span>
+          <span class="helvetica-slim">anthmediapg@gmail.com</span>
         </div>
         <div class="contact-item">
           <i class="fab fa-telegram contact-icon"></i>
-          <span>t.me/inner-vault</span>
+          <span class="helvetica-slim">t.me/inner-vault</span>
         </div>
         <div class="contact-item">
           <i class="fab fa-discord contact-icon"></i>
-          <span>Inner Vault Brotherhood</span>
+          <span class="helvetica-slim">Inner Vault Brotherhood</span>
         </div>
       </div>
     </div>
     
-    <div class="footer-bottom">
+    <div class="footer-bottom helvetica-slim">
       © 2023 Inner Vault by No Code Society. All rights reserved. Designed for Pacific warriors.
     </div>
   </footer>
   
   <!-- Mobile Sticky CTA -->
   <div class="mobile-cta">
-    <div class="mobile-cta-text">Limited Spots Available</div>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="mobile-cta-btn">
+    <div class="mobile-cta-text helvetica-bold">Limited Spots Available</div>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="mobile-cta-btn helvetica-bold">
       Join Now
     </a>
   </div>
   
   <script>
-    // Mobile Navigation
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
-    
-    window.addEventListener('scroll', () => {
-      if (lastScrollY < window.scrollY) {
-        header.classList.add('header-hidden');
-      } else {
-        header.classList.remove('header-hidden');
-      }
-      
-      lastScrollY = window.scrollY;
-    });
-    
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -858,6 +759,18 @@
         }
       });
     });
+    
+    // Mobile navigation toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+      
+      if(mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function() {
+          navLinks.classList.toggle('show');
+        });
+      }
+    });
   </script>
 </body>
-        </html>
+</html>
