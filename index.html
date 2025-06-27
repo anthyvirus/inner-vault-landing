@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <title>No Code Society | Inner Vault</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --gold: #e7c873;
       --yellow: #FFC646;
-      --dark: #101820;
       --deep: #0B131A;
+      --blue: #8e9eff;
+      --grey: #161d25;
+      --max: 1120px;
     }
     body {
       margin: 0;
@@ -20,185 +22,191 @@
       letter-spacing: 0.01em;
     }
     .fomo-banner {
-      background: linear-gradient(90deg, #8e9eff 20%, #1e2746 100%);
+      background: linear-gradient(90deg, var(--blue) 20%, #1e2746 100%);
       color: #fff;
-      font-size: 0.95em;
-      font-weight: bold;
+      font-size: 1em;
+      font-weight: 900;
       text-align: center;
-      padding: 0.8em 0;
+      padding: 1.1em 0 1em 0;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       box-shadow: 0 2px 14px #181d3499;
     }
-    .hero {
-      max-width: 650px;
+    .hero-block {
+      background: #131b22;
+      border-bottom: 2px solid var(--gold);
+      max-width: var(--max);
       margin: 2.5em auto 0 auto;
+      padding: 2.3em 1em 2em 1em;
+      border-radius: 1.5em 1.5em 0 0;
       text-align: center;
-      padding: 0 1em;
+      position: relative;
     }
     .hero-logo {
-      height: 60px;
-      margin-bottom: 1em;
+      height: 70px;
+      margin-bottom: 1.5em;
+      border-radius: 1.2em;
+      box-shadow: 0 4px 40px #222b3190;
+      background: #101820;
+      padding: 0.2em;
     }
     .hero-headline {
-      font-size: 2em;
+      font-size: 2.15em;
       font-weight: 900;
       color: var(--gold);
-      line-height: 1.08;
-      margin-bottom: 0.5em;
+      line-height: 1.06;
+      margin-bottom: 0.25em;
+      text-shadow: 0 2px 14px #1e274699;
     }
     .hero-sub {
       color: #cfd3e1;
-      font-size: 1.16em;
-      margin-bottom: 2em;
+      font-size: 1.12em;
+      font-weight: 700;
+      margin-bottom: 1.7em;
+      letter-spacing: 0.02em;
     }
     .cta-btn {
       display: inline-block;
-      background: var(--yellow);
-      color: #141313;
-      font-weight: bold;
-      font-size: 1.12em;
+      background: linear-gradient(90deg, var(--yellow) 75%, var(--gold) 100%);
+      color: #101820;
+      font-weight: 900;
+      font-size: 1.18em;
       border: none;
-      border-radius: 2em;
-      box-shadow: 0 4px 20px #e7c87350;
-      padding: 1em 2.5em;
+      border-radius: 2.1em;
+      box-shadow: 0 8px 32px #e7c87340;
+      padding: 1.2em 3.2em;
       margin: 1em 0 0.7em 0;
       cursor: pointer;
       text-decoration: none;
+      letter-spacing: 0.05em;
       transition: filter .15s;
     }
-    .cta-btn:hover { filter: brightness(1.11);}
-    .section {
-      max-width: 900px;
-      margin: 2.2em auto 0 auto;
-      padding: 0 1em;
-      border-bottom: 1.2px solid #222b31;
-      padding-bottom: 2.2em;
-    }
-    .section-title {
-      color: var(--gold);
-      font-size: 1.3em;
-      font-weight: 800;
-      margin-bottom: 0.4em;
-      letter-spacing: 0.01em;
-    }
-    .feature-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2em;
-      margin: 2em 0;
-      justify-content: center;
-    }
-    .feature-card {
-      background: #12181f;
-      border-radius: 1em;
-      box-shadow: 0 2px 12px #0e0c0450;
-      min-width: 180px;
-      max-width: 220px;
-      flex: 1 1 170px;
-      padding: 1.5em 1.1em;
-      text-align: left;
-      margin-bottom: 1em;
-    }
-    .feature-card-icon {
-      font-size: 2.2em;
-      color: var(--gold);
-      margin-bottom: 0.6em;
-    }
-    .feature-card-title {
-      font-weight: 700;
+    .cta-btn:hover { filter: brightness(1.15);}
+    .invoice-statbar {
+      background: linear-gradient(90deg, #272c31 60%, var(--gold) 100%);
       color: #fff;
-      font-size: 1.08em;
-      margin-bottom: 0.45em;
-    }
-    .feature-card-desc {
-      color: #e1e5ee;
-      font-size: 0.98em;
-      opacity: 0.9;
-    }
-    /* Invoice Proof Section */
-    .invoice-proof-section {
-      max-width: 800px;
-      margin: 2.5em auto 0 auto;
-      padding: 0 1em 2.2em 1em;
-      border-bottom: 1.2px solid #222b31;
-      text-align: center;
-    }
-    .invoice-title {
-      color: var(--gold);
-      font-size: 1.23em;
-      font-weight: 800;
-      margin-bottom: 1em;
-      letter-spacing: 0.01em;
+      border-radius: 1.2em;
+      box-shadow: 0 2px 22px #222b3175;
+      padding: 2.3em 1.5em;
+      margin: 2.2em 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .invoice-img {
-      border-radius: 0.8em;
-      width: 280px;
-      max-width: 98vw;
+      border-radius: 1em;
+      width: 250px;
+      max-width: 90vw;
       margin-bottom: 1.2em;
       box-shadow: 0 4px 20px #191e2644;
       border: 2px solid var(--gold);
+      background: #fff;
     }
     .invoice-caption {
-      color: #e7c873;
-      opacity: 0.97;
-      font-size: 1.05em;
-      margin-bottom: 0.8em;
+      font-weight: bold;
+      color: var(--gold);
+      font-size: 1.25em;
+      margin-bottom: 0.5em;
+      letter-spacing: 0.04em;
     }
-    /* Reviews Section */
-    .reviews-section {
-      max-width: 800px;
+    .invoice-detail {
+      color: #e7c873;
+      font-size: 1.07em;
+      margin-bottom: 0.1em;
+      opacity: 0.95;
+    }
+    .features-stripes {
+      max-width: var(--max);
       margin: 2.5em auto 0 auto;
+      display: grid;
+      gap: 1.5em;
+    }
+    .feature-stripe {
+      background: #161d25;
+      border-left: 8px solid var(--gold);
+      border-radius: 1.1em;
+      padding: 1.5em 2em;
+      margin-bottom: 0.2em;
+      display: flex;
+      align-items: center;
+      gap: 1.7em;
+      box-shadow: 0 2px 10px #191e2655;
+    }
+    .feature-stripe-icon {
+      font-size: 2.6em;
+      color: var(--gold);
+      min-width: 55px;
+      text-shadow: 0 2px 12px #232a3050;
+    }
+    .feature-stripe-body {
+      flex: 1;
+    }
+    .feature-stripe-title {
+      font-size: 1.14em;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 0.22em;
+    }
+    .feature-stripe-desc {
+      color: #e1e5ee;
+      font-size: 1.05em;
+      opacity: 0.97;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .reviews-section {
+      max-width: 850px;
+      margin: 3.5em auto 0 auto;
       padding: 0 1em 2.2em 1em;
       border-bottom: 1.2px solid #222b31;
+      text-align: center;
     }
     .reviews-title {
       color: var(--gold);
-      font-size: 1.23em;
-      font-weight: 800;
-      margin-bottom: 1em;
-      letter-spacing: 0.01em;
-      text-align: center;
+      font-size: 1.33em;
+      font-weight: 900;
+      margin-bottom: 1.6em;
+      letter-spacing: 0.02em;
     }
-    .reviews-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2em;
-      justify-content: center;
-    }
-    .review-card {
-      background: #171c22;
+    .review-block {
+      background: #181f25;
       border-radius: 1em;
-      box-shadow: 0 2px 12px #0e0c0450;
-      max-width: 330px;
-      min-width: 210px;
-      padding: 1.2em 1.1em;
-      margin-bottom: 1em;
+      box-shadow: 0 2px 16px #232a3050;
+      max-width: 480px;
+      margin: 1em auto 2.3em auto;
+      padding: 1.4em 1.2em 1.2em 1.2em;
       color: #eee;
-      font-size: 1em;
+      font-size: 1.13em;
+      position: relative;
     }
     .review-name {
       font-weight: 700;
       color: var(--gold);
-      margin-bottom: 0.3em;
+      margin-bottom: 0.12em;
+      font-size: 1em;
     }
     .review-country {
       font-size: 0.98em;
       color: #cfd3e1;
-      opacity: 0.76;
-      margin-bottom: 0.6em;
+      opacity: 0.68;
+      margin-bottom: 0.32em;
+      font-weight: 600;
     }
     .review-text {
-      font-size: 1.03em;
+      font-size: 1.11em;
       color: #e1e5ee;
       opacity: 0.97;
       margin-bottom: 0.1em;
+      font-weight: 800;
     }
     .faq-section {
       background: #121921;
       padding: 2.2em 1em;
       border-radius: 1em;
-      margin: 2em auto 2em auto;
+      margin: 2.5em auto 2em auto;
       max-width: 750px;
       box-shadow: 0 4px 18px #191e2644;
     }
@@ -256,11 +264,9 @@
       padding: 2.5em 1em 2em 1em;
       margin-top: 2.5em;
     }
-    /* Responsive */
     @media (max-width:700px) {
-      .feature-grid, .reviews-grid { flex-direction: column; gap: 1.2em;}
-      .feature-card, .review-card { max-width: unset; min-width: 0;}
-      .section { padding-bottom: 1.5em;}
+      .feature-stripe { flex-direction: column; gap: 0.5em;}
+      .hero-block, .invoice-statbar, .reviews-section {padding: 1em 0.5em;}
     }
   </style>
 </head>
@@ -269,7 +275,7 @@
     6,000 spots left • July intake closes soon • Secure your empire now
   </div>
   <!-- Hero -->
-  <div class="hero">
+  <div class="hero-block">
     <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="hero-logo" alt="NCS Logo">
     <div class="hero-headline">BUILD YOUR EMPIRE. ESCAPE WEAKNESS.<br>JOIN THE INNER VAULT</div>
     <div class="hero-sub">
@@ -280,74 +286,61 @@
     </a>
   </div>
 
-  <!-- Section: What You Get -->
-  <div class="section">
-    <div class="section-title">What You Get</div>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <div class="feature-card-icon">🗡️</div>
-        <div class="feature-card-title">PHASE 0: KILL THE WEAK MAN</div>
-        <div class="feature-card-desc">
-          - Destroy weak employee habits<br>
-          - Discipline, mindset, and action drills<br>
-          - Access the full Phase 0 system
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🏆</div>
-        <div class="feature-card-title">PHASE 1: BUILD THE EMPIRE</div>
-        <div class="feature-card-desc">
-          - Use my proven prompts & systems<br>
-          - Learn to print money with just your phone<br>
-          - Weekly updates, case studies & Q&A
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">🛡️</div>
-        <div class="feature-card-title">BONUS: BLACKBOX 2.0</div>
-        <div class="feature-card-desc">
-          - Advanced backend systems & AI<br>
-          - Secret wealth automation<br>
-          - Pacific & PNG-specific proof
-        </div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-card-icon">👑</div>
-        <div class="feature-card-title">ELITE COMMUNITY</div>
-        <div class="feature-card-desc">
-          - Private Discord & Telegram<br>
-          - Support, accountability, and direct access<br>
-          - 24/7 network of Pacific empire-builders
-        </div>
-      </div>
+  <!-- Invoice Proof Stat Bar -->
+  <div class="invoice-statbar">
+    <img src="your_invoice_image.png" class="invoice-img" alt="Invoice Proof">
+    <div class="invoice-caption">$11,000 AUD — ONE PROMPT. ONE CLIENT. FULL PROOF.</div>
+    <div class="invoice-detail">
+      Real bank transfer. Real result. The prompt that replaced an entire department. See inside for the actual prompt, system & full process.
     </div>
   </div>
 
-  <!-- Invoice Proof Section -->
-  <div class="invoice-proof-section">
-    <div class="invoice-title">INVOICE PROOF</div>
-    <img src="your_invoice_image.png" class="invoice-img" alt="Invoice Proof">
-    <div class="invoice-caption">
-      $11,000 AUD wired direct — paid for a single prompt that replaced an entire department. Real client. Real money. Only inside the Vault.
+  <!-- Features as Hero Stripes -->
+  <div class="features-stripes">
+    <div class="feature-stripe">
+      <span class="feature-stripe-icon">🗡️</span>
+      <div class="feature-stripe-body">
+        <div class="feature-stripe-title">PHASE 0: KILL THE WEAK MAN</div>
+        <div class="feature-stripe-desc">Destroy your old employee mindset. Discipline, action, raw accountability. Everything you need to build the new you — or stay broke forever.</div>
+      </div>
+    </div>
+    <div class="feature-stripe">
+      <span class="feature-stripe-icon">🏆</span>
+      <div class="feature-stripe-body">
+        <div class="feature-stripe-title">PHASE 1: BUILD THE EMPIRE</div>
+        <div class="feature-stripe-desc">Use the exact prompts and AI systems I used to make $11K+ with a phone. No fluff. Full backend and client acquisition process shown.</div>
+      </div>
+    </div>
+    <div class="feature-stripe">
+      <span class="feature-stripe-icon">🛡️</span>
+      <div class="feature-stripe-body">
+        <div class="feature-stripe-title">BLACKBOX 2.0 (BONUS)</div>
+        <div class="feature-stripe-desc">Advanced backend: AI, wealth protection, secret automation only for Inner Vault. PNG/Pacific proven. Only available for July intake.</div>
+      </div>
+    </div>
+    <div class="feature-stripe">
+      <span class="feature-stripe-icon">👑</span>
+      <div class="feature-stripe-body">
+        <div class="feature-stripe-title">ELITE BROTHERHOOD</div>
+        <div class="feature-stripe-desc">Private Discord & Telegram. 24/7 support, direct access to Anthony, and a real brotherhood. No keyboard warriors. Only men who execute.</div>
+      </div>
     </div>
   </div>
 
   <!-- Reviews Section -->
   <div class="reviews-section">
     <div class="reviews-title">REAL REVIEWS FROM INNER VAULT MEMBERS</div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-name">Jone V. <span class="review-country">| Fiji</span></div>
-        <div class="review-text">"I made my first online income in 2 weeks. Never thought I could do it with just my phone."</div>
-      </div>
-      <div class="review-card">
-        <div class="review-name">Tasi R. <span class="review-country">| PNG</span></div>
-        <div class="review-text">"This is the only course that actually shows proof. The $11K prompt was real. Anthony is different."</div>
-      </div>
-      <div class="review-card">
-        <div class="review-name">Samson S. <span class="review-country">| Samoa</span></div>
-        <div class="review-text">"The brotherhood is legit. I quit my job after Phase 1. Best investment I've made."</div>
-      </div>
+    <div class="review-block">
+      <div class="review-name">Jone V. <span class="review-country">| Fiji</span></div>
+      <div class="review-text">"I made my first online income in 2 weeks. Never thought I could do it with just my phone."</div>
+    </div>
+    <div class="review-block">
+      <div class="review-name">Tasi R. <span class="review-country">| PNG</span></div>
+      <div class="review-text">"This is the only course that actually shows proof. The $11K prompt was real. Anthony is different."</div>
+    </div>
+    <div class="review-block">
+      <div class="review-name">Samson S. <span class="review-country">| Samoa</span></div>
+      <div class="review-text">"The brotherhood is legit. I quit my job after Phase 1. Best investment I've made."</div>
     </div>
   </div>
 
@@ -379,28 +372,3 @@
     <br>
     <div>Courses: Proof, Prompting, AI Systems, UGC, Wealth, Brotherhood</div>
     <div style="margin:1em 0;">
-      <a href="mailto:anthmediapg@gmail.com" style="color:var(--gold);text-decoration:none;">anthmediapg@gmail.com</a>
-    </div>
-    <div style="font-size:0.96em;max-width:430px;margin:1em auto 0 auto;color:#777;">
-      Everything inside No Code Society & Inner Vault is for education and documentation only.<br>
-      No guarantee of earnings — discipline and execution is your responsibility.<br>
-      &copy; 2025 No Code Society. All Rights Reserved.
-    </div>
-  </div>
-
-  <script>
-    // Simple FAQ Toggle
-    document.querySelectorAll('.faq-q').forEach(function(q){
-      q.addEventListener('click', function(){
-        this.classList.toggle('open');
-        var a = this.nextElementSibling;
-        if (this.classList.contains('open')) {
-          a.style.maxHeight = a.scrollHeight + "px";
-        } else {
-          a.style.maxHeight = null;
-        }
-      });
-    });
-  </script>
-</body>
-</html>
