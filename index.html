@@ -2,113 +2,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INNER VAULT — No Code Society</title>
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet" />
+  <title>No Code Society - Inner Vault</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      background: radial-gradient(#000, #020202);
-      color: #fff;
-      font-family: 'Helvetica Neue', sans-serif;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-    .red {
-      color: red;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    .cta-button {
-      background: #007bff;
-      border: none;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-    }
-    .testimonials {
-      background-color: #111;
-      border-radius: 12px;
-      padding: 25px;
-      max-width: 500px;
-      margin: 40px auto;
-    }
-    .testimonials h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .testimonials p {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    .value-triggers {
-      background-color: #0a0a0a;
-      border: 1px solid red;
-      padding: 30px;
-      border-radius: 10px;
-      margin-top: 50px;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .value-triggers h2 {
-      font-size: 22px;
-      font-weight: bold;
-      color: red;
-      margin-bottom: 20px;
-    }
-    .value-triggers ul {
-      list-style: none;
-      padding: 0;
-    }
-    .value-triggers li {
-      margin-bottom: 12px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .logo {
-      margin-top: 40px;
-      max-width: 120px;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: black url('https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif') repeat top center;
+  background-size: cover;
+  color: white;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+  opacity: 0.1;
+  filter: grayscale(100%);
+  transition: all 0.8s ease-in-out;
+}
+
+.logo:hover {
+  opacity: 1;
+  filter: none;
+}
+
+.section-title {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #aaa;
+  margin-top: 4rem;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.highlight {
+  color: #d80000; /* Red for problem words only */
+}
+
+.cta-btn {
+  background-color: #f5d467;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+.reviews {
+  margin-top: 4rem;
+  background-color: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.review {
+  margin-bottom: 2rem;
+}
+
+.review-name {
+  font-weight: bold;
+}
+
+.footer-logo {
+  width: 80px;
+  margin-top: 3rem;
+  opacity: 0.6;
+}
+
   </style>
 </head>
 <body>
-  <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo" class="logo" />
-  <h1><span class="red">INNER VAULT</span><br />No Code Society</h1>
-  <p><strong>Introducing</strong> <span class="red">a massive UPGRADE</span><br />The modern education system is designed to keep you weak and confused.</p>
-  <a href="https://t.me/+N9mPSOW1dFlhMjc1" class="cta-button">Join Telegram</a>  <div class="testimonials">
-    <h3>Ratu Jone, Fiji 🇫🇯</h3>
-    <p>“I joined with just $39. Now I'm making $500/week on my phone. This is not a course. It's a weapon.”</p><h3>Elijah Walo, PNG 🇵🇬</h3>
-<p>“I was stuck in retail for years. One prompt changed everything. I escaped the system with proof.”</p>
+  <div class="container">
+    <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" class="logo" alt="Old Logo" />
+    <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="logo" style="opacity:1;filter:none;width:120px;" alt="NCS Shield Logo" /><div class="section-title">INTRODUCING</div>
+<div class="main-title">A MASSIVE <span class="highlight">UPGRADE</span></div>
+<p>The modern education system is designed to keep you <span class="highlight">weak</span> and <span class="highlight">confused</span>.</p>
 
-<h3>Mosese R., Fiji 🇫🇯</h3>
-<p>“No fluff, no theory. Just daily war, money systems, and brotherhood.”</p>
+<button class="cta-btn">Join Telegram</button>
 
-  </div>  <div class="value-triggers">
-    <h2 class="red">Only 7% Finish The Mission</h2>
-    <ul>
-      <li>⚔️ 93% give up when it gets hard. We reward the 7% who finish.</li>
-      <li>📱 You don’t need a laptop. I built a $15K/month system with a phone.</li>
-      <li>⏳ Most men scroll TikTok. You’ll build cashflow machines using AI.</li>
-      <li>🚫 No fluff. No theory. This is daily war and tactical execution.</li>
-      <li>🔐 Built for Pacific men. Designed for escape. Proven with proof.</li>
-      <li>🧠 You’re not here to learn. You’re here to win.</li>
-    </ul>
-  </div>  <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="NCS Alt Logo" class="logo" />
+<div class="reviews">
+  <div class="review">
+    <div class="review-name">Ratu Jone, Fiji 🇫🇯</div>
+    <p>
+      "I joined with just $39. Now I'm making $500/week on my phone. This is not a course. It's a weapon."
+    </p>
+  </div>
+  <div class="review">
+    <div class="review-name">Elijah Walo, PNG 🇵🇬</div>
+    <p>
+      "I was stuck in retail for years. One prompt changed everything. I escaped the system with proof."
+    </p>
+  </div>
+  <div class="review">
+    <div class="review-name">Mosese R., Fiji 🇫🇯</div>
+    <p>
+      "No fluff, no theory. Just daily war, money systems, and brotherhood."
+    </p>
+  </div>
+</div>
+
+  </div>
 </body>
 </html>
