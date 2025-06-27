@@ -3,44 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>No Code Society | Inner Vault</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Inner Vault | Elite Brotherhood for Pacific Men</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --gold: #e7c873;
       --yellow: #FFC646;
       --deep: #0B131A;
-      --blue: #8e9eff;
+      --blue: #2d6af7;
       --grey: #161d25;
       --max: 1200px;
       --transition: all 0.3s ease;
+      --font-slim: 300;
+      --font-bold: 800;
     }
     
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     }
     
     body {
       background: var(--deep);
       color: #fff;
-      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-      letter-spacing: 0.01em;
+      letter-spacing: -0.01em;
       overflow-x: hidden;
       line-height: 1.6;
+      font-weight: var(--font-slim);
     }
     
-    /* Header and Navigation */
+    /* FOMO Banner - TRW style */
+    .fomo-banner {
+      background: linear-gradient(90deg, var(--blue) 0%, #2a4fc5 100%);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 0.9rem 0;
+      letter-spacing: 0.05em;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .fomo-banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shine 3s infinite;
+    }
+    
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    /* Header */
     .header {
-      background: rgba(11, 19, 26, 0.95);
+      background: rgba(11, 19, 26, 0.98);
       backdrop-filter: blur(10px);
       position: fixed;
       width: 100%;
       z-index: 1000;
       border-bottom: 1px solid rgba(231, 200, 115, 0.15);
-      padding: 1.2rem 2rem;
+      padding: 1.1rem 2rem;
     }
     
     .header-container {
@@ -63,11 +96,12 @@
     }
     
     .logo-text {
-      font-weight: 800;
-      font-size: 1.3rem;
+      font-weight: var(--font-bold);
+      font-size: 1.5rem;
       background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
     }
     
     .nav-links {
@@ -78,9 +112,10 @@
     .nav-links a {
       color: #cfd3e1;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 0.95rem;
       transition: var(--transition);
+      letter-spacing: -0.01em;
     }
     
     .nav-links a:hover {
@@ -93,47 +128,17 @@
       font-weight: 700;
       border: none;
       border-radius: 50px;
-      padding: 0.8rem 1.8rem;
+      padding: 0.75rem 1.7rem;
       cursor: pointer;
       text-decoration: none;
       transition: var(--transition);
       font-size: 0.95rem;
+      letter-spacing: -0.01em;
     }
     
     .nav-cta:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 32px #e7c87380;
-    }
-    
-    /* FOMO Banner */
-    .fomo-banner {
-      background: linear-gradient(90deg, var(--blue) 20%, #1e2746 100%);
-      color: #fff;
-      font-size: 0.95rem;
-      font-weight: 800;
-      text-align: center;
-      padding: 1.1rem 0;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      box-shadow: 0 2px 14px #181d3499;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .fomo-banner::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      animation: shine 3s infinite;
-    }
-    
-    @keyframes shine {
-      0% { left: -100%; }
-      100% { left: 100%; }
     }
     
     /* Hero Section */
@@ -174,35 +179,36 @@
     }
     
     .hero-headline {
-      font-size: 3.2rem;
-      font-weight: 900;
+      font-size: 3.5rem;
+      font-weight: var(--font-bold);
       background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 1.1;
+      line-height: 1.05;
       margin-bottom: 1rem;
       text-shadow: 0 2px 14px #1e274699;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
+      letter-spacing: -0.03em;
     }
     
     .hero-sub {
       color: #cfd3e1;
-      font-size: 1.35rem;
-      font-weight: 600;
+      font-size: 1.4rem;
+      font-weight: 400;
       margin-bottom: 2.5rem;
-      letter-spacing: 0.02em;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      letter-spacing: -0.01em;
     }
     
     .cta-btn {
       display: inline-block;
       background: linear-gradient(90deg, var(--yellow) 75%, var(--gold) 100%);
       color: #101820;
-      font-weight: 900;
+      font-weight: var(--font-bold);
       font-size: 1.2rem;
       border: none;
       border-radius: 2.1em;
@@ -211,11 +217,11 @@
       margin: 1.5rem 0 0.7rem 0;
       cursor: pointer;
       text-decoration: none;
-      letter-spacing: 0.05em;
       transition: var(--transition);
       position: relative;
       overflow: hidden;
       z-index: 1;
+      letter-spacing: -0.01em;
     }
     
     .cta-btn::after {
@@ -258,7 +264,7 @@
     
     .stat-number {
       font-size: 2.2rem;
-      font-weight: 800;
+      font-weight: var(--font-bold);
       color: var(--gold);
       margin-bottom: 0.2rem;
     }
@@ -266,88 +272,10 @@
     .stat-text {
       color: #cfd3e1;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 400;
     }
     
-    /* Invoice Proof */
-    .invoice-section {
-      padding: 5rem 2rem;
-      background: #131b22;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .invoice-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 5px;
-      background: linear-gradient(90deg, var(--blue) 20%, #1e2746 100%);
-    }
-    
-    .invoice-container {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-    }
-    
-    .invoice-content {
-      flex: 1;
-    }
-    
-    .invoice-caption {
-      font-weight: 800;
-      color: var(--gold);
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.04em;
-    }
-    
-    .invoice-detail {
-      color: #e7c873;
-      font-size: 1.15rem;
-      margin-bottom: 1.5rem;
-      opacity: 0.95;
-      line-height: 1.7;
-    }
-    
-    .invoice-img-container {
-      flex: 1;
-      position: relative;
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(231, 200, 115, 0.3);
-    }
-    
-    .invoice-img {
-      width: 100%;
-      display: block;
-      transition: var(--transition);
-    }
-    
-    .invoice-img-container:hover .invoice-img {
-      transform: scale(1.02);
-    }
-    
-    .invoice-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: rgba(11, 19, 26, 0.9);
-      color: var(--gold);
-      font-weight: 700;
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      border: 1px solid rgba(231, 200, 115, 0.3);
-    }
-    
-    /* Features Section */
+    /* Features Section - TRW style */
     .features-section {
       padding: 5rem 2rem;
       background: #0f171f;
@@ -355,205 +283,104 @@
     
     .section-title {
       text-align: center;
-      font-size: 2.5rem;
-      font-weight: 800;
+      font-size: 2.8rem;
+      font-weight: var(--font-bold);
       margin-bottom: 3.5rem;
       background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: -0.03em;
     }
     
-    .features-grid {
-      max-width: var(--max);
+    .features-container {
+      max-width: 700px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    .feature-card {
       background: #161d25;
       border-radius: 1.2rem;
-      padding: 2.5rem 2rem;
-      transition: var(--transition);
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(231, 200, 115, 0.1);
-      position: relative;
-      overflow: hidden;
     }
     
-    .feature-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(231, 200, 115, 0.3);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     
-    .feature-icon {
-      font-size: 3rem;
+    .feature-item:last-child {
+      border-bottom: none;
+    }
+    
+    .feature-check {
       color: var(--gold);
-      margin-bottom: 1.5rem;
-      text-shadow: 0 2px 12px #232a3050;
+      font-size: 1.8rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
     }
     
-    .feature-title {
-      font-size: 1.4rem;
-      font-weight: 800;
+    .feature-content h3 {
+      font-size: 1.5rem;
+      font-weight: var(--font-bold);
       color: var(--gold);
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
     }
     
-    .feature-desc {
+    .feature-content p {
       color: #e1e5ee;
-      font-size: 1.05rem;
-      opacity: 0.97;
-      font-weight: 500;
+      font-size: 1.1rem;
+      font-weight: 400;
       line-height: 1.7;
+      letter-spacing: -0.01em;
     }
     
-    /* Reviews Section */
-    .reviews-section {
+    /* Testimonial Section */
+    .testimonial-section {
       padding: 5rem 2rem;
       background: #131b22;
     }
     
-    .reviews-container {
+    .testimonial-container {
       max-width: var(--max);
       margin: 0 auto;
+      text-align: center;
     }
     
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-    
-    .review-card {
+    .testimonial-card {
       background: #181f25;
       border-radius: 1.2rem;
-      padding: 2.2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      border: 1px solid rgba(231, 200, 115, 0.1);
-      position: relative;
-    }
-    
-    .review-card::before {
-      content: """;
-      position: absolute;
-      top: 1.5rem;
-      left: 1.5rem;
-      font-size: 4rem;
-      color: var(--gold);
-      opacity: 0.2;
-      font-family: Georgia, serif;
-    }
-    
-    .review-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-    
-    .review-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: var(--deep);
-      margin-right: 1rem;
-    }
-    
-    .review-info {
-      flex: 1;
-    }
-    
-    .review-name {
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 0.12em;
-      font-size: 1.1rem;
-    }
-    
-    .review-country {
-      font-size: 0.95rem;
-      color: #cfd3e1;
-      opacity: 0.68;
-      font-weight: 500;
-    }
-    
-    .review-text {
-      font-size: 1.05rem;
-      color: #e1e5ee;
-      opacity: 0.97;
-      font-weight: 500;
-      line-height: 1.7;
-    }
-    
-    /* FAQ Section */
-    .faq-section {
-      padding: 5rem 2rem;
-      background: #0f171f;
-    }
-    
-    .faq-container {
-      max-width: 800px;
+      padding: 3rem;
+      max-width: 700px;
       margin: 0 auto;
-    }
-    
-    .faq-item {
-      background: #161d25;
-      border-radius: 1rem;
-      margin-bottom: 1.2rem;
-      overflow: hidden;
       border: 1px solid rgba(231, 200, 115, 0.1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     }
     
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      padding: 1.5rem 2rem;
-      background: transparent;
-      border: none;
-      color: #fff;
+    .testimonial-text {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #e1e5ee;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+    }
+    
+    .testimonial-author {
       font-size: 1.1rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: var(--transition);
-    }
-    
-    .faq-question:hover {
-      background: rgba(231, 200, 115, 0.05);
-    }
-    
-    .faq-icon {
+      font-weight: var(--font-bold);
       color: var(--gold);
-      font-size: 1.2rem;
-      transition: var(--transition);
+      letter-spacing: -0.01em;
     }
     
-    .faq-answer {
-      padding: 0 2rem;
-      max-height: 0;
-      overflow: hidden;
-      transition: var(--transition);
-      color: #e7c873;
-      font-size: 1rem;
-      opacity: 0.89;
-      line-height: 1.7;
-    }
-    
-    .faq-item.active .faq-answer {
-      padding: 0 2rem 1.5rem;
-      max-height: 500px;
-    }
-    
-    .faq-item.active .faq-icon {
-      transform: rotate(45deg);
+    .testimonial-role {
+      color: #cfd3e1;
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-top: 0.3rem;
+      letter-spacing: -0.01em;
     }
     
     /* CTA Section */
@@ -573,25 +400,27 @@
     }
     
     .cta-title {
-      font-size: 2.5rem;
-      font-weight: 800;
+      font-size: 2.8rem;
+      font-weight: var(--font-bold);
       margin-bottom: 1.5rem;
       background: linear-gradient(90deg, var(--yellow) 0%, var(--gold) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: -0.03em;
     }
     
     .cta-subtitle {
       color: #cfd3e1;
-      font-size: 1.3rem;
-      font-weight: 500;
+      font-size: 1.4rem;
+      font-weight: 400;
       margin-bottom: 2.5rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      letter-spacing: -0.01em;
     }
     
-    .guarantee-badge {
+    .student-count {
       display: inline-flex;
       align-items: center;
       gap: 0.8rem;
@@ -602,14 +431,15 @@
       border: 1px solid rgba(231, 200, 115, 0.2);
     }
     
-    .guarantee-icon {
+    .count-icon {
       color: var(--gold);
       font-size: 1.5rem;
     }
     
-    .guarantee-text {
+    .count-text {
       font-weight: 600;
       color: #e1e5ee;
+      letter-spacing: -0.01em;
     }
     
     /* Footer */
@@ -641,6 +471,7 @@
       color: #aaa;
       font-size: 0.95rem;
       line-height: 1.7;
+      letter-spacing: -0.01em;
     }
     
     .footer-links {
@@ -654,6 +485,7 @@
       font-weight: 700;
       font-size: 1.1rem;
       margin-bottom: 1rem;
+      letter-spacing: -0.01em;
     }
     
     .footer-links a {
@@ -661,6 +493,7 @@
       text-decoration: none;
       transition: var(--transition);
       font-size: 0.95rem;
+      letter-spacing: -0.01em;
     }
     
     .footer-links a:hover {
@@ -679,6 +512,7 @@
       gap: 1rem;
       color: #aaa;
       font-size: 0.95rem;
+      letter-spacing: -0.01em;
     }
     
     .contact-icon {
@@ -694,6 +528,7 @@
       text-align: center;
       color: #777;
       font-size: 0.9rem;
+      letter-spacing: -0.01em;
     }
     
     /* Mobile Sticky CTA */
@@ -715,6 +550,7 @@
     .mobile-cta-text {
       font-weight: 700;
       color: var(--gold);
+      letter-spacing: -0.01em;
     }
     
     .mobile-cta-btn {
@@ -728,6 +564,7 @@
       text-decoration: none;
       transition: var(--transition);
       font-size: 0.95rem;
+      letter-spacing: -0.01em;
     }
     
     .mobile-cta-btn:hover {
@@ -738,15 +575,11 @@
     /* Responsive */
     @media (max-width: 992px) {
       .hero-headline {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
       }
       
-      .invoice-container {
-        flex-direction: column;
-      }
-      
-      .invoice-content {
-        text-align: center;
+      .features-container {
+        padding: 2rem;
       }
     }
     
@@ -756,11 +589,11 @@
       }
       
       .hero-headline {
-        font-size: 2rem;
+        font-size: 2.3rem;
       }
       
       .hero-sub {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
       }
       
       .nav-links {
@@ -770,11 +603,19 @@
       .mobile-cta {
         display: flex;
       }
+      
+      .section-title {
+        font-size: 2.2rem;
+      }
+      
+      .testimonial-text {
+        font-size: 1.3rem;
+      }
     }
     
     @media (max-width: 480px) {
       .hero-headline {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       
       .cta-btn {
@@ -790,10 +631,20 @@
       .stat-item {
         min-width: auto;
       }
+      
+      .feature-item {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- FOMO Banner -->
+  <div class="fomo-banner">
+    <i class="fas fa-exclamation-circle"></i> 6,000 spots left • July intake closes soon • Secure your empire now
+  </div>
+  
   <!-- Header -->
   <header class="header">
     <div class="header-container">
@@ -804,9 +655,9 @@
       
       <nav class="nav-links">
         <a href="#features">Program</a>
-        <a href="#proof">Proof</a>
         <a href="#testimonials">Results</a>
         <a href="#faq">FAQ</a>
+        <a href="#contact">Support</a>
       </nav>
       
       <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="nav-cta">
@@ -814,11 +665,6 @@
       </a>
     </div>
   </header>
-  
-  <!-- FOMO Banner -->
-  <div class="fomo-banner">
-    <i class="fas fa-exclamation-circle"></i> 6,000 spots left • July intake closes soon • Secure your empire now
-  </div>
   
   <!-- Hero Section -->
   <section class="hero" id="hero">
@@ -854,164 +700,56 @@
     </div>
   </section>
   
-  <!-- Invoice Proof -->
-  <section class="invoice-section" id="proof">
-    <div class="invoice-container">
-      <div class="invoice-content">
-        <div class="invoice-caption">$11,000 AUD — ONE PROMPT. ONE CLIENT. FULL PROOF.</div>
-        <p class="invoice-detail">
-          Real bank transfer. Real result. The prompt that replaced an entire department. See inside for the actual prompt, system & full process used to generate this result with just a phone.
-        </p>
-        <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
-          Get Access to the Prompt
-        </a>
-      </div>
-      
-      <div class="invoice-img-container">
-        <div class="invoice-badge">
-          <i class="fas fa-certificate"></i> Verified Payment
-        </div>
-        <img src="https://images.unsplash.com/photo-1604594849809-dfedbc827105?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" class="invoice-img" alt="Invoice Proof">
-      </div>
-    </div>
-  </section>
-  
   <!-- Features Section -->
   <section class="features-section" id="features">
-    <h2 class="section-title">The Inner Vault Framework</h2>
+    <h2 class="section-title">THE INNER VAULT SYSTEM</h2>
     
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🗡️</div>
-        <h3 class="feature-title">PHASE 0: KILL THE WEAK MAN</h3>
-        <p class="feature-desc">Destroy your old employee mindset. Discipline, action, raw accountability. Everything you need to build the new you — or stay broke forever.</p>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">🏆</div>
-        <h3 class="feature-title">PHASE 1: BUILD THE EMPIRE</h3>
-        <p class="feature-desc">Use the exact prompts and AI systems I used to make $11K+ with a phone. No fluff. Full backend and client acquisition process shown.</p>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">🛡️</div>
-        <h3 class="feature-title">BLACKBOX 2.0 (BONUS)</h3>
-        <p class="feature-desc">Advanced backend: AI, wealth protection, secret automation only for Inner Vault. PNG/Pacific proven. Only available for July intake.</p>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">👑</div>
-        <h3 class="feature-title">ELITE BROTHERHOOD</h3>
-        <p class="feature-desc">Private Discord & Telegram. 24/7 support, direct access to Anthony, and a real brotherhood. No keyboard warriors. Only men who execute.</p>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Reviews Section -->
-  <section class="reviews-section" id="testimonials">
-    <h2 class="section-title">Real Results from Our Brotherhood</h2>
-    
-    <div class="reviews-container">
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-header">
-            <div class="review-avatar">JV</div>
-            <div class="review-info">
-              <div class="review-name">Jone V.</div>
-              <div class="review-country">Fiji</div>
-            </div>
-          </div>
-          <p class="review-text">"I made my first online income in 2 weeks. Never thought I could do it with just my phone. The Inner Vault system works exactly as described."</p>
+    <div class="features-container">
+      <div class="feature-item">
+        <div class="feature-check">✓</div>
+        <div class="feature-content">
+          <h3>World class learning application</h3>
+          <p>Access our proprietary platform designed specifically for Pacific men to build empires from anywhere with just a phone.</p>
         </div>
-        
-        <div class="review-card">
-          <div class="review-header">
-            <div class="review-avatar">TR</div>
-            <div class="review-info">
-              <div class="review-name">Tasi R.</div>
-              <div class="review-country">PNG</div>
-            </div>
-          </div>
-          <p class="review-text">"This is the only course that actually shows proof. The $11K prompt was real. Anthony is different. The brotherhood support is invaluable for Pacific men."</p>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-check">✓</div>
+        <div class="feature-content">
+          <h3>Scale from Zero to $10k/month</h3>
+          <p>Step-by-step system proven to take you from employee mindset to $10k/month in 90 days or less using AI systems.</p>
         </div>
-        
-        <div class="review-card">
-          <div class="review-header">
-            <div class="review-avatar">SS</div>
-            <div class="review-info">
-              <div class="review-name">Samson S.</div>
-              <div class="review-country">Samoa</div>
-            </div>
-          </div>
-          <p class="review-text">"The brotherhood is legit. I quit my job after Phase 1. Best investment I've made. The AI systems are perfectly tailored for our Pacific context."</p>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-check">✓</div>
+        <div class="feature-content">
+          <h3>1-on-1 advice from industry experts</h3>
+          <p>Direct access to Anthony and our team of millionaire mentors who've built empires in the Pacific region.</p>
+        </div>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-check">✓</div>
+        <div class="feature-content">
+          <h3>Pacific-focused wealth strategies</h3>
+          <p>Methods specifically designed for PNG, Fiji, Samoa and other Pacific nations - no generic Western tactics.</p>
         </div>
       </div>
     </div>
   </section>
   
-  <!-- FAQ Section -->
-  <section class="faq-section" id="faq">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    
-    <div class="faq-container">
-      <div class="faq-item">
-        <button class="faq-question">
-          Is the program suitable for women?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          Yes. But the culture is masculine and Pacific brotherhood focused. We've had successful female members who embraced the mindset.
-        </div>
-      </div>
+  <!-- Testimonial Section -->
+  <section class="testimonial-section" id="testimonials">
+    <div class="testimonial-container">
+      <h2 class="section-title">REAL RESULTS FROM OUR BROTHERHOOD</h2>
       
-      <div class="faq-item">
-        <button class="faq-question">
-          How quickly will I make my money back?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          Depends on your discipline and execution. Some made 3x in the first month, others took longer. Average is 30-60 days for full ROI.
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <button class="faq-question">
-          Do I need money once I'm inside?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          No. All strategies can be started with $0 and a phone. We show you how to bootstrap using free tools and AI.
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <button class="faq-question">
-          Does my age really not matter?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          Correct. Only proof, discipline and execution matter inside. We have members from 18 to 65 years old.
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <button class="faq-question">
-          I live in X country. Is it a problem?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          No. As long as you have a phone, you can win. Pacific, PNG, Fiji, Samoa — designed for you. Works globally.
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <button class="faq-question">
-          Still have questions?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          Join our free Telegram group for pre-members or click the button below to join the full Inner Vault experience.
-        </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">
+          "I made my first online income in just 2 weeks. Never thought I could do it with just my phone. The Inner Vault system works exactly as described. This isn't theory - it's real execution."
+        </p>
+        <div class="testimonial-author">Jone V.</div>
+        <div class="testimonial-role">Fiji • Former Construction Worker</div>
       </div>
     </div>
   </section>
@@ -1019,22 +757,24 @@
   <!-- Final CTA -->
   <section class="cta-section">
     <div class="cta-container">
-      <h2 class="cta-title">Ready to Build Your Empire?</h2>
-      <p class="cta-subtitle">Join the elite brotherhood of Pacific men who are escaping the employee trap and building real wealth with AI.</p>
+      <h2 class="cta-title">JOIN THE REAL WORLD</h2>
+      <p class="cta-subtitle">
+        The modern education system is designed to make you poor. We're designed to make you wealthy.
+      </p>
       
       <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
         Join the Inner Vault Now
       </a>
       
-      <div class="guarantee-badge">
-        <i class="fas fa-shield-alt guarantee-icon"></i>
-        <div class="guarantee-text">30-Day Money-Back Guarantee</div>
+      <div class="student-count">
+        <i class="fas fa-users count-icon"></i>
+        <div class="count-text">Join 113,000+ like-minded students</div>
       </div>
     </div>
   </section>
   
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="footer-container">
       <div class="footer-logo">
         <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS Logo">
@@ -1060,10 +800,10 @@
       </div>
       
       <div class="footer-contact">
-        <h3 class="footer-title">Contact</h3>
+        <h3 class="footer-title">Contact Support</h3>
         <div class="contact-item">
           <i class="fas fa-envelope contact-icon"></i>
-          <span>support@inner-vault.com</span>
+          <span>anthmediapg@gmail.com</span>
         </div>
         <div class="contact-item">
           <i class="fab fa-telegram contact-icon"></i>
@@ -1090,17 +830,6 @@
   </div>
   
   <script>
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      
-      question.addEventListener('click', () => {
-        item.classList.toggle('active');
-      });
-    });
-    
     // Mobile Navigation
     const header = document.querySelector('.header');
     let lastScrollY = window.scrollY;
@@ -1131,4 +860,4 @@
     });
   </script>
 </body>
-  </html>
+        </html>
