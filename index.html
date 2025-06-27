@@ -1,154 +1,134 @@
 <!DOCTYPE html><html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inner Vault | No Code Society</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
-      body {
-        margin: 0;
-        background: #000;
-        color: #fff;
-        font-family: 'Helvetica Neue', sans-serif;
-        text-align: center;
-      }
-      .banner {
-        background: linear-gradient(to right, #4800ff, #9b00ff);
-        color: white;
-        font-weight: bold;
-        padding: 10px;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      header {
-        padding: 60px 20px 20px;
-      }
-      h1 {
-        font-size: 32px;
-        font-weight: 700;
-        color: #f9d342;
-        margin-bottom: 10px;
-      }
-      h2 {
-        font-size: 24px;
-        font-weight: 700;
-        margin-top: 0;
-      }
-      p {
-        font-size: 16px;
-        font-weight: 400;
-        max-width: 500px;
-        margin: auto;
-        line-height: 1.5;
-      }
-      .cta-btn {
-        margin-top: 30px;
-        padding: 18px 40px;
-        font-size: 18px;
-        font-weight: 700;
-        background-color: #f9d342;
-        color: #000;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.4s ease;
-        box-shadow: 0 0 10px #f9d34288;
-        animation: pulse 1.5s infinite;
-      }
-      .cta-btn:hover {
-        background-color: #ffea00;
-        transform: scale(1.05);
-      }
-      @keyframes pulse {
-        0% { box-shadow: 0 0 10px #f9d34288; }
-        50% { box-shadow: 0 0 20px #f9d342cc; }
-        100% { box-shadow: 0 0 10px #f9d34288; }
-      }
-      .subtext {
-        font-size: 14px;
-        color: #ccc;
-        margin: 20px 0;
-      }
-      .reviews-section {
-        background-color: #111;
-        padding: 40px 20px;
-      }
-      .testimonial {
-        max-width: 600px;
-        margin: 20px auto;
-        font-style: italic;
-        font-size: 16px;
-        color: #ddd;
-      }
-      .logos {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin: 40px 0;
-        flex-wrap: wrap;
-      }
-      .logos img {
-        height: 80px;
-      }
-      .bottom-links {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        padding-bottom: 60px;
-      }
-      .bottom-links a {
-        color: #fff;
-        font-size: 16px;
-        text-decoration: underline;
-        font-weight: 500;
-      }
-      .floating-btn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: #f9d342;
-        color: #000;
-        padding: 12px 24px;
-        font-weight: bold;
-        border-radius: 6px;
-        text-decoration: none;
-        box-shadow: 0 0 10px #f9d342aa;
-        transition: 0.3s;
-      }
-      .floating-btn:hover {
-        background: #ffea00;
-        transform: scale(1.05);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="banner">⚡ PRICE INCREASING SOON — JOIN BEFORE IT’S TOO LATE ⚡</div>
-    <header>
-      <h1>EMPLOYEE.</h1>
-      <h2>BUILD AN AI EMPIRE.</h2>
-      <p>Inner Vault is the underground gym for your mind and bank account. One phone. Brutal discipline. ChatGPT leverage. Either you print money, or you stay a spectator.</p>
-      <a href="https://whop.com/checkout/3Xf6QyJpa8bjTpH55v-gZVN-1BK1-facV-a65n6eDQZonn/" class="cta-btn">💰 YES, I WANT IN — JOIN INNER VAULT</a>
-      <div class="subtext">✅ Built with 1 Phone | 💰 $11K Prompt System | 👥 6,000+ Students Enrolled</div>
-    </header><div class="reviews-section">
-  <h2>WHAT STUDENTS ARE SAYING</h2>
-  <div class="testimonial">“I joined with a cracked phone and no money. Now I’m running my own AI agency.”</div>
-  <div class="testimonial">“Inner Vault gave me tools I’ve never seen before. $39? It’s a steal.”</div>
-  <div class="testimonial">“This isn’t a course. It’s a war room. I get paid to think now.”</div>
-</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inner Vault | No Code Society</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+    body {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .banner {
+      background: linear-gradient(90deg, #8e2de2, #4a00e0);
+      padding: 0.75rem 0;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #ffcc00;
+      margin-top: 2rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      font-weight: 700;
+    }
+    p {
+      max-width: 600px;
+      margin: 0.5rem auto 1.5rem;
+      font-weight: 400;
+      color: #ccc;
+    }
+    .cta-button {
+      background-color: #ffcc00;
+      color: #000;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ffcc00;
+      transition: transform 0.2s ease-in-out;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+    .floating-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffcc00;
+      color: #000;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      box-shadow: 0 0 15px #ffcc00;
+      z-index: 999;
+    }
+    .badge {
+      margin: 1rem 0;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .quote {
+      font-style: italic;
+      color: #aaa;
+      margin-bottom: 2rem;
+    }
+    .upgrade-section {
+      margin: 2rem auto;
+    }
+    .upgrade-section img {
+      width: 140px;
+      margin: 1rem;
+    }
+    .testimonial-section {
+      background-color: #111;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+    }
+    .testimonial {
+      margin-bottom: 1.5rem;
+      color: #eee;
+      font-size: 0.95rem;
+    }
+    .link-buttons img {
+      width: 24px;
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+    .link-buttons a {
+      color: #fff;
+      display: inline-block;
+      margin: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">⚡ PRICE INCREASING SOON — JOIN BEFORE IT’S TOO LATE ⚡</div>  <h1>EMPLOYEE.</h1>
+  <h2>BUILD AN AI EMPIRE.</h2>
+  <p>Inner Vault is the underground gym for your mind and bank account. One phone. Brutal discipline. ChatGPT leverage. Either you print money, or you stay a spectator.</p>
+  <a href="https://whop.com/checkout/3Xf6QyJpa8bjTpH55v-gZVN-1BK1-facV-a65n6eDQZonn/"><button class="cta-button">💰 YES, I WANT IN — JOIN INNER VAULT</button></a>  <div class="badge">✅ Built with 1 Phone | 💰 $11K Prompt System | 👥 6,000+ Students Enrolled</div>
+  <p class="quote">“This isn’t a course. It’s a war room. I joined with $0 and a cracked phone. Now I get paid to think.” — Anonymous</p>  <div class="upgrade-section">
+    <h2>INTRODUCING A MASSIVE UPGRADE</h2>
+    <img src="/inner-vault-landing/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="No Code Society Logo">
+    <img src="/inner-vault-landing/ncs_gold_logo.png" alt="NCS Gold Logo">
+  </div>  <div class="testimonial-section">
+    <h2>STUDENT REVIEWS</h2>
+    <div class="testimonial">“I made back the $39 in 2 days. This isn’t a course — it’s a system.”</div>
+    <div class="testimonial">“Using just my iPhone, I built an income stream with no website, no team.”</div>
+    <div class="testimonial">“You’ll either join this now, or regret it when your friend shows you his results.”</div>
+  </div>  <div class="link-buttons">
+    <a href="https://t.me/+N9mPSOW1dFlhMjc1"><img src="/inner-vault-landing/telegram_icon.png" alt="Telegram">Join Telegram</a>
+    <a href="#reviews"><img src="/inner-vault-landing/reviews_icon.png" alt="Reviews">Student Reviews</a>
+  </div><a href="https://whop.com/checkout/3Xf6QyJpa8bjTpH55v-gZVN-1BK1-facV-a65n6eDQZonn/" class="floating-cta">Join Inner Vault</a>
 
-<h2>INTRODUCING A MASSIVE UPGRADE</h2>
-<div class="logos">
-  <img src="./941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Logo 1">
-  <img src="./ncs-logo.png" alt="Logo 2">
-</div>
-
-<div class="bottom-links">
-  <a href="https://t.me/+N9mPSOW1dFlhMjc1">Join Telegram</a>
-  <a href="#">Student Reviews</a>
-</div>
-
-<a class="floating-btn" href="https://whop.com/checkout/3Xf6QyJpa8bjTpH55v-gZVN-1BK1-facV-a65n6eDQZonn/">Join Now</a>
-
-  </body>
+</body>
 </html>
