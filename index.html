@@ -1,173 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>INNER VAULT | Kill the Weak Man</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INNER VAULT — No Code Society</title>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    ::selection { background: #ff3232; color: #fff; }
+    /* === Palette === */
+    :root{--bg:#0b1f18;--panel:#12231d;--gold:#d6b22b;--gold-dark:#b7981f;--text:#f0f0f0;--muted:#9ea5a3;--danger:#ff4949}/* === Reset === */
+*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* === Utility === */
+.container{max-width:980px;margin:0 auto;padding:0 20px}
+.btn{display:inline-block;background:var(--gold);color:#000;font-weight:700;padding:14px 46px;border-radius:6px;box-shadow:0 0 12px rgba(214,178,43,.4);transition:all .25s}
+.btn:hover{background:var(--gold-dark);transform:translateY(-3px)}
+
+/* === Notice === */
+.notice{background:var(--panel);padding:12px;text-align:center;font-weight:700;color:var(--gold);font-size:.9rem;letter-spacing:.3px}
+
+/* === Hero === */
+header{padding:40px 0 20px;text-align:center}
+.hero-logo{width:96px;margin:0 auto 14px}
+.hero-title{font-size:2.7rem;font-weight:700;margin-bottom:12px}
+.hero-title span{color:var(--danger)}
+.hero-sub{font-size:1.15rem;color:var(--muted);max-width:650px;margin:0 auto 26px}
+.video-wrap{position:relative;padding-top:56.25%;border-radius:12px;border:2px solid #1c342b;overflow:hidden;margin-bottom:28px}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%}
+.avatars{display:flex;justify-content:center;gap:4px;margin-top:14px}
+.avatars img{width:30px;height:30px;border-radius:50%}
+
+/* === Upgrade card === */
+.upgrade-section{margin-top:60px;text-align:center}
+.upgrade-box{background:var(--panel);border:1px solid #1f372d;display:flex;align-items:center;justify-content:center;gap:24px;border-radius:12px;padding:28px;flex-wrap:wrap}
+.upgrade-box img{width:120px}
+.upgrade-arrow{font-size:3rem;color:var(--gold)}
+.upgrade-head{font-size:2.1rem;font-weight:700;margin-top:24px;letter-spacing:.7px}
+
+/* === Timeline === */
+.timeline{margin-top:60px;border-left:2px solid var(--gold);position:relative}
+.step{padding-left:28px;margin:40px 0;position:relative}
+.step:before{content:"";width:14px;height:14px;border-radius:50%;background:var(--gold);position:absolute;left:-8px;top:4px}
+.step h3{font-size:1.3rem;font-weight:700;color:var(--gold);margin-bottom:6px}
+.step p{color:var(--muted);font-size:1rem}
+
+/* === Benefits list === */
+.benefits{margin-top:50px}
+.benefits h2{font-size:2rem;font-weight:700;color:var(--gold);margin-bottom:18px;text-align:center}
+.benefits ul{list-style:none;padding:0;display:grid;gap:14px}
+.benefits li{background:var(--panel);border:1px solid #1f372d;border-radius:8px;padding:16px;display:flex;align-items:center;gap:12px;font-weight:600}
+.benefits li i{color:var(--gold)}
+
+/* === Courses grid === */
+.courses{margin-top:60px}
+.courses h2{font-size:1.9rem;font-weight:700;color:var(--gold);margin-bottom:18px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.course-card{background:var(--panel);border:1px solid #1f372d;border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:10px;text-align:left}
+.course-card h4{color:var(--gold);font-weight:700;font-size:1.1rem}
+.course-card p{font-size:.95rem;color:var(--muted)}
+.course-card a{margin-top:auto;font-size:.9rem;font-weight:700;color:var(--gold)}
+
+/* === FAQ === */
+.faq{margin:60px 0}
+.faq h2{color:var(--gold);font-size:2rem;font-weight:700;margin-bottom:16px;text-align:center}
+details{background:var(--panel);border:1px solid #1f372d;border-radius:8px;margin:10px 0;padding:16px;text-align:left}
+summary{cursor:pointer;font-weight:700;color:var(--gold)}
+details p{margin-top:6px;color:var(--muted)}
+
+/* === Sticky CTA === */
+.sticky{position:fixed;bottom:0;left:0;width:100%;background:var(--panel);padding:14px;display:flex;justify-content:center;align-items:center;gap:14px;font-weight:700;color:var(--gold);box-shadow:0 -2px 10px rgba(0,0,0,.65)}
+
+/* === Responsive === */
+@media(max-width:640px){.hero-title{font-size:1.9rem}.upgrade-box img{width:80px}.upgrade-arrow{font-size:2.2rem}.upgrade-head{font-size:1.5rem}}
+
   </style>
 </head>
-<body class="bg-[#141E17] text-white min-h-screen">
-
-  <!-- HERO -->
-  <section class="flex flex-col items-center justify-center py-12 px-4">
-    <h1 class="text-4xl md:text-6xl font-bold text-center mb-4 leading-tight">
-      <span class="text-red-600">You’re Not Stuck.</span><br>
-      You’re Addicted, Soft, and Full of Excuses.
-    </h1>
-    <p class="text-lg md:text-xl text-gray-300 max-w-2xl text-center mb-8">
-      <span class="font-bold text-yellow-400">INNER VAULT</span> is not a course.<br>
-      It’s a digital resurrection system built to <span class="text-red-500 font-bold">humiliate weakness</span> and replace it with war discipline.
-    </p>
-    <a href="#join" class="bg-[#24412F] hover:bg-green-900 text-white font-bold py-3 px-8 rounded-xl shadow-xl text-xl transition-all duration-200">
-      ENTER THE VAULT
-    </a>
-    <div class="flex items-center mt-6">
-      <!-- Avatars (replace src with your team if you want) -->
-      <img src="https://randomuser.me/api/portraits/men/65.jpg" class="w-10 h-10 rounded-full border-2 border-[#141E17] mr-[-12px]" />
-      <img src="https://randomuser.me/api/portraits/men/54.jpg" class="w-10 h-10 rounded-full border-2 border-[#141E17] mr-[-12px]" />
-      <img src="https://randomuser.me/api/portraits/women/48.jpg" class="w-10 h-10 rounded-full border-2 border-[#141E17] mr-[-12px]" />
-      <span class="ml-6 text-gray-400 text-sm">6,000+ operators inside</span>
+<body>
+  <div class="notice">✔ 6,000+ MEN ACCEPTED — PROOF LOADING DAILY</div>  <!-- ===== HERO ===== -->  <header class="container">
+    <img src="./20250627_190547_0000.png" alt="Vault Logo" class="hero-logo">
+    <h1 class="hero-title">MONEY MAKING IS <span>WAR</span></h1>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vault Trailer" allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
     </div>
-  </section>
-
-  <!-- LOGO TRANSITION -->
-  <section class="flex flex-col items-center py-6">
-    <div class="flex items-center space-x-4">
-      <img src="old-logo.png" alt="Old Logo" class="h-14 w-14 rounded-full bg-gray-800" />
-      <span class="text-4xl">→</span>
-      <img src="new-logo.png" alt="New Logo" class="h-16 w-16 rounded-full border-2 border-yellow-500" />
+    <p class="hero-sub">Use a cheap phone & right prompts to print revenue. No code. No staff. No mercy.</p>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn">ENTER THE VAULT</a>
+    <div class="avatars">
+      <img src="https://i.pravatar.cc/30?img=32"><img src="https://i.pravatar.cc/30?img=12"><img src="https://i.pravatar.cc/30?img=45"><img src="https://i.pravatar.cc/30?img=26">
+      <span style="font-size:.82rem;color:var(--muted);margin-left:6px">6,000+ operators inside</span>
     </div>
-  </section>
-
-  <!-- MASSIVE UPGRADE -->
-  <section class="px-6 py-8 max-w-2xl mx-auto">
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">
-      <span class="text-white">A MASSIVE </span>
-      <span class="text-yellow-400">UPGRADE</span>
-    </h2>
-    <div class="space-y-8">
-      <div class="flex items-start space-x-4">
-        <span class="mt-1 w-3 h-3 bg-yellow-400 rounded-full block"></span>
-        <div>
-          <div class="font-bold text-yellow-400">SIX WAR LESSONS</div>
-          <div class="text-gray-300">Structured battle plan that humiliates distraction & rolls your first 3k.</div>
-        </div>
-      </div>
-      <div class="flex items-start space-x-4">
-        <span class="mt-1 w-3 h-3 bg-yellow-400 rounded-full block"></span>
-        <div>
-          <div class="font-bold text-yellow-400">BROTHERHOOD NETWORK</div>
-          <div class="text-gray-300">Private channel with client deals, leaderboard & daily voice logs.</div>
-        </div>
-      </div>
-      <div class="flex items-start space-x-4">
-        <span class="mt-1 w-3 h-3 bg-yellow-400 rounded-full block"></span>
-        <div>
-          <div class="font-bold text-yellow-400">MILLIONAIRE MENTORS</div>
-          <div class="text-gray-300">Weekly live breakdowns with operators scaling prompts to 20k/mo. Ask, learn, win.</div>
-        </div>
-      </div>
+  </header>  <!-- ===== UPGRADE ===== -->  <section class="container upgrade-section">
+    <div class="upgrade-box">
+      <img src="./ncs_old.png" alt="Old NCS Logo">
+      <div class="upgrade-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <img src="./20250627_190547_0000.png" alt="New Vault Emblem">
     </div>
-  </section>
-
-  <!-- PROOF / TESTIMONIALS -->
-  <section class="bg-[#1E2A22] py-10 px-4">
-    <h3 class="text-xl md:text-2xl font-bold mb-5 text-center">Proof of Execution</h3>
-    <div class="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-      <div class="bg-[#243227] rounded-xl p-6 flex flex-col items-center shadow-md">
-        <img src="https://randomuser.me/api/portraits/men/34.jpg" class="w-14 h-14 rounded-full mb-3 border-2 border-yellow-400" />
-        <div class="text-lg font-bold mb-2 text-yellow-400">"I earned $982 in 7 days after Phase 0."</div>
-        <div class="text-sm text-gray-400">Tim, PNG</div>
-      </div>
-      <div class="bg-[#243227] rounded-xl p-6 flex flex-col items-center shadow-md">
-        <img src="https://randomuser.me/api/portraits/men/71.jpg" class="w-14 h-14 rounded-full mb-3 border-2 border-yellow-400" />
-        <div class="text-lg font-bold mb-2 text-yellow-400">"Made my first $3k using the prompt system."</div>
-        <div class="text-sm text-gray-400">Jone, Fiji</div>
-      </div>
-      <div class="bg-[#243227] rounded-xl p-6 flex flex-col items-center shadow-md">
-        <img src="https://randomuser.me/api/portraits/men/20.jpg" class="w-14 h-14 rounded-full mb-3 border-2 border-yellow-400" />
-        <div class="text-lg font-bold mb-2 text-yellow-400">"Quit my job after scaling UGC with Inner Vault."</div>
-        <div class="text-sm text-gray-400">Tasi, Samoa</div>
-      </div>
+    <p class="upgrade-head">A MASSIVE <span style="color:var(--gold)">UPGRADE</span></p>
+  </section>  <!-- ===== TIMELINE ===== -->  <section class="container timeline">
+    <div class="step">
+      <h3>SIX WAR LESSONS</h3>
+      <p>Structured battle plan that humiliates distraction & rolls your first 3k.</p>
     </div>
-  </section>
-
-  <!-- VIDEO SECTION -->
-  <section class="py-10 px-6 max-w-3xl mx-auto flex flex-col items-center">
-    <h3 class="text-xl font-bold mb-3">Watch the Mission</h3>
-    <div class="rounded-2xl overflow-hidden shadow-lg border-4 border-[#24412F] mb-4 w-full">
-      <iframe
-        src="https://www.youtube.com/embed/YOUR-VIDEO-ID"
-        title="Inner Vault Trailer"
-        allowfullscreen
-        class="w-full h-56 md:h-96"></iframe>
+    <div class="step">
+      <h3>BROTHERHOOD NETWORK</h3>
+      <p>Private channel with client deals, leaderboard & daily voice logs.</p>
     </div>
-    <p class="text-gray-400 text-center">See how men are escaping weakness & building digital empires.</p>
-  </section>
-
-  <!-- VALUE STACK -->
-  <section class="bg-[#181F1B] py-10 px-6">
-    <h3 class="text-2xl font-bold mb-6 text-yellow-400 text-center">What You’ll Learn</h3>
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      <div class="bg-[#23291C] rounded-xl p-6 shadow-md">
-        <div class="font-bold text-lg text-yellow-400 mb-2">AI-POWERED INCOME</div>
-        <div class="text-gray-300">Master prompts to replace departments. Build revenue with only your phone.</div>
-      </div>
-      <div class="bg-[#23291C] rounded-xl p-6 shadow-md">
-        <div class="font-bold text-lg text-yellow-400 mb-2">SYSTEMS WARFARE</div>
-        <div class="text-gray-300">Automate your business. Outsmart agencies and scale faster.</div>
-      </div>
-      <!-- Add as many value points as you want -->
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-10 px-6 max-w-3xl mx-auto" id="faq">
-    <h3 class="text-2xl font-bold mb-6 text-center">FREQUENTLY ASKED QUESTIONS</h3>
-    <div class="space-y-4">
-      <details class="bg-[#23291C] rounded-lg p-4">
-        <summary class="cursor-pointer font-bold">Is this for beginners?</summary>
-        <div class="text-gray-300 mt-2">Yes. You only need a phone and discipline. We teach you step-by-step.</div>
-      </details>
-      <details class="bg-[#23291C] rounded-lg p-4">
-        <summary class="cursor-pointer font-bold">Can I join if I don’t have money?</summary>
-        <div class="text-gray-300 mt-2">You don’t need upfront capital. Build with what you have.</div>
-      </details>
-      <details class="bg-[#23291C] rounded-lg p-4">
-        <summary class="cursor-pointer font-bold">How fast will I see results?</summary>
-        <div class="text-gray-300 mt-2">Depends on your execution. Most see results in weeks, not months.</div>
-      </details>
-      <details class="bg-[#23291C] rounded-lg p-4">
-        <summary class="cursor-pointer font-bold">What if I get stuck?</summary>
-        <div class="text-gray-300 mt-2">Ask in the brotherhood. You’ll get help in minutes.</div>
-      </details>
-    </div>
-  </section>
-
-  <!-- FOOTER STICKY JOIN -->
-  <div class="fixed bottom-0 left-0 w-full z-50">
-    <div class="bg-[#24412F] flex items-center justify-between px-6 py-4 shadow-lg">
-      <span class="text-white font-bold text-lg">⚡ FINAL SPOTS THIS MONTH</span>
-      <a href="#join" class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-6 rounded-xl shadow-lg text-lg transition-all duration-200">
-        ENTER NOW
-      </a>
-    </div>
-  </div>
-
-  <!-- LEGAL/FOOTER -->
-  <footer class="bg-[#141E17] text-gray-500 py-12 px-6 text-center text-sm mt-16">
-    <div class="mb-3">
-      &copy; 2025 No Code Society. Built by operators, for operators. Not financial advice. For education only.
-    </div>
-    <div>
-      <a href="mailto:support@ncs.com" class="underline">Support</a>
-    </div>
-  </footer>
-</body>
-</html>
+    <div class="step">
+      <h3>MILLIONAIRE MENTORS</h3>
+      <p>Weekly live breakdowns with operators scaling prompts to 20k/mo. Ask 질문.
