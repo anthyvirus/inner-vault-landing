@@ -2,77 +2,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INNER VAULT – No Code Society</title>
-  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <title>INNER VAULT ▸ No Code Society</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #000;
-      color: white;
-      text-align: center;
-    }
-    .highlight {
-      color: red;
-      font-weight: bold;
-    }
-    .hero {
-      padding: 40px 20px;
-    }
-    .hero h1 {
-      font-size: 36px;
-    }
-    .cta-button {
-      background-color: red;
-      color: white;
-      font-weight: bold;
-      padding: 16px 32px;
-      border: none;
-      font-size: 18px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    .section {
-      padding: 40px 20px;
-      border-top: 1px solid #222;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      font-size: 18px;
-      margin: 12px 0;
-    }
+    /* ---------- RESET ---------- */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:1.05rem;line-height:1.6;color:#fff;background:#000;overflow-x:hidden;}/* ---------- GLOBAL ---------- */
+:root{
+  --red:#ff0000;
+  --dark-red:#d40000;
+  --gray:#9ca3af;
+  --yellow:#ffd15c; /* crown‑gold */
+}
+h1,h2,h3{font-weight:700;letter-spacing:-.5px;}
+.section{padding:4rem 1.2rem;max-width:900px;margin-inline:auto;}
+.center{text-align:center;}
+p{margin:.6rem 0;}
+
+/* ---------- STARFIELD BACKGROUND ---------- */
+body::before,body::after{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:radial-gradient(circle at 50% 50%,rgba(0,0,40,.7),#000 70%);
+}
+body::after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle r='1' cx='2' cy='2' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-repeat:repeat;opacity:.15;animation:stars 60s linear infinite;
+}
+@keyframes stars{from{transform:translateY(0);}to{transform:translateY(100vh);} }
+
+/* ---------- FOMO BAR ---------- */
+.fomo{
+  width:100%;padding:.6rem 1rem;font-size:.9rem;font-weight:700;letter-spacing:.5px;text-align:center;background:#001c4d; /* deep blue */
+  background:linear-gradient(90deg,#001c4d,#003c7c,#001c4d);color:#fff;text-shadow:0 0 6px rgba(0,102,255,.6);animation:fomoGlow 4s ease-in-out infinite alternate;
+}
+@keyframes fomoGlow{from{filter:brightness(1);}to{filter:brightness(1.4);} }
+
+/* ---------- LOGO ---------- */
+.logo{width:120px;margin:2.5rem auto 1.7rem auto;display:block;filter:drop-shadow(0 0 12px rgba(255,255,255,.25));}
+
+/* ---------- HERO ---------- */
+.hero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.2;}
+.hero h1 .red{color:var(--red);}
+.btn{
+  display:inline-block;margin:2rem auto;padding:1rem 2.5rem;font-weight:700;font-size:1.05rem;text-transform:uppercase;color:#fff;background:var(--red);border:none;border-radius:4px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;box-shadow:0 6px 15px rgba(255,0,0,.35);
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(255,0,0,.55);}
+
+/* ---------- BENEFITS GRID ---------- */
+.grid{display:grid;gap:1.8rem;margin-top:3rem;}
+@media(min-width:650px){.grid{grid-template-columns:repeat(2,1fr);} }
+.card{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);padding:1.4rem;border-radius:8px;backdrop-filter:blur(6px);
+}
+.card h3{font-size:1.15rem;margin-bottom:.5rem;color:var(--yellow);}
+
+/* ---------- TELEGRAM FLOAT BUTTON ---------- */
+.telegram{
+  position:fixed;bottom:1.4rem;right:1.4rem;width:60px;height:60px;border-radius:50%;background:#0088cc;display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(0,136,204,.6);transition:transform .2s ease;z-index:50;
+}
+.telegram:hover{transform:scale(1.08);} 
+.telegram svg{width:32px;height:32px;fill:#fff;}
+
+/* ---------- FOOTER ---------- */
+footer{font-size:.78rem;color:var(--gray);padding:3rem 1rem;text-align:center;}
+
   </style>
 </head>
 <body>
-  <div class="hero">
-    <p style="font-size:14px; color:#999; margin-bottom:10px;">
-      MOST MEN QUIT — WE FILTER FOR THOSE WHO FINISH. THIS ISN’T A COURSE. IT’S A MISSION.
-    </p>
-    <h1><span class="highlight">Escape</span> Your Weak Life</h1>
-    <p>If you're still broke, confused, or stuck — it's not your fault.<br>
-    <span class="highlight">You were trained to be soft</span> by a system that never wanted you free.</p>
-    <p>This is your only chance to build proof, power and income — <span class="highlight">without a laptop</span>, starting with just your phone.</p>
-    <p>We don’t want learners. <strong>We want winners.</strong></p>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/">
-      <button class="cta-button">JOIN THE INNER VAULT</button>
-    </a>
-  </div>  <div class="section">
-    <h2>What You’ll Learn</h2>
-    <ul>
-      <li>❌ The 9–5 scam you were born into</li>
-      <li>🔐 The exact prompt that made me $11K</li>
-      <li>📱 How I used AI + a phone to replace an entire team</li>
-      <li>🌍 How to use offshore protection like the elites</li>
-      <li>🚪 Phase 0: Kill the Weak Man (Discipline, Detox, Resurrection)</li>
-      <li>🏗 Phase 1: Build the Empire (Systems, Proof, Stripe Setup)</li>
-      <li>💸 How to earn your first dollar *immediately* with our AI tasks</li>
-      <li>💬 Access to the private NCS Discord and Telegram</li>
-      <li>🧠 Secrets, prompts, backend scripts, and high-value breakdowns</li>
-    </ul>
-    <p class="highlight">You’re not buying education — you’re buying escape.</p>
+  <!-- FOMO BAR -->
+  <div class="fomo">MOST MEN QUIT — ONLY WARRIORS FINISH. THIS ISN’T A COURSE. IT’S YOUR RESCUE MISSION.</div>  <!-- LOGO -->  <img src="20250627_190547_0000.png" alt="NCS Logo" class="logo" />  <!-- HERO -->  <section class="section hero center">
+    <h1><span class="red">Escape</span> Your Weak Life</h1>
+    <p>If you’re still broke, confused, or stuck — it’s not your fault.<br>
+    You were trained to be <span class="red">soft</span> by a system that never wanted you free.</p>
+    <p>This is your only real shot to build <strong>proof, power, and income — <u>without</u> a laptop</strong>, starting with just your phone.</p>
+    <p class="red" style="margin-top:1rem;font-weight:700;">We don’t want learners.<br>We want <u>winners</u>.</p>
+    <a href="#join" class="btn">Join the Inner Vault</a>
+  </section>  <!-- WHAT YOU GET -->  <section class="section" id="learn">
+    <h2 class="center">What You’ll <span class="red">Get</span> Inside</h2><div class="grid">
+  <div class="card">
+    <h3>Phase 0 ▸ Kill the Weak Man</h3>
+    <p>Destroy porn, scrolling & your soft identity. Forge a war plan that buries your old self — in 7 days.</p>
   </div>
+  <div class="card">
+    <h3>Phase 1 ▸ AI‑Powered Cash</h3>
+    <p>Turn ChatGPT + proof into $3 – 10K / mo offers you can sell from your phone <em>today</em>.</p>
+  </div>
+  <div class="card">
+    <h3>NCS Discord War‑Room</h3>
+    <p>6 000+ operators, live voice logs, client deal flow & daily accountability.</p>
+  </div>
+  <div class="card">
+    <h3>Private Telegram Ops</h3>
+    <p>Encrypted drops, instant wins, and “red‑alert” push notices when new money plays appear.</p>
+  </div>
+  <div class="card">
+    <h3>Secret Library & Prompts</h3>
+    <p>250+ swipe‑files, funnels, and AI prompts you can copy‑paste for an unfair advantage.</p>
+  </div>
+  <div class="card">
+    <h3>Off‑Shore Stripe & Banking</h3>
+    <p>Step‑by‑step guides to accept global payments <em>even if</em> your country is “banned”.</p>
+  </div>
+</div>
+
+<p class="center" style="margin-top:3rem;font-size:1.1rem;font-weight:700;">You’re not buying education — you’re <span class="red">buying escape</span>.</p>
+
+  </section>  <!-- SECOND CTA -->  <section class="section center" id="join">
+    <h2>Ready to Prove You Belong?</h2>
+    <p>Tap below, complete Phase 0 today, and send your first proof‑of‑work in the war‑room before midnight.</p>
+    <a href="https://t.me/+YOURGROUP" target="_blank" class="btn">Enter the Vault Now</a>
+  </section>  <!-- TELEGRAM FLOAT -->  <a href="https://t.me/+YOURGROUP" target="_blank" aria-label="Join our Telegram" class="telegram">
+    <svg viewBox="0 0 512 512"><path d="M476.7 3.7L20.2 216.4c-18.1 7.8-18 17.7-3.1 22.4l113.7 35.5 43.5 136.2c5.5 15.3 9.9 21.3 20.4 21.3 10.4 0 14.9-3.8 20.6-8.3l49.4-40 102.7 75.5c18.9 10.4 32.5 5 37.4-17.5l67.8-322.4c6.9-27.9-10.7-40.6-29.2-34.5z"/></svg>
+  </a>  <!-- FOOTER -->  <footer>
+    © 2025 No Code Society. All proof shown is real but your results depend on your discipline.<br>
+    We guarantee <em>nothing</em> — except no mercy for excuses.
+  </footer>
 </body>
 </html>
