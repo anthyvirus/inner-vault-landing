@@ -3,335 +3,172 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>No Code Society | Inner Vault</title>
+  <title>Inner Vault | No Code Society</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --gold: #FFD700;
-      --gold-shadow: #FFD70044;
-      --bg-dark: #10131A;
-      --text-main: #EAEAEA;
-      --section: #181B20;
-      --container-pad: 28px;
-      --radius: 20px;
-      --maxw: 440px;
+      --bg: #1b2d23;
+      --gold: #C9A441;
+      --gold-dark: #947635;
+      --main: #EAEAEA;
+      --grey: #B6B9C1;
+      --container: 450px;
     }
     body {
-      background: var(--bg-dark);
-      color: var(--text-main);
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-    }
-    .dopamine-banner {
-      width: 100vw;
-      padding: 11px 0;
-      background: linear-gradient(90deg,#6f22e9 0,#15d4e7 100%);
-      color: #fff;
-      font-size: 1.04em;
-      font-weight: 900;
-      text-align: center;
-      letter-spacing: 1.5px;
-      border-bottom-left-radius: 13px;
-      border-bottom-right-radius: 13px;
-      margin-bottom: 0;
+      background: var(--bg);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      color: var(--main);
     }
     .container {
-      max-width: var(--maxw);
+      max-width: var(--container);
       margin: 0 auto;
-      padding: 0 var(--container-pad);
+      padding: 0 20px;
     }
-    .main-logo {
-      display: block;
-      margin: 36px auto 36px auto;
-      width: 78px;
-      border-radius: 20px;
-      box-shadow: 0 2px 32px var(--gold-shadow);
-      background: #222;
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 38px;
+      margin-bottom: 45px;
     }
-    .hero-title {
-      font-size: 2.08rem;
+    .logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #263828;
+      box-shadow: 0 0 18px #0007;
+    }
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 1.15px;
+    }
+    .headline {
+      font-size: 2.05rem;
       font-weight: 900;
       color: var(--gold);
-      text-align: center;
+      margin-top: 0;
+      margin-bottom: 14px;
       letter-spacing: 2px;
-      margin-bottom: 6px;
-      line-height: 1.1;
-      text-shadow: 0 2px 22px #ffd70024;
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.08;
     }
-    .hero-sub {
-      font-size: 1.32rem;
-      font-weight: 700;
-      color: #fff;
+    .subline {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--grey);
+      margin-bottom: 33px;
+      margin-top: 0;
+      letter-spacing: 0.12px;
+      line-height: 1.22;
+    }
+    .btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 320px;
+      border-radius: 32px;
+      background: var(--gold);
+      color: var(--bg);
+      font-size: 1.13rem;
+      font-weight: 900;
       text-align: center;
       letter-spacing: 1.2px;
-      margin-bottom: 34px;
-      text-transform: uppercase;
-    }
-    .ai {
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: 2px;
-      font-size: 1.32em;
-    }
-    .copy-tate {
-      background: var(--section);
-      border-radius: var(--radius);
-      padding: 22px 24px 20px 24px;
-      margin-bottom: 38px;
-      font-size: 1.1em;
-      color: #d6d6d6;
-      line-height: 1.6;
-      box-shadow: 0 4px 18px #0007;
-      text-align: center;
-      font-weight: 500;
-    }
-    .cta-btn {
-      display: block;
-      margin: 0 auto 16px auto;
-      width: 95%;
-      max-width: 330px;
-      padding: 21px 0 20px 0;
-      background: var(--gold);
-      color: #10131a;
-      font-size: 1.22rem;
-      font-weight: 900;
       border: none;
-      border-radius: 34px;
-      box-shadow: 0 4px 28px var(--gold-shadow);
-      letter-spacing: 1.7px;
-      cursor: pointer;
-      transition: background 0.15s, box-shadow 0.18s, transform 0.15s;
-      text-align: center;
       outline: none;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      box-shadow: 0 4px 18px #C9A44144;
+      padding: 20px 0;
+      cursor: pointer;
+      transition: background 0.13s, box-shadow 0.13s, transform 0.13s;
+      text-decoration: none;
     }
-    .cta-btn:hover {
-      background: #ffeb80;
-      box-shadow: 0 6px 44px #ffd70077;
-      transform: translateY(-2px) scale(1.018);
+    .btn:hover {
+      background: var(--gold-dark);
+      box-shadow: 0 6px 38px #C9A44177;
+      transform: translateY(-2px) scale(1.03);
     }
-    .cta-sub {
-      color: var(--gold);
-      font-size: 0.98em;
-      font-weight: 700;
+    .massive-upgrade {
+      margin-top: 64px;
       text-align: center;
-      margin-bottom: 26px;
     }
-    .proof-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 0 36px 0;
-      font-size: 1.05em;
-      font-weight: 600;
-    }
-    .proof-row span {
-      display: flex;
-      align-items: center;
-      background: #181b20;
-      color: var(--gold);
-      border-radius: 9px;
-      padding: 6px 13px 6px 11px;
-      margin: 0 2px;
-      font-size: 0.99em;
-      box-shadow: 0 1px 9px #ffd70021;
-    }
-    .divider {
-      border-bottom: 1.4px solid #22252a;
-      margin: 42px 0 28px 0;
+    .upgrade-title {
+      color: var(--main);
+      font-weight: 700;
+      font-size: 1.13rem;
+      letter-spacing: 1.2px;
+      margin-bottom: 6px;
     }
     .upgrade-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 39px 0 30px 0;
-      gap: 22px;
-    }
-    .logo-block {
-      text-align: center;
-    }
-    .logo-block img {
-      border-radius: 13px;
-      background: #181b20;
-      margin-bottom: 6px;
-      width: 55px;
-      height: 55px;
-      object-fit: cover;
-      box-shadow: 0 2px 13px var(--gold-shadow);
-      border: 2.2px solid var(--gold);
-    }
-    .logo-block span {
-      display: block;
-      color: var(--gold);
-      font-size: 1em;
-      font-weight: 800;
-      margin-top: 4px;
-    }
-    .arrow {
-      font-size: 2.1rem;
-      color: var(--gold);
-      margin: 0 4px;
-      font-weight: 900;
-      transition: color 0.22s;
-    }
-    .arrow:hover {
-      color: #fff;
-    }
-    .links-row {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin: 23px 0 18px 0;
-      font-size: 1.06em;
-    }
-    .links-row a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 1.1px;
-      border-bottom: 2.5px solid transparent;
-      padding-bottom: 1.5px;
-      transition: border 0.14s, color 0.14s;
-    }
-    .links-row a:hover {
-      border-bottom: 2.5px solid var(--gold);
-      color: #fff;
-    }
-    .review-block {
-      background: var(--section);
-      border-radius: var(--radius);
-      padding: 23px 21px 12px 21px;
-      margin-bottom: 27px;
-      color: #fff;
-      font-size: 1.13em;
-      font-weight: 500;
-      box-shadow: 0 1px 16px #0007;
-      border: 1.2px solid var(--gold-shadow);
-      line-height: 1.4;
-      text-align: center;
-    }
-    .review-block .header {
-      font-size: 1.08em;
-      font-weight: 900;
+      gap: 28px;
       margin-bottom: 10px;
+    }
+    .upgrade-logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .upgrade-logo {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      margin-bottom: 7px;
+      background: #21321d;
+      object-fit: cover;
+      box-shadow: 0 2px 12px #0005;
+    }
+    .upgrade-label {
+      font-size: 1rem;
       color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
     }
-    .faq-block {
-      margin: 31px 0 0 0;
-    }
-    .faq-block h2 {
-      font-size: 1.15em;
+    .upgrade-arrow {
+      font-size: 2rem;
       color: var(--gold);
       font-weight: 900;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1.1px;
-    }
-    .faq-q {
-      font-weight: 900;
-      color: var(--gold);
-      margin-bottom: 3px;
-      font-size: 1.01em;
-    }
-    .faq-a {
-      color: #cacaca;
-      margin-bottom: 15px;
-      font-size: 0.98em;
-    }
-    .footer {
-      margin-top: 36px;
-      color: #858585;
-      font-size: 0.93em;
-      text-align: left;
-      padding-bottom: 33px;
-      max-width: var(--maxw);
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .footer .disclaimer {
-      margin-top: 11px;
-      color: #888;
-      font-size: 0.85em;
-      font-weight: 400;
     }
     @media (max-width: 600px) {
-      .container { padding: 0 8px;}
-      .main-logo { margin: 26px auto 23px auto;}
-      .review-block { padding: 11px 5px;}
-      .links-row { gap: 8px; font-size: 0.94em;}
+      .container { max-width: 97vw; padding: 0 7px; }
+      .header { margin-bottom: 25px; }
+      .logo { width: 40px; height: 40px; }
+      .main-headline { font-size: 1.23rem; }
+      .subline { font-size: 0.99rem; }
+      .upgrade-row { gap: 13px; }
+      .upgrade-logo { width: 41px; height: 41px; }
     }
   </style>
 </head>
 <body>
-  <div class="dopamine-banner">🔥 DOORS CLOSING SOON — JOIN BEFORE IT'S TOO LATE</div>
   <div class="container">
-    <img class="main-logo" src="/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo"/>
-    <div class="hero-title">EMPLOYEE.</div>
-    <div class="hero-sub">BUILD AN <span class="ai">AI</span> EMPIRE.</div>
-    <div class="copy-tate">
-      Inner Vault is the <span style="color:#FFD700;font-weight:800;">underground gym</span> for your mind and bank account.<br>
+    <div class="header">
+      <img class="logo" src="YOUR_LOGO_IMAGE_HERE.png" alt="ANTH Logo">
+      <span class="brand">ANTH</span>
+    </div>
+    <div class="headline">
+      BUILD AN AI EMPIRE.<br><span style="color:#fff;font-size:1.13rem;font-weight:400;">Money Making Is a Skill</span>
+    </div>
+    <div class="subline">
       One phone. Brutal discipline. ChatGPT leverage.<br>
-      <b style="color:#FFD700;">Either you print money, or you stay a spectator.</b>
+      Either you print money, or you stay a spectator.
     </div>
-    <a class="cta-btn" href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank">Join Inner Vault</a>
-    <div class="cta-sub">No excuses. No refunds for weakness.</div>
-    <div class="proof-row">
-      <span>✔️ 1 Phone</span>
-      <span>💰 $11K Prompt System</span>
-      <span>👥 6,000+ Students</span>
-    </div>
-    <div class="review-block">
-      <div class="header">What Our Students Say</div>
-      <div>“Best $39 I’ve ever spent. The prompts alone made me $1,400 in 3 days.”</div>
-      <div>“If you’re hesitating, you’re already late. This is proof-based resurrection.”</div>
-      <div>“Joined from my village with $10 left. Now I’m on $300/week just prompting clients.”</div>
-    </div>
-    <div class="divider"></div>
-    <div class="upgrade-row">
-      <div class="logo-block">
-        <img src="/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Old Logo"/>
-        <span>Old Logo</span>
-      </div>
-      <div class="arrow">&#8594;</div>
-      <div class="logo-block">
-        <img src="/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="Current Logo"/>
-        <span>Current Logo</span>
-      </div>
-    </div>
-    <div class="links-row">
-      <a href="https://t.me/+N9mPSOW1dFlhMjc1">Join Telegram</a>
-      <a href="#">Student Reviews</a>
-    </div>
-    <div class="faq-block">
-      <h2>Frequently Asked Questions</h2>
-      <div>
-        <div class="faq-q">Is this program for beginners?</div>
-        <div class="faq-a">Yes. If you want to print money, you belong here. Weak men will be exposed.</div>
-      </div>
-      <div>
-        <div class="faq-q">How fast can I make money?</div>
-        <div class="faq-a">Some do it in 3 days. Most never will. Discipline is the difference.</div>
-      </div>
-      <div>
-        <div class="faq-q">Do I need money to start?</div>
-        <div class="faq-a">No. Everything here started with a $0 phone and relentless proof.</div>
-      </div>
-      <div>
-        <div class="faq-q">What if I’m not tech savvy?</div>
-        <div class="faq-a">If you can use WhatsApp, you’re in. If you complain, stay broke.</div>
-      </div>
-    </div>
-    <div class="footer">
-      <div>Not Andrew Tate. Not The Real World.<br>
-        <span style="color:#FFD700;font-weight:700;">This is No Code Society. Pacific dominance.</span>
-      </div>
-      <div class="disclaimer">
-        Everything inside Inner Vault is for education only. No guaranteed profits, just proof-based systems. You are responsible for your own execution.
+    <a class="btn" href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank">Join Inner Vault</a>
+    <div class="massive-upgrade">
+      <div class="upgrade-title">INTRODUCING A MASSIVE UPGRADE</div>
+      <div class="upgrade-row">
+        <div class="upgrade-logo-block">
+          <img class="upgrade-logo" src="OLD_LOGO.png" alt="Old Logo">
+          <div class="upgrade-label">Old Logo</div>
+        </div>
+        <div class="upgrade-arrow">&#8594;</div>
+        <div class="upgrade-logo-block">
+          <img class="upgrade-logo" src="YOUR_LOGO_IMAGE_HERE.png" alt="Current Logo">
+          <div class="upgrade-label">Current Logo</div>
+        </div>
       </div>
     </div>
   </div>
