@@ -2,428 +2,289 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>No Code Society | Inner Vault — Elite Digital Brotherhood</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts for Helvetica Now imitation -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>No Code Society | Inner Vault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --gold: #e7c873;
-      --deep-green: #121a12;
-      --rich-black: #111b15;
-      --card: #161e14;
-      --muted: #23281c;
+      --yellow: #FFC646;
+      --dark: #101820;
+      --deep: #0B131A;
     }
     body {
       margin: 0;
-      font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background: var(--rich-black);
+      background: var(--deep);
       color: #fff;
-      line-height: 1.6;
+      font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
       letter-spacing: 0.01em;
-      scroll-behavior: smooth;
     }
-    .banner {
-      width: 100vw;
-      background: linear-gradient(90deg, var(--gold), #f8e7a2);
-      color: #111;
-      text-align: center;
+    .fomo-banner {
+      background: linear-gradient(90deg, #8e9eff 20%, #1e2746 100%);
+      color: #fff;
+      font-size: 0.95em;
       font-weight: bold;
-      font-size: 1rem;
-      letter-spacing: 0.12em;
-      padding: 0.8em 0;
-      box-shadow: 0 2px 24px 0 #dac67955;
-      text-transform: uppercase;
-      animation: pulse 1.6s infinite alternate;
-    }
-    @keyframes pulse {
-      to { filter: brightness(1.15); }
-    }
-    header, section {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 2.2em 1.5em;
-    }
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding-top: 3em;
-      padding-bottom: 2em;
-    }
-    .logo-row {
-      display: flex;
-      align-items: center;
-      gap: 1.5em;
-      margin-bottom: 1.5em;
-    }
-    .logo-main {
-      height: 58px;
-    }
-    .headline {
-      font-size: 2.3em;
-      font-weight: 900;
-      letter-spacing: 0.01em;
-      color: var(--gold);
       text-align: center;
-      line-height: 1.1;
+      padding: 0.8em 0;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      box-shadow: 0 2px 14px #181d3499;
+    }
+    .hero {
+      max-width: 650px;
+      margin: 2.5em auto 0 auto;
+      text-align: center;
+      padding: 0 1em;
+    }
+    .hero-logo {
+      height: 60px;
+      margin-bottom: 1em;
+    }
+    .hero-headline {
+      font-size: 2em;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1.08;
       margin-bottom: 0.5em;
     }
-    .subheadline {
-      font-size: 1.22em;
-      font-weight: 400;
-      color: #e2e2e2;
-      text-align: center;
+    .hero-sub {
+      color: #cfd3e1;
+      font-size: 1.16em;
       margin-bottom: 2em;
-      opacity: 0.88;
     }
     .cta-btn {
-      background: linear-gradient(90deg, var(--gold), #be9a44);
-      color: #151400;
-      border: none;
-      font-size: 1.15em;
+      display: inline-block;
+      background: var(--yellow);
+      color: #141313;
       font-weight: bold;
-      border-radius: 1.7em;
+      font-size: 1.12em;
+      border: none;
+      border-radius: 2em;
+      box-shadow: 0 4px 20px #e7c87350;
       padding: 1em 2.5em;
-      margin-bottom: 0.5em;
-      box-shadow: 0 4px 18px 0 #e7c87355;
+      margin: 1em 0 0.7em 0;
       cursor: pointer;
-      transition: filter 0.18s;
-      margin-top: 0.4em;
+      text-decoration: none;
+      transition: filter .15s;
     }
-    .cta-btn:hover {
-      filter: brightness(1.14);
-    }
-    .divider {
-      width: 80px;
-      height: 4px;
-      background: var(--gold);
-      border-radius: 4px;
-      margin: 2em auto 2em auto;
-    }
-    section {
-      background: none;
-      border-bottom: 1.2px solid #23281c66;
-      margin-bottom: 0;
-      padding-top: 2.5em;
-      padding-bottom: 2.5em;
+    .cta-btn:hover { filter: brightness(1.11);}
+    .section {
+      max-width: 900px;
+      margin: 2.2em auto 0 auto;
+      padding: 0 1em;
+      border-bottom: 1.2px solid #222b31;
+      padding-bottom: 2.2em;
     }
     .section-title {
       color: var(--gold);
-      font-size: 1.5em;
+      font-size: 1.3em;
       font-weight: 800;
-      margin-bottom: 0.5em;
-      text-align: center;
+      margin-bottom: 0.4em;
       letter-spacing: 0.01em;
     }
-    .section-text {
-      color: #e0e0e0;
-      text-align: center;
-      font-size: 1.12em;
-      margin-bottom: 1.5em;
-      opacity: 0.85;
-      font-weight: 400;
-    }
-    .features-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.3em 2.2em;
-      max-width: 640px;
-      margin: 1.5em auto 1em auto;
-      color: #e7e7e7;
-      font-size: 1.07em;
-    }
-    @media (max-width: 700px) {
-      .features-list { grid-template-columns: 1fr; }
-    }
-    .testimonials-row {
+    .feature-grid {
       display: flex;
-      gap: 1.4em;
       flex-wrap: wrap;
+      gap: 2em;
+      margin: 2em 0;
       justify-content: center;
-      margin-top: 1.2em;
     }
-    .testimonial {
-      background: var(--card);
-      color: #f6f6f6;
-      border-radius: 1.2em;
-      padding: 1.6em 1.1em;
-      font-size: 1em;
-      max-width: 300px;
-      min-width: 180px;
-      box-shadow: 0 2px 12px 0 #0e0c0450;
-      margin-bottom: 1em;
-      flex: 1 1 220px;
-    }
-    .testimonial strong {
-      color: var(--gold);
-      font-size: 1.1em;
-    }
-    .proof-row {
-      display: flex;
-      gap: 1em;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      margin: 1.7em auto;
-    }
-    .proof-img {
-      border-radius: 1.1em;
-      width: 180px;
-      max-width: 44vw;
-      box-shadow: 0 2px 16px 0 #aeac9255;
-    }
-    .inside-list {
-      max-width: 480px;
-      margin: 1.2em auto 1em auto;
-      color: #e6e6e6;
-      font-size: 1.13em;
-      list-style: disc inside;
-      line-height: 1.8;
-    }
-    .infographic {
-      display: block;
-      width: 320px;
-      max-width: 90vw;
-      margin: 1em auto 1.2em auto;
-      border-radius: 1.2em;
-      box-shadow: 0 3px 18px 0 #dac67950;
-      border: 2px solid var(--gold);
-      background: #181f12;
-    }
-    .faq-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5em 2.5em;
-      max-width: 690px;
-      margin: 2em auto 1.5em auto;
-    }
-    @media (max-width: 700px) {
-      .faq-row { grid-template-columns: 1fr; }
-    }
-    .faq-q {
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: 0.35em;
-      font-size: 1.09em;
-    }
-    .bonus-pack {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.9em;
-      margin-top: 2em;
-      margin-bottom: 1em;
-    }
-    .bonus-btn {
-      background: linear-gradient(90deg, var(--gold), #be9a44);
-      color: #151400;
-      font-weight: bold;
+    .feature-card {
+      background: #12181f;
       border-radius: 1em;
-      font-size: 1.01em;
-      padding: 0.8em 2em;
-      border: none;
-      box-shadow: 0 2px 12px 0 #e7c87355;
-      cursor: pointer;
+      box-shadow: 0 2px 12px #0e0c0450;
+      min-width: 180px;
+      max-width: 220px;
+      flex: 1 1 170px;
+      padding: 1.5em 1.1em;
+      text-align: left;
+      margin-bottom: 1em;
     }
-    .spots {
-      font-size: 1.4em;
-      font-family: 'Montserrat', monospace;
-      background: #0b0c05;
+    .feature-card-icon {
+      font-size: 2.2em;
       color: var(--gold);
-      border-radius: 0.4em;
-      padding: 0.22em 0.9em;
+      margin-bottom: 0.6em;
+    }
+    .feature-card-title {
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.08em;
+      margin-bottom: 0.45em;
+    }
+    .feature-card-desc {
+      color: #e1e5ee;
+      font-size: 0.98em;
+      opacity: 0.9;
+    }
+    .faq-section {
+      background: #121921;
+      padding: 2.2em 1em;
+      border-radius: 1em;
+      margin: 2em auto 2em auto;
+      max-width: 750px;
+      box-shadow: 0 4px 18px #191e2644;
+    }
+    .faq-title {
+      color: #fff;
+      font-size: 1.13em;
       font-weight: bold;
-      margin-right: 0.4em;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.07em;
+      text-align: center;
+      margin-bottom: 1.1em;
+    }
+    .faq-list {margin: 0; padding: 0;}
+    .faq-q {
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 600;
+      color: #fff;
+      background: none;
+      border: none;
+      text-align: left;
+      width: 100%;
+      padding: 1em 0 0.3em 0;
+      border-bottom: 1px solid #232a30;
+      outline: none;
+      position: relative;
+    }
+    .faq-q:after {
+      content: "+";
+      float: right;
+      color: var(--gold);
+      font-size: 1.17em;
+      font-weight: 900;
+      transition: transform 0.2s;
+    }
+    .faq-q.open:after { content: "-"; }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+      color: #e7c873;
+      font-size: 0.97em;
+      opacity: 0.89;
+      margin-bottom: 1em;
+      padding-left: 0.7em;
+    }
+    .faq-q.open + .faq-a {
+      max-height: 250px;
+      padding: 0.7em 0;
     }
     .footer {
-      background: var(--muted);
+      background: #0b1014;
+      color: #aaa;
+      font-size: 0.96em;
       text-align: center;
-      color: #b1b1b1;
-      font-size: 0.97em;
       padding: 2.5em 1em 2em 1em;
-      border-top: 1.5px solid #2a2f1b;
-      margin-top: 3em;
+      margin-top: 2.5em;
     }
-    .avatar-row {
-      display: flex;
-      gap: 1em;
-      justify-content: center;
-      margin-top: 1.3em;
-    }
-    .avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      border: 2.3px solid var(--gold);
-      object-fit: cover;
-      box-shadow: 0 2px 8px #5f542066;
-    }
-    /* Mobile Adjustments */
-    @media (max-width: 600px) {
-      .headline { font-size: 1.29em; }
-      .section-title { font-size: 1.15em; }
-      header, section { padding: 1.5em 0.8em; }
-      .divider { width: 50px; }
+    /* Responsive */
+    @media (max-width:700px) {
+      .feature-grid { flex-direction: column; gap: 1.2em;}
+      .feature-card { max-width: unset; min-width: 0;}
+      .section { padding-bottom: 1.5em;}
     }
   </style>
 </head>
 <body>
-  <!-- Banner -->
-  <div class="banner">
-    6,000 spots left • July intake closing soon • Secure your empire now
+  <div class="fomo-banner">
+    6,000 spots left • July intake closes soon • Secure your empire now
   </div>
-
-  <!-- Hero Section -->
-  <header>
-    <div class="logo-row">
-      <img src="YOUR_NCS_LOGO.png" class="logo-main" alt="NCS logo">
-      <span style="color:var(--gold);font-weight:900;font-size:1.7em">|</span>
-      <img src="YOUR_INNER_VAULT_LOGO.png" class="logo-main" alt="Inner Vault logo">
+  <!-- Hero -->
+  <div class="hero">
+    <img src="YOUR_NCS_LOGO.png" class="hero-logo" alt="NCS Logo">
+    <div class="hero-headline">BUILD YOUR EMPIRE. ESCAPE WEAKNESS.<br>JOIN THE INNER VAULT</div>
+    <div class="hero-sub">
+      The elite brotherhood for Pacific men. Kill the weak employee. Master AI. Built with proof, pain, and a phone.
     </div>
-    <div class="headline">
-      BUILD YOUR EMPIRE.<br>ESCAPE WEAKNESS.<br>
-      <span style="color:var(--gold);">JOIN THE INNER VAULT</span>
-    </div>
-    <div class="subheadline">
-      The elite brotherhood for Pacific men. <br>
-      Kill the weak employee. Master AI. <br>
-      Built with proof, pain, and a phone.
-    </div>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-btn" target="_blank">
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn">
       Join the Inner Vault
     </a>
-  </header>
-  <div class="divider"></div>
+  </div>
 
-  <!-- 2. About Section -->
-  <section>
-    <div class="section-title">Not a Course. A War Map.</div>
-    <div class="section-text">
-      For men who want to kill weakness, escape the 9-5, and build digital wealth.<br>
-      No fluff, no fake promises. Just war, proof, and execution.
-    </div>
-  </section>
-
-  <!-- 3. What You Get -->
-  <section>
+  <!-- Section: What You Get -->
+  <div class="section">
     <div class="section-title">What You Get</div>
-    <div class="features-list">
-      <div><b>Phase 0:</b> Kill The Weak Man</div>
-      <div><b>Phase 1:</b> Build The Empire</div>
-      <div>Bonus: BlackBox 2.0 (Advanced Playbook)</div>
-      <div>Step-by-step plans, AI prompts, and raw execution</div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card-icon">🗡️</div>
+        <div class="feature-card-title">Phase 0: Kill The Weak Man</div>
+        <div class="feature-card-desc">Erase old habits. Destroy the weak employee inside you.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">🏆</div>
+        <div class="feature-card-title">Phase 1: Build The Empire</div>
+        <div class="feature-card-desc">Leverage AI, prompts, and proof to print digital cash.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">🛡️</div>
+        <div class="feature-card-title">BlackBox 2.0</div>
+        <div class="feature-card-desc">Bonus: Advanced backend systems and strategies.</div>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 4. Proof / Results -->
-  <section>
+  <!-- Proof Section -->
+  <div class="section">
     <div class="section-title">Proof, Not Promises</div>
-    <div class="proof-row">
-      <img src="proof-stripe.png" class="proof-img" alt="Stripe Proof">
-      <img src="proof-whop.png" class="proof-img" alt="Whop Payout">
-      <img src="proof-phone.png" class="proof-img" alt="Phone Build">
+    <div style="display:flex;gap:1em;flex-wrap:wrap;justify-content:center;align-items:center;">
+      <img src="proof-stripe.png" alt="Stripe Proof" style="border-radius:0.8em;width:140px;">
+      <img src="proof-whop.png" alt="Whop Payout" style="border-radius:0.8em;width:140px;">
+      <img src="proof-phone.png" alt="Phone Proof" style="border-radius:0.8em;width:140px;">
     </div>
-    <div class="section-text">Built $15K/month using just a phone. No laptop. No excuses.</div>
-  </section>
+    <div class="hero-sub" style="margin-top:1.1em;">Built $15K/month using just a phone. No laptop. No excuses.</div>
+  </div>
 
-  <!-- 5. Member Wins / Testimonials -->
-  <section>
-    <div class="section-title">Real Results</div>
-    <div class="testimonials-row">
-      <div class="testimonial"><strong>Samu, PNG:</strong><br>“I was broke, now I’m making more than my old boss. Proof changes everything.”</div>
-      <div class="testimonial"><strong>Vili, Fiji:</strong><br>“Joined with $40. Now I pay my family’s bills. All from my phone.”</div>
-      <div class="testimonial"><strong>Manu, Samoa:</strong><br>“I thought AI was fake. Until I used the prompts and landed 2 clients. Life changed.”</div>
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <div class="faq-title">FREQUENTLY ASKED QUESTIONS</div>
+    <div class="faq-list">
+      <button class="faq-q">Is the program suitable for women?</button>
+      <div class="faq-a">Yes. But the culture is masculine and Pacific brotherhood focused.</div>
+      <button class="faq-q">How quickly will I make my money back?</button>
+      <div class="faq-a">Depends on your discipline and execution. Some made 3x in the first month, others took longer.</div>
+      <button class="faq-q">Do I need money once I’m inside?</button>
+      <div class="faq-a">No. All strategies can be started with $0 and a phone.</div>
+      <button class="faq-q">Does my age really not matter?</button>
+      <div class="faq-a">Correct. Only proof, discipline and execution matter inside.</div>
+      <button class="faq-q">I live in X country. Is it a problem?</button>
+      <div class="faq-a">No. As long as you have a phone, you can win. Pacific, PNG, Fiji, Samoa — designed for you.</div>
+      <button class="faq-q">Still have questions?</button>
+      <div class="faq-a">Click the button and join — see for yourself.</div>
     </div>
-  </section>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-btn" target="_blank" style="margin-top:1.4em;">
+      Join the Inner Vault
+    </a>
+  </div>
 
-  <!-- 6. What’s Inside: Core Lessons -->
-  <section>
-    <div class="section-title">Inside The Inner Vault</div>
-    <ul class="inside-list">
-      <li>Phase 0: Kill the Weak Employee Mindset</li>
-      <li>Phase 1: Build The Empire — AI, Proof, UGC</li>
-      <li>Battle-tested prompts for $10K+ jobs</li>
-      <li>Systems to replace departments (no tech degree)</li>
-      <li>Pacific-proof strategies (no fluff, all war)</li>
-    </ul>
-  </section>
-
-  <!-- 7. NCS System Map (Infographic) -->
-  <section>
-    <div class="section-title">Your War Path</div>
-    <img src="system-map.png" alt="System Map" class="infographic">
-    <div class="section-text">From weak employee to digital killer.<br>No theory, just battle-tested steps.</div>
-  </section>
-
-  <!-- 8. Private Channel -->
-  <section>
-    <div class="section-title">Private Channel Access</div>
-    <img src="private-chat.png" alt="Telegram/Discord" class="infographic" style="max-width:200px;">
-    <div class="section-text">
-      Secret Telegram + Discord. Live calls, proof drops, zero-bullshit mentorship.<br>
-      <a href="https://t.me/+N9mPSOW1dFlhMjc1" target="_blank" style="color:var(--gold);text-decoration:underline;">Join the chat</a>
+  <!-- Footer -->
+  <div class="footer">
+    <img src="YOUR_NCS_LOGO.png" alt="NCS Logo" style="height:36px;margin-bottom:1em;">
+    <br>
+    <div>Courses: Proof, Prompting, AI Systems, UGC, Wealth, Brotherhood</div>
+    <div style="margin:1em 0;">
+      <a href="mailto:support@nocodesociety.net" style="color:var(--gold);text-decoration:none;">support@nocodesociety.net</a>
     </div>
-  </section>
-
-  <!-- 9. Community Culture -->
-  <section>
-    <div class="section-title">Brotherhood of Proof</div>
-    <div class="section-text">
-      This isn’t for weak men. <br>It’s for Pacific brothers ready to bleed, build, and rise together.
+    <div style="font-size:0.96em;max-width:430px;margin:1em auto 0 auto;color:#777;">
+      Everything inside No Code Society & Inner Vault is for education and documentation only.<br>
+      No guarantee of earnings — discipline and execution is your responsibility.<br>
+      &copy; 2025 No Code Society. All Rights Reserved.
     </div>
-    <div class="avatar-row">
-      <img src="group1.png" class="avatar" alt="Community 1">
-      <img src="group2.png" class="avatar" alt="Community 2">
-      <img src="group3.png" class="avatar" alt="Community 3">
-    </div>
-  </section>
+  </div>
 
-  <!-- 10. Bonus Content / Prompt Pack -->
-  <section>
-    <div class="section-title">BONUS: $11K Prompt Pack</div>
-    <div class="bonus-pack">
-      <a href="PromptPack.pdf" class="bonus-btn" target="_blank">Download Now (Free)</a>
-      <span style="font-size:0.95em;color:#e7c873bb">Real prompts used to land $11K clients. No fluff, no theory.</span>
-    </div>
-  </section>
-
-  <!-- 11. Scarcity / FOMO -->
-  <section>
-    <div class="section-title">Limited Access</div>
-    <div style="text-align:center;margin-bottom:1em;">
-      <span class="spots">6,000</span>SPOTS LEFT
-      <br>
-      <span style="color:#f6f6b1;font-size:1.08em;">July intake closing. After that, doors shut.</span>
-    </div>
-    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="cta-btn" target="_blank" style="font-size:1.05em;">Join The Inner Vault Now</a>
-  </section>
-
-  <!-- 12. FAQ -->
-  <section>
-    <div class="section-title">FAQs</div>
-    <div class="faq-row">
-      <div>
-        <div class="faq-q">Is this a scam?</div>
-        <div>No. Watch the proof. If you’re skeptical, stay broke.</div>
-      </div>
-      <div>
-        <div class="faq-q">What if I’m broke?</div>
-        <div>You can start with nothing. Built all of this with a phone. No excuses left.</div>
-      </div>
-      <div>
-        <div class="faq-q">Can I do this in PNG/Fiji/Samoa?</div>
-        <div>Yes. Designed for Pacific men. No one is coming to save you. Save yourself.</div>
-      </div>
-      <div>
-        <div class="faq-q">Can I get a refund?</div>
-        <div>No refunds. You want to win? Prove it. Go all in.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13. Why Different -->
-  <section>
-    <div class="section-title">Why This Is Different
+  <script>
+    // Simple FAQ Toggle
+    document.querySelectorAll('.faq-q').forEach(function(q){
+      q.addEventListener('click', function(){
+        this.classList.toggle('open');
+        var a = this.nextElementSibling;
+        if (this.classList.contains('open')) {
+          a.style.maxHeight = a.scrollHeight + "px";
+        } else {
+          a.style.maxHeight = null;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
