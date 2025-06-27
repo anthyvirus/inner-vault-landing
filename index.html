@@ -1,115 +1,157 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>No Code Society - Inner Vault</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INNER VAULT — NCS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap');body {
-  margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
-  background: black url('https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif') repeat top center;
-  background-size: cover;
-  color: white;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 3rem 1rem;
-  text-align: center;
-}
-
-.logo {
-  width: 100px;
-  opacity: 0.1;
-  filter: grayscale(100%);
-  transition: all 0.8s ease-in-out;
-}
-
-.logo:hover {
-  opacity: 1;
-  filter: none;
-}
-
-.section-title {
-  text-transform: uppercase;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  color: #aaa;
-  margin-top: 4rem;
-}
-
-.main-title {
-  font-size: 2.5rem;
-  margin: 0.5rem 0;
-}
-
-.highlight {
-  color: #d80000; /* Red for problem words only */
-}
-
-.cta-btn {
-  background-color: #f5d467;
-  color: black;
-  border: none;
-  border-radius: 8px;
-  padding: 1rem 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 2rem;
-}
-
-.reviews {
-  margin-top: 4rem;
-  background-color: rgba(255,255,255,0.05);
-  padding: 2rem;
-  border-radius: 10px;
-}
-
-.review {
-  margin-bottom: 2rem;
-}
-
-.review-name {
-  font-weight: bold;
-}
-
-.footer-logo {
-  width: 80px;
-  margin-top: 3rem;
-  opacity: 0.6;
-}
-
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: black;
+      color: white;
+      overflow-x: hidden;
+    }
+    .bg-stars {
+      background: url('https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/starfield.gif') repeat;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: -2;
+    }
+    .header-bar {
+      background: #00ffff;
+      text-align: center;
+      font-weight: 700;
+      padding: 12px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #00ffff; }
+      50% { box-shadow: 0 0 25px #00ffff; }
+      100% { box-shadow: 0 0 10px #00ffff; }
+    }
+    .main {
+      text-align: center;
+      padding: 80px 20px 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: 700;
+    }
+    .problem {
+      color: red;
+    }
+    .button {
+      background: #d4af37;
+      color: black;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 15px 30px;
+      display: inline-block;
+      margin: 30px 0;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+    .value-triggers, .section {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .value-triggers ul {
+      list-style: none;
+      padding: 0;
+    }
+    .value-triggers li {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    .upgrade-section {
+      text-align: center;
+      margin-top: 80px;
+    }
+    .upgrade-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+    .logo-old {
+      opacity: 0.3;
+    }
+    .logo-new {
+      filter: drop-shadow(0 0 10px gold);
+    }
+    .reviews {
+      background: #111;
+      padding: 30px;
+      margin-top: 60px;
+      border-radius: 10px;
+    }
+    .review {
+      margin-bottom: 20px;
+    }
+    .review strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+    @media(max-width: 600px) {
+      .upgrade-logos {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" class="logo" alt="Old Logo" />
-    <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="logo" style="opacity:1;filter:none;width:120px;" alt="NCS Shield Logo" /><div class="section-title">INTRODUCING</div>
-<div class="main-title">A MASSIVE <span class="highlight">UPGRADE</span></div>
-<p>The modern education system is designed to keep you <span class="highlight">weak</span> and <span class="highlight">confused</span>.</p>
+  <div class="bg-stars"></div>
+  <div class="header-bar">MOST MEN QUIT — WE FILTER FOR THOSE WHO FINISH. THIS ISN’T A COURSE. IT’S A MISSION.</div>  <div class="main">
+    <h1><span class="problem">Escape</span> the Soft Life</h1>
+    <p><span class="problem">Still broke?</span> Still watching instead of building?</p>
+    <p>This is your final call to build proof, power, and income — <span class="problem">starting from zero</span>, with nothing but a phone.</p>
+    <p>We don’t train students. We raise soldiers.</p><a class="button" href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/">JOIN THE INNER VAULT</a>
 
-<button class="cta-btn">Join Telegram</button>
+<div class="value-triggers">
+  <h2>What You’ll Learn</h2>
+  <ul>
+    <li>❌ The system that kept you soft</li>
+    <li>🔐 $15K/month blueprint using ChatGPT + phone only</li>
+    <li>📲 AI + content = automated income + proof</li>
+    <li>🌏 How Pacific men are escaping 9–5 with NCS</li>
+    <li>🛠️ Tools: Stripe, offshore setups, Discord cults</li>
+  </ul>
+</div>
+
+<div class="upgrade-section">
+  <div class="upgrade-logos">
+    <img class="logo-old" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Coat_of_arms_of_Fiji.svg/800px-Coat_of_arms_of_Fiji.svg.png" alt="Old Logo" width="100">
+    <span style="font-size: 36px; color: white;">→</span>
+    <img class="logo-new" src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/ncs-logo.png" alt="New Logo" width="100">
+  </div>
+  <h2>INTRODUCING</h2>
+  <h1>A MASSIVE <span style="color: white; font-weight: 700;">UPGRADE</span></h1>
+  <p>The modern education system was designed to keep you poor. This system helps you escape.</p>
+</div>
 
 <div class="reviews">
   <div class="review">
-    <div class="review-name">Ratu Jone, Fiji 🇫🇯</div>
-    <p>
-      "I joined with just $39. Now I'm making $500/week on my phone. This is not a course. It's a weapon."
-    </p>
+    <strong>Ratu Jone, Fiji 🇫🇯</strong>
+    “Joined with $39. Now earning $500/week using my phone. Inner Vault changed everything.”
   </div>
   <div class="review">
-    <div class="review-name">Elijah Walo, PNG 🇵🇬</div>
-    <p>
-      "I was stuck in retail for years. One prompt changed everything. I escaped the system with proof."
-    </p>
+    <strong>Elijah Walo, PNG 🇵🇬</strong>
+    “Used one prompt. Left retail. Built proof. This isn’t a course. It’s a system.”
   </div>
   <div class="review">
-    <div class="review-name">Mosese R., Fiji 🇫🇯</div>
-    <p>
-      "No fluff, no theory. Just daily war, money systems, and brotherhood."
-    </p>
+    <strong>Kalione M., Fiji 🇫🇯</strong>
+    “The truth is simple: I was soft. Now I’m dangerous. Thank you Ghost Child.”
   </div>
 </div>
 
