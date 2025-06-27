@@ -1,228 +1,97 @@
 <!DOCTYPE html><html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>No Code Society | Inner Vault</title><!-- ==========================================
-  FONTS — Helvetica Now Slim & Bold
-  NOTE: Helvetica Now is a licensed Monotype family.
-  Drop the WOFF2 files into ./fonts/ then keep the same filenames.
-  (Remove these @font-face blocks if you already serve the fonts elsewhere.)
-=========================================== -->
-<style>
-  @font-face {
-    font-family: "Helvetica Now";
-    src: url("fonts/HelveticaNowDisplay-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Helvetica Now";
-    src: url("fonts/HelveticaNowDisplay-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-</style>
-
-<!-- ==========================================
-  CORE STYLES — Million‑Dollar Polish, Glass + Neon
-=========================================== -->
-<style>
-  :root {
-    /* Color palette | Inspired by TRW but tailored to NCS gold */
-    --bg-1: #07070c;
-    --bg-2: #0d0d15;
-    --fg: #ffffff;
-    --gold: #d0a32b;
-    --gold-light: #e4be50;
-    --accent: #00f6ff;
-
-    /* Glow & blur */
-    --glow: 220 100% 60%; /* HSL triplet for CSS hsl() */
-  }
-
-  /* ───────── RESET */
-  *, *::before, *::after { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: "Helvetica Now", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: var(--bg-1);
-    color: var(--fg);
-    overflow-x: hidden;
-    line-height: 1.55;
-  }
-  img { max-width: 100%; display: block; }
-  a { color: inherit; text-decoration: none; }
-
-  /* ───────── PRELOAD STATE for animation pop‑in */
-  .preload * { transition: none !important; }
-
-  /* ───────── UTILS */
-  .container { width: min(92%, 1400px); margin-inline: auto; }
-  .reveal { opacity: 0; transform: translateY(40px); transition: 0.8s cubic-bezier(.33,1,.68,1); }
-  .reveal.active { opacity: 1; transform: translateY(0); }
-
-  /* ───────── TOP FOMO BANNER */
-  .banner {
-    --stripe: repeating-linear-gradient(110deg, transparent 0 8px, rgba(0,0,0,.05) 8px 16px);
-    position: relative;
-    background: var(--accent);
-    color: #000;
-    text-align: center;
-    font-weight: 700;
-    letter-spacing: .07em;
-    padding: .55rem 1rem;
-    font-size: .9rem;
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--stripe);
-    animation: slide-bg 6s linear infinite;
-    mix-blend-mode: multiply;
-    opacity: .6;
-  }
-  @keyframes slide-bg { to { transform: translateX(-50%); } }
-
-  /* ───────── HEADER */
-  header {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.2rem 0; position: relative; z-index: 10;
-  }
-  .logo { display: flex; align-items: center; gap: .55rem; }
-  .logo img { width: 44px; height: auto; }
-  nav { display: flex; gap: 1.6rem; font-weight: 700; }
-
-  /* ───────── BUTTONS */
-  .btn {
-    display: inline-block; padding: .82rem 1.75rem; border-radius: 5px;
-    font-weight: 700; letter-spacing: .045em; transition: transform .25s, background .25s;
-  }
-  .btn-gold { background: var(--gold); color: #000; }
-  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px) scale(1.04); }
-  .btn-outline { border: 2px solid var(--fg); }
-  .btn-outline:hover { background: var(--fg); color: #000; transform: translateY(-2px) scale(1.04); }
-
-  /* ───────── HERO */
-  .hero {
-    position: relative; text-align: center; padding: 7.5rem 0 5rem;
-  }
-  .hero h1 {
-    font-size: clamp(2.7rem, 7vw, 4.6rem);
-    font-weight: 700; line-height: 1.08; margin-bottom: 1.4rem;
-  }
-  .hero h1 span { color: var(--gold); }
-  .hero p { max-width: 680px; margin-inline: auto; font-size: 1.14rem; opacity: .9; }
-
-  /* Glowing orb behind hero */
-  .hero::before {
-    content: ""; position: absolute; inset: 0;
-    background: radial-gradient(circle at 50% 40%, hsla(var(--glow)/.45) 0%, transparent 60%);
-    filter: blur(140px); opacity: .6; pointer-events: none;
-  }
-
-  /* ───────── COURSES */
-  #courses { padding: 5rem 0 4rem; }
-  #courses h2 { text-align: center; font-size: 2.1rem; margin-bottom: 2.4rem; font-weight: 700; }
-  .grid { display: grid; gap: 1.8rem; grid-template-columns: repeat(auto-fit,minmax(270px,1fr)); }
-  .card {
-    background: var(--bg-2); border: 1px solid #1b1b24; padding: 1.7rem;
-    border-radius: 8px; transition: transform .3s, box-shadow .3s;
-  }
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 24px rgba(0,0,0,.35);
-  }
-  .card h3 { color: var(--gold); font-size: 1.3rem; margin-bottom: .55rem; font-weight: 700; }
-  .card p { font-size: .94rem; opacity: .85; }
-
-  /* ───────── CTA RIBBON */
-  .cta {
-    position: relative; overflow: hidden; text-align: center; padding: 3rem 1rem;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000;
-  }
-  .cta::after {
-    content: ""; position: absolute; inset: 0; background: var(--stripe);
-    mix-blend-mode: multiply; opacity: .45; animation: slide-bg 8s linear infinite reverse;
-  }
-  .cta h2 { font-size: 2.05rem; margin-bottom: 1.3rem; font-weight: 700; position: relative; }
-  .cta a { position: relative; }
-
-  /* ───────── FOOTER */
-  footer { font-size: .82rem; text-align: center; padding: 2.2rem 0; opacity: .6; }
-
-  /* ───────── RESPONSIVE TWEAKS */
-  @media (max-width: 600px) {
-    nav { display: none; } /* Keep header minimal on small screens */
-  }
-</style>
-
-  </head>
-  <body class="preload">
-    <!-- ===== TOP FOMO BANNER -->
-    <div class="banner">ENTRIES CLOSED • NEXT PRICE JUMP SOON • JOIN THE WAITLIST NOW</div><div class="container">
-  <!-- ===== HEADER -->
-  <header>
-    <div class="logo"><img src="ncs-logo.png" alt="NCS Logo" /></div>
-    <nav>
-      <a href="#courses">Courses</a>
-      <a href="https://t.me/+N9mPSOW1dFlhMjc1" target="_blank" rel="noopener">Telegram</a>
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-gold" target="_blank" rel="noopener">JOIN NOW</a>
-    </nav>
-  </header>
-
-  <!-- ===== HERO -->
-  <section class="hero reveal">
-    <h1><span>Kill&nbsp;the&nbsp;Weak Employee</span><br />Build the AI‑Powered Empire</h1>
-    <p>Inner Vault is your private battleground: raw, brutal lessons that replace 9‑to‑5 slavery with digital leverage. One phone. One shot. Discipline + AI = dollars — or you stay broke.</p>
-    <div style="margin-top:2.1rem">
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-gold" target="_blank" rel="noopener">SECURE YOUR KEY</a>
-      <a href="https://therealworld.net/login" class="btn btn-outline" target="_blank" rel="noopener">Log In</a>
-    </div>
-  </section>
-
-  <!-- ===== COURSES -->
-  <section id="courses" class="reveal">
-    <h2>What You Unlock</h2>
-    <div class="grid">
-      <div class="card"><h3>Phase 0 — Kill the Weak Man</h3><p>Daily war on the soft habits destroying your potential. Self‑resurrection through pain, proof, and brutal accountability.</p></div>
-      <div class="card"><h3>Phase 1 — Build the Empire</h3><p>Real‑time systems: AI workflows, Super UGC, meme‑coin plays, and the Soros strategy for explosive scale — taught step by ruthless step.</p></div>
-      <div class="card"><h3>Master Prompt Vault</h3><p>Fill‑in‑the‑blank power prompts that erase whole departments and wire cash to your Stripe while you sleep.</p></div>
-    </div>
-  </section>
-</div>
-
-<!-- ===== CTA RIBBON -->
-<section class="cta reveal">
-  <h2>Stop Consuming. Start Printing.</h2>
-  <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" class="btn btn-outline" target="_blank" rel="noopener">Join Waitlist</a>
-</section>
-
-<!-- ===== FOOTER -->
-<footer>
-  <p>© 2025 No Code Society. All Rights Reserved.</p>
-  <p>Disclaimer: The information inside Inner Vault is educational experience only — it is not financial, legal, or tax advice. Results are never guaranteed. Your actions are your own responsibility.</p>
-</footer>
-
-<!-- ==========================================
-  JS — Intersection Observer reveal + remove preload
-=========================================== -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Remove preload for smooth transitions post‑load
-    document.body.classList.remove("preload");
-
-    // Fade‑in reveal on scroll
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => e.isIntersecting && e.target.classList.add("active"));
-    }, { threshold: 0.25 });
-    document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
-  });
-</script>
-
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INNER VAULT | Kill the Weak Man</title>
+  <link href="https://fonts.googleapis.com/css2?family=Helvetica+Now:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      font-family: 'Helvetica Now', sans-serif;
+      color: white;
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ff3c3c;
+      text-align: center;
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    p.sub {
+      font-size: 1.2rem;
+      text-align: center;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+    .section-box {
+      background: #111;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
+    .highlight {
+      color: #ff3c3c;
+      font-weight: bold;
+    }
+    .gold {
+      color: #cba44b;
+    }
+    .cta-bar {
+      background: #111;
+      padding: 1rem;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+      margin-top: 2rem;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .cta-bar span {
+      color: #ff3c3c;
+    }
+    .cta-btn {
+      background: #ff3c3c;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-left: 1rem;
+    }
+    .footer {
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    a { color: #cba44b; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>You’re Not Stuck.</h1>
+  <h2>You’re Addicted, Soft, and Full of Excuses.</h2>
+  <p class="sub">The <span class="highlight">INNER VAULT</span> is not a course. It’s a digital resurrection system built to <span class="highlight">humiliate weakness</span> and replace it with war discipline.</p>  <div class="section-box">
+    <h2>⚔️ KILL THE WEAK MAN</h2>
+    <p><span class="highlight">Phase 0:</span> Destroy porn, scrolling, and soft identity. Build a war plan that buries your old self.</p>
+    <p class="gold">📸 $982 earned in 7 days after Phase 0 – Tim, PNG</p>
+  </div>  <div class="section-box">
+    <h2>📙 AI-POWERED INCOME</h2>
+    <p>Phase 1 turns your phone into a money machine using ChatGPT. Learn to build income systems with zero capital.</p>
+  </div>  <div class="cta-bar">
+    ⚡ FINAL SPOTS THIS MONTH — <span>NOW</span>
+    <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/"><button class="cta-btn">ENTER</button></a>
+  </div>  <div class="footer">
+    <p>&copy; 2025 No Code Society — inner-vault-landing.vercel.app</p>
+    <p><a href="https://t.me/+N9mPSOW1dFlhMjc1">Join Private NCS Telegram &rarr;</a></p>
+  </div>
+</body>
 </html>
