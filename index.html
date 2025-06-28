@@ -1,398 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>INNER VAULT | No Code Society</title>
   <link href="https://fonts.cdnfonts.com/css/helvetica-now-display" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/helvetica-now-text" rel="stylesheet">
   <style>
     :root {
       --gold: #e7c873;
-      --dark: #0B1812;
-      --deep-green: #14221B;
-      --black: #0A0A0A;
-      --button-bg: linear-gradient(90deg, #e7c873 60%, #c6b87d 100%);
-      --premium-white: #f8f9fa;
-      --gray: #aab09a;
+      --dark: #131e15;
+      --premium-dark: #142016;
+      --green-bg: #132017;
+      --accent: #1d2620;
+      --white: #fff;
     }
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      background: var(--dark);
-      color: var(--premium-white);
-      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
-      letter-spacing: -0.02em;
-      scroll-behavior: smooth;
-      min-height: 100vh;
-    }
-    .helvetica-bold {
+      background: var(--green-bg);
+      color: var(--gold);
       font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 700;
-    }
-    .helvetica-slim {
-      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-    }
-
-    /* Animated FOMO Banner */
-    .fomo-banner {
-      width: 100%;
-      background: linear-gradient(90deg, #ffe66d 0%, #c6b87d 100%);
-      color: #222;
-      font-family: 'Helvetica Now Display', sans-serif;
-      font-weight: 700;
-      font-size: 1.18rem;
+      font-weight: 400;
       text-align: center;
-      letter-spacing: 0.01em;
-      padding: 16px 0;
-      margin-bottom: 0;
-      box-shadow: 0 2px 16px rgba(231, 200, 115, 0.07);
+    }
+    .fomo-banner {
+      background: linear-gradient(90deg, #ffd700 0%, #aa8936 100%);
+      color: #1c1b12;
+      font-weight: bold;
+      font-size: 1.2rem;
+      letter-spacing: .03em;
+      padding: 14px 0 12px 0;
+      box-shadow: 0 2px 12px rgba(231, 200, 115, 0.14);
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid #e7c87355;
     }
-    .fomo-banner .banner-anim {
-      display: inline-block;
-      background: linear-gradient(270deg, #ffe66d, #c6b87d, #ffe66d);
-      background-size: 200% 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: banner-move 3s linear infinite alternate;
+    .banner-anim {
+      animation: fomo-fade 2.2s cubic-bezier(0.8,0,0.2,1) infinite alternate;
     }
-    @keyframes banner-move {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+    @keyframes fomo-fade {
+      from { opacity: 1; }
+      to { opacity: 0.75; letter-spacing: .08em; }
     }
-
-    /* Header */
     header {
-      background: var(--deep-green);
+      background: #162214;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 4vw;
-      border-bottom: 1px solid rgba(231,200,115,0.07);
-      box-shadow: 0 4px 24px rgba(0,0,0,0.09);
-      z-index: 9;
+      padding: 0 16px 0 8px;
+      border-bottom: 1.5px solid #2c3b24;
+      height: 68px;
     }
-    .logo-wrap {
+    .logo-row {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 10px;
     }
     .logo-img {
-      width: 54px;
-      height: 54px;
-      border-radius: 15px;
-      background: #172b18;
-      object-fit: contain;
-      box-shadow: 0 2px 12px #363a1a22;
+      height: 44px;
+      margin-right: 10px;
+      border-radius: 12px;
+      background: #232a1b;
+      border: 2px solid #584915;
+      box-shadow: 0 2px 14px #000a;
     }
-    .logo-ncs {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      margin-left: -9px;
-      background: #172b18;
-      object-fit: contain;
-      box-shadow: 0 2px 12px #363a1a22;
-    }
-    .main-title {
-      font-size: 1.55rem;
-      font-weight: 700;
-      color: var(--gold);
+    .header-title {
       font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.35rem;
+      color: var(--gold);
+      font-weight: 700;
       letter-spacing: -0.01em;
+      margin-left: 3px;
     }
-    .btn-main {
-      background: var(--button-bg);
-      color: #191d10;
-      font-family: 'Helvetica Now Display', sans-serif;
+    .btn {
+      background: linear-gradient(90deg, #e7c873 60%, #d3b158 100%);
+      border: none;
+      border-radius: 99px;
+      padding: 15px 32px;
       font-weight: 700;
+      font-size: 1.1rem;
+      color: #171a13;
+      cursor: pointer;
+      letter-spacing: -0.01em;
+      box-shadow: 0 2px 24px #e7c8732f;
+      transition: transform .1s, box-shadow .1s;
+      margin-right: 8px;
+      white-space: nowrap;
+    }
+    .btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 36px #e7c87366;
+    }
+    .main-content {
+      max-width: 600px;
+      margin: 40px auto 0 auto;
+      padding: 0 10px;
+    }
+    .polar-title {
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-family: 'Helvetica Now Text', Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: .06em;
+      margin-bottom: 18px;
+    }
+    .hero-headline {
+      color: #fff;
+      font-size: 2.4rem;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: -.01em;
+      margin-bottom: 0;
+      margin-top: 8px;
+      text-shadow: 0 2px 12px #231b0c25;
+      line-height: 1.09;
+    }
+    .hero-headline span {
+      color: var(--gold);
+    }
+    .hero-sub {
+      color: #e7c873;
       font-size: 1.15rem;
-      border: none;
-      border-radius: 40px;
-      padding: 15px 42px;
-      box-shadow: 0 4px 28px #e7c87345;
-      cursor: pointer;
-      transition: all 0.2s;
-      letter-spacing: -0.02em;
-      margin-left: 18px;
-      outline: none;
-      min-width: 152px;
+      font-family: 'Helvetica Now Text', Arial, sans-serif;
+      font-weight: 300;
+      letter-spacing: .03em;
+      margin-top: 18px;
+      margin-bottom: 28px;
+      line-height: 1.6;
     }
-    .btn-main:hover { filter: brightness(1.1); }
-
-    /* Hero */
-    .hero {
-      padding: 60px 5vw 35px 5vw;
-      text-align: center;
-      background: var(--dark);
-      box-shadow: 0 12px 52px rgba(0,0,0,0.10);
+    .hero-cta-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 26px 0 16px 0;
     }
-    .hero .helvetica-bold {
-      color: var(--premium-white);
-      font-size: 2.65rem;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 18px #0000000e;
-    }
-    .hero .helvetica-slim {
-      font-size: 1.22rem;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.01em;
-    }
-    .hero-cta {
-      margin-top: 38px;
-    }
-    .btn-hero {
-      background: var(--button-bg);
-      color: #181b10;
-      font-family: 'Helvetica Now Display', sans-serif;
+    .student-count {
+      background: #202b1e;
+      border: 1px solid #e7c87333;
+      color: #e7c873;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
       font-weight: 700;
-      font-size: 1.09rem;
-      border: none;
-      border-radius: 42px;
-      padding: 17px 58px;
-      box-shadow: 0 6px 32px #e7c87333;
-      margin-bottom: 14px;
-      cursor: pointer;
-      transition: 0.15s;
-      letter-spacing: -0.02em;
-      outline: none;
-    }
-    .btn-hero:hover { filter: brightness(1.07);}
-    .hero-count {
+      font-size: 1rem;
+      padding: 12px 26px;
+      border-radius: 35px;
+      margin: 0 auto 16px auto;
       display: inline-block;
-      background: #192a1b;
-      color: var(--gold);
-      font-family: 'Helvetica Now Text', sans-serif;
-      font-weight: 500;
-      font-size: 1.03rem;
-      padding: 11px 30px;
-      border-radius: 32px;
-      margin-top: 13px;
-      border: 1.3px solid #363a1a38;
+      box-shadow: 0 2px 16px #e7c87311;
+      letter-spacing: .01em;
     }
-
-    /* WHAT YOU'LL LEARN / Access */
-    .section-preview {
-      margin: 50px auto 30px auto;
-      background: #17271b;
-      border-radius: 16px;
-      max-width: 98vw;
-      width: 480px;
-      padding: 32px 28px 18px 28px;
-      border: 2px solid #a3943b1a;
-      box-shadow: 0 6px 36px #111a090d;
+    /* Card boxes */
+    .gold-box {
+      background: #192612e6;
+      border: 2px solid #e7c87333;
+      border-radius: 14px;
+      margin: 26px auto 18px auto;
+      padding: 24px 16px 10px 20px;
+      color: #fff;
+      max-width: 520px;
+      box-shadow: 0 4px 24px #000a;
+      text-align: left;
+      font-family: 'Helvetica Now Text', Arial, sans-serif;
     }
-    .section-title {
-      font-size: 1.38rem;
-      color: var(--premium-white);
-      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
+    .gold-box strong, .gold-box b {
+      color: #e7c873;
       font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: 0.01em;
-      text-shadow: 0 2px 12px #0000000e;
     }
-    .section-preview b, .section-preview strong {
-      color: var(--gold);
-      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-    .section-preview p, .section-preview li {
-      color: var(--premium-white);
-      font-size: 1.05rem;
-      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
+    .gold-box .box-title {
+      color: #fff;
+      font-size: 1.23rem;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
+      font-weight: 900;
+      letter-spacing: .01em;
       margin-bottom: 11px;
+      text-shadow: 0 2px 10px #292d1022;
     }
-    /* Included Access Section */
-    .section-access {
-      margin: 30px auto 30px auto;
-      background: #17271b;
-      border-radius: 16px;
-      max-width: 98vw;
-      width: 480px;
-      padding: 32px 28px 18px 28px;
-      border: 2px solid #a3943b1a;
-      box-shadow: 0 6px 36px #111a090d;
+    .gold-box ul {
+      margin: 9px 0 0 0;
+      padding-left: 16px;
     }
-    .section-access b, .section-access strong {
-      color: var(--gold);
-      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.01em;
+    .gold-box li {
+      color: #fff;
+      margin-bottom: 6px;
+      font-size: 1.04rem;
+      font-family: 'Helvetica Now Text', Arial, sans-serif;
     }
-    .section-access p, .section-access li, .section-access a {
-      color: var(--premium-white);
-      font-size: 1.05rem;
-      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-      margin-bottom: 9px;
-      text-decoration: none;
-    }
-    .section-access a {
-      text-decoration: underline;
-      color: var(--gold);
-      font-weight: 700;
-    }
-
     /* Reviews */
     .section-reviews {
-      margin: 36px auto 30px auto;
-      max-width: 460px;
-      width: 97vw;
-      background: #17271b;
-      border-radius: 16px;
-      padding: 32px 18px 30px 18px;
-      border: 2px solid #a3943b1a;
-      box-shadow: 0 6px 36px #111a090d;
-      text-align: center;
+      max-width: 500px;
+      margin: 36px auto 22px auto;
+      background: #162314;
+      border: 1.5px solid #e7c87338;
+      border-radius: 14px;
+      box-shadow: 0 2px 20px #000a;
+      padding: 24px 16px 28px 16px;
     }
     .reviews-title {
-      font-size: 1.28rem;
-      color: var(--premium-white);
-      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      margin-bottom: 22px;
-      text-shadow: 0 2px 12px #0000000e;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 900;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 10px #392c1140;
     }
     .review-text {
-      font-size: 1.11rem;
-      color: var(--gold);
-      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 400;
-      margin-bottom: 16px;
+      color: #fff;
+      font-size: 1.13rem;
+      font-family: 'Helvetica Now Text', Arial, sans-serif;
+      font-weight: 300;
+      margin-bottom: 14px;
+      min-height: 42px;
     }
     .review-author {
-      color: var(--premium-white);
-      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
+      color: #e7c873;
       font-weight: 700;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
+      font-size: 1.01rem;
       margin-bottom: 2px;
     }
     .review-role {
-      color: var(--gray);
-      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.98rem;
-      margin-bottom: 13px;
+      color: #c6bc97;
+      font-size: 0.95rem;
+      font-family: 'Helvetica Now Text', Arial, sans-serif;
+      margin-bottom: 12px;
     }
     .review-arrows {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 28px;
-      margin-top: 12px;
+      margin-top: 10px;
     }
     .review-arrow {
-      background: none;
-      border: 1.7px solid var(--gold);
-      color: var(--gold);
-      border-radius: 100px;
-      font-size: 1.32rem;
-      width: 38px;
-      height: 38px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: #e7c873;
+      color: #141813;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0 7px;
       cursor: pointer;
-      box-shadow: 0 2px 16px #e7c87317;
-      transition: background 0.2s, color 0.2s;
+      transition: background .2s;
     }
-    .review-arrow:active {
-      background: var(--gold);
-      color: #181b10;
+    .review-arrow:hover {
+      background: #fff2c2;
+      color: #ab970f;
     }
-
     /* Footer */
     footer {
-      margin-top: 54px;
-      padding: 18px 0 14px 0;
-      background: #162319;
-      color: var(--gray);
-      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
-      font-size: 0.99rem;
-      text-align: center;
-      border-top: 1.5px solid #a3943b1a;
+      background: #10150c;
+      color: #a3a391;
+      font-size: 0.96rem;
+      padding: 20px 0 18px 0;
+      font-family: 'Helvetica Now Text', Arial, sans-serif;
+      border-top: 1.5px solid #e7c87326;
       letter-spacing: 0.01em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 18px;
     }
-    .footer-logo {
-      width: 28px;
-      vertical-align: middle;
-    }
-    .footer-sep {
-      color: var(--gold);
-      font-size: 1.4rem;
-      margin: 0 7px;
-    }
+    /* Responsive */
     @media (max-width: 600px) {
-      .hero .helvetica-bold { font-size: 2.07rem;}
-      .section-title, .reviews-title { font-size: 1.09rem;}
-      .main-title { font-size: 1.12rem;}
-      .btn-main { font-size: 0.98rem; min-width: 110px; padding: 12px 15px;}
-      .btn-hero { font-size: 1.03rem; padding: 12px 18vw;}
-      .section-preview, .section-access, .section-reviews { width: 96vw; min-width: 0; padding: 22px 5vw;}
+      .main-content { max-width: 98vw; }
+      .gold-box { padding: 16px 7px 7px 12px; }
+      .section-reviews { padding: 14px 5px 18px 5px; }
+      .header-title { font-size: 1.05rem; }
+      .hero-headline { font-size: 1.2rem; }
+      .btn { padding: 10px 18px; font-size: .95rem; }
+      .logo-img { height: 38px;}
+      .student-count { padding: 9px 6px; font-size: .95rem;}
     }
   </style>
 </head>
 <body>
   <!-- FOMO Banner -->
   <div class="fomo-banner">
-    <span class="banner-anim">⚡ 2,000+ Pacific Warriors inside — Only the savage survive. Don’t get left behind.</span>
+    <span class="banner-anim">⚡ FEW GET IN. MOST STAY BROKE.</span>
   </div>
-  <!-- Header -->
+
+  <!-- Header: Logo and CTA -->
   <header>
-    <div class="logo-wrap">
-      <!-- Replace src values with your actual logo file names/paths! -->
-      <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="Inner Vault Logo" class="logo-img" />
-      <img src="129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png" alt="NCS Logo" class="logo-ncs" />
-      <span class="main-title helvetica-bold">INNER VAULT</span>
+    <div class="logo-row">
+      <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="logo-img" alt="NCS/Inner Vault Logo">
+      <span class="header-title">INNER VAULT</span>
     </div>
-    <button class="btn-main" onclick="window.location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">Join Now</button>
+    <button class="btn" onclick="window.open('https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/', '_blank')">Join Now</button>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="helvetica-slim" style="font-size:1.18rem;margin-bottom:7px;letter-spacing:0.02em;">BURN THE BRIDGE. JOIN THE VAULT.</div>
-    <div class="helvetica-bold" style="margin-bottom:3px;">BUILD YOUR EMPIRE OR DIE A NOBODY.</div>
-    <div class="helvetica-slim" style="font-size:1.13rem;max-width:410px;margin:0 auto 18px auto;">
-      The system was built to <span style="color:var(--gold);font-weight:700;">keep you broke</span>. University? A lie. “Safe” jobs? Designed to break men.
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="polar-title">BURN THE BRIDGE. JOIN THE VAULT.</div>
+    <div class="hero-headline">
+      BUILD YOUR EMPIRE OR DIE A NOBODY.
     </div>
-    <div class="helvetica-slim" style="font-size:1.13rem;max-width:470px;margin:0 auto 8px auto;">
-      <span style="color:var(--gold);font-weight:700;">Inside INNER VAULT</span> you kill the weak man, master AI, and tap secret playbooks for <span style="color:var(--gold);font-weight:700;">real money</span>, not dreams.
+    <div class="hero-sub" style="color: #d5be75; font-size: 1.2rem; margin: 15px 0 9px 0;">
+      The system was built to <span style="color: #e7c873;">keep you broke.</span><br>
+      University? A lie. “Safe” jobs? Designed to break men.<br><br>
+      <b style="color: #e7c873;">Inside INNER VAULT</b> you kill the weak man, master AI, and tap secret playbooks for <b style="color: #fff;">real money</b>, not dreams.
     </div>
-    <div class="hero-cta">
-      <button class="btn-hero" onclick="window.location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">Join the Inner Vault Now</button>
-      <div class="hero-count helvetica-slim">👥 Join 2,000+ Ruthless Pacific Warriors</div>
+    <div class="hero-cta-row">
+      <button class="btn" onclick="window.open('https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/', '_blank')">
+        Join the Inner Vault Now
+      </button>
+      <span class="student-count">
+        👥 Join 2,000+ Ruthless Pacific Warriors
+      </span>
     </div>
-  </section>
 
-  <!-- WHAT YOU'LL LEARN (PREVIEW) -->
-  <div class="section-preview">
-    <div class="section-title">WHAT YOU’LL LEARN (PREVIEW)</div>
-    <div style="margin-bottom:18px;">
-      <b>Phase 0: </b>Kill the Weak Man<br>
-      <span class="helvetica-slim">— The war against weakness. Expose, confront, and destroy your old identity. You vs. You. Documented daily in the Vault.</span>
+    <!-- What You'll Learn -->
+    <div class="gold-box" style="margin-top:30px;">
+      <div class="box-title">WHAT YOU’LL LEARN (PREVIEW)</div>
+      <div><b>Phase 0:</b> Kill the Weak Man<br>
+      — The war against weakness. Expose, confront, and destroy your old identity. You vs. You. Documented daily in the Vault.<br><br>
+      <b>Phase 1:</b> Build The Empire<br>
+      — Money by system, not by luck. Scale with ChatGPT, leverage Super UGC, run proof-based content to force belief and create new income overnight.<br><br>
+      <b>Prompt Vault:</b><br>
+      — Real prompt structures (the $11K client-winning flows). Plug in and deploy for instant authority.
+      </div>
     </div>
-    <div style="margin-bottom:18px;">
-      <b>Phase 1: </b>Build The Empire<br>
-      <span class="helvetica-slim">— Money by system, not by luck. Scale with ChatGPT, leverage Super UGC, run proof-based content to force belief and create new income overnight.</span>
-    </div>
-    <div style="margin-bottom:0;">
-      <b>Prompt Vault: </b><br>
-      <span class="helvetica-slim">— Real prompt structures (the $11K client-winning flows). Plug in and deploy for instant authority.</span>
+
+    <!-- Access Included -->
+    <div class="gold-box">
+      <div class="box-title">ACCESS INCLUDED</div>
+      <ul>
+        <li><b>NCS Discord Server:</b> Private, confidential, brutal. Entry after payment only.</li>
+        <li><b>Private Telegram:</b> 24/7 drops and support — <a href="https://t.me/+N9mPSOW1dFlhMjc1" style="color:#e7c873; text-decoration:underline;" target="_blank">Join Here</a></li>
+        <li><b>Direct Email:</b> <a href="mailto:anthmediapg@gmail.com" style="color:#e7c873; text-decoration:underline;">anthmediapg@gmail.com</a></li>
+        <li><b>Real Results:</b> Uncensored member wins and client invoices in the proof vault.</li>
+        <li><b>Inner Vault Courses:</b> Mindset warfare, digital leverage, AI money flows.</li>
+      </ul>
     </div>
   </div>
 
-  <!-- ACCESS INCLUDED -->
-  <div class="section-access">
-    <div class="section-title">ACCESS INCLUDED</div>
-    <div style="text-align:left;">
-      <b>NCS Discord Server:</b> <span class="helvetica-slim">Private, confidential, brutal. Entry after payment only.</span><br><br>
-      <b
+  <!-- Brutal Student Reviews -->
+  <div class="section-reviews">
+    <div class="reviews-title">BRUTAL STUDENT REVIEWS</div>
+    <div id="review-text" class="review-text"></div>
+    <div id="review-author" class="review-author"></div>
+    <div id="review-role" class="review-role"></div>
+    <div class="review-arrows">
+      <button class="review-arrow" onclick="prevReview()">&#8592;</button>
+      <button class="review-arrow" onclick="nextReview()">&#8594;</button>
+    </div>
+  </div>
+  <script>
+    const reviews = [
+      {
+        text: `"First week inside, I realized school taught me nothing. The Vault broke my weak habits in days."`,
+        author: "Ratu L.",
+        role: "Fiji • Ex-Student"
+      },
+      {
+        text: `"My first $1,200 with a phone. No one believed me until I showed the invoice in the group."`,
+        author: "Iosefa M.",
+        role: "Samoa • Former Bartender"
+      },
+      {
+        text: `"My family laughed at me. Now they ask how I did it. NCS changed everything."`,
+        author: "Moses T.",
+        role: "PNG • 9–5 Survivor"
+      },
+      {
+        text: `"You want sympathy, go to church. You want money, you join the Vault. Changed my whole mentality."`,
+        author: "Ben R.",
+        role: "Solomon Islands • Ex-Waiter"
+      },
+      {
+        text: `"No laptop, no excuses. Vault showed me how to kill the soft version of me."`,
+        author: "Kevin S.",
+        role: "Fiji • Broke Student to Breadwinner"
+      }
+    ];
+    let reviewIdx = 0;
+    function showReview(idx) {
+      document.getElementById('review-text').innerText = reviews[idx].text;
+      document.getElementById('review-author').innerText = reviews[idx].author;
+      document.getElementById('review-role').innerText = reviews[idx].role;
+    }
+    function prevReview() {
+      reviewIdx = (reviewIdx - 1 + reviews.length) % reviews.length;
+      showReview(reviewIdx);
+    }
+    function nextReview() {
+      reviewIdx = (reviewIdx + 1) % reviews.length;
+      showReview(reviewIdx);
+    }
+    showReview(reviewIdx);
+  </script>
+  <footer>
+    <span style="color:var(--gold); font-size:1.1em;">⚡</span>
+    &copy; 2025 No Code Society. Designed for Pacific warriors, built for killers.
+  </footer>
+</body>
+</html>
