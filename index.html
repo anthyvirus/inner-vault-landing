@@ -7,214 +7,200 @@
   <link href="https://fonts.cdnfonts.com/css/helvetica-now-display" rel="stylesheet">
   <style>
     :root {
-      --gold-gradient: linear-gradient(90deg,#ffc646 0%,#ffd700 100%);
-      --button-glow: 0 0 18px #ffc64677, 0 1.5px 12px #ffd70033;
-      --heading-shadow: 0 2px 16px #ffc64666;
-      --premium-text: #fcf6e9;
-      --main-bg: #10151b;
-      --section-bg: #191f26;
-      --review-bg: #181f25;
+      --main-gold: #FFC646;
+      --gold-2: #E6C275;
+      --premium-white: #FFFCEB;
+      --deep-bg: #101b13;
+      --off-bg: #151f18;
+      --section-bg: #182219;
+      --accent-dark: #21281f;
+      --logo-green: #153820;
     }
     body {
       margin: 0;
       font-family: 'Helvetica Now Display', Arial, sans-serif;
-      background: var(--main-bg);
-      color: var(--premium-text);
+      background: var(--deep-bg);
+      color: var(--premium-white);
       text-align: center;
     }
-    /* FOMO silky animated banner */
     .fomo-banner {
-      background: linear-gradient(270deg, #6b45d6, #ffc646, #23245a, #ffd700, #6b45d6);
-      background-size: 1500% 1500%;
-      color: #fffbe3;
-      padding: 11px 0 10px 0;
-      font-weight: bold;
-      font-size: 1.06rem;
-      letter-spacing: 0.05em;
-      animation: gradientmove 9s linear infinite;
-      box-shadow: 0 2px 24px #0007;
-      text-shadow: 0 2px 8px #0007;
-      position: relative;
-      z-index: 999;
-      border-bottom: 1.5px solid #ffc64633;
-      user-select: none;
-    }
-    @keyframes gradientmove {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+      background: linear-gradient(90deg, var(--main-gold) 0%, var(--gold-2) 100%);
+      color: var(--logo-green);
+      padding: 14px 0;
+      font-weight: 800;
+      font-size: 1.12rem;
+      letter-spacing: 0.04em;
+      border-bottom: 2px solid #e6c27530;
+      text-shadow: 0 2px 10px #fff8;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
     }
     header {
       background: var(--section-bg);
-      padding: 20px 7vw 18px 7vw;
+      padding: 16px 5vw 14px 5vw;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #ffe082;
-      border-bottom: 1.5px solid #ffd70028;
+      color: var(--main-gold);
+      border-bottom: 1.5px solid #e6c27533;
     }
     .logo-bar {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
     }
     .logo-img {
-      height: 42px; width: 42px;
-      border-radius: 12px;
+      height: 40px; width: 40px;
+      border-radius: 9px;
       background: #212d22;
-      box-shadow: 0 1px 8px #2a4fc545;
       object-fit: contain;
       border: 2.5px solid #ffe0822c;
     }
+    .main-title {
+      font-size: 1.21em;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--premium-white);
+      margin-left: 9px;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
+    }
     .btn {
-      background: var(--gold-gradient);
+      background: linear-gradient(90deg, var(--main-gold), var(--gold-2));
       border: none;
       border-radius: 999px;
-      padding: 13px 28px;
-      font-weight: bold;
-      font-size: 1.13rem;
-      color: #171307;
+      padding: 15px 38px;
+      font-weight: 800;
+      font-size: 1.19rem;
+      color: #153820;
       cursor: pointer;
-      box-shadow: var(--button-glow);
-      text-shadow: 0 1px 6px #fff8;
-      letter-spacing: 0.015em;
-      transition: 0.17s;
-      outline: none;
-      border: 1.5px solid #ffc64640;
+      box-shadow: 0 3px 14px #e6c27545;
+      letter-spacing: 0.03em;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
+      white-space: nowrap;
+      min-width: 178px;
+      transition: 0.16s;
     }
     .btn:hover {
-      filter: brightness(1.1);
-      box-shadow: 0 6px 24px #ffc64699, 0 0px 12px #ffe48b80;
-      color: #191919;
+      filter: brightness(1.07);
+      box-shadow: 0 8px 32px #ffd70090;
     }
     .hero {
-      padding: 75px 6vw 58px 6vw;
-      background: radial-gradient(ellipse at top, #171b23 0%, #10151b 100%);
+      padding: 76px 6vw 50px 6vw;
+      background: radial-gradient(ellipse at top, #182219 0%, #101b13 100%);
       position: relative;
-      box-shadow: 0 2px 18px #18110a40;
+    }
+    .hero h1, .hero h2 {
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
+      text-transform: uppercase;
+      margin: 0 0 11px 0;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      text-shadow: 0 3px 13px #0006;
+      color: var(--premium-white);
     }
     .hero h1 {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 2.7rem;
-      margin-bottom: 10px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      text-shadow: var(--heading-shadow);
-      text-transform: uppercase;
+      font-size: 2.6rem;
     }
     .hero h2 {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 2rem;
-      margin-top: 0;
-      margin-bottom: 18px;
-      font-weight: 800;
-      text-shadow: var(--heading-shadow);
-      text-transform: uppercase;
+      font-size: 1.45rem;
+      letter-spacing: 0.01em;
+      color: var(--main-gold);
+      margin-bottom: 30px;
     }
     .hero p {
-      font-size: 1.19rem;
-      color: #fffbe3;
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-      text-shadow: 0 2px 6px #0006;
+      font-size: 1.13rem;
+      color: var(--premium-white);
+      max-width: 640px;
+      margin: 0 auto 34px auto;
       font-weight: 500;
       letter-spacing: 0.01em;
+      text-shadow: 0 1.5px 7px #0004;
     }
     .student-count {
-      background: #242016;
-      margin: 24px auto;
+      background: #222e19;
+      margin: 24px auto 8px auto;
       display: inline-block;
-      padding: 11px 26px 11px 22px;
-      border-radius: 32px;
-      color: #ffc646;
-      font-weight: bold;
-      font-size: 1.08rem;
-      box-shadow: 0 2px 18px #ffc64624;
-      border: 1.5px solid #ffc64642;
+      padding: 13px 36px;
+      border-radius: 33px;
+      color: var(--main-gold);
+      font-weight: 800;
+      font-size: 1.06rem;
+      border: 2px solid #ffc64642;
       letter-spacing: 0.02em;
-    }
-    section {
-      padding: 42px 6vw 18px 6vw;
-      max-width: 900px;
-      margin: 0 auto;
-      background: transparent;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
     }
     .section-title {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 1.45rem;
-      letter-spacing: 0.02em;
+      color: var(--premium-white);
+      font-size: 1.35rem;
       font-weight: 900;
-      margin-bottom: 20px;
-      text-shadow: var(--heading-shadow);
+      margin-bottom: 19px;
+      text-shadow: 0 2px 9px #fff6, 0 1px 1px #0f0f0f80;
+      letter-spacing: 0.025em;
       text-transform: uppercase;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
     }
-    .what-you-get ul,
-    .access ul {
+    .what-you-get ul, .access ul {
       text-align: left;
-      max-width: 590px;
+      max-width: 600px;
       margin: 0 auto;
-      color: #ffe082;
-      font-size: 1.12rem;
+      color: var(--premium-white);
+      font-size: 1.09rem;
       line-height: 1.81;
       padding: 0;
+      font-weight: 700;
     }
-    .what-you-get li,
-    .access li {
-      margin-bottom: 13px;
+    .what-you-get li, .access li {
+      margin-bottom: 14px;
       font-weight: 600;
       padding-left: 1.3em;
       position: relative;
       list-style: none;
-      text-shadow: 0 2px 7px #0004;
+      color: var(--main-gold);
+      text-shadow: 0 2px 7px #0006;
     }
-    .what-you-get li:before,
-    .access li:before {
-      content: "▶";
-      color: #ffc646;
+    .what-you-get li:before, .access li:before {
+      content: ">";
+      color: var(--gold-2);
       position: absolute;
       left: 0;
       font-weight: bold;
-      font-size: 1.1em;
-      top: 2px;
+      font-size: 1.07em;
+      top: 1px;
     }
+    .what-you-get li b, .access li b { color: var(--premium-white); }
     .teaser-courses {
-      color: #f7ecd1;
-      margin: 0 auto 26px auto;
-      font-size: 1.14rem;
-      max-width: 600px;
-      background: #181a15;
+      color: var(--premium-white);
+      margin: 0 auto 30px auto;
+      font-size: 1.13rem;
+      max-width: 650px;
+      background: #202914;
       border-radius: 14px;
       padding: 25px 18px 18px 18px;
       box-shadow: 0 6px 24px #2228;
-      border: 1.2px solid #ffd70055;
+      border: 1.6px solid #ffd70055;
       font-weight: 600;
+      text-align: left;
     }
-    .teaser-courses b { color: #ffcb47; }
-    .teaser-courses span { color: #ffe082; }
+    .teaser-courses b { color: var(--main-gold); }
+    .teaser-courses span { color: var(--gold-2); }
     .reviews {
       margin: 0 auto 38px auto;
       max-width: 460px;
-      background: var(--review-bg);
+      background: #151f18;
       border-radius: 1.22rem;
       padding: 2rem 1.2rem 1.3rem 1.2rem;
-      color: #ffe082;
+      color: var(--main-gold);
       box-shadow: 0 10px 40px rgba(0,0,0,0.16);
       position: relative;
       min-height: 110px;
-      border: 1.5px solid #ffc64632;
+      border: 2px solid #e6c27538;
     }
     .review-author {
       margin-top: 18px;
-      color: #ffc646;
-      font-weight: 700;
+      color: var(--premium-white);
+      font-weight: 900;
       font-size: 1.03rem;
       letter-spacing: 0.01em;
-      text-shadow: var(--heading-shadow);
+      text-shadow: 0 1.5px 5px #fff8;
     }
     .review-role {
       color: #bababa;
@@ -224,9 +210,9 @@
     .review-arrow {
       position: absolute;
       top: 50%;
-      font-size: 1.2rem;
-      background: #29281e;
-      color: #ffc646;
+      font-size: 1.1rem;
+      background: #23281e;
+      color: var(--main-gold);
       border-radius: 50%;
       padding: 7px 11px;
       border: none;
@@ -237,30 +223,32 @@
     }
     .review-arrow.left { left: 10px; transform: translateY(-50%); }
     .review-arrow.right { right: 10px; transform: translateY(-50%);}
-    .review-arrow:hover { opacity: 1; background: #ffc646; color: #181f25;}
+    .review-arrow:hover { opacity: 1; background: var(--main-gold); color: #151f18;}
     footer {
-      background-color: #191f26;
-      padding: 26px 0 22px 0;
-      font-size: 0.91rem;
-      color: #b3a575;
-      margin-top: 38px;
-      border-top: 1.5px solid #ffc64628;
+      background-color: #151f18;
+      padding: 24px 0 21px 0;
+      font-size: 0.99rem;
+      color: var(--gold-2);
+      margin-top: 35px;
+      border-top: 2px solid #e6c27533;
       text-align: center;
     }
     /* Responsive */
     @media (max-width:600px){
-      .logo-bar {gap: 10px;}
-      .logo-img {height: 30px; width: 30px;}
-      .hero h1 {font-size: 1.13rem;}
+      .logo-bar {gap: 8px;}
+      .logo-img {height: 28px; width: 28px;}
+      .main-title {font-size: 1em;}
+      .btn {padding: 13px 10vw; font-size:1.08rem;}
+      .hero h1 {font-size: 1.2rem;}
       .hero h2 {font-size: 1.01rem;}
-      .student-count {padding: 10px 13px;}
+      .student-count {padding: 10px 12px;}
       section {padding: 28px 3vw;}
     }
   </style>
 </head>
 <body>
   <!-- FOMO Banner -->
-  <div class="fomo-banner" id="fomoBanner">
+  <div class="fomo-banner">
     ⚡ 2,000+ Pacific Warriors inside — Only the savage survive. Don’t get left behind.
   </div>
 
@@ -269,7 +257,7 @@
     <div class="logo-bar">
       <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="logo-img" alt="Inner Vault Logo" />
       <img src="129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png" class="logo-img" alt="NCS Logo" />
-      <strong style="margin-left:8px; font-size:1.22em;letter-spacing:0.03em;">INNER VAULT</strong>
+      <span class="main-title">INNER VAULT</span>
     </div>
     <button class="btn" onclick="window.location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">Join Now</button>
   </header>
@@ -277,11 +265,10 @@
   <!-- Hero Section -->
   <section class="hero">
     <h1>BURN THE BRIDGE. JOIN THE VAULT.</h1>
-    <h2>Build Your Empire or Die a Nobody.</h2>
+    <h2>BUILD YOUR EMPIRE OR DIE A NOBODY.</h2>
     <p>
-      The system was built to keep you broke. University? A lie. “Safe” jobs? Designed to break men.  
-      <br><br>
-      <b style="color:#ffc646;">Inside INNER VAULT</b> you kill the weak man, master AI, and tap secret playbooks for real money, not dreams.
+      The system was built to keep you broke. University? A lie. “Safe” jobs? Designed to break men.<br><br>
+      <b style="color:var(--main-gold);">Inside INNER VAULT</b> you kill the weak man, master AI, and tap secret playbooks for real money, not dreams.
     </p>
     <button class="btn" onclick="window.location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">Join the Inner Vault Now</button>
     <div class="student-count">👥 Join 2,000+ Ruthless Pacific Warriors</div>
@@ -291,12 +278,12 @@
   <section class="what-you-get">
     <div class="section-title">Inside The Vault — What You Really Get</div>
     <ul>
-      <li><b>Private Access</b> to <b style="color:#ffd700;">NCS Brotherhood Server</b> — zero leechers, only killers</li>
-      <li>Private Telegram &amp; Live Group: <span style="color:#ffc646;">VIP drops, savage accountability</span></li>
+      <li><b>Private Access</b> to <b>NCS Brotherhood Server</b> — zero leechers, only killers</li>
+      <li>Private Telegram &amp; Live Group: <span style="color:var(--gold-2);">VIP drops, savage accountability</span></li>
       <li><b>Day 1 Tactics:</b> Make money instantly — no laptop required</li>
       <li>The real AI prompts (not YouTube junk) — automate client work, replace departments, close deals</li>
       <li>Every <b>Phase 0 &amp; Phase 1</b> lesson — mindset war, system execution, proof, no fluff</li>
-      <li>Exclusive backend setups: <span style="color:#ffe082;">tax shields, asset protection, payment flows</span></li>
+      <li>Exclusive backend setups: <span style="color:var(--main-gold);">tax shields, asset protection, payment flows</span></li>
       <li>Real receipts, bank wires, and Inner Vault proof channel</li>
       <li>Daily pressure drills, savage reviews, zero safe spaces</li>
     </ul>
@@ -307,8 +294,8 @@
     <div class="section-title">Your Access — What’s Included</div>
     <ul>
       <li><b>NCS Discord Server:</b> Private, confidential, and brutal — entry after payment only</li>
-      <li><b>Private Telegram:</b> 24/7 support and win tracking — <a href="https://t.me/inner-vault" style="color:#ffe082;text-decoration:underline" target="_blank">Join</a></li>
-      <li><b>Direct Email:</b> <a href="mailto:anthmediapg@gmail.com" style="color:#ffe082;text-decoration:underline">anthmediapg@gmail.com</a></li>
+      <li><b>Private Telegram:</b> 24/7 support and win tracking — <a href="https://t.me/inner-vault" style="color:var(--main-gold);text-decoration:underline" target="_blank">Join</a></li>
+      <li><b>Direct Email:</b> <a href="mailto:anthmediapg@gmail.com" style="color:var(--main-gold);text-decoration:underline">anthmediapg@gmail.com</a></li>
       <li><b>Real Results:</b> See uncensored member wins and client invoices in the proof vault</li>
       <li><b>Inner Vault Courses:</b> Mindset warfare, digital leverage, AI money flows</li>
     </ul>
@@ -316,20 +303,20 @@
 
   <!-- COURSE TEASER -->
   <section class="teaser-courses">
-    <div class="section-title" style="color:#2dffcb; background:none;-webkit-text-fill-color:unset;">What You’ll Learn (Preview)</div>
+    <div class="section-title" style="background:none;-webkit-text-fill-color:unset;color:var(--main-gold);">What You’ll Learn (Preview)</div>
     <div>
       <b>Phase 0:</b> <span>Kill the Weak Man</span><br>
-      <span style="color:#ffc646;">— The war against weakness. Expose, confront, and destroy your old identity. You vs. You. Documented daily in the Vault.</span>
+      <span>— The war against weakness. Expose, confront, and destroy your old identity. You vs. You. Documented daily in the Vault.</span>
     </div>
     <br>
     <div>
       <b>Phase 1:</b> <span>Build The Empire</span><br>
-      <span style="color:#ffc646;">— Money by system, not by luck. Scale with ChatGPT, leverage Super UGC, run proof-based content to force belief and create new income overnight.</span>
+      <span>— Money by system, not by luck. Scale with ChatGPT, leverage Super UGC, run proof-based content to force belief and create new income overnight.</span>
     </div>
     <br>
     <div>
       <b>Prompt Vault:</b><br>
-      <span style="color:#ffe082;">— Real prompt structures (the $11K client-winning flows). Plug in and deploy for instant authority.</span>
+      <span>— Real prompt structures (the $11K client-winning flows). Plug in and deploy for instant authority.</span>
     </div>
   </section>
 
@@ -362,4 +349,4 @@
         role: "Fiji • Former Construction Worker"
       },
       {
-        text: '"Built my first business with just my phone, no capital. If you’re
+        text: '"Built my first business with just my phone, no capital. If you’re lazy —
