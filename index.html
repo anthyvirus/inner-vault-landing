@@ -1,406 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inner Vault | No Code Society</title>
   <link href="https://fonts.cdnfonts.com/css/helvetica-now-display" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/helvetica-now-text" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background: #0B131A;
-      color: #fff;
-      font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
-      letter-spacing: -0.01em;
-      overflow-x: hidden;
+      margin: 0;
+      font-family: 'Helvetica Now Display', sans-serif;
+      background-color: #0f0f0f;
+      color: #ffffff;
     }
-    .helvetica-bold { font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif; font-weight: 700;}
-    .helvetica-slim { font-family: 'Helvetica Now Text', 'Helvetica Neue', Arial, sans-serif; font-weight: 300;}
     .fomo-banner {
-      background: linear-gradient(90deg, #2d6af7 0%, #2a4fc5 100%);
-      color: #fff;
-      font-size: 0.9rem;
+      background: #6A0DAD;
+      color: white;
+      padding: 10px 20px;
       text-align: center;
-      padding: 0.9rem 0;
-      letter-spacing: 0.05em;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      font-weight: bold;
+      font-size: 1rem;
     }
-    .header {
-      background: rgba(11, 19, 26, 0.98);
-      backdrop-filter: blur(10px);
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(231, 200, 115, 0.15);
-      padding: 1.1rem 2rem;
+    header {
+      padding: 80px 20px 40px;
+      text-align: center;
     }
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
-    .logo-img {
-      height: 48px;
-      width: auto;
-      margin-right: 1.5rem;
-      border-radius: 12px;
-      background: #222;
-      padding: 2px;
-      box-shadow: 0 2px 8px #0b131a55;
-    }
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-    .nav-links a {
-      color: #cfd3e1;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      letter-spacing: -0.01em;
-    }
-    .nav-links a:hover { color: #e7c873; }
-    .nav-cta {
-      background: linear-gradient(90deg, #FFC646 75%, #e7c873 100%);
-      color: #101820;
+    .button-primary {
+      background-color: #FACC15;
+      color: #0f0f0f;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
       border: none;
-      border-radius: 50px;
-      padding: 0.75rem 1.7rem;
+      border-radius: 8px;
       cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      letter-spacing: -0.01em;
-      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px #e7c87380;
+    .button-primary:hover {
+      background-color: #eab308;
     }
-    .hero {
-      padding: 8rem 2rem 5rem;
-      background: radial-gradient(ellipse at top, #0f1a24 0%, #0B131A 100%);
-      text-align: center;
-    }
-    .hero-container {
-      max-width: 900px;
+    .section {
+      padding: 40px 20px;
+      max-width: 800px;
       margin: 0 auto;
-      position: relative;
     }
-    .hero-headline {
-      font-size: 3.2rem;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(90deg, #FFC646 0%, #e7c873 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 2px 14px #1e274699;
-      letter-spacing: -0.03em;
-      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 900;
+    .testimonial {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
     }
-    .hero-sub {
-      color: #cfd3e1;
-      font-size: 1.3rem;
-      margin-bottom: 2.2rem;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-      letter-spacing: -0.01em;
-    }
-    .cta-btn {
-      display: inline-block;
-      background: linear-gradient(90deg, #FFC646 75%, #e7c873 100%);
-      color: #101820;
-      font-size: 1.18rem;
-      border: none;
-      border-radius: 2.1em;
-      box-shadow: 0 8px 32px #e7c87340;
-      padding: 1.18rem 3rem;
-      margin: 1.3rem 0 0.7rem 0;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px #e7c87380;
-    }
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
-    }
-    .stat-item {
-      background: rgba(22, 29, 37, 0.7);
-      border-radius: 1rem;
-      padding: 1.1rem 1.6rem;
-      border: 1px solid rgba(231, 200, 115, 0.12);
-      min-width: 170px;
-    }
-    .stat-number {
-      font-size: 2.0rem;
-      color: #e7c873;
-      margin-bottom: 0.1rem;
-      font-weight: bold;
-    }
-    .stat-text { color: #cfd3e1; font-size: 0.98rem; }
-    .features-section {
-      padding: 4rem 2rem 3.5rem;
-      background: #0f171f;
-    }
-    .section-title {
+    footer {
       text-align: center;
-      font-size: 2.3rem;
-      margin-bottom: 2.8rem;
-      background: linear-gradient(90deg, #FFC646 0%, #e7c873 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.03em;
-      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 900;
-    }
-    .features-container {
-      max-width: 700px;
-      margin: 0 auto;
-      background: #161d25;
-      border-radius: 1.2rem;
-      padding: 2.5rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.22);
-      border: 1px solid rgba(231, 200, 115, 0.12);
-    }
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.2rem;
-      padding: 1.15rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .feature-item:last-child { border-bottom: none; }
-    .feature-check {
-      color: #e7c873;
-      font-size: 1.5rem;
-      margin-top: 0.2rem;
-      flex-shrink: 0;
-    }
-    .feature-content h3 {
-      font-size: 1.21rem;
-      color: #e7c873;
-      margin-bottom: 0.22rem;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-    }
-    .feature-content p {
-      color: #e1e5ee;
-      font-size: 1.04rem;
-      line-height: 1.6;
-      letter-spacing: -0.01em;
-    }
-    /* Testimonial Section */
-    .testimonial-section {
-      padding: 4rem 2rem 4rem;
-      background: #131b22;
-    }
-    .testimonial-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .testimonial-card {
-      background: #181f25;
-      border-radius: 1.2rem;
-      padding: 2.3rem 2rem;
-      max-width: 650px;
-      margin: 0 auto;
-      border: 1px solid rgba(231,200,115,0.12);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.21);
-    }
-    .testimonial-text {
-      font-size: 1.13rem;
-      color: #e1e5ee;
-      margin-bottom: 1.25rem;
-      line-height: 1.55;
-    }
-    .testimonial-author { font-size: 1.09rem; color: #e7c873; font-weight: 700; }
-    .testimonial-role { color: #cfd3e1; font-size: 0.95rem; margin-top: 0.2rem; }
-    .cta-section {
-      padding: 4rem 2rem 4rem;
-      background: radial-gradient(ellipse at top, #0f1a24 0%, #0B131A 100%);
-      text-align: center;
-    }
-    .cta-title {
-      font-size: 2.1rem;
-      margin-bottom: 1.3rem;
-      background: linear-gradient(90deg, #FFC646 0%, #e7c873 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.03em;
-      font-family: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
-      font-weight: 900;
-    }
-    .cta-subtitle {
-      color: #cfd3e1;
-      font-size: 1.17rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      letter-spacing: -0.01em;
-      line-height: 1.5;
-    }
-    .student-count {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: rgba(22,29,37,0.6);
-      border-radius: 50px;
-      padding: 0.8rem 1.8rem;
-      margin: 2rem 0;
-      border: 1px solid rgba(231,200,115,0.18);
-      font-size: 1.04rem;
-      color: #e7c873;
-      font-weight: 700;
-    }
-    .count-icon { color: #e7c873; font-size: 1.25rem; }
-    .count-text { color: #e1e5ee; }
-    .footer {
-      background: #0b1014;
-      padding: 3.5rem 2rem 2rem;
-      border-top: 1px solid rgba(231,200,115,0.1);
-    }
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-    }
-    .footer-logo-img {
-      height: 40px;
-      margin-bottom: 1.3rem;
-      border-radius: 12px;
-      background: #222;
-      padding: 2px;
-    }
-    .footer-text {
-      color: #aaa;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-    .footer-links { display: flex; flex-direction: column; gap: 1rem;}
-    .footer-title {
-      color: #e7c873;
-      font-size: 1.07rem;
-      margin-bottom: 0.6rem;
-      font-weight: bold;
-    }
-    .footer-links a {
-      color: #aaa;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-    }
-    .footer-links a:hover { color: #e7c873;}
-    .footer-contact { display: flex; flex-direction: column; gap: 0.6rem;}
-    .contact-item {
-      display: flex; align-items: center; gap: 1rem; color: #aaa; font-size: 0.95rem;
-    }
-    .contact-icon { color: #e7c873; font-size: 1.15rem;}
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 3rem auto 0;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.04);
-      text-align: center;
-      color: #777;
+      padding: 30px;
       font-size: 0.9rem;
-    }
-    /* Responsive */
-    @media (max-width: 992px) {
-      .hero-headline { font-size: 2.5rem; }
-      .features-container { padding: 1.2rem;}
-      .hero { padding: 6rem 1.1rem 3rem;}
-    }
-    @media (max-width: 700px) {
-      .header { padding: 0.8rem 1rem;}
-      .header-container { flex-direction: column; gap: 1.2rem;}
-      .hero-headline { font-size: 1.6rem;}
-      .features-container { padding: 0.7rem;}
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <!-- FOMO Banner -->
-  <div class="fomo-banner helvetica-slim">
-    <i class="fas fa-exclamation-circle"></i> 6,000 spots left • July intake closes soon • Secure your empire now
-  </div>
-  <!-- Header -->
-  <header class="header">
-    <div class="header-container">
-      <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="logo-img" alt="NCS Logo" />
-      <nav class="nav-links helvetica-slim">
-        <a href="#features">Program</a>
-        <a href="#testimonials">Results</a>
-        <a href="#cta">Join</a>
-        <a href="#contact">Support</a>
-      </nav>
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="nav-cta helvetica-bold">
-        Join Now
-      </a>
+  <div class="fomo-banner">LIMITED ACCESS — Doors to the Inner Vault Close Soon</div>
+  <header>
+    <img src="your-logo.png" alt="NCS Logo" style="height: 80px; margin-bottom: 20px;">
+    <h1>INNER VAULT — NO CODE SOCIETY</h1>
+    <p>This is not motivation. This is confrontation.<br>You're not broken — you're undisciplined.</p>
+    <button class="button-primary" onclick="location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">Join the Inner Vault</button>
+  </header>  <div class="section">
+    <h2>What You’ll Get Inside</h2>
+    <ul>
+      <li>🔗 Ready-to-Deploy Workflows, Prompts, and Systems</li>
+      <li>🧠 1-on-1 Access to Empire-Building Mindset</li>
+      <li>📈 Tactical Systems That Print Proof Daily</li>
+      <li>🛡️ Exclusive Micro-Lessons You Can’t Google</li>
+      <li>🔥 Public Execution Triggers and Challenge Cycles</li>
+    </ul>
+  </div>  <div class="section">
+    <h2>Pacific Proof</h2>
+    <div class="testimonial">
+      <p>“I built my first Stripe automation from my phone. Inner Vault forced me to execute.”<br><strong>— Mika, PNG</strong></p>
     </div>
-  </header>
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-container">
-      <h1 class="hero-headline helvetica-bold">BUILD YOUR EMPIRE. ESCAPE WEAKNESS.</h1>
-      <h2 class="hero-headline helvetica-bold">JOIN THE INNER VAULT</h2>
-      <p class="hero-sub helvetica-slim">
-        The elite brotherhood for Pacific men. Kill the weak employee. Master AI. Built with proof, pain, and a phone.
-      </p>
-      <a href="https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/" target="_blank" class="cta-btn helvetica-bold">
-        Join the Inner Vault
-      </a>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-number helvetica-bold">11K+</div>
-          <div class="stat-text helvetica-slim">First Client Earnings</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number helvetica-bold">97%</div>
-          <div class="stat-text helvetica-slim">Success Rate</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number helvetica-bold">24/7</div>
-          <div class="stat-text helvetica-slim">Brotherhood Support</div>
-        </div>
-      </div>
+    <div class="testimonial">
+      <p>“This isn’t a course. It’s war. The results speak louder than the lessons.”<br><strong>— Josiah, Fiji</strong></p>
     </div>
-  </section>
-  <!-- Features Section -->
-  <section class="features-section" id="features">
-    <h2 class="section-title helvetica-bold">THE INNER VAULT SYSTEM</h2>
-    <div class="features-container">
-      <div class="feature-item">
-        <div class="feature-check helvetica-bold">✓</div>
-        <div class="feature-content">
-          <h3 class="helvetica-bold">World class learning application</h3>
-          <p class="helvetica-slim">Access our proprietary platform designed specifically for Pacific men to build empires from anywhere with just a phone.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-check helvetica-bold">✓</div>
-        <div class="feature-content">
-          <h3 class="helvetica-bold">Scale from Zero to $10k/month</h3>
-          <p class="helvetica-slim">Step-by-step system proven to take you from employee mindset to $10k/month in 90 days or less using AI systems.</p>
-        </div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-check hel
+    <div class="testimonial">
+      <p>“I was soft. Now I’m dangerous. One vault, one phone.”<br><strong>— Lani, Samoa</strong></p>
+    </div>
+  </div>  <div class="section" style="text-align:center;">
+    <button class="button-primary" onclick="location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">Join the Inner Vault</button>
+  </div>  <footer>
+    ⚠️ This is not education. This is reconstruction.<br>
+    Enter at your own risk. Soft men will be destroyed.
+  </footer>
+</body>
+</html>
