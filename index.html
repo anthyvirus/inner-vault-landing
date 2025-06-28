@@ -6,39 +6,51 @@
   <title>INNER VAULT | No Code Society</title>
   <link href="https://fonts.cdnfonts.com/css/helvetica-now-display" rel="stylesheet">
   <style>
+    :root {
+      --gold-gradient: linear-gradient(90deg,#ffc646 0%,#ffd700 100%);
+      --button-glow: 0 0 18px #ffc64677, 0 1.5px 12px #ffd70033;
+      --heading-shadow: 0 2px 16px #ffc64666;
+      --premium-text: #fcf6e9;
+      --main-bg: #10151b;
+      --section-bg: #191f26;
+      --review-bg: #181f25;
+    }
     body {
       margin: 0;
-      font-family: 'Helvetica Now Display', sans-serif;
-      background-color: #0a0a0a;
-      color: #f5f5f5;
+      font-family: 'Helvetica Now Display', Arial, sans-serif;
+      background: var(--main-bg);
+      color: var(--premium-text);
       text-align: center;
     }
-    /* Silky animated gradient for FOMO banner */
+    /* FOMO silky animated banner */
     .fomo-banner {
-      background: linear-gradient(270deg, #8000ff, #ffc646, #2d6af7, #e7c873, #8000ff);
-      background-size: 1200% 1200%;
-      color: white;
-      padding: 10px 0;
+      background: linear-gradient(270deg, #6b45d6, #ffc646, #23245a, #ffd700, #6b45d6);
+      background-size: 1500% 1500%;
+      color: #fffbe3;
+      padding: 11px 0 10px 0;
       font-weight: bold;
-      font-size: 1rem;
-      letter-spacing: 0.02em;
-      animation: gradientmove 6s linear infinite;
-      box-shadow: 0 2px 24px #0005;
+      font-size: 1.06rem;
+      letter-spacing: 0.05em;
+      animation: gradientmove 9s linear infinite;
+      box-shadow: 0 2px 24px #0007;
+      text-shadow: 0 2px 8px #0007;
       position: relative;
-      overflow: hidden;
       z-index: 999;
+      border-bottom: 1.5px solid #ffc64633;
+      user-select: none;
     }
     @keyframes gradientmove {
       0% { background-position: 0% 50%; }
       100% { background-position: 100% 50%; }
     }
     header {
-      background-color: #111;
-      padding: 18px 6vw 18px 6vw;
+      background: var(--section-bg);
+      padding: 20px 7vw 18px 7vw;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      color: #fdd835;
+      color: #ffe082;
+      border-bottom: 1.5px solid #ffd70028;
     }
     .logo-bar {
       display: flex;
@@ -46,240 +58,287 @@
       gap: 18px;
     }
     .logo-img {
-      height: 42px;
-      width: 42px;
-      border-radius: 10px;
+      height: 42px; width: 42px;
+      border-radius: 12px;
       background: #212d22;
       box-shadow: 0 1px 8px #2a4fc545;
       object-fit: contain;
-      border: 2px solid #222;
+      border: 2.5px solid #ffe0822c;
     }
     .btn {
-      background: linear-gradient(90deg, #fdd835, #ffca28);
+      background: var(--gold-gradient);
       border: none;
       border-radius: 999px;
-      padding: 12px 24px;
+      padding: 13px 28px;
       font-weight: bold;
-      font-size: 1rem;
-      color: #000;
+      font-size: 1.13rem;
+      color: #171307;
       cursor: pointer;
-      box-shadow: 0 2px 12px #ffd90030;
-      transition: 0.16s;
+      box-shadow: var(--button-glow);
+      text-shadow: 0 1px 6px #fff8;
+      letter-spacing: 0.015em;
+      transition: 0.17s;
+      outline: none;
+      border: 1.5px solid #ffc64640;
     }
     .btn:hover {
-      background: linear-gradient(90deg, #ffc646, #e7c873);
-      box-shadow: 0 6px 20px #ffc64644;
-      color: #111;
+      filter: brightness(1.1);
+      box-shadow: 0 6px 24px #ffc64699, 0 0px 12px #ffe48b80;
+      color: #191919;
     }
     .hero {
-      padding: 68px 6vw 56px 6vw;
+      padding: 75px 6vw 58px 6vw;
+      background: radial-gradient(ellipse at top, #171b23 0%, #10151b 100%);
+      position: relative;
+      box-shadow: 0 2px 18px #18110a40;
     }
     .hero h1 {
-      color: #fdd835;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-size: 2.7rem;
       margin-bottom: 10px;
-      font-weight: 800;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-shadow: var(--heading-shadow);
+      text-transform: uppercase;
     }
     .hero h2 {
-      color: #fdd835;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-size: 2rem;
       margin-top: 0;
-      font-weight: 700;
+      margin-bottom: 18px;
+      font-weight: 800;
+      text-shadow: var(--heading-shadow);
+      text-transform: uppercase;
     }
     .hero p {
-      font-size: 1.11rem;
-      color: #ccc;
+      font-size: 1.19rem;
+      color: #fffbe3;
       max-width: 600px;
       margin: 0 auto 30px auto;
-    }
-    .student-count {
-      background-color: #1c1c1c;
-      margin: 24px auto;
-      display: inline-block;
-      padding: 10px 22px;
-      border-radius: 32px;
-      color: #fdd835;
-      font-weight: bold;
-      font-size: 0.97rem;
+      text-shadow: 0 2px 6px #0006;
+      font-weight: 500;
       letter-spacing: 0.01em;
     }
+    .student-count {
+      background: #242016;
+      margin: 24px auto;
+      display: inline-block;
+      padding: 11px 26px 11px 22px;
+      border-radius: 32px;
+      color: #ffc646;
+      font-weight: bold;
+      font-size: 1.08rem;
+      box-shadow: 0 2px 18px #ffc64624;
+      border: 1.5px solid #ffc64642;
+      letter-spacing: 0.02em;
+    }
     section {
-      padding: 44px 6vw 20px 6vw;
-      max-width: 880px;
+      padding: 42px 6vw 18px 6vw;
+      max-width: 900px;
       margin: 0 auto;
+      background: transparent;
     }
     .section-title {
-      color: #fdd835;
-      font-size: 1.4rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.45rem;
       letter-spacing: 0.02em;
-      font-weight: 800;
-      margin-bottom: 18px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-shadow: var(--heading-shadow);
+      text-transform: uppercase;
     }
     .what-you-get ul,
     .access ul {
       text-align: left;
-      max-width: 560px;
+      max-width: 590px;
       margin: 0 auto;
       color: #ffe082;
-      font-size: 1.08rem;
-      line-height: 1.75;
+      font-size: 1.12rem;
+      line-height: 1.81;
       padding: 0;
     }
     .what-you-get li,
     .access li {
-      margin-bottom: 10px;
-      font-weight: 500;
-      padding-left: 1.1em;
+      margin-bottom: 13px;
+      font-weight: 600;
+      padding-left: 1.3em;
       position: relative;
+      list-style: none;
+      text-shadow: 0 2px 7px #0004;
     }
     .what-you-get li:before,
     .access li:before {
-      content: "⟩";
+      content: "▶";
       color: #ffc646;
       position: absolute;
       left: 0;
       font-weight: bold;
+      font-size: 1.1em;
+      top: 2px;
     }
     .teaser-courses {
-      color: #b2f8e7;
-      margin: 0 auto 24px auto;
-      font-size: 1.11rem;
-      max-width: 550px;
-      background: #10151e;
-      border-radius: 12px;
-      padding: 22px 16px;
-      box-shadow: 0 4px 22px #2225;
+      color: #f7ecd1;
+      margin: 0 auto 26px auto;
+      font-size: 1.14rem;
+      max-width: 600px;
+      background: #181a15;
+      border-radius: 14px;
+      padding: 25px 18px 18px 18px;
+      box-shadow: 0 6px 24px #2228;
+      border: 1.2px solid #ffd70055;
+      font-weight: 600;
     }
+    .teaser-courses b { color: #ffcb47; }
+    .teaser-courses span { color: #ffe082; }
     .reviews {
-      margin: 0 auto 34px auto;
-      max-width: 450px;
-      background: #181f25;
-      border-radius: 1.2rem;
+      margin: 0 auto 38px auto;
+      max-width: 460px;
+      background: var(--review-bg);
+      border-radius: 1.22rem;
       padding: 2rem 1.2rem 1.3rem 1.2rem;
       color: #ffe082;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.16);
       position: relative;
       min-height: 110px;
+      border: 1.5px solid #ffc64632;
     }
     .review-author {
       margin-top: 18px;
       color: #ffc646;
       font-weight: 700;
-      font-size: 0.98rem;
+      font-size: 1.03rem;
+      letter-spacing: 0.01em;
+      text-shadow: var(--heading-shadow);
     }
     .review-role {
       color: #bababa;
-      font-size: 0.92rem;
+      font-size: 0.98rem;
+      letter-spacing: 0.01em;
     }
     .review-arrow {
       position: absolute;
       top: 50%;
       font-size: 1.2rem;
-      background: #24282b;
+      background: #29281e;
       color: #ffc646;
       border-radius: 50%;
-      padding: 6px 10px;
+      padding: 7px 11px;
       border: none;
       cursor: pointer;
       z-index: 2;
       transition: 0.14s;
-      opacity: 0.6;
+      opacity: 0.65;
     }
     .review-arrow.left { left: 10px; transform: translateY(-50%); }
     .review-arrow.right { right: 10px; transform: translateY(-50%);}
     .review-arrow:hover { opacity: 1; background: #ffc646; color: #181f25;}
     footer {
-      background-color: #0f0f0f;
-      padding: 22px 0 20px 0;
-      font-size: 0.85rem;
-      color: #999;
-      margin-top: 32px;
+      background-color: #191f26;
+      padding: 26px 0 22px 0;
+      font-size: 0.91rem;
+      color: #b3a575;
+      margin-top: 38px;
+      border-top: 1.5px solid #ffc64628;
+      text-align: center;
     }
     /* Responsive */
     @media (max-width:600px){
       .logo-bar {gap: 10px;}
       .logo-img {height: 30px; width: 30px;}
-      .hero h1 {font-size: 1.4rem;}
-      .hero h2 {font-size: 1.15rem;}
-      section {padding: 32px 3vw;}
+      .hero h1 {font-size: 1.13rem;}
+      .hero h2 {font-size: 1.01rem;}
+      .student-count {padding: 10px 13px;}
+      section {padding: 28px 3vw;}
     }
   </style>
 </head>
 <body>
   <!-- FOMO Banner -->
-  <div class="fomo-banner" id="fomoBanner">🔥 2000+ warriors already inside — Don’t get left behind</div>
+  <div class="fomo-banner" id="fomoBanner">
+    ⚡ 2,000+ Pacific Warriors inside — Only the savage survive. Don’t get left behind.
+  </div>
 
   <!-- Header with both logos -->
   <header>
     <div class="logo-bar">
       <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="logo-img" alt="Inner Vault Logo" />
       <img src="129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png" class="logo-img" alt="NCS Logo" />
-      <strong>INNER VAULT</strong>
+      <strong style="margin-left:8px; font-size:1.22em;letter-spacing:0.03em;">INNER VAULT</strong>
     </div>
     <button class="btn" onclick="window.location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">Join Now</button>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>ENTER THE INNER VAULT</h1>
-    <h2>Escape the Matrix. Build Your Digital Empire.</h2>
-    <p>The modern system is broken. Universities are scams. Jobs are traps. Inside the Vault, we show Pacific warriors how to build real income using AI, systems, and power — with proof.</p>
+    <h1>BURN THE BRIDGE. JOIN THE VAULT.</h1>
+    <h2>Build Your Empire or Die a Nobody.</h2>
+    <p>
+      The system was built to keep you broke. University? A lie. “Safe” jobs? Designed to break men.  
+      <br><br>
+      <b style="color:#ffc646;">Inside INNER VAULT</b> you kill the weak man, master AI, and tap secret playbooks for real money, not dreams.
+    </p>
     <button class="btn" onclick="window.location.href='https://whop.com/checkout/1LENEkWuD9JoMWB2Bb-pRCj-6zQO-mFj8-sH2diftcx8As/'">Join the Inner Vault Now</button>
-    <div class="student-count">👥 Join 2,000+ Pacific Warriors</div>
+    <div class="student-count">👥 Join 2,000+ Ruthless Pacific Warriors</div>
   </section>
 
   <!-- WHAT YOU GET INSIDE -->
   <section class="what-you-get">
-    <div class="section-title">What You Get Inside</div>
+    <div class="section-title">Inside The Vault — What You Really Get</div>
     <ul>
-      <li>Full Access to <strong>NCS Private Server</strong> — Only for paid members</li>
-      <li>Private Telegram Channel &amp; Group (VIP Alerts &amp; Support)</li>
-      <li>Step-by-step system to make money <span style="color:#ffca28;">instantly</span></li>
-      <li>Proven AI prompts that replaced whole departments</li>
-      <li>Phase 0 &amp; Phase 1 Courses: From <b>Weak Employee</b> to <b>Empire Builder</b></li>
-      <li>Exclusive backend playbooks &amp; asset protection flows</li>
-      <li>All the real systems ANTH used to make his first 11K+ AUD</li>
-      <li>Daily execution drills, challenges, and proof-driven culture</li>
+      <li><b>Private Access</b> to <b style="color:#ffd700;">NCS Brotherhood Server</b> — zero leechers, only killers</li>
+      <li>Private Telegram &amp; Live Group: <span style="color:#ffc646;">VIP drops, savage accountability</span></li>
+      <li><b>Day 1 Tactics:</b> Make money instantly — no laptop required</li>
+      <li>The real AI prompts (not YouTube junk) — automate client work, replace departments, close deals</li>
+      <li>Every <b>Phase 0 &amp; Phase 1</b> lesson — mindset war, system execution, proof, no fluff</li>
+      <li>Exclusive backend setups: <span style="color:#ffe082;">tax shields, asset protection, payment flows</span></li>
+      <li>Real receipts, bank wires, and Inner Vault proof channel</li>
+      <li>Daily pressure drills, savage reviews, zero safe spaces</li>
     </ul>
   </section>
 
   <!-- ACCESS -->
   <section class="access">
-    <div class="section-title">Access Includes</div>
+    <div class="section-title">Your Access — What’s Included</div>
     <ul>
-      <li><b>NCS Brotherhood Server:</b> Meet, network, and strategize with Pacific men on the same path</li>
-      <li><b>Private Telegram:</b> For instant support, updates &amp; deals. <a href="https://t.me/inner-vault" style="color:#ffe082;text-decoration:underline" target="_blank">Join Here</a></li>
-      <li><b>Discord:</b> Access after joining — full community unlocked on payment</li>
-      <li><b>Direct Email Support:</b> <a href="mailto:anthmediapg@gmail.com" style="color:#ffe082;text-decoration:underline">anthmediapg@gmail.com</a></li>
-      <li><b>Live Income Results:</b> See real student wins and wire receipts (not fake screenshots)</li>
+      <li><b>NCS Discord Server:</b> Private, confidential, and brutal — entry after payment only</li>
+      <li><b>Private Telegram:</b> 24/7 support and win tracking — <a href="https://t.me/inner-vault" style="color:#ffe082;text-decoration:underline" target="_blank">Join</a></li>
+      <li><b>Direct Email:</b> <a href="mailto:anthmediapg@gmail.com" style="color:#ffe082;text-decoration:underline">anthmediapg@gmail.com</a></li>
+      <li><b>Real Results:</b> See uncensored member wins and client invoices in the proof vault</li>
+      <li><b>Inner Vault Courses:</b> Mindset warfare, digital leverage, AI money flows</li>
     </ul>
   </section>
 
   <!-- COURSE TEASER -->
   <section class="teaser-courses">
-    <div class="section-title" style="color:#2dffcb;">High-Value Course Teasers</div>
+    <div class="section-title" style="color:#2dffcb; background:none;-webkit-text-fill-color:unset;">What You’ll Learn (Preview)</div>
     <div>
-      <b>Phase 0:</b> Kill the Weak Man<br>
-      <span style="color:#ffe082;">Daily self-discipline, mindset, and proof of war — no fluff, just war stories and results.</span>
+      <b>Phase 0:</b> <span>Kill the Weak Man</span><br>
+      <span style="color:#ffc646;">— The war against weakness. Expose, confront, and destroy your old identity. You vs. You. Documented daily in the Vault.</span>
     </div>
     <br>
     <div>
-      <b>Phase 1:</b> Build the Empire<br>
-      <span style="color:#ffe082;">How to leverage ChatGPT, AI, &amp; Super UGC to build your own automated digital business — from zero.</span>
+      <b>Phase 1:</b> <span>Build The Empire</span><br>
+      <span style="color:#ffc646;">— Money by system, not by luck. Scale with ChatGPT, leverage Super UGC, run proof-based content to force belief and create new income overnight.</span>
     </div>
     <br>
     <div>
       <b>Prompt Vault:</b><br>
-      <span style="color:#ffe082;">The exact prompt structures used to close 11K+ AUD clients and automate business systems (not generic YouTube junk).</span>
+      <span style="color:#ffe082;">— Real prompt structures (the $11K client-winning flows). Plug in and deploy for instant authority.</span>
     </div>
   </section>
 
   <!-- REVIEWS / TESTIMONIALS -->
   <section>
-    <div class="section-title">What Brothers Are Saying</div>
+    <div class="section-title">Brutal Student Reviews</div>
     <div class="reviews" id="reviewBox">
       <button class="review-arrow left" onclick="prevReview()">&larr;</button>
-      <div id="reviewText">"I joined thinking it would be another online group. Within 14 days, I made my first $800. The systems work — no hype, just execution."</div>
+      <div id="reviewText">"Every group says they can help you get money. Only Inner Vault made me prove it—bank wire in 14 days. Zero hype, just results."</div>
       <div class="review-author" id="reviewAuthor">Jone V.</div>
       <div class="review-role" id="reviewRole">Fiji • Former Construction Worker</div>
       <button class="review-arrow right" onclick="nextReview()">&rarr;</button>
@@ -290,7 +349,7 @@
     <div>
       <img src="129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png" class="logo-img" style="height:28px;vertical-align:middle;">
       <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" class="logo-img" style="height:28px;vertical-align:middle;">
-      <span style="margin-left:7px;">&copy; 2025 No Code Society. All rights reserved.</span>
+      <span style="margin-left:9px;">&copy; 2025 No Code Society. Designed for Pacific warriors, built for killers.</span>
     </div>
   </footer>
 
@@ -298,46 +357,9 @@
   <script>
     const reviews = [
       {
-        text: '"I joined thinking it would be another online group. Within 14 days, I made my first $800. The systems work — no hype, just execution."',
+        text: '"Every group says they can help you get money. Only Inner Vault made me prove it—bank wire in 14 days. Zero hype, just results."',
         author: "Jone V.",
         role: "Fiji • Former Construction Worker"
       },
       {
-        text: '"I literally built my first digital business with just my phone. Didn’t need a laptop, didn’t need a degree."',
-        author: "Samu R.",
-        role: "PNG • Unemployed Graduate"
-      },
-      {
-        text: '"This brotherhood is different. Proof everywhere, no one is faking. Telegram chat is active 24/7. If you’re in the Pacific and serious, this is it."',
-        author: "Kelepi T.",
-        role: "Samoa • Entrepreneur"
-      },
-      {
-        text: '"The prompt vault gave me the exact structure to land my first $3,000 USD client in a week. Nothing on YouTube comes close."',
-        author: "Felix M.",
-        role: "PNG • Freelancer"
-      },
-      {
-        text: '"The only thing I regret is not joining sooner. This is the playbook for Pacific men."',
-        author: "Titus L.",
-        role: "Fiji • Ex-Office Worker"
-      }
-    ];
-    let idx = 0;
-    function showReview(i) {
-      document.getElementById('reviewText').innerText = reviews[i].text;
-      document.getElementById('reviewAuthor').innerText = reviews[i].author;
-      document.getElementById('reviewRole').innerText = reviews[i].role;
-    }
-    function nextReview() {
-      idx = (idx + 1) % reviews.length;
-      showReview(idx);
-    }
-    function prevReview() {
-      idx = (idx - 1 + reviews.length) % reviews.length;
-      showReview(idx);
-    }
-    setInterval(nextReview, 6900); // auto-rotate every 7s
-  </script>
-</body>
-</html>
+        text: '"Built my first business with just my phone, no capital. If you’re
