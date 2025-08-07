@@ -1,108 +1,219 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>INNER VAULT | No Code Society</title>
-  <link href="https://fonts.cdnfonts.com/css/helvetica-now-display" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inner Vault — Build Leverage. Convert Power.</title>
+  <meta name="description" content="Phone-only systems, Soros reflexivity, IRL shenanigan streaming, and Super UGC. Join Inner Vault and turn attention into income." />
+  <meta property="og:title" content="Inner Vault — Build Leverage. Convert Power." />
+  <meta property="og:description" content="Phone-only systems, Soros reflexivity, IRL shenanigan streaming, and Super UGC. Join Inner Vault and turn attention into income." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://placehold.co/1200x630/png" />
+  <meta name="theme-color" content="#0EA5E9">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --gold: #e7c873;
-      --gold2: #fdd76c;
-      --dark: #131e15;
-      --premium-dark: #172214;
-      --deepgreen: #101910;
-      --white: #fff;
-      --banner-bg: linear-gradient(90deg, #ffd700 0%, #aa8936 100%);
-      --accent: #e7c873;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--premium-dark);
-      color: var(--gold);
-      font-family: 'Helvetica Now Display', Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      text-align: center;
-      min-height: 100vh;
-      width: 100vw;
-      overflow-x: hidden;
-    }
-    .fomo-banner {
-      background: var(--banner-bg);
-      color: #21200c;
-      font-weight: 800;
-      font-size: 1.14rem;
-      letter-spacing: 0.05em;
-      padding: 13px 0 11px 0;
-      box-shadow: 0 2px 8px rgba(231, 200, 115, 0.10);
-      border-bottom: 1.5px solid #e7c87333;
-      text-transform: uppercase;
-      font-family: 'Helvetica Now Display', Arial, Helvetica, sans-serif;
-      width: 100vw;
-      position: relative;
-    }
-    header {
-      background: #162214;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 12px 0 6px;
-      border-bottom: 1.5px solid #2c3b24;
-      height: 60px;
-    }
-    .logo-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo-img {
-      height: 36px;
-      margin-right: 6px;
-      border-radius: 10px;
-      background: #232a1b;
-      border: 2px solid #584915;
-      box-shadow: 0 2px 10px #0008;
-    }
-    .header-title {
-      font-size: 1.08rem;
-      color: var(--gold2);
-      font-weight: 900;
-      letter-spacing: -0.01em;
-      font-family: 'Helvetica Now Display', Arial, Helvetica, sans-serif;
-    }
-    .btn {
-      background: linear-gradient(90deg, #e7c873 65%, #ffecb4 100%);
-      border: none;
-      border-radius: 999px;
-      padding: 13px 28px;
-      font-weight: 800;
-      font-size: 1.06rem;
-      color: #171a13;
-      cursor: pointer;
-      letter-spacing: -0.01em;
-      box-shadow: 0 2px 16px #e7c87318;
-      margin-right: 0px;
-      white-space: nowrap;
-      transition: transform .08s, box-shadow .13s;
-      margin-left: 12px;
-    }
-    .btn:hover {
-      transform: translateY(-1px) scale(1.03);
-      box-shadow: 0 4px 32px #e7c87355;
-    }
-    .main-content {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 0 7px;
-      text-align: center;
-    }
-    .polar-title {
-      color: var(--gold2);
-      font-size: 1.09rem;
-      font-family: 'Helvetica Now Display', Arial, Helvetica, sans-serif;
-      font-weight: 800;
+    /* Micro interactions */
+    .glass{backdrop-filter:saturate(180%) blur(12px); background:rgba(15,23,42,.55);}
+    .shine{background:linear-gradient(110deg,rgba(255,255,255,.1),rgba(255,255,255,.0) 40%,rgba(255,255,255,.1)); background-size:200% 100%; animation:shine 6s linear infinite;}
+    @keyframes shine{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    .floaty{animation:floaty 6s ease-in-out infinite}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  </style>
+  <script>
+    // Simple scroll-to and CTA tracking
+    const ready = (fn)=>document.addEventListener('DOMContentLoaded',fn);
+    ready(()=>{
+      document.querySelectorAll('[data-scroll]')?.forEach(a=>a.addEventListener('click',e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
+      }));
+      document.querySelectorAll('[data-cta]')?.forEach(btn=>btn.addEventListener('click',()=>{
+        console.log('CTA_CLICK', btn.dataset.cta);
+      }));
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Inner Vault Membership",
+    "description":"Systems to turn attention into income: IRL streaming, Soros reflexivity, Super UGC ops, and conversion frameworks.",
+    "offers":{"@type":"Offer","priceCurrency":"USD","price":"39","availability":"https://schema.org/InStock"}
+  }
+  </script>
+</head>
+<body class="bg-slate-950 text-slate-100 selection:bg-cyan-400 selection:text-slate-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 glass">
+    <div class="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 font-bold tracking-wide text-cyan-400">⚡ Inner Vault</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#proof" data-scroll class="hover:text-white">Proof</a>
+        <a href="#how" data-scroll class="hover:text-white">How it Works</a>
+        <a href="#modules" data-scroll class="hover:text-white">What You Get</a>
+        <a href="#faq" data-scroll class="hover:text-white">FAQ</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="#join" data-scroll class="rounded-xl border border-cyan-400/40 px-4 py-2 text-sm hover:bg-cyan-400/10">Log In</a>
+        <a href="#join" data-scroll data-cta="header" class="rounded-xl bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-cyan-300">Join Now</a>
+      </div>
+    </div>
+  </header>  <!-- Hero -->  <section class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(14,165,233,.25),transparent_60%)]"></div>
+    <div class="mx-auto max-w-7xl px-4 py-20">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+            Build <span class="text-cyan-400">Leverage</span>.
+            Convert <span class="text-cyan-400">Power</span>.
+          </h1>
+          <p class="mt-4 text-lg text-slate-300">Phone‑only systems. IRL Shenanigan Streaming. Soros Reflexivity. Super UGC. The exact frameworks to turn attention into income — fast.</p>
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#join" data-scroll data-cta="hero_primary" class="rounded-2xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 hover:bg-cyan-300">Get the 3‑Step Setup</a>
+            <a href="#proof" data-scroll class="rounded-2xl border border-white/15 px-6 py-3 hover:bg-white/5">See Live Proof ↓</a>
+          </div>
+          <div class="mt-6 flex items-center gap-6 text-sm text-slate-400">
+            <div class="flex -space-x-2">
+              <img class="h-8 w-8 rounded-full border border-slate-900" src="https://i.pravatar.cc/40?img=4" alt=""/>
+              <img class="h-8 w-8 rounded-full border border-slate-900" src="https://i.pravatar.cc/40?img=12" alt=""/>
+              <img class="h-8 w-8 rounded-full border border-slate-900" src="https://i.pravatar.cc/40?img=22" alt=""/>
+            </div>
+            <p><span class="text-white font-semibold">7,000+ operators</span> building with Vault playbooks.</p>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="shine floaty rounded-3xl border border-white/10 bg-white/5 p-4">
+            <video class="w-full rounded-2xl" src="" poster="https://placehold.co/960x540/0f172a/94a3b8?text=IRL+Stream+Proof" controls></video>
+            <div class="mt-3 grid grid-cols-3 gap-3 text-center text-xs text-slate-300">
+              <div class="rounded-xl bg-white/5 p-3"><div class="text-2xl font-bold text-white">$15k</div><div>Prompt deal</div></div>
+              <div class="rounded-xl bg-white/5 p-3"><div class="text-2xl font-bold text-white">3.6x</div><div>DM conversion</div></div>
+              <div class="rounded-xl bg-white/5 p-3"><div class="text-2xl font-bold text-white">48h</div><div>to first sale</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Proof -->  <section id="proof" class="border-t border-white/10 bg-slate-900/30">
+    <div class="mx-auto max-w-7xl px-4 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold">Real Proof. Real Fast.</h2>
+      <p class="mt-2 text-slate-400">Receipts from phone‑only systems, IRL streams, and Super UGC ops.</p>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5"><img class="rounded-xl" src="https://placehold.co/640x360/0b1220/94a3b8?text=Stripe+Payout" alt=""><p class="mt-3 text-sm text-slate-300">$15,000 prompt license — negotiated live on stream.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5"><img class="rounded-xl" src="https://placehold.co/640x360/0b1220/94a3b8?text=DM+Automation" alt=""><p class="mt-3 text-sm text-slate-300">ChatGPT DM automation → 3.6x reply rate increase.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-5"><img class="rounded-xl" src="https://placehold.co/640x360/0b1220/94a3b8?text=UGC+Dashboards" alt=""><p class="mt-3 text-sm text-slate-300">20+ UGC pages syndicating daily clips to funnels.</p></div>
+      </div>
+    </div>
+  </section>  <!-- How it works -->  <section id="how" class="">
+    <div class="mx-auto max-w-7xl px-4 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold">How the Vault Prints</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-xl font-semibold">1) Create Demand</h3>
+          <p class="mt-2 text-slate-300">Soros Reflexivity: signal → belief → action. We manufacture desire before supply.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-xl font-semibold">2) Capture Proof</h3>
+          <p class="mt-2 text-slate-300">IRL Shenanigan Streaming + receipts. Raw, human proof beats polish every time.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-xl font-semibold">3) Convert at Will</h3>
+          <p class="mt-2 text-slate-300">Super UGC distribution and tight CTAs → WHOP checkout in minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Modules / What you get -->  <section id="modules" class="border-t border-white/10 bg-slate-900/30">
+    <div class="mx-auto max-w-7xl px-4 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold">What You Get Inside</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="font-semibold">Phone‑Only System</h3>
+          <p class="mt-2 text-slate-300">DM automation, scripts, and prompts to close from your phone.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="font-semibold">IRL Stream Playbook</h3>
+          <p class="mt-2 text-slate-300">Shenanigan format, clip traps, and retention loops for live.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="font-semibold">Super UGC Ops</h3>
+          <p class="mt-2 text-slate-300">Recruit, brief, and weaponize 20+ editors to flood platforms.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="font-semibold">Reflexivity Frameworks</h3>
+          <p class="mt-2 text-slate-300">Engineer desire, then supply. The Apple play, without the budget.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="font-semibold">Conversion Systems</h3>
+          <p class="mt-2 text-slate-300">Offers, CTAs, scarcity ethics, and WHOP funnel templates.</p>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h3 class="font-semibold">Proof Flywheel</h3>
+          <p class="mt-2 text-slate-300">Turn one win into 30 days of content and compounding trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <!-- Pricing / Join -->  <section id="join" class="">
+    <div class="mx-auto max-w-5xl px-4 py-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold">Join Inner Vault</h2>
+      <p class="mt-2 text-slate-400">No fluff. No theory. Just systems that print — even on a phone.</p><div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
+    <div class="rounded-2xl border border-white/10 bg-white/5 p-8">
+      <h3 class="text-xl font-bold">Monthly</h3>
+      <p class="mt-1 text-slate-400">Start now. Cancel anytime.</p>
+      <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-slate-400">/mo</span></div>
+      <ul class="mt-6 space-y-2 text-left text-sm text-slate-300">
+        <li>✔ Core playbooks & community</li>
+        <li>✔ Weekly live breakdowns</li>
+        <li>✔ Templates & scripts</li>
+      </ul>
+      <a data-cta="monthly" href="#" class="mt-6 inline-block w-full rounded-xl bg-cyan-400 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-300">Start Monthly</a>
+    </div>
+    <div class="relative rounded-2xl border border-cyan-400/50 bg-gradient-to-b from-cyan-950/40 to-white/5 p-8">
+      <div class="absolute -top-3 right-4 rounded-full bg-cyan-400 px-3 py-1 text-xs font-bold text-slate-950">Best Value</div>
+      <h3 class="text-xl font-bold">Lifetime</h3>
+      <p class="mt-1 text-slate-300">Own the systems. Own the results.</p>
+      <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-slate-400"> one‑time</span></div>
+      <ul class="mt-6 space-y-2 text-left text-sm text-slate-300">
+        <li>✔ All current & future modules</li>
+        <li>✔ Private deal rooms</li>
+        <li>✔ Super UGC license</li>
+      </ul>
+      <a data-cta="lifetime" href="#" class="mt-6 inline-block w-full rounded-xl bg-cyan-400 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-300">Get Lifetime</a>
+    </div>
+  </div>
+  <p class="mt-4 text-xs text-slate-500">Powered by WHOP • 7‑day refund if you do the work and get no movement.</p>
+</div>
+
+  </section>  <!-- FAQ -->  <section id="faq" class="border-t border-white/10 bg-slate-900/30">
+    <div class="mx-auto max-w-4xl px-4 py-16">
+      <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
+      <div class="mt-6 space-y-4">
+        <details class="group rounded-xl border border-white/10 bg-white/5 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">Do I need a laptop?<span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
+          <p class="mt-3 text-slate-300">No. Phone‑only is supported. We give you prompts, DM flows, and mobile‑first templates.</p>
+        </details>
+        <details class="group rounded-xl border border-white/10 bg-white/5 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">How fast can I get results?<span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
+          <p class="mt-3 text-slate-300">Many see movement in 48–72 hours. Your speed = your effort + offer fit + proof loop execution.</p>
+        </details>
+        <details class="group rounded-xl border border-white/10 bg-white/5 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">What if I’m camera-shy?<span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
+          <p class="mt-3 text-slate-300">Use Super UGC. You stay operator; let editors & pages syndicate your message.</p>
+        </details>
+      </div>
+    </div>
+  </section>  <!-- Footer -->  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-slate-400">
+      <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white">Terms</a>
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>      font-weight: 800;
       letter-spacing: .03em;
       margin-top: 30px;
       margin-bottom: 18px;
