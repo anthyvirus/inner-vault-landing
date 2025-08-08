@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inner Vault — Build Leverage. Convert Power.</title>
 
-  <!-- Meta -->
   <meta name="description" content="Phone-only systems. IRL shenanigan streaming. Soros reflexivity. Super UGC. Frameworks to turn attention into income — fast." />
   <meta property="og:title" content="Inner Vault — Build Leverage. Convert Power.">
   <meta property="og:description" content="Phone-only systems. IRL shenanigan streaming. Soros reflexivity. Super UGC. Frameworks to turn attention into income — fast.">
@@ -13,35 +12,22 @@
   <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png">
   <meta name="theme-color" content="#0b1220">
 
-  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
-
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root{
-      --bg:#0b1220;          /* deep slate */
-      --panel:#0f172a;       /* slightly lighter */
-      --ink:#e5e7eb;         /* light text */
-      --muted:#94a3b8;       /* secondary text */
-      --gold:#e4c76a;        /* brand gold */
-      --gold-strong:#f1d76f;
+      --bg:#0b1220; --panel:#0f172a; --ink:#e5e7eb; --muted:#94a3b8;
+      --gold:#e4c76a; --gold-strong:#f1d76f;
     }
     body{background:var(--bg);color:var(--ink)}
     .glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(15,23,42,.55);}
     .btn{display:inline-block;padding:.875rem 1.25rem;border-radius:.9rem;font-weight:700}
-    .btn-gold{background:var(--gold);color:#111827}
-    .btn-gold:hover{background:var(--gold-strong)}
-    .btn-ghost{border:1px solid rgba(255,255,255,.12);color:var(--ink)}
-    .btn-ghost:hover{background:rgba(255,255,255,.06)}
+    .btn-gold{background:var(--gold);color:#111827}.btn-gold:hover{background:var(--gold-strong)}
+    .btn-ghost{border:1px solid rgba(255,255,255,.12);color:var(--ink)}.btn-ghost:hover{background:rgba(255,255,255,.06)}
     .stat{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
     .card{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
-    /* make broken logos look clean */
     img.logo{height:40px;width:auto;object-fit:contain}
-    img.logo[onerror]{opacity:.001}
-    .logo-fallback{display:none}
-    img.logo.broken + .logo-fallback{display:inline-block}
   </style>
 </head>
 <body class="antialiased selection:bg-yellow-300 selection:text-gray-900">
@@ -60,13 +46,10 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Header with resilient logo -->
   <header class="mx-auto max-w-7xl px-4 py-8 flex items-center gap-3">
-    <!-- Inner Vault logo (with fallback text) -->
-    <img id="ivLogo" class="logo" alt="Inner Vault Logo"
-         src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"
-         onerror="this.classList.add('broken')">
-    <span class="logo-fallback text-xl font-bold">Inner Vault</span>
+    <img id="ivLogo" class="logo hidden" alt="Inner Vault Logo">
+    <span id="ivText" class="text-xl font-bold">Inner Vault</span>
   </header>
 
   <!-- Hero -->
@@ -89,42 +72,20 @@
         <p class="mt-5 text-slate-400">Access to <span class="text-white font-semibold">No Code Society</span> is only through Inner Vault.</p>
 
         <div class="mt-6 grid grid-cols-3 gap-3 text-center">
-          <div class="stat rounded-xl p-3">
-            <div class="text-2xl font-extrabold text-white">$15k</div>
-            <div class="text-xs text-slate-400">Prompt deal</div>
-          </div>
-          <div class="stat rounded-xl p-3">
-            <div class="text-2xl font-extrabold text-white">3.6×</div>
-            <div class="text-xs text-slate-400">DM replies</div>
-          </div>
-          <div class="stat rounded-xl p-3">
-            <div class="text-2xl font-extrabold text-white">48h</div>
-            <div class="text-xs text-slate-400">to first sale</div>
-          </div>
+          <div class="stat rounded-xl p-3"><div class="text-2xl font-extrabold text-white">$15k</div><div class="text-xs text-slate-400">Prompt deal</div></div>
+          <div class="stat rounded-xl p-3"><div class="text-2xl font-extrabold text-white">3.6×</div><div class="text-xs text-slate-400">DM replies</div></div>
+          <div class="stat rounded-xl p-3"><div class="text-2xl font-extrabold text-white">48h</div><div class="text-xs text-slate-400">to first sale</div></div>
         </div>
       </div>
 
       <!-- Proof video panel -->
       <div class="card rounded-2xl p-4">
-        <video id="proofVideo" class="w-full rounded-xl"
-               controls
-               preload="metadata"
-               poster="https://placehold.co/960x540/0f172a/94a3b8?text=IRL+Stream+Proof">
-          <!-- drop your mp4/webm here -->
-        </video>
+        <video id="proofVideo" class="w-full rounded-xl" controls preload="metadata"
+               poster="https://placehold.co/960x540/0f172a/94a3b8?text=IRL+Stream+Proof"></video>
         <div class="grid grid-cols-3 gap-3 mt-3 text-xs text-slate-300">
-          <div class="rounded-lg bg-white/5 p-3 text-center">
-            <div class="text-white font-bold">Stripe</div>
-            <div>Live payouts</div>
-          </div>
-          <div class="rounded-lg bg-white/5 p-3 text-center">
-            <div class="text-white font-bold">DM Screens</div>
-            <div>3.6× replies</div>
-          </div>
-          <div class="rounded-lg bg-white/5 p-3 text-center">
-            <div class="text-white font-bold">Clips</div>
-            <div>Super UGC</div>
-          </div>
+          <div class="rounded-lg bg-white/5 p-3 text-center"><div class="text-white font-bold">Stripe</div><div>Live payouts</div></div>
+          <div class="rounded-lg bg-white/5 p-3 text-center"><div class="text-white font-bold">DM Screens</div><div>3.6× replies</div></div>
+          <div class="rounded-lg bg-white/5 p-3 text-center"><div class="text-white font-bold">Clips</div><div>Super UGC</div></div>
         </div>
       </div>
     </div>
@@ -135,52 +96,25 @@
     <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
       <h2 class="text-3xl md:text-4xl font-bold">What You’ll Build Inside</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        <div class="card rounded-xl p-6">
-          <h3 class="font-semibold">Phone-Only System</h3>
-          <p class="mt-2 text-slate-300">DM automation, scripts, and prompts to close from your phone.</p>
-        </div>
-        <div class="card rounded-xl p-6">
-          <h3 class="font-semibold">IRL Stream Playbook</h3>
-          <p class="mt-2 text-slate-300">Shenanigan format, clip traps, retention loops, and live proof ethics.</p>
-        </div>
-        <div class="card rounded-xl p-6">
-          <h3 class="font-semibold">Super UGC Ops</h3>
-          <p class="mt-2 text-slate-300">Recruit editors and flood platforms with conversion-ready clips.</p>
-        </div>
-        <div class="card rounded-xl p-6">
-          <h3 class="font-semibold">Reflexivity Frameworks</h3>
-          <p class="mt-2 text-slate-300">Engineer desire first. Then supply. The Apple play without Apple’s budget.</p>
-        </div>
-        <div class="card rounded-xl p-6">
-          <h3 class="font-semibold">Conversion Systems</h3>
-          <p class="mt-2 text-slate-300">Offers, CTAs, scarcity ethics, and a WHOP funnel that closes.</p>
-        </div>
-        <div class="card rounded-xl p-6">
-          <h3 class="font-semibold">Proof Flywheel</h3>
-          <p class="mt-2 text-slate-300">Turn one win into 30 days of content and compounding trust.</p>
-        </div>
+        <div class="card rounded-xl p-6"><h3 class="font-semibold">Phone-Only System</h3><p class="mt-2 text-slate-300">DM automation, scripts, and prompts to close from your phone.</p></div>
+        <div class="card rounded-xl p-6"><h3 class="font-semibold">IRL Stream Playbook</h3><p class="mt-2 text-slate-300">Shenanigan format, clip traps, retention loops, and live proof ethics.</p></div>
+        <div class="card rounded-xl p-6"><h3 class="font-semibold">Super UGC Ops</h3><p class="mt-2 text-slate-300">Recruit editors and flood platforms with conversion-ready clips.</p></div>
+        <div class="card rounded-xl p-6"><h3 class="font-semibold">Reflexivity Frameworks</h3><p class="mt-2 text-slate-300">Engineer desire first. Then supply. The Apple play without Apple’s budget.</p></div>
+        <div class="card rounded-xl p-6"><h3 class="font-semibold">Conversion Systems</h3><p class="mt-2 text-slate-300">Offers, CTAs, scarcity ethics, and a WHOP funnel that closes.</p></div>
+        <div class="card rounded-xl p-6"><h3 class="font-semibold">Proof Flywheel</h3><p class="mt-2 text-slate-300">Turn one win into 30 days of content and compounding trust.</p></div>
       </div>
     </div>
   </section>
 
   <!-- Proof -->
-  <section id="proof" class="">
+  <section id="proof">
     <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
       <h2 class="text-3xl md:text-4xl font-bold">Real Proof. Real Fast.</h2>
       <p class="mt-2 text-slate-400">Receipts from phone-only systems, IRL streams, and Super UGC ops.</p>
       <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="card rounded-2xl p-5">
-          <img class="rounded-lg" src="https://placehold.co/640x360/0b1220/94a3b8?text=Stripe+Payout" alt="">
-          <p class="mt-3 text-sm text-slate-300">$15,000 prompt license — negotiated live on stream.</p>
-        </div>
-        <div class="card rounded-2xl p-5">
-          <img class="rounded-lg" src="https://placehold.co/640x360/0b1220/94a3b8?text=DM+Automation" alt="">
-          <p class="mt-3 text-sm text-slate-300">ChatGPT DM automation → 3.6× reply rate increase.</p>
-        </div>
-        <div class="card rounded-2xl p-5">
-          <img class="rounded-lg" src="https://placehold.co/640x360/0b1220/94a3b8?text=UGC+Dashboards" alt="">
-          <p class="mt-3 text-sm text-slate-300">20+ UGC pages syndicating daily clips to funnels.</p>
-        </div>
+        <div class="card rounded-2xl p-5"><img class="rounded-lg" src="https://placehold.co/640x360/0b1220/94a3b8?text=Stripe+Payout" alt=""><p class="mt-3 text-sm text-slate-300">$15,000 prompt license — negotiated live on stream.</p></div>
+        <div class="card rounded-2xl p-5"><img class="rounded-lg" src="https://placehold.co/640x360/0b1220/94a3b8?text=DM+Automation" alt=""><p class="mt-3 text-sm text-slate-300">ChatGPT DM automation → 3.6× reply rate increase.</p></div>
+        <div class="card rounded-2xl p-5"><img class="rounded-lg" src="https://placehold.co/640x360/0b1220/94a3b8?text=UGC+Dashboards" alt=""><p class="mt-3 text-sm text-slate-300">20+ UGC pages syndicating daily clips to funnels.</p></div>
       </div>
     </div>
   </section>
@@ -190,71 +124,48 @@
     <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
       <h2 class="text-3xl md:text-4xl font-bold">Operators From The Pacific</h2>
       <div class="grid md:grid-cols-3 gap-8 mt-8 text-slate-300">
-        <blockquote class="card rounded-xl p-6">
-          <p>“Joined from Suva — 3 weeks in, doubled my side income. The strategy is savage but it works.”</p>
-          <footer class="mt-3 text-sm text-slate-400">Jone R. — 🇫🇯 Fiji</footer>
-        </blockquote>
-        <blockquote class="card rounded-xl p-6">
-          <p>“Port Moresby here. Didn’t think phone-only was real until I closed my first USD deal.”</p>
-          <footer class="mt-3 text-sm text-slate-400">Michael K. — 🇵🇬 PNG</footer>
-        </blockquote>
-        <blockquote class="card rounded-xl p-6">
-          <p>“Samoa rarely sees plays like this. Now my phone pays me more than my old job.”</p>
-          <footer class="mt-3 text-sm text-slate-400">Tavita L. — 🇼🇸 Samoa</footer>
-        </blockquote>
+        <blockquote class="card rounded-xl p-6"><p>“Joined from Suva — 3 weeks in, doubled my side income. The strategy is savage but it works.”</p><footer class="mt-3 text-sm text-slate-400">Jone R. — 🇫🇯 Fiji</footer></blockquote>
+        <blockquote class="card rounded-xl p-6"><p>“Port Moresby here. Didn’t think phone-only was real until I closed my first USD deal.”</p><footer class="mt-3 text-sm text-slate-400">Michael K. — 🇵🇬 PNG</footer></blockquote>
+        <blockquote class="card rounded-xl p-6"><p>“Samoa rarely sees plays like this. Now my phone pays me more than my old job.”</p><footer class="mt-3 text-sm text-slate-400">Tavita L. — 🇼🇸 Samoa</footer></blockquote>
       </div>
-      <p class="mt-4 text-xs text-slate-500">Names anonymized for privacy. Results vary with effort & offer fit. You must put in the work — this isn’t a “pay and pray” miracle.</p>
+      <p class="mt-4 text-xs text-slate-500">Names anonymized. Results vary with effort & offer fit. You must put in the work — this is not “pay and pray.”</p>
     </div>
   </section>
 
   <!-- Pricing -->
-  <section id="pricing" class="">
+  <section id="pricing">
     <div class="mx-auto max-w-5xl px-4 py-12 md:py-16 text-center">
       <h2 class="text-3xl md:text-4xl font-bold">Join Inner Vault</h2>
       <p class="mt-2 text-slate-400">No fluff. No theory. Just systems that print — even on a phone.</p>
-
       <div class="mx-auto grid max-w-4xl gap-6 md:grid-cols-2 mt-8">
         <div class="card rounded-2xl p-8 text-left">
           <h3 class="text-xl font-bold">Monthly</h3>
           <p class="mt-1 text-slate-400">Start now. Cancel anytime.</p>
           <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-slate-400">/mo</span></div>
           <ul class="mt-6 space-y-2 text-sm text-slate-300">
-            <li>✔ Core playbooks & community</li>
-            <li>✔ Weekly live breakdowns</li>
-            <li>✔ Templates & scripts</li>
+            <li>✔ Core playbooks & community</li><li>✔ Weekly live breakdowns</li><li>✔ Templates & scripts</li>
           </ul>
-          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-             class="btn btn-gold mt-6 w-full text-center">Start Monthly</a>
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn btn-gold mt-6 w-full text-center">Start Monthly</a>
         </div>
-
         <div class="relative rounded-2xl p-8 text-left border border-yellow-300/40 bg-gradient-to-b from-yellow-300/5 to-white/5">
           <div class="absolute -top-3 right-4 rounded-full bg-yellow-300 px-3 py-1 text-xs font-bold text-gray-900">Best Value</div>
           <h3 class="text-xl font-bold">Lifetime</h3>
           <p class="mt-1 text-slate-300">Own the systems. Own the results.</p>
           <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-slate-400"> one-time</span></div>
           <ul class="mt-6 space-y-2 text-sm text-slate-300">
-            <li>✔ All current & future modules</li>
-            <li>✔ Private deal rooms</li>
-            <li>✔ Super UGC license</li>
+            <li>✔ All current & future modules</li><li>✔ Private deal rooms</li><li>✔ Super UGC license</li>
           </ul>
-          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
-             class="btn btn-gold mt-6 w-full text-center">Get Lifetime</a>
+          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="btn btn-gold mt-6 w-full text-center">Get Lifetime</a>
         </div>
       </div>
-
-      <p class="mt-4 text-xs text-slate-500">
-        Powered by WHOP. You are responsible for effort and execution — this is not a lottery ticket.
-      </p>
+      <p class="mt-4 text-xs text-slate-500">Powered by WHOP. Your results = your effort + execution.</p>
     </div>
   </section>
 
   <!-- NCS Access -->
   <section class="border-t border-white/10 bg-white/5">
     <div class="mx-auto max-w-5xl px-4 py-12 md:py-16 text-center">
-      <img class="mx-auto h-16 opacity-80"
-           src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png"
-           alt="No Code Society Logo"
-           onerror="this.style.display='none'">
+      <img class="mx-auto h-16 opacity-80" src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="No Code Society Logo" onerror="this.style.display='none'">
       <h3 class="mt-6 text-2xl md:text-3xl font-bold">Access to No Code Society is through Inner Vault.</h3>
       <p class="mt-2 text-slate-400">Get inside, run the plays, and earn your seat.</p>
       <a href="#pricing" class="btn btn-gold mt-6">Enter Now</a>
@@ -262,29 +173,20 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="">
+  <section id="faq">
     <div class="mx-auto max-w-4xl px-4 py-12 md:py-16">
       <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
       <div class="mt-6 space-y-4">
         <details class="group card rounded-xl p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            Do I need a laptop?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">Do I need a laptop?<span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
           <p class="mt-3 text-slate-300">No. Phone-only is supported. You get prompts, DM flows, and mobile-first templates.</p>
         </details>
         <details class="group card rounded-xl p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            How fast can I get results?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">How fast can I get results?<span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
           <p class="mt-3 text-slate-300">Many see movement in 48–72 hours. Your speed = effort + offer fit + proof loop execution.</p>
         </details>
         <details class="group card rounded-xl p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            What do I actually get?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">What do I actually get?<span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
           <p class="mt-3 text-slate-300">Private Discord & Telegram channels, 30% affiliate commissions, IRL stream playbooks, Super UGC ops, emotional mastery, AI prompts, and conversion frameworks.</p>
         </details>
       </div>
@@ -303,29 +205,49 @@
     </div>
   </footer>
 
-  <!-- Minimal JS -->
   <script>
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Simple countdown (72h from first load)
+    // Countdown (72h)
     const end = Date.now() + 72*60*60*1000;
     const el = document.getElementById('countdown');
-    const tick = () => {
+    (function tick(){
       const t = Math.max(0, end - Date.now());
       const h = String(Math.floor(t/3.6e6)).padStart(2,'0');
       const m = String(Math.floor(t%3.6e6/6e4)).padStart(2,'0');
       const s = String(Math.floor(t%6e4/1e3)).padStart(2,'0');
       el.textContent = `${h}:${m}:${s}`;
       requestAnimationFrame(tick);
-    }; tick();
-
-    // Seats (fake UI number, feel free to hard set)
+    })();
     document.getElementById('seats').textContent = '7';
 
-    // If Inner Vault logo fails, show fallback text (no broken icon)
-    const iv = document.getElementById('ivLogo');
-    iv.addEventListener('error', () => iv.classList.add('broken'));
+    // Resilient logo loader — tries multiple URLs then falls back to text
+    (function resolveLogo(){
+      const img = document.getElementById('ivLogo');
+      const txt = document.getElementById('ivText');
+      const candidates = [
+        // If you add /public/inner-vault.png to Vercel, this will win:
+        '/inner-vault.png',
+        // Your two GitHub images (arrow + crest):
+        'https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png',
+        'https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png',
+        // Sometimes repos use master:
+        'https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/master/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png',
+        // Or file in a subfolder:
+        'https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/inner-vault-landing/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png'
+      ];
+      function tryNext(i){
+        if(i>=candidates.length){ img.classList.add('hidden'); txt.classList.remove('hidden'); return; }
+        const url = candidates[i];
+        const probe = new Image();
+        probe.crossOrigin = 'anonymous';
+        probe.onload = () => { img.src = url; img.classList.remove('hidden'); txt.classList.add('hidden'); };
+        probe.onerror = () => tryNext(i+1);
+        probe.src = url + (url.includes('raw.githubusercontent') ? '' : '');
+      }
+      tryNext(0);
+    })();
   </script>
 </body>
 </html>
