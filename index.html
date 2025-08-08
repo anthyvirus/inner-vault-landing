@@ -1,108 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>No Code Society | Control Room</title>
-  <style>
-    /* Reset & font */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body, html {
-      height: 100%;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      overflow: hidden;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No Code Society — Inner Vault Access</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #0d0d0d;
+        color: #fff;
+        text-align: center;
+        overflow-x: hidden;
     }
 
-    /* Background video */
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(35%);
+    .hero {
+        padding: 60px 20px;
+        animation: fadeIn 1.5s ease-out forwards;
     }
 
-    /* Overlay content */
-    .overlay {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      text-align: center;
-      padding: 20px;
+    .hero img {
+        max-width: 280px;
+        width: 90%;
+        height: auto;
+        animation: glowIn 2s ease-in-out infinite alternate;
     }
 
-    /* Logo */
-    .logo {
-      max-width: 180px;
-      margin-bottom: 20px;
-    }
-
-    /* Headline */
     h1 {
-      font-size: 2rem;
-      font-weight: 900;
-      margin-bottom: 15px;
-      letter-spacing: 1px;
+        font-size: 2rem;
+        margin-top: 20px;
+        font-weight: bold;
+        letter-spacing: 2px;
     }
 
-    /* Subheadline */
-    p {
-      font-size: 1rem;
-      max-width: 600px;
-      margin-bottom: 25px;
-      line-height: 1.4;
-      color: #ccc;
+    .subtitle {
+        font-size: 1.1rem;
+        color: #cfcfcf;
+        max-width: 500px;
+        margin: 10px auto 30px;
+        line-height: 1.5;
     }
 
-    /* Button */
-    .cta-btn {
-      display: inline-block;
-      padding: 14px 30px;
-      background: linear-gradient(90deg, #d4af37, #b8860b);
-      color: #000;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 5px;
-      text-decoration: none;
-      box-shadow: 0 0 20px rgba(212,175,55,0.5);
-      transition: 0.3s ease-in-out;
-    }
-    .cta-btn:hover {
-      background: linear-gradient(90deg, #b8860b, #d4af37);
-      box-shadow: 0 0 30px rgba(212,175,55,0.8);
-      transform: scale(1.05);
+    .btn {
+        display: inline-block;
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #FFD700, #b8860b);
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
     }
 
-    /* Mobile tweaks */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.6rem;
-      }
-      p {
-        font-size: 0.95rem;
-      }
-      .logo {
-        max-width: 140px;
-      }
+    .btn:hover {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+        transform: scale(1.05);
     }
-  </style>
+
+    .legacy {
+        padding: 50px 20px;
+        background-color: #111;
+        margin-top: 60px;
+        animation: fadeIn 2s ease forwards;
+    }
+
+    .legacy img {
+        max-width: 200px;
+        width: 80%;
+        opacity: 0.8;
+    }
+
+    .legacy h2 {
+        margin-top: 20px;
+        font-size: 1.4rem;
+        color: #aaa;
+    }
+
+    footer {
+        padding: 20px;
+        font-size: 0.8rem;
+        color: #777;
+        margin-top: 40px;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes glowIn {
+        from {filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));}
+        to {filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));}
+    }
+</style>
 </head>
 <body>
 
-  <!-- Background video -->
-  <video autoplay muted loop playsinline class="video-bg">
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo">
+        <h1>NO CODE SOCIETY</h1>
+        <p class="subtitle">People in a vulnerable state — armed with proof, precision, and purpose.</p>
+        <a class="btn" href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true">INITIATE ACCESS</a>
+    </section>
+
+    <!-- Legacy Section -->
+    <section class="legacy">
+        <img src="941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Old No Code Society Logo">
+        <h2>THE ORIGINAL MARK</h2>
+        <p>The legacy that started it all. From the first seal to the empire you see now.</p>
+    </section>
+
+    <footer>
+        © 2025 No Code Society — All Rights Reserved.
+    </footer>
+
+</body>
+</html>  <video autoplay muted loop playsinline class="video-bg">
     <source src="YOUR_VIDEO_FILE.mp4" type="video/mp4">
     <!-- Fallback -->
   </video>
