@@ -10,8 +10,14 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="/og.jpg">
   <meta name="theme-color" content="#0EA5E9">
+
+  <!-- Fav + preload -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.85em%22 font-size=%2290%22>↗</text></svg>">
+  <link rel="preload" as="image" href="/inner-vault-logo.png" />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     .glass{backdrop-filter:saturate(180%) blur(12px); background:rgba(2,6,23,.55)}
     .shine{background:linear-gradient(110deg,rgba(255,255,255,.08),rgba(255,255,255,0) 40%,rgba(255,255,255,.08)); background-size:200% 100%; animation:shine 6s linear infinite}
@@ -19,6 +25,20 @@
     img.logo{height:48px; width:auto; object-fit:contain}
     @media (min-width:768px){ img.logo{height:56px} }
   </style>
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Product",
+    "name":"Inner Vault Membership",
+    "description":"Systems to turn attention into income: phone-only, IRL streaming, Soros reflexivity, Super UGC.",
+    "offers":[
+      {"@type":"Offer","price":"39","priceCurrency":"USD","availability":"https://schema.org/InStock"},
+      {"@type":"Offer","price":"399","priceCurrency":"USD","availability":"https://schema.org/InStock"}
+    ]
+  }
+  </script>
 </head>
 <body class="bg-slate-950 text-slate-100 selection:bg-cyan-400 selection:text-slate-950">
 
@@ -32,9 +52,10 @@
 
   <!-- Header -->
   <header class="mx-auto max-w-7xl px-4 pt-10 pb-4">
-    <a href="#" class="inline-flex items-center gap-3">
-      <!-- Upload /public/inner-vault-logo.png. If missing, fallback renders. -->
+    <a href="#" class="inline-flex items-center gap-3" aria-label="Inner Vault">
+      <!-- Upload /public/inner-vault-logo.png (gold arrow). Fallback keeps layout clean. -->
       <img class="logo" src="/inner-vault-logo.png" alt="Inner Vault logo"
+           loading="eager" fetchpriority="high"
            onerror="this.src='https://placehold.co/56x56/0b1220/FFE082?text=↗'; this.classList.add('rounded-md','p-2','bg-slate-900','border','border-white/10')">
       <span class="tracking-widest text-xs text-slate-400">INNER VAULT</span>
     </a>
@@ -72,10 +93,11 @@
         </div>
       </div>
 
-      <!-- Proof video card -->
+      <!-- Proof video -->
       <div class="shine rounded-3xl border border-white/10 bg-white/5 p-4">
-        <!-- Drop your actual video at /public/proof.mp4 and poster at /proof-poster.jpg -->
-        <video class="w-full rounded-2xl" controls preload="metadata"
+        <!-- Put your video at /public/proof.mp4 and poster at /proof-poster.jpg -->
+        <video class="w-full rounded-2xl"
+               controls preload="metadata" playsinline
                src="/proof.mp4"
                poster="/proof-poster.jpg"
                onerror="this.poster='https://placehold.co/960x540/0f172a/94a3b8?text=IRL+Stream+Proof'"></video>
@@ -84,23 +106,26 @@
     </div>
   </section>
 
-  <!-- Proof -->
+  <!-- Proof grid -->
   <section id="proof" class="border-t border-white/10 bg-slate-900/30">
     <div class="mx-auto max-w-7xl px-4 py-12">
       <h2 class="text-3xl md:text-4xl font-bold">Receipts Over Hype.</h2>
       <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
           <img class="w-full rounded-xl" src="/stripe-1.png" alt="Stripe payout"
+               loading="lazy"
                onerror="this.src='https://placehold.co/640x360/0b1220/94a3b8?text=Stripe+Payout'">
           <p class="mt-3 text-sm text-slate-300">$15,000 prompt license — closed from a phone.</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <img class="w-full rounded-xl" src="/dm-metrics.png" alt="DM automation"
+          <img class="w-full rounded-xl" src="/dm-metrics.png" alt="DM automation metrics"
+               loading="lazy"
                onerror="this.src='https://placehold.co/640x360/0b1220/94a3b8?text=DM+Metrics'">
           <p class="mt-3 text-sm text-slate-300">Chat flows & prompts → 3.6× reply rate.</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-          <img class="w-full rounded-xl" src="/dealroom.png" alt="Deal room"
+          <img class="w-full rounded-xl" src="/dealroom.png" alt="Deal room dashboard"
+               loading="lazy"
                onerror="this.src='https://placehold.co/640x360/0b1220/94a3b8?text=Deal+Room'">
           <p class="mt-3 text-sm text-slate-300">Private deal rooms + vault templates.</p>
         </div>
@@ -202,11 +227,11 @@
     </div>
   </section>
 
-  <!-- NCS Gate -->
+  <!-- NCS gate -->
   <section class="border-t border-white/10 bg-slate-900/30">
     <div class="mx-auto max-w-5xl px-4 py-14 text-center">
-      <img src="/ncs-logo.png" alt="No Code Society"
-           class="mx-auto mb-4 h-16 w-auto"
+      <img src="/ncs-logo.png" alt="No Code Society" class="mx-auto mb-4 h-16 w-auto"
+           loading="lazy"
            onerror="this.src='https://placehold.co/160x64/0b1220/94a3b8?text=NCS'">
       <h3 class="text-2xl md:text-3xl font-bold">Access to No Code Society is through Inner Vault.</h3>
       <p class="mt-2 text-slate-400">Get inside, run the plays, earn your seat.</p>
@@ -226,7 +251,7 @@
     </div>
   </footer>
 
-  <!-- Optional sticky mobile CTA -->
+  <!-- Sticky mobile CTA -->
   <div class="fixed inset-x-0 bottom-0 z-50 md:hidden glass border-t border-white/10 p-3">
     <div class="mx-auto max-w-7xl flex gap-3">
       <a href="#pricing" class="flex-1 inline-block text-center rounded-xl font-bold bg-yellow-300 text-gray-900 py-3">See Pricing</a>
@@ -235,13 +260,12 @@
   </div>
 
   <script>
-    // Seats (edit if you want to fake scarcity)
+    // Seats (edit to change scarcity)
     document.getElementById('seats').textContent = 7;
 
-    // Countdown: 72h from first load
+    // 72h countdown from first visit
     const el = document.getElementById('countdown');
-    const start = Date.now();
-    const end = start + 72 * 60 * 60 * 1000;
+    const end = Date.now() + 72 * 60 * 60 * 1000;
     const tick = () => {
       const t = Math.max(0, end - Date.now());
       const s = Math.floor(t/1000)%60, m = Math.floor(t/60000)%60, h = Math.floor(t/3600000)%24, d = Math.floor(t/86400000);
