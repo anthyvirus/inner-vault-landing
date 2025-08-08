@@ -4,58 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inner Vault — Build Leverage. Convert Power.</title>
-  <meta name="description" content="Phone-only systems, IRL shenanigan streaming, Soros reflexivity and Super UGC. Join Inner Vault to turn attention into income and get access to No Code Society." />
+  <meta name="description" content="Phone-only systems, Soros reflexivity, IRL shenanigan streaming, and Super UGC. Join Inner Vault and turn attention into income." />
   <meta property="og:title" content="Inner Vault — Build Leverage. Convert Power." />
-  <meta property="og:description" content="Phone-only systems, IRL shenanigan streaming, Soros reflexivity and Super UGC. Join Inner Vault to turn attention into income and get access to No Code Society." />
+  <meta property="og:description" content="Phone-only systems, Soros reflexivity, IRL shenanigan streaming, and Super UGC. Join Inner Vault and turn attention into income." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://placehold.co/1200x630/0b0f14/e4c76a?text=Inner+Vault" />
-  <meta name="theme-color" content="#0B0F14">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='86'>⬆️</text></svg>">
-
-  <!-- Tailwind -->
+  <meta property="og:image" content="/iv-logo.png" />
+  <meta name="theme-color" content="#0B0F14" />
+  <link rel="icon" href="/iv-logo.png" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            vault: {
-              bg: "#0B0F14",
-              panel: "#0F141B",
-              ink: "#D6DCE5",
-              mute: "#94A3B8",
-              gold: "#E4C76A",
-              gold2: "#C7A84F"
-            }
-          }
-        }
-      }
-    }
-  </script>
-
   <style>
-    .glass { backdrop-filter: saturate(160%) blur(10px); background: rgba(11,15,20,.6); }
-    .btn-gold { background: linear-gradient(93deg, #E4C76A, #C7A84F); color:#0B0F14; }
-    .btn-gold:hover { filter: brightness(1.05); transform: translateY(-1px); }
-    .btn-ghost { border:1px solid rgba(228,199,106,.35); color:#E4C76A; }
-    .btn-ghost:hover { background: rgba(228,199,106,.07); }
-    .ring-gold:focus { outline: none; box-shadow: 0 0 0 3px rgba(228,199,106,.35); }
-    .shadow-gold { box-shadow: 0 6px 30px rgba(228,199,106,.12); }
-    .card { background: linear-gradient(180deg, rgba(228,199,106,.06), rgba(255,255,255,0) 25%); border:1px solid rgba(255,255,255,.06) }
-    .tick { letter-spacing: .2em }
+    :root{
+      --bg:#0B0F14;      /* deep green-black */
+      --fg:#E9EDF1;      /* soft white */
+      --muted:#93A4B3;   /* slate */
+      --gold:#E4C76A;    /* accent */
+      --card:#0F141B;    /* panels */
+      --line:rgba(255,255,255,.08);
+    }
+    html,body{background:var(--bg);color:var(--fg);}
+    .glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(15,20,27,.55);}
+    .btn{display:inline-block;border-radius:14px;padding:.85rem 1.2rem;font-weight:700}
+    .btn-gold{background:var(--gold);color:#0b0f14}
+    .btn-gold:hover{filter:brightness(1.05)}
+    .btn-ghost{border:1px solid var(--line);color:var(--fg)}
+    .btn-ghost:hover{background:rgba(255,255,255,.04)}
+    .pill{border:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .panel{background:var(--card);border:1px solid var(--line)}
+    .kpi{font-weight:800;font-size:1.8rem;line-height:1}
+    .accent{color:var(--gold)}
+    .grid-proof img{object-fit:cover}
+    .shadow-soft{box-shadow:0 10px 30px rgba(0,0,0,.35)}
   </style>
 </head>
-<body class="bg-vault-bg text-vault-ink selection:bg-vault-gold selection:text-vault-bg">
+<body class="antialiased selection:bg-yellow-300 selection:text-black">
 
-  <!-- Top strip -->
-  <div class="sticky top-0 z-50 glass border-b border-white/10">
-    <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-xs md:text-sm">
-      <div class="flex items-center gap-4">
-        <span>Seats Left: <b id="seats" class="text-vault-gold">7</b></span>
-        <span class="hidden sm:inline">•</span>
-        <span class="flex items-center gap-2">Cohort closes in <span id="clock" class="font-mono tick"></span></span>
+  <!-- Top Ticker -->
+  <div class="sticky top-0 z-50 w-full glass border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
+      <div class="flex items-center gap-3">
+        <span class="text-xs md:text-sm">Seats Left: <b>7</b></span>
+        <span class="opacity-40">•</span>
+        <span class="text-xs md:text-sm">Cohort closes in <b id="countdown">—:—:—</b></span>
       </div>
-      <nav class="hidden md:flex items-center gap-6 text-vault-mute">
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
         <a href="#proof" class="hover:text-white">Proof</a>
         <a href="#unlock" class="hover:text-white">What You Unlock</a>
         <a href="#how" class="hover:text-white">How It Works</a>
@@ -65,228 +56,244 @@
     </div>
   </div>
 
-  <!-- HERO -->
-  <header class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(228,199,106,.10),transparent_60%)]"></div>
-    <div class="mx-auto max-w-7xl px-4 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <img id="ivLogo" class="h-14 md:h-16 w-auto mb-6" alt="Inner Vault Logo" />
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-          Build <span class="text-vault-gold">Leverage</span>. Convert <span class="text-vault-gold">Power</span>.
-        </h1>
-        <p class="mt-4 text-lg text-vault-mute">
-          Phone-only systems. IRL shenanigan streaming. Soros reflexivity. Super UGC. The frameworks to turn attention into income — fast.
-        </p>
-        <div class="mt-8 flex flex-wrap items-center gap-3">
-          <a href="#pricing" class="btn-gold ring-gold rounded-xl px-6 py-3 font-semibold shadow-gold">See Pricing</a>
-          <a href="#proof" class="btn-ghost ring-gold rounded-xl px-6 py-3">View Proof ↓</a>
-        </div>
-        <p class="mt-6 text-sm text-vault-mute">
-          Access to <b>No Code Society</b> is only through Inner Vault.
-        </p>
-      </div>
+  <!-- Hero -->
+  <header class="border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <img src="/iv-logo.png" alt="Inner Vault Logo" class="h-10 w-10 rounded-md shadow-soft">
+            <span class="uppercase tracking-widest text-xs text-slate-400">Inner Vault</span>
+          </div>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+            Build <span class="accent">Leverage</span>. Convert <span class="accent">Power</span>.
+          </h1>
+          <p class="mt-4 text-lg text-slate-300">
+            Phone-only systems. IRL shenanigan streaming. Soros reflexivity. Super UGC.
+            Frameworks to turn attention into income — fast.
+          </p>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="#pricing" class="btn btn-gold">See Pricing</a>
+            <a href="#proof" class="btn btn-ghost">View Proof ↓</a>
+          </div>
+          <p class="mt-5 text-sm text-slate-400">
+            Access to <b>No Code Society</b> is only through Inner Vault.
+          </p>
 
-      <div class="card rounded-2xl p-4">
-        <!-- Replace src with your disturbing/proof video -->
-        <video class="w-full rounded-xl" src="video/proof.mp4" poster="https://placehold.co/960x540/0b0f14/94a3b8?text=Drop+Your+Proof+Video" controls playsinline></video>
-        <div class="mt-3 grid grid-cols-3 gap-3 text-center text-xs text-vault-mute">
-          <div class="rounded-lg bg-black/20 p-3">
-            <div class="text-2xl font-bold text-white">$15k</div>
-            <div>Prompt deal</div>
+          <!-- KPI chips -->
+          <div class="mt-6 grid grid-cols-3 gap-3 text-center">
+            <div class="panel rounded-xl p-3">
+              <div class="kpi">$15k</div>
+              <div class="text-xs text-slate-400">Prompt deal</div>
+            </div>
+            <div class="panel rounded-xl p-3">
+              <div class="kpi">3.6×</div>
+              <div class="text-xs text-slate-400">DM replies</div>
+            </div>
+            <div class="panel rounded-xl p-3">
+              <div class="kpi">48h</div>
+              <div class="text-xs text-slate-400">to first sale</div>
+            </div>
           </div>
-          <div class="rounded-lg bg-black/20 p-3">
-            <div class="text-2xl font-bold text-white">3.6×</div>
-            <div>DM replies</div>
-          </div>
-          <div class="rounded-lg bg-black/20 p-3">
-            <div class="text-2xl font-bold text-white">48h</div>
-            <div>to first sale</div>
-          </div>
+        </div>
+
+        <!-- Video / proof block -->
+        <div class="panel rounded-2xl p-3 shadow-soft">
+          <!-- Drop your mp4 here -->
+          <video id="proof-video" class="w-full rounded-xl" controls poster="https://placehold.co/960x540/0f172a/94a3b8?text=IRL+Stream+Proof">
+            <!-- <source src="/proof.mp4" type="video/mp4" /> -->
+          </video>
+          <p class="mt-2 text-xs text-slate-400 text-center">
+            Live receipts > hype. Replace this with your most “undeniable” moment.
+          </p>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- PROOF -->
-  <section id="proof" class="border-t border-white/10 bg-vault-panel/40">
+  <!-- Proof -->
+  <section id="proof" class="border-b border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">Real Proof. Real Fast.</h2>
-      <p class="mt-2 text-vault-mute">Receipts from phone-only systems, IRL, and Super UGC ops.</p>
-      <div class="mt-8 grid gap-6 sm:grid-cols-2">
-        <div class="card rounded-2xl p-5">
-          <img class="rounded-lg" src="proof/stripe-15k.png" alt="Stripe payout proof">
-          <p class="mt-3 text-sm text-vault-mute">Stripe — $15,000 prompt license closed on stream.</p>
+      <p class="mt-2 text-slate-400">Receipts from phone-only systems, IRL streams, and Super UGC ops.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 grid-proof">
+        <div class="panel rounded-2xl p-5">
+          <img class="rounded-xl w-full h-40" src="https://placehold.co/640x360/0b1220/94a3b8?text=Stripe+Payout" alt="Stripe Payout">
+          <p class="mt-3 text-sm text-slate-300">Stripe — $15,000 prompt license closed on stream.</p>
         </div>
-        <div class="card rounded-2xl p-5">
-          <img class="rounded-lg" src="proof/dm-automation.png" alt="DM automation dashboard">
-          <p class="mt-3 text-sm text-vault-mute">DM automation — 3.6× reply rate, deals in the chat.</p>
+        <div class="panel rounded-2xl p-5">
+          <img class="rounded-xl w-full h-40" src="https://placehold.co/640x360/0b1220/94a3b8?text=DM+Automation" alt="DM Automation">
+          <p class="mt-3 text-sm text-slate-300">DM automation — 3.6× reply rate, deals in the chat.</p>
+        </div>
+        <div class="panel rounded-2xl p-5">
+          <img class="rounded-xl w-full h-40" src="https://placehold.co/640x360/0b1220/94a3b8?text=UGC+Dashboards" alt="UGC Dashboards">
+          <p class="mt-3 text-sm text-slate-300">20+ UGC pages syndicating daily clips to funnels.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHAT YOU UNLOCK -->
-  <section id="unlock">
+  <!-- What you unlock -->
+  <section id="unlock" class="border-b border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-14">
-      <h2 class="text-3xl md:text-4xl font-bold">What You’ll Build Inside</h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">Phone-Only System</h3>
-          <p class="mt-2 text-vault-mute">DM flows, scripts, and prompts to close from your phone.</p>
+      <h2 class="text-3xl md:text-4xl font-bold">What You Unlock</h2>
+      <div class="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">No Code Society (Discord)</h3>
+          <p class="mt-2 text-slate-300">Ops, deals, build logs, and room to execute.</p>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">IRL Stream Playbook</h3>
-          <p class="mt-2 text-vault-mute">Shenanigan format, clip traps, retention loops for live.</p>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">Telegram Channels</h3>
+          <p class="mt-2 text-slate-300">Signal, drops, and daily orders.</p>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">Super UGC Ops</h3>
-          <p class="mt-2 text-vault-mute">Recruit & brief editors; syndicate daily across platforms.</p>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">30% Commissions</h3>
+          <p class="mt-2 text-slate-300">Tracked automatically via WHOP.</p>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">Reflexivity Plays</h3>
-          <p class="mt-2 text-vault-mute">Engineer desire → supply. The Apple play without the budget.</p>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">IRL Cards</h3>
+          <p class="mt-2 text-slate-300">Shenanigan formats, clip traps, retention loops.</p>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">Conversion Systems</h3>
-          <p class="mt-2 text-vault-mute">Offers, CTAs, scarcity ethics; WHOP funnels in minutes.</p>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">Super-UGC System</h3>
+          <p class="mt-2 text-slate-300">Recruit/brief editors & flood platforms daily.</p>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="font-semibold">Proof Flywheel</h3>
-          <p class="mt-2 text-vault-mute">Turn one win into 30 days of content and compounding trust.</p>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">Emotional Mastery</h3>
+          <p class="mt-2 text-slate-300">Reflexivity, demand engineering & scarcity ethics.</p>
+        </div>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">Prompts & AI</h3>
+          <p class="mt-2 text-slate-300">DM flows, offer pages, negotiation scripts.</p>
+        </div>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">Phone-Only Sales</h3>
+          <p class="mt-2 text-slate-300">Close from DMs with receipts.</p>
+        </div>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="font-semibold">Templates</h3>
+          <p class="mt-2 text-slate-300">Funnels, CTAs, checkout copy — WHOP ready.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section id="how" class="border-t border-white/10 bg-vault-panel/40">
+  <!-- How it works -->
+  <section id="how" class="border-b border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">How It Works</h2>
-      <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="card rounded-2xl p-6">
-          <h3 class="text-xl font-semibold">Create Demand</h3>
-          <p class="mt-2 text-vault-mute">Signal → belief → action. We script emotion before supply.</p>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="panel rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">1) Create Demand</h3>
+          <p class="mt-2 text-slate-300">Signal → belief → action. Script emotion before supply.</p>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="text-xl font-semibold">Capture Proof</h3>
-          <p class="mt-2 text-vault-mute">IRL receipts beat polished ads. Humans trust humans.</p>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">2) Capture Proof</h3>
+          <p class="mt-2 text-slate-300">IRL receipts beat polished ads. Humans trust humans.</p>
         </div>
-        <div class="card rounded-2xl p-6">
-          <h3 class="text-xl font-semibold">Convert at Will</h3>
-          <p class="mt-2 text-vault-mute">Tight CTAs + distribution → checkout in minutes.</p>
+        <div class="panel rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">3) Convert Fast</h3>
+          <p class="mt-2 text-slate-300">Tight CTAs + distribution → checkout in minutes.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="">
+  <!-- Social proof quotes -->
+  <section class="border-b border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">Operators From The Pacific</h2>
-      <div class="mt-8 grid gap-8 md:grid-cols-3">
-        <blockquote class="card rounded-2xl p-6 text-sm text-vault-mute">
+      <div class="mt-6 grid md:grid-cols-3 gap-6 text-sm">
+        <blockquote class="panel rounded-2xl p-6">
           “Joined from Suva — 3 weeks in, doubled my side income. The strategy is savage but it works.”
-          <div class="mt-3 text-white font-semibold">Jone R. — 🇫🇯 Fiji</div>
+          <div class="mt-3 text-slate-400">Jone R. — 🇫🇯 Fiji</div>
         </blockquote>
-        <blockquote class="card rounded-2xl p-6 text-sm text-vault-mute">
+        <blockquote class="panel rounded-2xl p-6">
           “Port Moresby here. Didn’t think phone-only was real until I closed my first USD deal.”
-          <div class="mt-3 text-white font-semibold">Michael K. — 🇵🇬 PNG</div>
+          <div class="mt-3 text-slate-400">Michael K. — 🇵🇬 PNG</div>
         </blockquote>
-        <blockquote class="card rounded-2xl p-6 text-sm text-vault-mute">
+        <blockquote class="panel rounded-2xl p-6">
           “Samoa rarely sees plays like this. Now my phone pays me more than my old job.”
-          <div class="mt-3 text-white font-semibold">Tavita L. — 🇼🇸 Samoa</div>
+          <div class="mt-3 text-slate-400">Tavita L. — 🇼🇸 Samoa</div>
         </blockquote>
       </div>
-      <p class="mt-3 text-xs text-vault-mute">Names anonymized for privacy. Results vary with effort & offer fit.</p>
+      <p class="mt-3 text-xs text-slate-500">Names anonymized for privacy. Results vary with effort & offer fit.</p>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section id="pricing" class="border-t border-white/10 bg-vault-panel/40">
-    <div class="mx-auto max-w-6xl px-4 py-14 text-center">
+  <!-- Pricing -->
+  <section id="pricing" class="border-b border-white/10">
+    <div class="mx-auto max-w-6xl px-4 py-16 text-center">
       <h2 class="text-3xl md:text-4xl font-bold">Join Inner Vault</h2>
-      <p class="mt-2 text-vault-mute">No fluff. No theory. Systems that print — even on a phone.</p>
+      <p class="mt-2 text-slate-400">No fluff. No theory. Systems that print — even on a phone.</p>
 
-      <div class="mx-auto mt-10 grid gap-6 md:grid-cols-2">
-        <div class="card rounded-2xl p-8 text-left">
+      <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
+        <div class="panel rounded-2xl p-8">
           <h3 class="text-xl font-bold">Monthly</h3>
-          <p class="mt-1 text-vault-mute">Start now. Cancel anytime.</p>
-          <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
-          <ul class="mt-6 space-y-2 text-sm text-vault-mute">
+          <p class="mt-1 text-slate-400">Start now. Cancel anytime.</p>
+          <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-slate-400">/mo</span></div>
+          <ul class="mt-6 space-y-2 text-left text-sm text-slate-300">
             <li>✔ Core playbooks & community</li>
             <li>✔ Weekly live breakdowns</li>
             <li>✔ Templates & scripts</li>
           </ul>
-          <a data-cta="monthly" href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="mt-6 inline-block btn-gold ring-gold rounded-xl px-5 py-3 font-semibold shadow-gold w-full text-center">Start Monthly</a>
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="mt-6 inline-block w-full btn btn-gold">Start Monthly</a>
         </div>
 
-        <div class="relative card rounded-2xl p-8 text-left">
-          <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-vault-bg">Best Value</div>
+        <div class="relative panel rounded-2xl p-8">
+          <div class="absolute -top-3 right-4 rounded-full bg-[var(--gold)] px-3 py-1 text-xs font-bold text-[#0B0F14]">Best Value</div>
           <h3 class="text-xl font-bold">Lifetime</h3>
-          <p class="mt-1 text-vault-mute">Own the systems. Own the results.</p>
-          <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-vault-mute"> one-time</span></div>
-          <ul class="mt-6 space-y-2 text-sm text-vault-mute">
+          <p class="mt-1 text-slate-300">Own the systems. Own the results.</p>
+          <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-slate-400"> one-time</span></div>
+          <ul class="mt-6 space-y-2 text-left text-sm text-slate-300">
             <li>✔ All current & future modules</li>
             <li>✔ Private deal rooms</li>
             <li>✔ Super UGC license</li>
           </ul>
-          <a data-cta="lifetime" href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="mt-6 inline-block btn-gold ring-gold rounded-xl px-5 py-3 font-semibold shadow-gold w-full text-center">Get Lifetime</a>
+          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="mt-6 inline-block w-full btn btn-gold">Get Lifetime</a>
         </div>
       </div>
 
-      <p class="mt-6 text-xs text-vault-mute">
-        This isn’t pay-and-pray. You must do the work.
-      </p>
+      <p class="mt-5 text-xs text-slate-500">This isn’t pay-and-pray. You must do the work.</p>
     </div>
   </section>
 
-  <!-- NCS GATE -->
-  <section class="border-t border-white/10">
-    <div class="mx-auto max-w-5xl px-4 py-14 text-center">
-      <img id="ncsLogo" class="mx-auto h-16 w-auto opacity-90" alt="No Code Society Logo" />
+  <!-- NCS gate -->
+  <section class="border-b border-white/10">
+    <div class="mx-auto max-w-4xl px-4 py-14 text-center">
+      <img src="/ncs-logo.png" alt="No Code Society" class="mx-auto h-16 opacity-90">
       <h3 class="mt-6 text-2xl md:text-3xl font-bold">Access to No Code Society is through Inner Vault.</h3>
-      <p class="mt-2 text-vault-mute">Get inside, run the plays, and earn your seat.</p>
-      <a href="#pricing" class="mt-6 inline-block btn-gold ring-gold rounded-xl px-6 py-3 font-semibold shadow-gold">Enter Now</a>
+      <p class="mt-2 text-slate-400">Get inside, run the plays, and earn your seat.</p>
+      <a href="#pricing" class="mt-6 inline-block btn btn-gold">Enter Now</a>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="border-t border-white/10 bg-vault-panel/40">
-    <div class="mx-auto max-w-4xl px-4 py-14">
+  <section id="faq" class="border-b border-white/10">
+    <div class="mx-auto max-w-4xl px-4 py-16">
       <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
       <div class="mt-6 space-y-4">
-        <details class="group card rounded-xl p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            Do I need a laptop?
-            <span class="text-vault-mute group-open:hidden">＋</span>
-            <span class="hidden text-vault-mute group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-vault-mute">No. Phone-only is supported. We give you prompts, DM flows, and mobile-first templates.</p>
+        <details class="panel rounded-xl p-5">
+          <summary class="flex cursor-pointer justify-between font-medium">Do I need a laptop?<span class="text-slate-400">＋/－</span></summary>
+          <p class="mt-3 text-slate-300">No. Phone-only is supported. We give you prompts, DM flows, and mobile-first templates.</p>
         </details>
-        <details class="group card rounded-xl p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            How fast can I get results?
-            <span class="text-vault-mute group-open:hidden">＋</span>
-            <span class="hidden text-vault-mute group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-vault-mute">Speed = effort × offer fit × proof loop execution. Many see movement in 48–72 hours.</p>
+        <details class="panel rounded-xl p-5">
+          <summary class="flex cursor-pointer justify-between font-medium">How fast can I get results?<span class="text-slate-400">＋/－</span></summary>
+          <p class="mt-3 text-slate-300">Speed = effort × offer fit × proof loop execution. Many see movement in 48–72 hours.</p>
         </details>
-        <details class="group card rounded-xl p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            I’m camera-shy. Can I still do this?
-            <span class="text-vault-mute group-open:hidden">＋</span>
-            <span class="hidden text-vault-mute group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-vault-mute">Yes. Use Super UGC. You stay operator; let editors & pages syndicate your message.</p>
+        <details class="panel rounded-xl p-5">
+          <summary class="flex cursor-pointer justify-between font-medium">I’m camera-shy. Can I still do this?<span class="text-slate-400">＋/－</span></summary>
+          <p class="mt-3 text-slate-300">Yes. Use Super UGC. You stay operator; let editors & pages syndicate your message.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-vault-mute">
-      <p>© <span id="y"></span> Inner Vault / No Code Society.</p>
+    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-slate-400">
+      <p>© <span id="y"></span> Inner Vault / No Code Society. All rights reserved.</p>
       <div class="flex items-center gap-4">
         <a href="#" class="hover:text-white">Terms</a>
         <a href="#" class="hover:text-white">Privacy</a>
@@ -295,132 +302,24 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    // YEAR
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // COUNTDOWN (72h window rolling)
-    const end = new Date(Date.now() + 72*60*60*1000);
-    const tick = () => {
-      const t = Math.max(0, end - new Date());
-      const h = String(Math.floor(t/3.6e6)).padStart(2,'0');
-      const m = String(Math.floor(t%3.6e6/6e4)).padStart(2,'0');
-      const s = String(Math.floor(t%6e4/1e3)).padStart(2,'0');
-      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
-      if (t>0) requestAnimationFrame(()=>setTimeout(tick, 500));
-    };
-    tick();
-
-    // SEATS LEFT (persist locally; demo only)
-    const SEAT_KEY = "iv_seats_left";
-    const seatsEl = document.getElementById('seats');
-    let seats = Number(localStorage.getItem(SEAT_KEY) || 7);
-    const renderSeats = () => seatsEl.textContent = seats;
-    renderSeats();
-    document.querySelectorAll('[data-cta]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        if(seats>0){ seats--; localStorage.setItem(SEAT_KEY, seats); renderSeats(); }
-      });
-    });
-
-    // Logo loader with fallbacks (use your own paths if you prefer)
-    const ivCandidates = [
-      "img/inner-vault-logo.png",
-      "inner-vault-logo.png",
-      "129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png",
-      "2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png"
-    ];
-    const ncsCandidates = [
-      "img/ncs-logo.png",
-      "ncs-logo.png",
-      "941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png"
-    ];
-    const loadFirst = (el, list) => {
-      const tryNext = (i=0) => {
-        if(i>=list.length){ el.style.display='none'; return; }
-        const img = new Image();
-        img.onload = ()=>{ el.src=list[i]; };
-        img.onerror = ()=> tryNext(i+1);
-        img.src = list[i];
-      };
-      tryNext();
-    };
-    loadFirst(document.getElementById('ivLogo'), ivCandidates);
-    loadFirst(document.getElementById('ncsLogo'), ncsCandidates);
+    // simple 72h countdown from first visit
+    (function(){
+      const el = document.getElementById('countdown');
+      const key='iv_deadline';
+      let end = localStorage.getItem(key);
+      if(!end){ end = Date.now() + 72*60*60*1000; localStorage.setItem(key,end); }
+      function tick(){
+        const t = end - Date.now();
+        if(t<=0){ el.textContent='00:00:00'; return; }
+        const h = String(Math.floor(t/3.6e6)).padStart(2,'0');
+        const m = String(Math.floor((t%3.6e6)/6e4)).padStart(2,'0');
+        const s = String(Math.floor((t%6e4)/1e3)).padStart(2,'0');
+        el.textContent = `${h}:${m}:${s}`;
+      }
+      tick(); setInterval(tick,1000);
+    })();
+    document.getElementById('y').textContent=new Date().getFullYear();
   </script>
 </body>
-</html>
-  <!-- proof (UGC tile removed) -->
-  <section id="proof" class="mx-auto container px-4 py-14">
-    <h2 class="text-3xl md:text-4xl font-bold">Receipts > Hype</h2>
-    <p class="mt-2 text-zinc-400">Live pulls from streams and Stripe. Two metrics that actually matter.</p>
-    <div class="mt-8 grid gap-6 sm:grid-cols-2">
-      <div class="rounded-2xl border border-amber-300/10 bg-white/5 p-5">
-        <img class="rounded-xl w-full" src="img/stripe-payout.png" alt="Stripe Payout"
-             onerror="this.src='https://placehold.co/640x360/0b1220/94a3b8?text=Stripe+Payout'">
-        <p class="mt-3 text-sm text-zinc-300">$15,000 prompt license — negotiated live on stream.</p>
-      </div>
-      <div class="rounded-2xl border border-amber-300/10 bg-white/5 p-5">
-        <img class="rounded-xl w-full" src="img/dm-automation.png" alt="DM Automation"
-             onerror="this.src='https://placehold.co/640x360/0b1220/94a3b8?text=DM+Automation'">
-        <p class="mt-3 text-sm text-zinc-300">ChatGPT DM flows → 3.6x reply rate increase (phone-only).</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- unlock -->
-  <section id="unlock" class="border-t border-amber-300/10 bg-white/[.02]">
-    <div class="mx-auto container px-4 py-14">
-      <h2 class="text-3xl md:text-4xl font-bold">What You Unlock</h2>
-      <div class="mt-7 grid gap-6 md:grid-cols-2">
-        <ul class="space-y-3 text-zinc-300">
-          <li>✔ <span class="text-white font-semibold">No Code Society (Discord)</span> — ops, deals, build logs</li>
-          <li>✔ <span class="text-white font-semibold">Telegram channels</span> — signal, drops, daily orders</li>
-          <li>✔ <span class="text-white font-semibold">30% commissions</span> — tracked via WHOP</li>
-          <li>✔ <span class="text-white font-semibold">IRL Cards</span> — shenanigan formats & clip traps</li>
-          <li>✔ <span class="text-white font-semibold">Super-UGC System</span> — recruit/brief editors to flood platforms</li>
-        </ul>
-        <ul class="space-y-3 text-zinc-300">
-          <li>✔ <span class="text-white font-semibold">Emotional Mastery</span> — demand engineering & scarcity ethics</li>
-          <li>✔ <span class="text-white font-semibold">Prompts & AI</span> — DM flows, offer pages, negotiation scripts</li>
-          <li>✔ <span class="text-white font-semibold">Phone-Only Sales</span> — close from DMs with receipts</li>
-          <li>✔ <span class="text-white font-semibold">Templates</span> — funnels, CTAs, checkout copy (WHOP ready)</li>
-          <li>✔ <span class="text-white font-semibold">Deal Rooms</span> — weekly breakdowns & audits</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- how -->
-  <section id="how" class="mx-auto container px-4 py-14">
-    <h2 class="text-3xl md:text-4xl font-bold">How It Works</h2>
-    <div class="mt-7 grid gap-6 md:grid-cols-3">
-      <div class="rounded-xl border border-amber-300/10 bg-white/5 p-6">
-        <h3 class="text-xl font-semibold text-white">1) Create Demand</h3>
-        <p class="mt-2 text-zinc-300">Signal → belief → action. Make the market want it before supply.</p>
-      </div>
-      <div class="rounded-xl border border-amber-300/10 bg-white/5 p-6">
-        <h3 class="text-xl font-semibold text-white">2) Capture Proof</h3>
-        <p class="mt-2 text-zinc-300">IRL + receipts beat polish. Show results, then sell.</p>
-      </div>
-      <div class="rounded-xl border border-amber-300/10 bg-white/5 p-6">
-        <h3 class="text-xl font-semibold text-white">3) Convert Fast</h3>
-        <p class="mt-2 text-zinc-300">Tight CTAs, WHOP checkout, affiliate flywheel.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- pricing (refund text removed) -->
-  <section id="pricing" class="border-t border-amber-300/10 bg-white/[.02]">
-    <div class="mx-auto container px-4 py-14 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold">Join Inner Vault</h2>
-      <p class="mt-2 text-zinc-400">No fluff. No theory. Systems that print — even on a phone.</p>
-
-      <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
-        <div class="rounded-2xl border border-amber-300/15 bg-white/5 p-8 text-left">
-          <h3 class="text-xl font-bold text-white">Monthly</h3>
-          <p class="mt-1 text-zinc-400">Start now. Cancel anytime.</p>
-          <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-zinc-400">/mo</span></div>
-          <ul class="mt-6 space-y-2 text-sm text-zinc-300">
-            <li>✔ Core
+  </html>
