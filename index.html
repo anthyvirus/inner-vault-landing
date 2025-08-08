@@ -3,106 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inner Vault — No Code Society Access</title>
+<title>INNER VAULT — No Code Society</title>
 <style>
     body {
         margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background-color: #0b0b0b;
+        font-family: 'Arial', sans-serif;
+        background-color: #000;
         color: #fff;
+        line-height: 1.6;
+    }
+    header {
         text-align: center;
+        padding: 40px 20px;
     }
-
+    header img {
+        max-width: 150px;
+        filter: drop-shadow(0px 0px 15px gold);
+    }
+    h1, h2 {
+        color: gold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
     .hero {
-        padding: 60px 20px;
+        text-align: center;
+        padding: 50px 20px;
     }
-
-    .hero img {
-        max-width: 260px;
-        width: 90%;
-        height: auto;
-        animation: glow 2s ease-in-out infinite alternate;
+    .hero h1 {
+        font-size: 2em;
+        margin-bottom: 10px;
     }
-
-    @keyframes glow {
-        from { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.3)); }
-        to { filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.9)); }
+    .hero p {
+        max-width: 600px;
+        margin: auto;
+        font-size: 1.1em;
+        color: #ddd;
     }
-
-    h1 {
-        font-size: 2rem;
-        margin-top: 20px;
-        letter-spacing: 2px;
-    }
-
-    .subtitle {
-        font-size: 1.1rem;
-        color: #cfcfcf;
-        max-width: 500px;
-        margin: 10px auto 30px;
-    }
-
     .btn {
         display: inline-block;
-        padding: 15px 30px;
-        background: linear-gradient(135deg, #FFD700, #b8860b);
-        color: #000;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: gold;
+        color: black;
         font-weight: bold;
         text-decoration: none;
-        border-radius: 50px;
-        font-size: 1.1rem;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        border-radius: 5px;
+        box-shadow: 0 0 15px gold;
+        transition: 0.3s;
     }
-
     .btn:hover {
-        box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
-        transform: scale(1.05);
+        background: #e6b800;
+        box-shadow: 0 0 25px gold;
     }
-
-    .reviews {
-        margin-top: 50px;
-        padding: 0 20px;
-        font-size: 0.95rem;
-        color: #ccc;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
+    .section {
+        padding: 50px 20px;
+        max-width: 1000px;
+        margin: auto;
     }
-
-    .review {
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #222;
+    .proof, .benefits, .testimonials {
+        background-color: #111;
+        margin: 20px 0;
+        border-radius: 10px;
+        padding: 30px;
     }
-
-    .review strong {
-        color: #FFD700;
+    .benefits ul {
+        list-style: none;
+        padding: 0;
     }
-
+    .benefits li {
+        margin: 10px 0;
+        padding-left: 20px;
+        position: relative;
+    }
+    .benefits li::before {
+        content: "✔";
+        position: absolute;
+        left: 0;
+        color: gold;
+    }
+    .testimonial {
+        background-color: #000;
+        border-left: 3px solid gold;
+        padding: 15px;
+        margin: 15px 0;
+        font-style: italic;
+    }
     footer {
+        text-align: center;
         padding: 20px;
-        font-size: 0.8rem;
+        font-size: 0.9em;
         color: #777;
-        margin-top: 40px;
     }
 </style>
 </head>
 <body>
 
-    <!-- Hero -->
-    <section class="hero">
-        <img src="129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png" alt="Inner Vault Logo">
-        <h1>THE INNER VAULT</h1>
-        <p class="subtitle">The only way into No Code Society. Once you’re in, the rules change.</p>
-        <a class="btn" href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true">ENTER NOW</a>
-    </section>
+<header>
+    <img src="129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png" alt="Inner Vault Logo">
+</header>
 
-    <!-- Reviews -->
-    <section class="reviews">
-        <div class="review">
-            <strong>Jone R. — Fiji</strong><br>
+<section class="hero">
+    <h1>YOU WEREN’T SUPPOSED TO FIND THIS.</h1>
+    <p>I don’t sell products. I don’t sell courses. I engineer emotion until the market moves exactly where I want it. Then I take my position. The rest is arithmetic.</p>
+    <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn">ENTER THE CONTROL ROOM</a>
+</section>
+
+<section class="section proof">
+    <h2>Every Market Moves on Emotion</h2>
+    <p>While everyone chases trends, we pull the strings. From IRL streams to viral nukes, from UGC armies to market manipulation — everything is a calculated play.</p>
+</section>
+
+<section class="section benefits">
+    <h2>Inside The Vault</h2>
+    <ul>
+        <li>Proven schemes & market timing plays</li>
+        <li>How to weaponize content for mass conversion</li>
+        <li>Super UGC army deployment strategy</li>
+        <li>IRL streaming as an emotional market weapon</li>
+        <li>Exclusive entry into No Code Society network</li>
+    </ul>
+</section>
+
+<section class="section testimonials">
+    <h2>Proof From The Pacific</h2>
+    <div class="testimonial">"Joined from Suva — 3 weeks in, doubled my side income. The strategy is savage but it works." — <strong>Jone R., 🇫🇯 Fiji</strong></div>
+    <div class="testimonial">"From Port Moresby. Never thought I could make USD online without a laptop. They proved me wrong." — <strong>Michael K., 🇵🇬 PNG</strong></div>
+    <div class="testimonial">"Samoa doesn’t see plays like this often. Now my phone pays me more than my old job." — <strong>Tavita L., 🇼🇸 Samoa</strong></div>
+</section>
+
+<section class="section">
+    <h2>7 Seats Left</h2>
+    <p>Once they’re gone, the door shuts. No re-entry. No begging.</p>
+    <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn">ENTER NOW</a>
+</section>
+
+<footer>
+    © 2025 No Code Society — Inner Vault. All rights reserved.
+</footer>
+
+</body>
+</html>            <strong>Jone R. — Fiji</strong><br>
             "I thought it was a scam until I tripled my income in 4 weeks. Inner Vault is dangerous in the right hands."
         </div>
         <div class="review">
