@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Inner Vault — Build Leverage. Convert Power.</title>
   <meta name="description" content="Phone-only systems, IRL shenanigan streaming, Super UGC, and demand engineering. Join Inner Vault to unlock No Code Society access." />
   <meta property="og:title" content="Inner Vault — Build Leverage. Convert Power." />
@@ -13,12 +13,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(10,10,10,.55)}
+    .container{max-width:72rem}
+    .shadow-card{box-shadow:0 10px 30px rgba(0,0,0,.25)}
   </style>
 </head>
 <body class="bg-[#0b0b0b] text-zinc-200 selection:bg-amber-300/70 selection:text-black">
-  <!-- Sticky bar -->
+
+  <!-- top status -->
   <div class="sticky top-0 z-50 border-b border-amber-300/10 glass">
-    <div class="mx-auto max-w-6xl px-4 py-2 text-xs sm:text-sm flex items-center justify-between">
+    <div class="mx-auto container px-4 py-2 text-xs sm:text-sm flex items-center justify-between">
       <div class="flex items-center gap-2">
         <span class="text-amber-300/90">Seats Left:</span>
         <span id="seats" class="font-bold text-white">7</span>
@@ -36,51 +39,107 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- header -->
   <header class="border-b border-amber-300/10">
-    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+    <div class="mx-auto container px-4 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <img src="inner-vault-logo.png" alt="Inner Vault" class="h-9 w-auto" onerror="this.style.display='none'">
+        <img id="ivLogo" alt="Inner Vault" class="h-9 w-auto" />
         <span class="font-semibold tracking-wide">Inner Vault</span>
       </div>
       <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-         class="rounded-lg bg-amber-300 px-4 py-2 text-sm font-semibold text-black hover:bg-amber-200">Enter Now</a>
+         class="rounded-lg bg-amber-300 px-4 py-2 text-sm font-semibold text-black hover:bg-amber-200">
+        Enter Now
+      </a>
     </div>
   </header>
 
-  <!-- Countdown hero -->
+  <!-- hero -->
   <section class="text-center py-10 md:py-12 border-b border-amber-300/10 bg-white/5">
-    <h2 class="text-xl md:text-2xl font-semibold text-white">Next cohort closes in</h2>
-    <div class="mt-2 text-4xl md:text-5xl font-mono text-amber-300" id="countdown_big">--:--:--</div>
-    <p class="mt-3 text-sm text-zinc-400"><span id="seats2">7</span> seats left</p>
-    <div class="mt-6 flex items-center justify-center gap-3">
-      <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-         class="rounded-xl bg-amber-300 px-5 py-3 font-semibold text-black hover:bg-amber-200">Secure Your Seat</a>
-      <a href="#pricing" class="rounded-xl border border-amber-300/20 px-5 py-3 hover:bg-white/5">See Pricing</a>
+    <div class="mx-auto container px-4">
+      <h1 class="text-3xl md:text-5xl font-extrabold text-white">
+        Build <span class="text-amber-300">Leverage</span>. Convert <span class="text-amber-300">Power</span>.
+      </h1>
+      <p class="mt-3 text-zinc-300 max-w-3xl mx-auto">
+        Phone-only systems. IRL shenanigan streaming. Super UGC. Demand engineering.
+        The frameworks to turn attention into income — fast.
+      </p>
+
+      <div class="mt-7 grid gap-6 md:grid-cols-2 md:items-start">
+        <!-- video block -->
+        <div class="rounded-2xl border border-amber-300/10 bg-black/40 p-3 shadow-card">
+          <!-- Replace video/proof.mp4 with your clip; keep playsinline for mobile -->
+          <video id="proofVideo" class="w-full rounded-xl"
+                 src="video/proof.mp4" poster="https://placehold.co/960x540/0f172a/94a3b8?text=IRL+Stream+Proof"
+                 controls playsinline preload="metadata"></video>
+          <div class="mt-3 grid grid-cols-3 gap-3 text-center text-xs text-zinc-300">
+            <div class="rounded-xl bg-white/5 p-3">
+              <div class="text-2xl font-bold text-white">$15k</div>
+              <div>Prompt deal</div>
+            </div>
+            <div class="rounded-xl bg-white/5 p-3">
+              <div class="text-2xl font-bold text-white">3.6x</div>
+              <div>DM conversion</div>
+            </div>
+            <div class="rounded-xl bg-white/5 p-3">
+              <div class="text-2xl font-bold text-white">48h</div>
+              <div>to first sale</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- countdown + ctas -->
+        <div class="flex flex-col items-center justify-center">
+          <div class="text-xl md:text-2xl font-semibold text-white">Next cohort closes in</div>
+          <div id="countdown_big" class="mt-1 text-4xl md:text-5xl font-mono text-amber-300">--:--:--</div>
+          <p class="mt-2 text-sm text-zinc-400"><span id="seats2">7</span> seats left</p>
+          <div class="mt-6 flex w-full flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
+               class="w-full sm:w-auto rounded-xl bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200">
+              Secure Your Seat
+            </a>
+            <a href="#pricing"
+               class="w-full sm:w-auto rounded-xl border border-amber-300/20 px-6 py-3 text-white hover:bg-white/5">
+              See Pricing
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Proof -->
-  <section id="proof" class="mx-auto max-w-6xl px-4 py-14">
-    <h2 class="text-3xl md:text-4xl font-bold">Operators From The Pacific</h2>
-    <div class="mt-6 grid gap-8 md:grid-cols-3 text-sm">
-      <div><p class="italic text-zinc-300">“3 weeks in — doubled my side income. Savage strategy, it works.”</p><p class="mt-2 font-semibold text-white">Jone R. — 🇫🇯 Fiji</p></div>
-      <div><p class="italic text-zinc-300">“Didn’t believe phone-only until I closed my first USD deal.”</p><p class="mt-2 font-semibold text-white">Michael K. — 🇵🇬 PNG</p></div>
-      <div><p class="italic text-zinc-300">“Samoa doesn’t see plays like this. My phone pays me more now.”</p><p class="mt-2 font-semibold text-white">Tavita L. — 🇼🇸 Samoa</p></div>
+  <!-- proof -->
+  <section id="proof" class="mx-auto container px-4 py-14">
+    <h2 class="text-3xl md:text-4xl font-bold">Receipts > Hype</h2>
+    <p class="mt-2 text-zinc-400">Live pulls from streams, Stripe, and ops dashboards.</p>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="rounded-2xl border border-amber-300/10 bg-white/5 p-5">
+        <img class="rounded-xl w-full" src="img/stripe-payout.png" alt="Stripe Payout"
+             onerror="this.src='https://placehold.co/640x360/0b1220/94a3b8?text=Stripe+Payout'">
+        <p class="mt-3 text-sm text-zinc-300">$15,000 prompt license — negotiated live on stream.</p>
+      </div>
+      <div class="rounded-2xl border border-amber-300/10 bg-white/5 p-5">
+        <img class="rounded-xl w-full" src="img/dm-automation.png" alt="DM Automation"
+             onerror="this.src='https://placehold.co/640x360/0b1220/94a3b8?text=DM+Automation'">
+        <p class="mt-3 text-sm text-zinc-300">ChatGPT DM flows → 3.6x reply rate increase (phone-only).</p>
+      </div>
+      <div class="rounded-2xl border border-amber-300/10 bg-white/5 p-5">
+        <img class="rounded-xl w-full" src="img/ugc-dashboards.png" alt="UGC Dashboards"
+             onerror="this.src='https://placehold.co/640x360/0b1220/94a3b8?text=UGC+Dashboards'">
+        <p class="mt-3 text-sm text-zinc-300">20+ pages syndicating daily clips straight to funnels.</p>
+      </div>
     </div>
-    <p class="mt-6 text-xs text-zinc-500">Names anonymized. Results vary with effort & offer-fit.</p>
   </section>
 
-  <!-- Unlock -->
+  <!-- unlock -->
   <section id="unlock" class="border-t border-amber-300/10 bg-white/[.02]">
-    <div class="mx-auto max-w-6xl px-4 py-14">
+    <div class="mx-auto container px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">What You Unlock</h2>
       <div class="mt-7 grid gap-6 md:grid-cols-2">
         <ul class="space-y-3 text-zinc-300">
           <li>✔ <span class="text-white font-semibold">No Code Society (Discord)</span> — ops, deals, build logs</li>
           <li>✔ <span class="text-white font-semibold">Telegram channels</span> — signal, drops, daily orders</li>
           <li>✔ <span class="text-white font-semibold">30% commissions</span> — tracked via WHOP</li>
-          <li>✔ <span class="text-white font-semibold">IRL Cards</span> — shenanigan stream formats & clip traps</li>
+          <li>✔ <span class="text-white font-semibold">IRL Cards</span> — shenanigan formats & clip traps</li>
           <li>✔ <span class="text-white font-semibold">Super-UGC System</span> — recruit/brief editors to flood platforms</li>
         </ul>
         <ul class="space-y-3 text-zinc-300">
@@ -94,8 +153,8 @@
     </div>
   </section>
 
-  <!-- How -->
-  <section id="how" class="mx-auto max-w-6xl px-4 py-14">
+  <!-- how -->
+  <section id="how" class="mx-auto container px-4 py-14">
     <h2 class="text-3xl md:text-4xl font-bold">How It Works</h2>
     <div class="mt-7 grid gap-6 md:grid-cols-3">
       <div class="rounded-xl border border-amber-300/10 bg-white/5 p-6">
@@ -103,6 +162,168 @@
         <p class="mt-2 text-zinc-300">Signal → belief → action. Make the market want it before supply.</p>
       </div>
       <div class="rounded-xl border border-amber-300/10 bg-white/5 p-6">
+        <h3 class="text-xl font-semibold text-white">2) Capture Proof</h3>
+        <p class="mt-2 text-zinc-300">IRL + receipts beat polish. Show results, then sell.</p>
+      </div>
+      <div class="rounded-xl border border-amber-300/10 bg-white/5 p-6">
+        <h3 class="text-xl font-semibold text-white">3) Convert Fast</h3>
+        <p class="mt-2 text-zinc-300">Tight CTAs, WHOP checkout, affiliate flywheel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- pricing -->
+  <section id="pricing" class="border-t border-amber-300/10 bg-white/[.02]">
+    <div class="mx-auto container px-4 py-14 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold">Join Inner Vault</h2>
+      <p class="mt-2 text-zinc-400">No fluff. No theory. Systems that print — even on a phone.</p>
+
+      <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
+        <div class="rounded-2xl border border-amber-300/15 bg-white/5 p-8 text-left">
+          <h3 class="text-xl font-bold text-white">Monthly</h3>
+          <p class="mt-1 text-zinc-400">Start now. Cancel anytime.</p>
+          <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-zinc-400">/mo</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-zinc-300">
+            <li>✔ Core playbooks & community</li>
+            <li>✔ Discord + Telegram access</li>
+            <li>✔ Weekly deal rooms</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
+             class="mt-6 inline-block w-full rounded-xl bg-amber-300 px-5 py-3 font-semibold text-black hover:bg-amber-200 text-center">
+            Start Monthly
+          </a>
+        </div>
+
+        <div class="relative rounded-2xl border border-amber-300/50 bg-gradient-to-b from-amber-300/10 to-white/5 p-8 text-left">
+          <div class="absolute -top-3 right-4 rounded-full bg-amber-300 px-3 py-1 text-xs font-bold text-black">Best Value</div>
+          <h3 class="text-xl font-bold text-white">Lifetime</h3>
+          <p class="mt-1 text-zinc-300">Own the systems. Own the results.</p>
+          <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-zinc-400"> one-time</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-zinc-300">
+            <li>✔ All current & future modules</li>
+            <li>✔ Super-UGC license</li>
+            <li>✔ Priority reviews & audits</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
+             class="mt-6 inline-block w-full rounded-xl bg-amber-300 px-5 py-3 font-semibold text-black hover:bg-amber-200 text-center">
+            Get Lifetime
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-4 text-xs text-zinc-500">Powered by WHOP • 7-day refund if you do the work and get no movement.</p>
+    </div>
+  </section>
+
+  <!-- NCS banner -->
+  <section class="mx-auto container px-4 py-14 text-center">
+    <img id="ncsLogo" alt="No Code Society" class="mx-auto h-16 w-auto" />
+    <h3 class="mt-5 text-2xl font-bold text-white">Access to No Code Society is through Inner Vault.</h3>
+    <p class="mt-2 text-zinc-400">Get inside, run the plays, and earn your seat.</p>
+    <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
+       class="mt-6 inline-block rounded-xl bg-amber-300 px-6 py-3 font-semibold text-black hover:bg-amber-200">
+      Enter Now
+    </a>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="border-t border-amber-300/10 bg-white/5">
+    <div class="mx-auto container px-4 py-14">
+      <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
+      <div class="mt-6 space-y-4">
+        <details class="group rounded-xl border border-amber-300/10 bg-white/5 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
+            Do I need a laptop?
+            <span class="text-zinc-400 group-open:hidden">＋</span><span class="hidden text-zinc-400 group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-zinc-300">No. Phone-only is supported. Prompts, DM flows, and mobile-first templates included.</p>
+        </details>
+        <details class="group rounded-xl border border-amber-300/10 bg-white/5 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
+            How fast are results?
+            <span class="text-zinc-400 group-open:hidden">＋</span><span class="hidden text-zinc-400 group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-zinc-300">Many see movement in 48–72 hours (effort + offer fit + proof loop).</p>
+        </details>
+        <details class="group rounded-xl border border-amber-300/10 bg-white/5 p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
+            Camera-shy?
+            <span class="text-zinc-400 group-open:hidden">＋</span><span class="hidden text-zinc-400 group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-zinc-300">Use Super-UGC. You stay operator; editors & pages syndicate your message.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="border-t border-amber-300/10">
+    <div class="mx-auto container px-4 py-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-zinc-400">
+      <div class="flex items-center gap-3">
+        <img id="ivLogoSm" alt="Inner Vault" class="h-6 w-auto" />
+        <p>© <span id="y"></span> Inner Vault / No Code Society.</p>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white">Terms</a>
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script>
+    // Countdown to Sunday 23:59
+    function nextSunday2359(){
+      const d=new Date(), add=(7-d.getDay())%7;
+      d.setDate(d.getDate()+add); d.setHours(23,59,0,0); return d;
+    }
+    function runCountdown(deadline){
+      const s=document.getElementById('countdown');
+      const b=document.getElementById('countdown_big');
+      function tick(){
+        const ms=Math.max(0, deadline - new Date());
+        const h=String(Math.floor(ms/3.6e6)).padStart(2,'0');
+        const m=String(Math.floor((ms%3.6e6)/6e4)).padStart(2,'0');
+        const sec=String(Math.floor((ms%6e4)/1e3)).padStart(2,'0');
+        s.textContent=`${h}:${m}:${sec}`; b.textContent=`${h}:${m}:${sec}`;
+      }
+      tick(); setInterval(tick,1000);
+    }
+    document.getElementById('y').textContent=new Date().getFullYear();
+    runCountdown(nextSunday2359());
+
+    // Show same seats count in both places
+    document.getElementById('seats2').textContent=document.getElementById('seats').textContent;
+
+    // Robust logo fallbacks (tries multiple repo filenames)
+    const ivCandidates=[
+      'inner-vault-logo.png',
+      '129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png' // arrow file from your repo
+    ];
+    const ncsCandidates=[
+      'ncs-logo.png',
+      '941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png', // NCS round logo
+      '2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png'  // alt crest
+    ];
+    function setFirstExisting(imgId, candidates){
+      const img=document.getElementById(imgId);
+      let i=0;
+      function tryNext(){
+        if(i>=candidates.length){ img.style.display='none'; return; }
+        const test=new Image();
+        test.onload=()=>{ img.src=candidates[i]; };
+        test.onerror=()=>{ i++; tryNext(); };
+        test.src=candidates[i];
+      }
+      tryNext();
+    }
+    setFirstExisting('ivLogo', ivCandidates);
+    setFirstExisting('ivLogoSm', ivCandidates);
+    setFirstExisting('ncsLogo', ncsCandidates);
+  </script>
+</body>
+</html>      <div class="rounded-xl border border-amber-300/10 bg-white/5 p-6">
         <h3 class="text-xl font-semibold text-white">2) Capture Proof</h3>
         <p class="mt-2 text-zinc-300">IRL + receipts beat polish. Show results, then sell.</p>
       </div>
