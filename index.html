@@ -3,33 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>No Code Society — Inner Vault Access</title>
+<title>Inner Vault — No Code Society Access</title>
 <style>
     body {
         margin: 0;
         font-family: 'Segoe UI', sans-serif;
-        background-color: #0d0d0d;
+        background-color: #0b0b0b;
         color: #fff;
         text-align: center;
-        overflow-x: hidden;
     }
 
     .hero {
         padding: 60px 20px;
-        animation: fadeIn 1.5s ease-out forwards;
     }
 
     .hero img {
-        max-width: 280px;
+        max-width: 260px;
         width: 90%;
         height: auto;
-        animation: glowIn 2s ease-in-out infinite alternate;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.3)); }
+        to { filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.9)); }
     }
 
     h1 {
         font-size: 2rem;
         margin-top: 20px;
-        font-weight: bold;
         letter-spacing: 2px;
     }
 
@@ -38,7 +40,6 @@
         color: #cfcfcf;
         max-width: 500px;
         margin: 10px auto 30px;
-        line-height: 1.5;
     }
 
     .btn {
@@ -60,23 +61,24 @@
         transform: scale(1.05);
     }
 
-    .legacy {
-        padding: 50px 20px;
-        background-color: #111;
-        margin-top: 60px;
-        animation: fadeIn 2s ease forwards;
+    .reviews {
+        margin-top: 50px;
+        padding: 0 20px;
+        font-size: 0.95rem;
+        color: #ccc;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .legacy img {
-        max-width: 200px;
-        width: 80%;
-        opacity: 0.8;
+    .review {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #222;
     }
 
-    .legacy h2 {
-        margin-top: 20px;
-        font-size: 1.4rem;
-        color: #aaa;
+    .review strong {
+        color: #FFD700;
     }
 
     footer {
@@ -85,24 +87,44 @@
         color: #777;
         margin-top: 40px;
     }
-
-    @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(20px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes glowIn {
-        from {filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));}
-        to {filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));}
-    }
 </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <img src="2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="No Code Society Logo">
-        <h1>NO CODE SOCIETY</h1>
+        <img src="129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png" alt="Inner Vault Logo">
+        <h1>THE INNER VAULT</h1>
+        <p class="subtitle">The only way into No Code Society. Once you’re in, the rules change.</p>
+        <a class="btn" href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true">ENTER NOW</a>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+        <div class="review">
+            <strong>Jone R. — Fiji</strong><br>
+            "I thought it was a scam until I tripled my income in 4 weeks. Inner Vault is dangerous in the right hands."
+        </div>
+        <div class="review">
+            <strong>Mary K. — PNG</strong><br>
+            "Nobody in my village believes how fast I escaped the 9–5. This is not for lazy people."
+        </div>
+        <div class="review">
+            <strong>David S. — Samoa</strong><br>
+            "They said access was closing. I paid the same day. Best move I’ve made."
+        </div>
+        <div class="review">
+            <strong>Lucy T. — Fiji</strong><br>
+            "The Vault is like finding a weapon nobody else knows exists."
+        </div>
+    </section>
+
+    <footer>
+        © 2025 No Code Society — All Rights Reserved.
+    </footer>
+
+</body>
+</html>        <h1>NO CODE SOCIETY</h1>
         <p class="subtitle">People in a vulnerable state — armed with proof, precision, and purpose.</p>
         <a class="btn" href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true">INITIATE ACCESS</a>
     </section>
