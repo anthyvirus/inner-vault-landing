@@ -1,108 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>No Code Society — War Room</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Code Society | Control Room</title>
+  <style>
+    /* Reset & font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: 'Helvetica Neue', sans-serif;
-        color: #fff;
-        background: #000;
-        overflow: hidden;
+      height: 100%;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow: hidden;
     }
 
-    /* Fullscreen Video Background */
+    /* Background video */
     .video-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -3;
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(35%);
     }
 
-    /* Matte Black Overlay */
+    /* Overlay content */
     .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(10, 10, 10, 0.65);
-        z-index: -2;
-        transition: background 0.3s ease;
-    }
-
-    /* Glitch Intro */
-    .glitch-overlay {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        animation: glitchFade 3s forwards;
-    }
-    @keyframes glitchFade {
-        0% {opacity: 1;}
-        90% {opacity: 1;}
-        100% {opacity: 0; visibility: hidden;}
-    }
-    .glitch-text {
-        font-size: 2rem;
-        color: #C8A44E;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        animation: glitchEffect 0.8s infinite;
-    }
-    @keyframes glitchEffect {
-        0% { text-shadow: 2px 2px #ff0000, -2px -2px #00fff7; }
-        25% { text-shadow: -2px 2px #00fff7, 2px -2px #ff0000; }
-        50% { text-shadow: 2px -2px #ff0000, -2px 2px #00fff7; }
-        75% { text-shadow: -2px -2px #00fff7, 2px 2px #ff0000; }
-        100% { text-shadow: 2px 2px #ff0000, -2px -2px #00fff7; }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      padding: 20px;
     }
 
     /* Logo */
     .logo {
-        width: 200px;
-        filter: drop-shadow(0 0 12px rgba(200,164,78,0.9));
-        animation: pulse 3s infinite;
-    }
-    @keyframes pulse {
-        0%, 100% { filter: drop-shadow(0 0 12px rgba(200,164,78,0.9)); }
-        50% { filter: drop-shadow(0 0 24px rgba(200,164,78,1)); }
+      max-width: 180px;
+      margin-bottom: 20px;
     }
 
-    /* Center Content */
-    .content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        max-width: 90%;
-    }
-
+    /* Headline */
     h1 {
-        font-size: 2.2rem;
-        margin-top: 20px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
     }
 
+    /* Subheadline */
     p {
-        font-size: 1.1rem;
-        margin: 15px 0;
-        color: #d1d1d1;
+      font-size: 1rem;
+      max-width: 600px;
+      margin-bottom: 25px;
+      line-height: 1.4;
+      color: #ccc;
     }
+
+    /* Button */
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: linear-gradient(90deg, #d4af37, #b8860b);
+      color: #000;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 5px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(212,175,55,0.5);
+      transition: 0.3s ease-in-out;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #b8860b, #d4af37);
+      box-shadow: 0 0 30px rgba(212,175,55,0.8);
+      transform: scale(1.05);
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+      .logo {
+        max-width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background video -->
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="YOUR_VIDEO_FILE.mp4" type="video/mp4">
+    <!-- Fallback -->
+  </video>
+
+  <!-- Content overlay -->
+  <div class="overlay">
+    <img src="YOUR_LOGO_FILE.png" alt="No Code Society Logo" class="logo">
+    <h1>YOU WEREN’T SUPPOSED TO FIND THIS.</h1>
+    <p>Every market moves on emotion. I don’t sell products. I move the market where I want it, then I strike. The rest is arithmetic.</p>
+    <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="cta-btn">Enter the Control Room</a>
+  </div>
+
+</body>
+</html>    }
 
     /* CTA Button */
     .cta {
