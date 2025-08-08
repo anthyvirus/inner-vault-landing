@@ -8,35 +8,27 @@
   <meta property="og:title" content="Inner Vault — Build Leverage. Convert Power." />
   <meta property="og:description" content="Phone-only systems, Soros reflexivity, IRL shenanigan streaming, and Super UGC. Join Inner Vault and turn attention into income." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://placehold.co/1200x630/0b1220/FFE082?text=Inner+Vault" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0b1220/E4C76A?text=Inner+Vault" />
   <meta name="theme-color" content="#0B1220">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>↗️</text></svg>">
-
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            vault: {
-              bg: '#0B1220',
-              card: '#0F172A',
-              ink: '#E5E7EB',
-              sub: '#A5B4FC',
-              gold: '#FFE082',
-            }
+            vault: { bg:'#0B1220', card:'#0F172A', gold:'#E4C76A', goldh:'#D9B84E' }
           }
         }
       }
-    }
+    };
   </script>
   <style>
     html,body{background:#0B1220}
     .glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(11,18,32,.65);}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;border-radius:14px;padding:.9rem 1.25rem;font-weight:700}
-    .btn-gold{background:#FFE082;color:#0B1220}
-    .btn-gold:hover{background:#ffd770}
+    .btn-gold{background:#E4C76A;color:#0B1220}
+    .btn-gold:hover{background:#D9B84E}
     .btn-ghost{border:1px solid rgba(255,255,255,.12);color:#e5e7eb;background:transparent}
     .btn-ghost:hover{background:rgba(255,255,255,.06)}
     .stat{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
@@ -57,10 +49,10 @@
   <!-- Header -->
   <header class="border-b border-white/5">
     <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
-      <!-- LOGO with fallback -->
       <a href="#" class="inline-flex items-center gap-3" aria-label="Inner Vault">
+        <!-- RAW github URL first, then we auto-fallback if it 404s -->
         <img id="ivLogo" class="logo" alt="Inner Vault logo"
-             src="inner-vault-logo.png?v=1">
+             src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png">
         <span class="tracking-widest text-xs md:text-sm text-slate-400">INNER VAULT</span>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
@@ -78,7 +70,7 @@
 
   <!-- HERO -->
   <section class="relative">
-    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(255,224,130,.12),transparent_55%)]"></div>
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(228,199,106,.12),transparent_55%)]"></div>
     <div class="mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-12">
       <div>
         <p class="tracking-widest text-xs md:text-sm text-slate-400">INNER VAULT</p>
@@ -120,7 +112,6 @@
         <div class="rounded-2xl border border-white/10 bg-white/5 p-3">
           <video class="w-full rounded-xl" controls
                  poster="https://placehold.co/960x540/0b1220/94a3b8?text=IRL+Stream+Proof">
-            <!-- Drop your mp4/webm here -->
             <!-- <source src="your-video.mp4" type="video/mp4" /> -->
           </video>
           <div class="mt-3 grid grid-cols-3 gap-3 text-center text-xs text-slate-300">
@@ -150,7 +141,7 @@
       <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
           <h3 class="font-semibold">Phone-Only System</h3>
-          <p class="mt-2 text-slate-300">DM flows, prompts, and scripts to close from your phone.</p>
+          <p class="mt-2 text-slate-300">DM flows, prompts, scripts to close from your phone.</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
           <h3 class="font-semibold">IRL Stream Playbook</h3>
@@ -205,7 +196,6 @@
       <p class="mt-2 text-slate-400">No fluff. No theory. Systems that print — even on a phone.</p>
 
       <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
-        <!-- Monthly -->
         <div class="rounded-2xl border border-white/10 bg-white/5 p-8 text-left">
           <h3 class="text-xl font-bold">Monthly</h3>
           <p class="mt-1 text-slate-400">Start now. Cancel anytime.</p>
@@ -219,7 +209,6 @@
              class="mt-6 inline-block w-full btn btn-gold text-center">Start Monthly</a>
         </div>
 
-        <!-- Lifetime -->
         <div class="relative rounded-2xl border border-vault.gold/50 bg-gradient-to-b from-amber-100/5 to-white/5 p-8 text-left">
           <div class="absolute -top-3 right-4 rounded-full bg-vault.gold px-3 py-1 text-xs font-bold text-vault.bg">Best Value</div>
           <h3 class="text-xl font-bold">Lifetime</h3>
@@ -242,7 +231,8 @@
   <!-- NCS Gate -->
   <section class="border-t border-white/10">
     <div class="mx-auto max-w-4xl px-4 py-16 text-center">
-      <img class="mx-auto h-16 opacity-80" src="941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png"
+      <img class="mx-auto h-16 opacity-80"
+           src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png"
            alt="No Code Society" loading="lazy">
       <h3 class="mt-6 text-2xl md:text-3xl font-bold">Access to No Code Society is through Inner Vault.</h3>
       <p class="mt-2 text-slate-400">Get inside, run the plays, and earn your seat.</p>
@@ -297,7 +287,7 @@
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Countdown: persist a 72h window in localStorage
+    // Countdown (72h) persisted
     const COUNT_KEY = 'iv_end';
     let end = localStorage.getItem(COUNT_KEY);
     if(!end){ end = Date.now() + 72*60*60*1000; localStorage.setItem(COUNT_KEY, end); }
@@ -307,34 +297,21 @@
       const m = String(Math.floor((s%3600)/60)).padStart(2,'0');
       const sec = String(s%60).padStart(2,'0');
       document.getElementById('countdown').textContent = `${h}:${m}:${sec}`;
-      requestAnimationFrame(()=>setTimeout(tick, 1000));
+      setTimeout(tick, 1000);
     }
     tick();
-
-    // Seats (demo static). If you want dynamic, wire to your API.
     document.getElementById('seatsCount').textContent = '7';
 
-    // Robust logo fallback
+    // Logo robust fallback chain
     (function(){
       const el = document.getElementById('ivLogo');
-      const candidates = [
-        'inner-vault-logo.png?v=2',
-        './inner-vault-logo.png?v=2',
-        '129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png?v=2'
+      const chain = [
+        'https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png',
+        'inner-vault-logo.png',
+        'https://placehold.co/72x36/0b1220/E4C76A?text=↗'
       ];
       let i = 0;
-      function tryNext(){
-        if(i >= candidates.length){
-          // graceful placeholder if all fail
-          el.src = 'https://placehold.co/72x36/0b1220/FFE082?text=↗';
-          el.classList.add('rounded-md','p-2','bg-slate-900','border','border-white/10');
-          return;
-        }
-        el.src = candidates[i++];
-      }
-      el.addEventListener('error', tryNext, {once:false});
-      // kick it once in case initial failed before listener
-      el.onerror = tryNext;
+      el.onerror = () => { if(i < chain.length-1){ i++; el.src = chain[i]; } };
     })();
   </script>
 </body>
