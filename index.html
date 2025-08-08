@@ -1,108 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INNER VAULT — No Code Society</title>
-<style>
-    body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: #000;
-        color: #fff;
-        line-height: 1.6;
-    }
-    header {
-        text-align: center;
-        padding: 40px 20px;
-    }
-    header img {
-        max-width: 150px;
-        filter: drop-shadow(0px 0px 15px gold);
-    }
-    h1, h2 {
-        color: gold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-    .hero {
-        text-align: center;
-        padding: 50px 20px;
-    }
-    .hero h1 {
-        font-size: 2em;
-        margin-bottom: 10px;
-    }
-    .hero p {
-        max-width: 600px;
-        margin: auto;
-        font-size: 1.1em;
-        color: #ddd;
-    }
-    .btn {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 12px 25px;
-        background: gold;
-        color: black;
-        font-weight: bold;
-        text-decoration: none;
-        border-radius: 5px;
-        box-shadow: 0 0 15px gold;
-        transition: 0.3s;
-    }
-    .btn:hover {
-        background: #e6b800;
-        box-shadow: 0 0 25px gold;
-    }
-    .section {
-        padding: 50px 20px;
-        max-width: 1000px;
-        margin: auto;
-    }
-    .proof, .benefits, .testimonials {
-        background-color: #111;
-        margin: 20px 0;
-        border-radius: 10px;
-        padding: 30px;
-    }
-    .benefits ul {
-        list-style: none;
-        padding: 0;
-    }
-    .benefits li {
-        margin: 10px 0;
-        padding-left: 20px;
-        position: relative;
-    }
-    .benefits li::before {
-        content: "✔";
-        position: absolute;
-        left: 0;
-        color: gold;
-    }
-    .testimonial {
-        background-color: #000;
-        border-left: 3px solid gold;
-        padding: 15px;
-        margin: 15px 0;
-        font-style: italic;
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        font-size: 0.9em;
-        color: #777;
-    }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inner Vault — No Code Society</title>
+  <meta name="description" content="Phone-only systems, IRL shenanigans, reflexivity plays, and Super UGC. Build leverage. Convert power." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.8em' font-size='80'>⚡</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .gold{color:#f5c542}
+    .bg-gold{background:#f5c542}
+    .card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08)}
+    .glass{backdrop-filter:saturate(160%) blur(10px)}
+    .parallax{will-change:transform;transform:translateY(0)}
+  </style>
 </head>
-<body>
+<body class="bg-black text-white selection:bg-gold selection:text-black">
 
-<header>
-    <img src="129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png" alt="Inner Vault Logo">
-</header>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-black/70 glass border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- replace with your inner-vault logo file -->
+        <img src="inner-vault-logo.png" alt="Inner Vault" class="h-9 w-9 object-contain">
+        <span class="font-semibold tracking-wide">Inner Vault</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-white/70">
+        <a href="#proof" class="hover:text-white">Proof</a>
+        <a href="#curriculum" class="hover:text-white">Curriculum</a>
+        <a href="#pricing" class="hover:text-white">Pricing</a>
+        <a href="#faq" class="hover:text-white">FAQ</a>
+      </nav>
+      <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="hidden sm:inline-block bg-gold text-black font-semibold px-4 py-2 rounded-lg hover:opacity-90">Join Now</a>
+    </div>
+  </header>
 
-<section class="hero">
+  <!-- Hero (Parallax) -->
+  <section class="relative overflow-hidden">
+    <!-- radial glow -->
+    <div class="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top,rgba(245,197,66,.09),transparent_60%)]"></div>
+    <!-- parallax layer: faint arrow/logo -->
+    <img
+      src="gold-arrow.png"
+      alt=""
+      class="parallax opacity-15 absolute -right-16 -top-8 -z-10 w-[420px] md:w-[560px] rotate-6"
+      data-parallax data-speed="0.25"
+    />
+    <div class="mx-auto max-w-7xl px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="uppercase tracking-widest text-xs text-white/60">Private Access</p>
+        <h1 class="mt-2 text-4xl md:text-6xl font-extrabold leading-tight">
+          You weren’t supposed to find this.
+        </h1>
+        <p class="mt-5 text-lg text-white/80">
+          I don’t sell products or courses. I engineer emotion until the market moves where I want it — then I strike. The rest is arithmetic.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="bg-gold text-black font-semibold px-6 py-3 rounded-xl hover:opacity-90">Enter the Control Room</a>
+          <a href="#proof" class="px-6 py-3 rounded-xl border border-white/15 hover:bg-white/5">See Proof ↓</a>
+        </div>
+        <div class="mt-6 flex items-center gap-6 text-sm text-white/70">
+          <div class="flex -space-x-2">
+            <img class="h-8 w-8 rounded-full border border-black" src="https://i.pravatar.cc/40?img=14" alt="">
+            <img class="h-8 w-8 rounded-full border border-black" src="https://i.pravatar.cc/40?img=22" alt="">
+            <img class="h-8 w-8 rounded-full border border-black" src="https://i.pravatar.cc/40?img=33" alt="">
+          </div>
+          <p><span class="text-white font-semibold">7,000+ operators</span> building with Vault playbooks.</p>
+        </div>
+      </div>
+      <div class="card rounded-3xl p-4">
+        <video class="w-full rounded-2xl" src="" poster="https://placehold.co/960x540/000000/ffffff?text=IRL+Stream+Proof" controls></video>
+        <div class="mt-3 grid grid-cols-3 gap-3 text-center text-xs text-white/80">
+          <div class="rounded-xl bg-white/5 p-3">
+            <div class="text-2xl font-bold" data-counter data-prefix="$" data-to="15000" data-duration="1400">0</div>
+            <div>prompt deal</div>
+          </div>
+          <div class="rounded-xl bg-white/5 p-3">
+            <div class="text-2xl font-bold" data-counter data-to="3.6" data-decimals="1" data-suffix="x" data-duration="1200">0</div>
+            <div>DM conversions</div>
+          </div>
+          <div class="rounded-xl bg-white/5 p-3">
+            <div class="text-2xl font-bold" data-counter data-to="48" data-suffix="h" data-duration="1000">0</div>
+            <div>to first sale</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section id="proof" class="border-t border-white/10 bg-white/[.03]">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <h2 class="text-3xl md:text-4xl font-bold">Real Proof. Real Fast.</h2>
+      <p class="mt-2 text-white/70">Receipts from phone-only systems, IRL streams, and Super UGC ops.</p>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="card rounded-2xl p-5">
+          <img class="rounded-xl" src="https://placehold.co/640x360/0b0b0b/ffffff?text=Stripe+Payout" alt="">
+          <p class="mt-3 text-sm text-white/80">$15,000 prompt license — negotiated live on stream.</p>
+        </div>
+        <div class="card rounded-2xl p-5">
+          <img class="rounded-xl" src="https://placehold.co/640x360/0b0b0b/ffffff?text=DM+Automation" alt="">
+          <p class="mt-3 text-sm text-white/80">ChatGPT DM automation → 3.6x reply rate increase.</p>
+        </div>
+        <div class="card rounded-2xl p-5">
+          <img class="rounded-xl" src="https://placehold.co/640x360/0b0b0b/ffffff?text=UGC+Dashboards" alt="">
+          <p class="mt-3 text-sm text-white/80">20+ UGC pages syndicating daily clips to funnels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section id="curriculum">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <h2 class="text-3xl md:text-4xl font-bold">What You’ll Build Inside</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <div class="card rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">Phone-Only System</h3>
+          <p class="mt-2 text-white/80">DM automation, follow-ups, prompts and scripts to close from your phone.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">IRL Shenanigan Streams</h3>
+          <p class="mt-2 text-white/80">Moment traps, retention loops, and how to print proof on camera.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">Super UGC Ops</h3>
+          <p class="mt-2 text-white/80">Recruit editors, brief creators, and flood platforms with proof.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">Reflexivity Plays</h3>
+          <p class="mt-2 text-white/80">Engineer desire first. Then supply. The Apple play—without Apple’s budget.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">Conversion Systems</h3>
+          <p class="mt-2 text-white/80">Offers, CTAs, scarcity ethics, and WHOP funnels that take minutes.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="text-xl font-semibold">Proof Flywheel</h3>
+          <p class="mt-2 text-white/80">Turn one win into 30 days of content and compounding trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seats + Countdown -->
+  <section class="border-t border-white/10 bg-white/[.03]">
+    <div class="mx-auto max-w-5xl px-4 py-12 text-center">
+      <h3 class="text-2xl md:text-3xl font-bold">Next cohort closes in</h3>
+      <div id="countdown" class="mt-3 text-3xl md:text-4xl font-extrabold gold">--:--:--</div>
+      <div class="mt-4 text-white/70">
+        <span class="font-semibold" id="seats">7</span> seats left <span class="text-white/50 text-sm">(session demo — wire to live API for real counts)</span>
+      </div>
+      <div class="mt-6 flex justify-center gap-3">
+        <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="bg-gold text-black font-semibold px-6 py-3 rounded-xl hover:opacity-90">Secure Your Seat</a>
+        <a href="#pricing" class="px-6 py-3 rounded-xl border border-white/15 hover:bg-white/5">See Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section>
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <h2 class="text-3xl md:text-4xl font-bold">Operators From The Pacific</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <blockquote class="card rounded-2xl p-6 italic">“Joined from Suva — 3 weeks in, doubled my side income. The strategy is savage but it works.”<br><span class="not-italic font-semibold block mt-3">Jone R. — 🇫🇯 Fiji</span></blockquote>
+        <blockquote class="card rounded-2xl p-6 italic">“Port Moresby here. Didn’t think phone-only was real until I closed my first USD deal.”<br><span class="not-italic font-semibold block mt-3">Michael K. — 🇵🇬 PNG</span></blockquote>
+        <blockquote class="card rounded-2xl p-6 italic">“Samoa rarely sees plays like this. Now my phone pays me more than my old job.”<br><span class="not-italic font-semibold block mt-3">Tavita L. — 🇼🇸 Samoa</span></blockquote>
+      </div>
+      <p class="mt-4 text-xs text-white/50">Names anonymized for privacy. Results vary with effort & offer fit.</p>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="border-t border-white/10 bg-white/[.03]">
+    <div class="mx-auto max-w-5xl px-4 py-16 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold">Join Inner Vault</h2>
+      <p class="mt-2 text-white/70">No fluff. No theory. Systems that print — even on a phone.</p>
+
+      <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
+        <!-- Monthly -->
+        <div class="card rounded-2xl p-8 text-left">
+          <h3 class="text-xl font-bold">Monthly</h3>
+          <p class="mt-1 text-white/70">Start now. Cancel anytime.</p>
+          <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-white/60">/mo</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-white/80">
+            <li>✔ Core playbooks & community</li>
+            <li>✔ Weekly live breakdowns</li>
+            <li>✔ Templates & scripts</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
+             class="mt-6 inline-block w-full bg-gold text-black font-semibold px-5 py-3 rounded-xl hover:opacity-90 text-center">
+            Start Monthly
+          </a>
+        </div>
+
+        <!-- Lifetime -->
+        <div class="relative card rounded-2xl p-8 text-left">
+          <div class="absolute -top-3 right-4 rounded-full bg-gold px-3 py-1 text-xs font-bold text-black">Best Value</div>
+          <h3 class="text-xl font-bold">Lifetime</h3>
+          <p class="mt-1 text-white/70">Own the systems. Own the results.</p>
+          <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-white/60"> one-time</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-white/80">
+            <li>✔ All current & future modules</li>
+            <li>✔ Private deal rooms</li>
+            <li>✔ Super UGC license</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
+             class="mt-6 inline-block w-full bg-gold text-black font-semibold px-5 py-3 rounded-xl hover:opacity-90 text-center">
+            Get Lifetime
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-5 text-xs text-white/50">Powered by WHOP • 7-day refund if you do the work and get no movement.</p>
+    </div>
+  </section>
+
+  <!-- NCS Logo + closing CTA -->
+  <section class="py-16">
+    <div class="mx-auto max-w-3xl px-4 text-center">
+      <!-- replace with your NCS logo file -->
+      <img src="ncs-logo.png" alt="No Code Society" class="mx-auto h-24 object-contain">
+      <h3 class="mt-6 text-2xl md:text-3xl font-bold">Access to No Code Society is through Inner Vault.</h3>
+      <p class="mt-2 text-white/70">Get inside, run the plays, and earn your seat.</p>
+      <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="mt-6 inline-block bg-gold text-black font-semibold px-6 py-3 rounded-xl hover:opacity-90">Enter Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10">
+    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-white/60">
+      <p>© <span id="y"></span> Inner Vault / No Code Society.</p>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white">Terms</a>
+        <a href="#" class="hover:text-white">Privacy</a>
+        <a href="#" class="hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Parallax / Counters / Countdown -->
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Parallax
+    const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
+    const onScroll = () => {
+      const y = window.scrollY || window.pageYOffset;
+      parallaxEls.forEach(el=>{
+        const speed = parseFloat(el.dataset.speed || '0.2');
+        el.style.transform = `translateY(${y*speed}px)`;
+      });
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    // Animated Counters (supports decimals, prefix/suffix)
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+    const counters = document.querySelectorAll('[data-counter]');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting) return;
+        const el = entry.target;
+        io.unobserve(el);
+        const to = parseFloat(el.dataset.to);
+        const duration = parseInt(el.dataset.duration || '1200',10);
+        const decimals = parseInt(el.dataset.decimals || '0',10);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const start = performance.now();
+        const tick = (now)=>{
+          const p = Math.min(1, (now - start)/duration);
+          const val = to * easeOutCubic(p);
+          el.textContent = prefix + val.toFixed(decimals) + suffix;
+          if(p<1) requestAnimationFrame(tick);
+          else el.textContent = prefix + to.toFixed(decimals) + suffix;
+        };
+        requestAnimationFrame(tick);
+      });
+    },{threshold:.6});
+    counters.forEach(c=>io.observe(c));
+
+    // Cohort Countdown (demo): 12h window from first visit
+    const DEADLINE_KEY = 'vault_deadline';
+    const SEATS_KEY = 'vault_seats';
+    const now = Date.now();
+    let deadline = parseInt(localStorage.getItem(DEADLINE_KEY) || '0',10);
+    if(!deadline || deadline < now){
+      deadline = now + 12*60*60*1000; // 12 hours
+      localStorage.setItem(DEADLINE_KEY, String(deadline));
+      localStorage.setItem(SEATS_KEY, '7'); // reset seats for session demo
+    }
+    const countdownEl = document.getElementById('countdown');
+    const seatsEl = document.getElementById('seats');
+    const updateCountdown = ()=>{
+      const ms = Math.max(0, deadline - Date.now());
+      const h = Math.floor(ms/3600000);
+      const m = Math.floor((ms%3600000)/60000);
+      const s = Math.floor((ms%60000)/1000);
+      countdownEl.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      // demo seat logic: drop 1 seat at 75%, 50%, 25% of window down to min 3
+      const total = 12*60*60*1000;
+      const checkpoints = [0.75, 0.50, 0.25].map(p=>total*p);
+      const elapsed = total - ms;
+      let seats = 7;
+      if(elapsed >= checkpoints[0]) seats = 6;
+      if(elapsed >= checkpoints[1]) seats = 5;
+      if(elapsed >= checkpoints[2]) seats = 4;
+      seats = Math.max(3, seats);
+      seatsEl.textContent = seats;
+    };
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+    </html><section class="hero">
     <h1>YOU WEREN’T SUPPOSED TO FIND THIS.</h1>
     <p>I don’t sell products. I don’t sell courses. I engineer emotion until the market moves exactly where I want it. Then I take my position. The rest is arithmetic.</p>
     <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn">ENTER THE CONTROL ROOM</a>
