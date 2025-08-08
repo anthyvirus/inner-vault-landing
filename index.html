@@ -3,106 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>No Code Society — Classified</title>
+<title>No Code Society — War Room</title>
 <style>
     body, html {
         margin: 0;
         padding: 0;
-        overflow: hidden;
         height: 100%;
-        background-color: #0F2A1C;
-        font-family: 'Arial', sans-serif;
-        color: white;
+        font-family: 'Helvetica Neue', sans-serif;
+        color: #fff;
+        background: #000;
+        overflow: hidden;
     }
-    video {
+
+    /* Fullscreen Video Background */
+    .video-bg {
         position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        z-index: -1;
-        filter: brightness(40%);
-    }
-    .overlay {
-        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(15, 42, 28, 0.4);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        object-fit: cover;
+        z-index: -3;
     }
+
+    /* Matte Black Overlay */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(10, 10, 10, 0.65);
+        z-index: -2;
+        transition: background 0.3s ease;
+    }
+
+    /* Glitch Intro */
+    .glitch-overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: glitchFade 3s forwards;
+    }
+    @keyframes glitchFade {
+        0% {opacity: 1;}
+        90% {opacity: 1;}
+        100% {opacity: 0; visibility: hidden;}
+    }
+    .glitch-text {
+        font-size: 2rem;
+        color: #C8A44E;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: glitchEffect 0.8s infinite;
+    }
+    @keyframes glitchEffect {
+        0% { text-shadow: 2px 2px #ff0000, -2px -2px #00fff7; }
+        25% { text-shadow: -2px 2px #00fff7, 2px -2px #ff0000; }
+        50% { text-shadow: 2px -2px #ff0000, -2px 2px #00fff7; }
+        75% { text-shadow: -2px -2px #00fff7, 2px 2px #ff0000; }
+        100% { text-shadow: 2px 2px #ff0000, -2px -2px #00fff7; }
+    }
+
+    /* Logo */
     .logo {
-        width: 180px;
+        width: 200px;
+        filter: drop-shadow(0 0 12px rgba(200,164,78,0.9));
         animation: pulse 3s infinite;
     }
     @keyframes pulse {
-        0%, 100% { transform: scale(1); filter: drop-shadow(0 0 8px #C8A44E); }
-        50% { transform: scale(1.05); filter: drop-shadow(0 0 15px #C8A44E); }
+        0%, 100% { filter: drop-shadow(0 0 12px rgba(200,164,78,0.9)); }
+        50% { filter: drop-shadow(0 0 24px rgba(200,164,78,1)); }
     }
-    .message {
-        font-size: 1.3rem;
+
+    /* Center Content */
+    .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 2.2rem;
         margin-top: 20px;
+        text-transform: uppercase;
         letter-spacing: 2px;
-        color: #C8A44E;
     }
-    .cta {
-        margin-top: 40px;
-        padding: 15px 35px;
+
+    p {
         font-size: 1.1rem;
-        border: none;
+        margin: 15px 0;
+        color: #d1d1d1;
+    }
+
+    /* CTA Button */
+    .cta {
+        background: linear-gradient(90deg, #C8A44E, #a48332);
         color: #0F2A1C;
-        background-color: #C8A44E;
+        padding: 14px 28px;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         cursor: pointer;
-        position: relative;
-        overflow: hidden;
+        box-shadow: 0 0 12px rgba(200,164,78,0.7);
+        transition: all 0.3s ease;
     }
     .cta:hover {
-        animation: glitch 0.3s infinite;
-    }
-    @keyframes glitch {
-        0% { transform: translate(1px, 1px); }
-        20% { transform: translate(-1px, -2px); }
-        40% { transform: translate(-3px, 0px); }
-        60% { transform: translate(3px, 2px); }
-        80% { transform: translate(1px, -1px); }
-        100% { transform: translate(-1px, 2px); }
-    }
-    .blackout {
-        display: none;
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%;
-        height: 100%;
-        background: black;
-        z-index: 100;
-        animation: flash 0.6s forwards;
-    }
-    @keyframes flash {
-        0% { opacity: 0; }
-        20% { opacity: 1; }
-        100% { opacity: 0; }
+        box-shadow: 0 0 20px rgba(200,164,78,1);
+        transform: scale(1.05);
     }
 </style>
 </head>
 <body>
 
-<video autoplay muted loop>
-    <source src="your-video.mp4" type="video/mp4">
-</video>
-
-<div class="overlay">
-    <img src="logo.png" alt="NCS Logo" class="logo">
-    <div class="message">ACCESS GRANTED — 1 ENTRY ATTEMPT</div>
-    <button class="cta" onclick="enterSite()">PROCEED</button>
+<!-- Glitch Intro -->
+<div class="glitch-overlay">
+    <div class="glitch-text">Signal Intercepted...</div>
 </div>
 
-<div class="blackout" id="blackout"></div>
+<!-- Background Video -->
+<video autoplay muted loop class="video-bg" id="bgVideo">
+    <source src="your-disturbing-video.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
 
+<!-- Content -->
+<div class="content">
+    <img src="your-logo.png" alt="No Code Society Logo" class="logo">
+    <h1>Welcome to the War Room</h1>
+    <p>The weak are erased here. The prepared rise.<br>
+       This is not a course. This is your extraction from mediocrity.</p>
+    <button class="cta" onclick="location.href='https://your-checkout-link.com'">Enter Now</button>
+</div>
+
+<script>
+    // Auto glow boost based on video brightness
+    const video = document.getElementById('bgVideo');
+    const overlay = document.querySelector('.overlay');
+
+    setInterval(() => {
+        let brightness = getAverageBrightness(video);
+        overlay.style.background = brightness > 120 
+            ? 'rgba(10, 10, 10, 0.75)' 
+            : 'rgba(10, 10, 10, 0.55)';
+    }, 1000);
+
+    function getAverageBrightness(videoElement) {
+        const canvas = document.createElement('canvas');
+        canvas.width = videoElement.videoWidth / 10;
+        canvas.height = videoElement.videoHeight / 10;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+        let data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        let r, g, b, avg;
+        let colorSum = 0;
+        for (let x = 0, len = data.length; x < len; x += 4) {
+            r = data[x];
+            g = data[x + 1];
+            b = data[x + 2];
+            avg = Math.floor((r + g + b) / 3);
+            colorSum += avg;
+        }
+        return Math.floor(colorSum / (canvas.width * canvas.height));
+    }
+</script>
+
+</body>
+</html>
 <script>
 function enterSite() {
     document.getElementById('blackout').style.display = 'block';
