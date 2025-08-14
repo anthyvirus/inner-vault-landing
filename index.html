@@ -1,4 +1,4 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -65,10 +65,9 @@
     }
     @keyframes grain{0%{transform:translate(0,0)}100%{transform:translate(20px,-15px)}}
 
-    /* Glass + shine (kept) */
+    /* Glass + shine */
     .glass{backdrop-filter:saturate(160%) blur(12px); background:rgba(3,17,12,.55)}
-    .shine{background:linear-gradient(110deg,rgba(255,255,255,.08),rgba(255,255,255,0) 40%,rgba(255,255,255,.08));
-      background-size:200% 100%;animation:shine 7s linear infinite}
+    .shine{background:linear-gradient(110deg,rgba(255,255,255,.08),rgba(255,255,255,0) 40%,rgba(255,255,255,.08)); background-size:200% 100%; animation:shine 7s linear infinite}
     @keyframes shine{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
     /* Panic countdown */
@@ -103,11 +102,77 @@
       display:flex; gap:.5rem; justify-content:center; align-items:center;
     }
 
-    /* Progress bar for countdown */
-    .deadlinebar{height:3px; background:linear-gradient(90deg,#E6C55E,#00B36E); transform-origin:left center; transition:transform .4s linear}
+    /* Progress bar (countdown) */
+    .deadlinebar{height:4px; background:linear-gradient(90deg,#E6C55E,#00B36E); transform-origin:left center; transition:transform .4s linear}
+
+    /* ===== FUTURISM PACK ===== */
+
+    /* Aurora beams */
+    .aurora {
+      position: fixed; inset: -10% -10% auto -10%; height: 65vh; z-index: -1; pointer-events:none;
+      filter: blur(40px) saturate(140%);
+      background:
+        conic-gradient(from 0deg at 20% 40%, rgba(0,179,110,.35), transparent 55%),
+        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.22), transparent 60%),
+        conic-gradient(from 90deg at 50% 30%, rgba(0,179,110,.20), transparent 65%);
+      animation: auroraShift 18s ease-in-out infinite alternate;
+    }
+    @keyframes auroraShift {
+      0% { transform: translateY(-2%) rotate(0deg) }
+      100% { transform: translateY(4%) rotate(6deg) }
+    }
+
+    /* Holographic gradient border */
+    .holo { position: relative; background: rgba(6,32,24,.85); border-radius: 18px; }
+    .holo:before {
+      content:""; position:absolute; inset: -1px; border-radius: inherit; z-index:-1;
+      background: conic-gradient(from 200deg, #00B36E, #E6C55E, #00B36E);
+      filter: saturate(130%); opacity:.65;
+    }
+    .holo:after {
+      content:""; position:absolute; inset: 0; border-radius: inherit; background: rgba(6,32,24,.92);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+      mask:
+        radial-gradient(20px 20px at 20px 20px, transparent 98%, black) exclude,
+        linear-gradient(#000,#000);
+    }
+
+    /* Scanlines layer */
+    .scanlines:before{
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+      background: repeating-linear-gradient(to bottom, rgba(255,255,255,.03), rgba(255,255,255,.03) 1px, transparent 3px, transparent 4px);
+      mix-blend-mode: overlay;
+    }
+
+    /* Glitch text (use on a span) */
+    .glitch { position: relative; display:inline-block; animation: glitchShift 3.5s infinite steps(1,end); }
+    .glitch:before, .glitch:after { content: attr(data-text); position:absolute; inset:0; pointer-events:none; }
+    .glitch:before { transform: translate(1px,-1px); color: rgba(0,179,110,.8); mix-blend-mode:screen; }
+    .glitch:after  { transform: translate(-1px,1px); color: rgba(230,197,94,.8); mix-blend-mode:screen; }
+    @keyframes glitchShift {
+      0%,97%,100% { clip-path: inset(0 0 0 0) }
+      20% { clip-path: inset(10% 0 65% 0) }
+      40% { clip-path: inset(60% 0 20% 0) }
+      60% { clip-path: inset(30% 0 40% 0) }
+      80% { clip-path: inset(0 0 80% 0) }
+    }
+
+    /* 3D hover lift */
+    .lift { transition: transform .25s ease, box-shadow .25s ease; will-change: transform; }
+    .lift:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 12px 40px rgba(0,0,0,.35), 0 0 20px rgba(0,179,110,.25) }
+
+    /* Ticker badges */
+    .ticker { --speed: 28s; display:flex; overflow:hidden; gap:2rem; white-space:nowrap; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .ticker > div { display:flex; gap:2rem; animation: ticker var(--speed) linear infinite; }
+    @keyframes ticker { 0%{ transform: translateX(0) } 100%{ transform: translateX(-50%) } }
+    .badge { display:inline-flex; align-items:center; gap:.4rem; background: linear-gradient(90deg, rgba(0,179,110,.18), rgba(230,197,94,.18)); border:1px solid rgba(255,255,255,.12); padding:.35rem .6rem; border-radius:999px; font-size:.75rem; letter-spacing:.02em; }
   </style>
 </head>
 <body class="gridline grain bg-vault-bg text-slate-100 selection:bg-vault-gold selection:text-[#0A0A0A]">
+
+  <!-- Futurism overlays -->
+  <div class="aurora"></div>
+  <div class="scanlines"></div>
 
   <!-- Floating particles canvas -->
   <canvas id="fx" class="fixed inset-0 -z-10"></canvas>
@@ -126,6 +191,25 @@
       <div class="hidden sm:flex items-center gap-3">
         <a href="#pricing" class="magnetic rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-emerald/10 hover:text-vault-emerald">See Pricing</a>
         <a href="#pricing" id="joinTop" class="magnetic cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join Now</a>
+      </div>
+    </div>
+    <!-- Ticker badges -->
+    <div class="mx-auto max-w-7xl px-4 pb-2">
+      <div class="ticker text-[.8rem] text-slate-300">
+        <div>
+          <span class="badge">AI + Prompts</span>
+          <span class="badge">IRL Streams</span>
+          <span class="badge">Super UGC</span>
+          <span class="badge">Reflexivity Engine</span>
+          <span class="badge">Conversion Stack</span>
+          <span class="badge">Proof > Polish</span>
+          <span class="badge">AI + Prompts</span>
+          <span class="badge">IRL Streams</span>
+          <span class="badge">Super UGC</span>
+          <span class="badge">Reflexivity Engine</span>
+          <span class="badge">Conversion Stack</span>
+          <span class="badge">Proof > Polish</span>
+        </div>
       </div>
     </div>
   </div>
@@ -157,7 +241,7 @@
           <p class="mb-3 tracking-widest text-xs text-slate-400">INNER VAULT</p>
           <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
             Build <span class="text-vault-gold">Leverage</span>.<br/>
-            Convert <span class="text-vault-gold">Power</span>.
+            Convert <span class="text-vault-gold glitch" data-text="Power">Power</span>.
           </h1>
           <p class="mt-4 text-lg text-slate-300">
             You don’t need gear. You need a mechanism. We make the internet chase you:
@@ -171,15 +255,15 @@
           <p class="mt-5 text-slate-400">Access to <span class="text-vault-emerald font-semibold">No Code Society</span> is only through Inner Vault.</p>
 
           <div class="mt-6 grid grid-cols-3 gap-3 text-center">
-            <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal">
+            <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal lift holo">
               <div class="text-2xl font-extrabold text-white"><span data-count data-end="15000" data-prefix="$" data-suffix="k">15</span></div>
               <div class="text-xs text-slate-300">Prompt deal</div>
             </div>
-            <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal">
+            <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal lift holo">
               <div class="text-2xl font-extrabold text-white"><span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span></div>
               <div class="text-xs text-slate-300">DM replies</div>
             </div>
-            <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal">
+            <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal lift holo">
               <div class="text-2xl font-extrabold text-white"><span data-count data-end="48" data-suffix="h">48h</span></div>
               <div class="text-xs text-slate-300">to first sale</div>
             </div>
@@ -188,15 +272,15 @@
 
         <!-- Proof video -->
         <div id="proof" class="relative reveal tilt">
-          <div class="shine rounded-3xl border border-vault-emerald/40 bg-vault-card p-3 shadow-soft">
+          <div class="shine rounded-3xl border border-vault-emerald/40 bg-vault-card p-3 shadow-soft lift holo">
             <video class="w-full rounded-2xl" id="proofVideo" controls playsinline preload="metadata" poster="https://placehold.co/960x540/062018/8debb3?text=IRL+Stream+Proof">
               <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
               <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
             </video>
             <div class="mt-3 grid grid-cols-3 gap-3 text-center text-xs text-slate-300">
-              <div class="rounded-xl bg-white/5 p-3"><div class="text-white font-bold">Live close</div><div>on stream</div></div>
-              <div class="rounded-xl bg-white/5 p-3"><div class="text-white font-bold">Receipts</div><div>shown</div></div>
-              <div class="rounded-xl bg-white/5 p-3"><div class="text-white font-bold">Clips</div><div>→ distribution</div></div>
+              <div class="rounded-xl bg-white/5 p-3 lift"><div class="text-white font-bold">Live close</div><div>on stream</div></div>
+              <div class="rounded-xl bg-white/5 p-3 lift"><div class="text-white font-bold">Receipts</div><div>shown</div></div>
+              <div class="rounded-xl bg-white/5 p-3 lift"><div class="text-white font-bold">Clips</div><div>→ distribution</div></div>
             </div>
           </div>
         </div>
@@ -209,12 +293,12 @@
     <div class="mx-auto max-w-7xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">What You’ll Build Inside</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Phone-Only Closers</h3><p class="mt-2 text-slate-300">DM macros, reply trees, prompts. Close from your pocket.</p></div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">IRL Stream System</h3><p class="mt-2 text-slate-300">Hooks, retention loops, clip traps. Chaos with a blueprint.</p></div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Super UGC Army</h3><p class="mt-2 text-slate-300">Recruit editors, syndicate everywhere. You own the feed.</p></div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Reflexivity Engine</h3><p class="mt-2 text-slate-300">Signal → belief → demand. Make them chase you first.</p></div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Conversion Stack</h3><p class="mt-2 text-slate-300">Offers, CTAs, ethical scarcity. WHOP templates included.</p></div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Proof Flywheel</h3><p class="mt-2 text-slate-300">1 win → 30 days of content → compounding trust.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="font-semibold">Phone-Only Closers</h3><p class="mt-2 text-slate-300">DM macros, reply trees, prompts. Close from your pocket.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="font-semibold">IRL Stream System</h3><p class="mt-2 text-slate-300">Hooks, retention loops, clip traps. Chaos with a blueprint.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="font-semibold">Super UGC Army</h3><p class="mt-2 text-slate-300">Recruit editors, syndicate everywhere. You own the feed.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="font-semibold">Reflexivity Engine</h3><p class="mt-2 text-slate-300">Signal → belief → demand. Make them chase you first.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="font-semibold">Conversion Stack</h3><p class="mt-2 text-slate-300">Offers, CTAs, ethical scarcity. WHOP templates included.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="font-semibold">Proof Flywheel</h3><p class="mt-2 text-slate-300">1 win → 30 days of content → compounding trust.</p></div>
       </div>
     </div>
   </section>
@@ -224,9 +308,9 @@
     <div class="mx-auto max-w-7xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">How the Vault Prints</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="text-xl font-semibold">1) Prime Desire</h3><p class="mt-2 text-slate-300">Storylines > features. We script emotion before supply.</p></div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="text-xl font-semibold">2) Capture Proof</h3><p class="mt-2 text-slate-300">IRL + receipts. Proof beats polish — every time.</p></div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="text-xl font-semibold">3) Convert on Command</h3><p class="mt-2 text-slate-300">Super UGC + tight CTAs → checkout in minutes.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="text-xl font-semibold">1) Prime Desire</h3><p class="mt-2 text-slate-300">Storylines > features. We script emotion before supply.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="text-xl font-semibold">2) Capture Proof</h3><p class="mt-2 text-slate-300">IRL + receipts. Proof beats polish — every time.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal lift holo"><h3 class="text-xl font-semibold">3) Convert on Command</h3><p class="mt-2 text-slate-300">Super UGC + tight CTAs → WHOP checkout in minutes.</p></div>
       </div>
     </div>
   </section>
@@ -238,7 +322,7 @@
       <p class="mt-2 text-slate-400">No fluff. Just plays that print on a 2025 internet.</p>
 
       <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-8 reveal">
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-8 reveal lift holo">
           <h3 class="text-xl font-bold">Monthly</h3>
           <p class="mt-1 text-slate-400">Start now. Cancel anytime.</p>
           <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-slate-400">/mo</span></div>
@@ -250,7 +334,7 @@
           <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" id="ctaMonthly" class="magnetic cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Start Monthly</a>
         </div>
 
-        <div class="relative rounded-2xl border border-vault-gold/50 bg-gradient-to-b from-vault-card to-vault-card/60 p-8 reveal">
+        <div class="relative rounded-2xl border border-vault-gold/50 bg-gradient-to-b from-vault-card to-vault-card/60 p-8 reveal lift holo">
           <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0F1A14]" id="badge">Best Value</div>
           <h3 class="text-xl font-bold">Lifetime</h3>
           <p class="mt-1 text-slate-300">Own the systems. Own the results.</p>
@@ -280,22 +364,22 @@
     <div class="mx-auto max-w-4xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
       <div class="mt-6 space-y-4">
-        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
+        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal lift holo">
           <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">Do I need a laptop?
             <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
           <p class="mt-3 text-slate-300">No. Phone-only is supported. We give you prompts, DM flows, and mobile-first templates.</p>
         </details>
-        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
+        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal lift holo">
           <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">How fast can I get results?
             <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
           <p class="mt-3 text-slate-300">Many see movement in 48–72 hours. Your speed = execution × offer fit × proof loop.</p>
         </details>
-        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
+        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal lift holo">
           <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">What if I’m camera-shy?
             <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
           <p class="mt-3 text-slate-300">Use Super UGC. You operate; editors + pages syndicate your message.</p>
         </details>
-        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
+        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal lift holo">
           <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">What if I have zero followers?
             <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
           <p class="mt-3 text-slate-300">Built for day-one. We show you how to create proof and reach from scratch.</p>
@@ -379,16 +463,22 @@
       ring.style.opacity = 1;
     });
     document.addEventListener('mouseleave', ()=> ring.style.opacity = 0);
+    // Amplify ring on hover targets
+    document.querySelectorAll('a,button,.cta,.magnetic').forEach(el=>{
+      el.addEventListener('mouseenter', ()=> ring.style.transform += ' scale(1.25)');
+      el.addEventListener('mouseleave', ()=> ring.style.transform = ring.style.transform.replace(/ scale\(.+\)/,''));
+    });
 
     // ==== Floating particles (lightweight) ====
     const fx = document.getElementById('fx'), ctx = fx.getContext('2d');
-    let W,H,parts=[]; function resize(){ W=fx.width=innerWidth; H=fx.height=innerHeight; }
+    let W,H,parts=[];
+    function resize(){ W=fx.width=innerWidth; H=fx.height=innerHeight; }
     function spawn(){ parts=Array.from({length:70},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2, r:Math.random()*1.6+0.4, a:Math.random()*0.5+0.2})); }
     function loop(){ ctx.clearRect(0,0,W,H); ctx.fillStyle='rgba(0,179,110,.35)'; parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W) p.vx*=-1; if(p.y<0||p.y>H) p.vy*=-1; ctx.globalAlpha=p.a; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();}); requestAnimationFrame(loop);}
     resize(); spawn(); addEventListener('resize',()=>{resize(); spawn();}); loop();
 
     // ==== Countdown (fixed, panic, progress, CTA text) ====
-    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00"; // <- set your deadline
+    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00"; // <-- set your deadline (Fiji example)
     const PANIC_MS = 6*60*60*1000;
     const timerEl = document.getElementById('timer');
     const barEl = document.getElementById('deadlinebar');
@@ -424,7 +514,7 @@
     }
     renderCountdown(); setInterval(renderCountdown,1000);
 
-    // ==== Mobile urgency bar ====
+    // ==== Mobile urgency bar (mirrors timer) ====
     (function(){
       const bar=document.createElement('div');
       bar.className='urgency';
@@ -440,4 +530,4 @@
     })();
   </script>
 </body>
-        </html>
+</html>
