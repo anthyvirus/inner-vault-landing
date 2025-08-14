@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Inner Vault — Build Leverage. Convert Power.</title>
 
-  <meta name="description" content="Pacific-built, phone-first systems. IRL chaos that prints. AI + prompts that sell for $15k. Manufacture attention → proof → conversion."/>
+  <!-- Meta -->
+  <meta name="description" content="Pacific warrior energy, phone-first execution. Stripe from the islands. $5k–$15k AI prompts. IRL proof. The mechanism: manufacture attention → emotion → proof → conversion."/>
   <meta property="og:title" content="Inner Vault — Build Leverage. Convert Power."/>
-  <meta property="og:description" content="IRL streaming, AI + prompts, Super UGC. Stripe anywhere. The engine the Pacific was missing."/>
+  <meta property="og:description" content="Not ‘content’. A system. Stripe anywhere. IRL + AI + Super UGC. The engine the Pacific was missing."/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
-  <meta name="theme-color" content="#03110C"/>
+  <meta name="theme-color" content="#05120E"/>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>'"/>
 
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -21,70 +23,67 @@
         extend: {
           colors: {
             vault: {
-              bg:   '#03110C',
-              card: '#0B2A21',
-              gold: '#E6C55E',
-              goldh:'#CFAF4A',
-              emerald:'#00B36E'
+              bg:    '#05120E',   /* deep emerald/black */
+              card:  '#0D2A22',   /* surfaces - high contrast */
+              gold:  '#E6C55E',   /* primary accent (matte gold) */
+              goldh: '#CFAF4A',
+              em:    '#00B36E',   /* emerald accent */
+              text:  '#EAF6F1',   /* main body text (off-white) */
+              mute:  '#CDE7DD'    /* secondary text */
             }
           },
-          boxShadow:{
-            soft:'0 12px 30px rgba(0,0,0,.28)',
-            glow:'0 0 22px rgba(0,179,110,.5)'
+          boxShadow: {
+            soft: '0 12px 30px rgba(0,0,0,.30)',
+            glow: '0 0 24px rgba(0,179,110,.55)'
           }
         }
       }
     }
   </script>
 
+  <!-- Styles -->
   <style>
     html{scroll-behavior:smooth}
-    body{
-      background:#03110C;
-      padding-bottom:90px;
-    }
+    body{background:#05120E;padding-bottom:90px}
 
-    /* ==== BACKGROUND STACK ==== */
-    /* 1) flame/aurora */
+    /* ===== BACKGROUND VIBE LAYERS ===== */
+    /* Aurora/Flame */
     .aurora{
-      position:fixed; inset:-10% -10% auto -10%; height:70vh; z-index:-3; pointer-events:none;
+      position:fixed; inset:-8% -8% auto -8%; height:72vh; z-index:-3; pointer-events:none;
       filter:blur(42px) saturate(140%);
       background:
-        conic-gradient(from 0deg at 20% 40%, rgba(255,120,40,.15), transparent 60%),
-        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.18), transparent 62%),
-        radial-gradient(900px 420px at 60% 10%, rgba(0,179,110,.22), transparent 65%);
-      animation:auroraShift 16s ease-in-out infinite alternate;
+        conic-gradient(from 0deg at 20% 40%, rgba(255,96,24,.16), transparent 60%),
+        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.17), transparent 62%),
+        radial-gradient(900px 440px at 60% 10%, rgba(0,179,110,.22), transparent 65%);
+      animation:aShift 16s ease-in-out infinite alternate;
     }
-    @keyframes auroraShift{0%{transform:translateY(-2%) rotate(0)}100%{transform:translateY(4%) rotate(5deg)}}
+    @keyframes aShift{0%{transform:translateY(-2%) rotate(0)}100%{transform:translateY(3%) rotate(5deg)}}
 
-    /* 2) tapa pattern (very subtle) */
+    /* Tapa pattern (very subtle) */
     .tapa:before{
       content:""; position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.07;
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160"><defs><pattern id="p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20h40M20 0v40" stroke="%23ffffff" stroke-opacity=".8" stroke-width="1"/><path d="M0 0l20 20L0 40 20 20 40 0 20 20 40 40" fill="none" stroke="%23ffffff" stroke-opacity=".5" stroke-width="0.8"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180"><defs><pattern id="p" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M0 22.5h45M22.5 0v45" stroke="%23ffffff" stroke-opacity=".8" stroke-width="1"/><path d="M0 0l22.5 22.5L0 45 22.5 22.5 45 0 22.5 22.5 45 45" fill="none" stroke="%23ffffff" stroke-opacity=".45" stroke-width="0.8"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
       mix-blend-mode:overlay;
-      animation:tapaFloat 28s linear infinite;
+      animation:tapaFloat 30s linear infinite;
     }
-    @keyframes tapaFloat{from{transform:translate3d(0,0,0)}to{transform:translate3d(-160px,-160px,0)}}
+    @keyframes tapaFloat{from{transform:translate3d(0,0,0)}to{transform:translate3d(-180px,-180px,0)}}
 
-    /* 3) starfield canvas sits at z:-4 (see canvas) */
-
-    /* Spear silhouettes (svg layer) */
-    .spears{
-      position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.14;
-    }
+    /* Embers (canvas) sits at z:-4 */
+    /* Spears */
+    .spears{position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.14}
     .spear{
       position:absolute; width:22vw; max-width:320px; aspect-ratio:1/6; background-repeat:no-repeat; background-size:contain;
-      filter:drop-shadow(0 8px 16px rgba(0,0,0,.5));
+      filter:drop-shadow(0 10px 18px rgba(0,0,0,.55));
       animation:spearDrift 22s ease-in-out infinite alternate;
     }
-    .spear.s1{left:-4vw; top:12vh; transform:rotate(-12deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L50 40 L30 30 L10 40 Z" fill="%23E6C55E"/><rect x="27" y="40" width="6" height="280" fill="%23E6C55E"/><circle cx="30" cy="330" r="10" fill="%2300B36E"/></svg>')}
-    .spear.s2{right:-6vw; top:28vh; transform:rotate(8deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L48 36 L30 28 L12 36 Z" fill="%23E6C55E"/><rect x="27" y="36" width="6" height="290" fill="%23E6C55E"/><circle cx="30" cy="330" r="10" fill="%2300B36E"/></svg>')}
-    .spear.s3{left:10vw; bottom:-6vh; transform:rotate(-6deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L50 40 L30 30 L10 40 Z" fill="%23E6C55E"/><rect x="27" y="40" width="6" height="290" fill="%23E6C55E"/></svg>')}
+    .spear.s1{left:-4vw; top:10vh; transform:rotate(-12deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L50 40 L30 30 L10 40 Z" fill="%23E6C55E"/><rect x="27" y="40" width="6" height="290" fill="%23E6C55E"/><circle cx="30" cy="330" r="10" fill="%2300B36E"/></svg>')}
+    .spear.s2{right:-6vw; top:28vh; transform:rotate(8deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L48 36 L30 28 L12 36 Z" fill="%23E6C55E"/><rect x="27" y="36" width="6" height="300" fill="%23E6C55E"/><circle cx="30" cy="330" r="10" fill="%2300B36E"/></svg>')}
+    .spear.s3{left:12vw; bottom:-6vh; transform:rotate(-6deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L50 40 L30 30 L10 40 Z" fill="%23E6C55E"/><rect x="27" y="40" width="6" height="300" fill="%23E6C55E"/></svg>')}
     @keyframes spearDrift{0%{transform:translateY(0) rotate(var(--r,0))}100%{transform:translateY(-12px) rotate(calc(var(--r,0) + 2deg))}}
 
-    /* header & global */
-    .glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(3,17,12,.6)}
-    .card{background:linear-gradient(180deg,rgba(11,42,33,.98),rgba(11,42,33,.94)); border:1px solid rgba(255,255,255,.14); border-radius:18px; box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 6px 24px rgba(0,0,0,.25); color:#EAF6F1;}
+    /* ===== UI BASICS ===== */
+    .glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(5,18,14,.6)}
+    .card{background:linear-gradient(180deg,rgba(13,42,34,.98),rgba(13,42,34,.94)); border:1px solid rgba(255,255,255,.14); border-radius:18px; box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 6px 24px rgba(0,0,0,.25); color:var(--tx,#EAF6F1)}
     .ringfx{position:relative; isolation:isolate}
     .ringfx:before{content:""; position:absolute; inset:-1px; border-radius:inherit; z-index:-1; background:conic-gradient(from 210deg,#00B36E,#E6C55E,#00B36E); opacity:.35; filter:saturate(130%)}
     .deadlinebar{height:4px;background:linear-gradient(90deg,#E6C55E,#00B36E);transform-origin:left center;transition:transform .4s linear}
@@ -97,18 +96,17 @@
     .glow-pulse{animation:gp 1.6s infinite alternate}
     @keyframes gp{from{box-shadow:0 0 8px rgba(230,197,94,.55),0 0 18px rgba(230,197,94,.35)}to{box-shadow:0 0 18px rgba(230,197,94,.85),0 0 36px rgba(230,197,94,.5)}}
     .star{width:16px;height:16px;display:inline-block;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23E6C55E"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.739 1.548 8.268L12 18.896l-7.484 4.417 1.548-8.268L0 9.306l8.332-1.151z"/></svg>') center/contain no-repeat}
-    @media (max-width:768px){ .aurora{filter:blur(34px)} .tapa:before{opacity:.06} }
 
-    /* ambience toggle */
-    .ambience{
-      position:fixed; left:10px; bottom:10px; z-index:60; padding:.45rem .6rem; font-size:.8rem;
-      border-radius:999px; background:rgba(0,0,0,.5); color:#e8fff7; border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px)
-    }
+    /* Ambience button */
+    .ambience{position:fixed; left:10px; bottom:10px; z-index:60; padding:.45rem .6rem; font-size:.8rem; border-radius:999px; background:rgba(0,0,0,.55); color:#e8fff7; border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px)}
+
+    @media (max-width:768px){ .aurora{filter:blur(34px)} .tapa:before{opacity:.06} }
   </style>
 </head>
-<body class="tapa bg-vault-bg text-slate-100 selection:bg-vault-gold selection:text-[#0A0A0A]">
-  <!-- Background layers -->
-  <canvas id="stars" class="fixed inset-0 -z-4"></canvas>
+
+<body class="tapa bg-vault-bg text-vault-text selection:bg-vault-gold selection:text-[#0A0A0A]">
+  <!-- BG layers -->
+  <canvas id="embers" class="fixed inset-0 -z-4"></canvas>
   <div class="aurora"></div>
   <div class="spears">
     <div class="spear s1" style="--r:-12deg"></div>
@@ -118,19 +116,17 @@
 
   <!-- Top strip -->
   <div class="sticky top-0 z-50 border-b border-white/10 glass">
-    <div class="mx-auto max-w-7xl px-4 pt-2">
-      <div class="deadlinebar" id="deadlinebar"></div>
-    </div>
+    <div class="mx-auto max-w-7xl px-4 pt-2"><div class="deadlinebar" id="deadlinebar"></div></div>
     <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
-      <div>Seats Left: <span class="font-semibold text-vault-emerald">7</span></div>
-      <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-vault-emerald"></span></div>
+      <div>Seats Left: <span class="font-semibold text-vault-em">7</span></div>
+      <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-vault-em"></span></div>
       <div class="hidden sm:flex items-center gap-3">
-        <a href="#pricing" class="rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-emerald/10 hover:text-vault-emerald">See Pricing</a>
-        <a href="#pricing" class="cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join Now</a>
+        <a href="#pricing" class="rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-em/10 hover:text-vault-em">See Pricing</a>
+        <a href="#pricing" class="cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join Now</a>
       </div>
     </div>
     <div class="mx-auto max-w-7xl px-4 pb-2">
-      <div class="ticker text-[.8rem] text-slate-300">
+      <div class="ticker text-[.8rem] text-vault-mute">
         <div>
           <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
           <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
@@ -145,16 +141,17 @@
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a class="flex items-center gap-3">
       <img id="logo" class="h-9 w-9 rounded-lg ring-1 ring-white/10 shadow-soft" alt="Inner Vault logo"/>
-      <span class="tracking-widest text-sm text-vault-emerald">INNER VAULT</span>
+      <span class="tracking-widest text-sm text-vault-em">INNER VAULT</span>
     </a>
-    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-      <a href="#proof" class="hover:text-vault-emerald">Proof</a>
-      <a href="#unlock" class="hover:text-vault-emerald">Unlock</a>
-      <a href="#oath" class="hover:text-vault-emerald">Oath</a>
-      <a href="#reviews" class="hover:text-vault-emerald">Reviews</a>
-      <a href="#pricing" class="hover:text-vault-emerald">Pricing</a>
+    <nav class="hidden md:flex items-center gap-6 text-sm text-vault-mute">
+      <a href="#proof" class="hover:text-vault-em">Proof</a>
+      <a href="#unlock" class="hover:text-vault-em">Unlock</a>
+      <a href="#oath" class="hover:text-vault-em">Oath</a>
+      <a href="#reviews" class="hover:text-vault-em">Reviews</a>
+      <a href="#pricing" class="hover:text-vault-em">Pricing</a>
+      <a href="#faq" class="hover:text-vault-em">FAQ</a>
     </nav>
-    <a href="#pricing" class="md:hidden cta rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join</a>
+    <a href="#pricing" class="md:hidden cta rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join</a>
   </header>
 
   <!-- HERO -->
@@ -162,22 +159,46 @@
     <div class="mx-auto max-w-7xl px-4 py-10 md:py-16">
       <div class="grid gap-10 md:grid-cols-2 md:items-center">
         <div class="reveal">
-          <p class="mb-3 tracking-widest text-xs text-slate-400">INNER VAULT</p>
-          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+          <p class="mb-3 tracking-widest text-xs text-vault-mute">INNER VAULT</p>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white">
             Build <span class="text-vault-gold">Leverage</span>.<br/>Convert <span class="text-vault-gold">Power</span>.
           </h1>
-          <p class="mt-4 text-lg text-slate-200">
-            Pacific warrior energy, phone-first execution. <span class="text-vault-emerald font-medium">Manufacture attention → trigger emotion → capture proof → convert</span>. Stripe even when your country says “no”. IRL streams, AI prompts, Super UGC. Plug in. Print.
+
+          <!-- OFFER: Bobby AX copy -->
+          <p class="mt-4 text-lg text-vault-text">
+            **Pacific Warrior School** for Gen-Z who refuse small.
+            Get paid on Stripe from the islands. Sell <span class="text-white font-semibold">$5k–$15k</span> AI prompts.
+            Run IRL proof that converts. We don’t teach “content,” we install a <span class="text-vault-em font-medium">money mechanism</span>:
+            manufacture attention → trigger emotion → capture proof → conversion on command.
           </p>
+
+          <ul class="mt-4 grid gap-2 text-vault-mute">
+            <li>• <b class="text-white">Stripe Anywhere</b> — legit routes for PNG/Fiji/Samoa/Tonga.</li>
+            <li>• <b class="text-white">AI Prompt Catalog</b> — enterprise prompts you can resell.</li>
+            <li>• <b class="text-white">IRL Proof > Polish</b> — streams engineered to sell.</li>
+            <li>• <b class="text-white">Phone-Only Ops</b> — AI + templates replace the office.</li>
+          </ul>
+
           <div class="mt-7 flex flex-wrap items-center gap-3">
-            <a href="#pricing" class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">See Pricing</a>
-            <a href="#proof" class="rounded-2xl border border-vault-emerald px-6 py-3 hover:bg-vault-emerald/10 text-vault-emerald">View Proof ↓</a>
+            <a href="#pricing" class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join the Cohort</a>
+            <a href="#proof" class="rounded-2xl border border-vault-em px-6 py-3 hover:bg-vault-em/10 text-vault-em">See Proof ↓</a>
           </div>
 
+          <p class="mt-5 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
+
           <div class="mt-6 grid grid-cols-3 gap-3 text-center">
-            <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="15" data-prefix="$" data-suffix="k">15k</span></div><div class="text-xs text-slate-200/90">Prompt deal</div></div>
-            <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span></div><div class="text-xs text-slate-200/90">DM replies</div></div>
-            <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="48" data-suffix="h">48h</span></div><div class="text-xs text-slate-200/90">to first sale</div></div>
+            <div class="card ringfx p-4">
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="15" data-prefix="$" data-suffix="k">15k</span></div>
+              <div class="text-xs text-vault-mute/90">prompt deal</div>
+            </div>
+            <div class="card ringfx p-4">
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span></div>
+              <div class="text-xs text-vault-mute/90">DM replies</div>
+            </div>
+            <div class="card ringfx p-4">
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="48" data-suffix="h">48h</span></div>
+              <div class="text-xs text-vault-mute/90">to first sale</div>
+            </div>
           </div>
         </div>
 
@@ -185,7 +206,7 @@
         <div id="proof" class="reveal">
           <div class="card ringfx p-3">
             <video class="w-full rounded-xl" id="proofVideo" autoplay loop playsinline controls preload="metadata"
-              poster="https://placehold.co/960x540/0b2a21/e5f3ef?text=IRL+Stream+Proof">
+              poster="https://placehold.co/960x540/0d2a22/eaf6f1?text=IRL+Stream+Proof">
               <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
               <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
             </video>
@@ -195,12 +216,12 @@
     </div>
   </section>
 
-  <!-- OATH / LEGACY -->
+  <!-- OATH -->
   <section id="oath" class="border-t border-white/10 bg-vault-card/40">
     <div class="mx-auto max-w-6xl px-4 py-12">
       <div class="card ringfx p-8">
         <h2 class="text-2xl md:text-3xl font-bold text-vault-gold">The Legacy Oath</h2>
-        <p class="mt-4 text-lg leading-relaxed text-slate-100">
+        <p class="mt-4 text-lg leading-relaxed">
           If you die tomorrow, your kid still needs lunch money. Your sister won’t brag about you if she’s broke.
           If you die broke, your legacy is poverty. You don’t love them if you leave them broke.
           You can’t protect them if you can’t provide from the grave. Your family’s security is built now, not later.
@@ -213,14 +234,26 @@
   <!-- WHAT YOU UNLOCK -->
   <section id="unlock" class="border-t border-white/10 bg-vault-card/40">
     <div class="mx-auto max-w-7xl px-4 py-14">
-      <h2 class="text-3xl md:text-4xl font-bold">What You’ll Build Inside</h2>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">What You’ll Build Inside</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Phone-Only Closers</h3><p class="mt-2 text-slate-200">DM macros, reply trees, prompts. Close from your pocket.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">IRL Stream System</h3><p class="mt-2 text-slate-200">Hooks, retention loops, clip traps. Chaos with a blueprint.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Stripe Anywhere</h3><p class="mt-2 text-slate-200">International accounts & payouts even if your country blocks it.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Reflexivity Engine</h3><p class="mt-2 text-slate-200">Signal → belief → demand. Make them chase you first.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Super UGC Army</h3><p class="mt-2 text-slate-200">Recruit editors, syndicate everywhere. You own the feed.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Proof Flywheel</h3><p class="mt-2 text-slate-200">1 win → 30 days of content → compounding trust.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Phone-Only Closers</h3><p class="mt-2 text-vault-mute">DM macros, reply trees, scripts. Close from your pocket.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">IRL Stream System</h3><p class="mt-2 text-vault-mute">Hooks, retention loops, clip traps. Proof over polish.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Stripe Anywhere</h3><p class="mt-2 text-vault-mute">International paths even if your country blocks it.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Reflexivity Engine</h3><p class="mt-2 text-vault-mute">Signal → belief → demand. Make them chase you.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Super UGC Army</h3><p class="mt-2 text-vault-mute">Recruit editors. Syndicate everywhere. Own the feed.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Proof Flywheel</h3><p class="mt-2 text-vault-mute">1 win → 30 days of content → compounding trust.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section id="how">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <h2 class="text-3xl md:text-4xl font-bold text-white">How the Machine Prints</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <div class="card ringfx p-6"><h3 class="text-xl font-semibold text-white">1) Prime Desire</h3><p class="mt-2 text-vault-mute">Narratives > features. Script the emotion first.</p></div>
+        <div class="card ringfx p-6"><h3 class="text-xl font-semibold text-white">2) Capture Proof</h3><p class="mt-2 text-vault-mute">IRL + receipts. Proof beats polish every time.</p></div>
+        <div class="card ringfx p-6"><h3 class="text-xl font-semibold text-white">3) Convert on Command</h3><p class="mt-2 text-vault-mute">Super UGC + tight CTAs → checkout in minutes.</p></div>
       </div>
     </div>
   </section>
@@ -229,13 +262,13 @@
   <section id="reviews" class="border-t border-white/10 bg-vault-card/40">
     <div class="mx-auto max-w-7xl px-4 py-14">
       <div class="flex items-end justify-between gap-4">
-        <h2 class="text-3xl md:text-4xl font-bold">Student Reviews</h2>
-        <div class="hidden md:flex items-center gap-2 text-sm text-slate-300"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span>4.9/5 average</span></div>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Student Reviews</h2>
+        <div class="hidden md:flex items-center gap-2 text-sm text-vault-mute"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span>4.9/5 average</span></div>
       </div>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="card ringfx p-6"><div class="flex items-center gap-3"><img src="https://placehold.co/64x64/0b2a21/e5f3ef?text=J" class="h-10 w-10 rounded-full ring-1 ring-white/20"/><div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-slate-300">PNG • AI Prompts</div></div></div><div class="mt-3 text-vault-gold"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="mt-3 text-slate-200">Closed my first <b class="text-white">$15k</b> prompt package. The attention → proof loop just works.</p></div>
-        <div class="card ringfx p-6"><div class="flex items-center gap-3"><img src="https://placehold.co/64x64/0b2a21/e5f3ef?text=L" class="h-10 w-10 rounded-full ring-1 ring-white/20"/><div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-slate-300">Fiji • IRL Streams</div></div></div><div class="mt-3 text-vault-gold"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star" style="opacity:.6"></span></div><p class="mt-3 text-slate-200">From 0 to paid collabs in two weeks. Proof beats polish every time.</p></div>
-        <div class="card ringfx p-6"><div class="flex items-center gap-3"><img src="https://placehold.co/64x64/0b2a21/e5f3ef?text=T" class="h-10 w-10 rounded-full ring-1 ring-white/20"/><div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-slate-300">Samoa • Ops Systems</div></div></div><div class="mt-3 text-vault-gold"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="mt-3 text-slate-200">Stripe solved. AI runs my inbox. System <b class="text-white">sells while I sleep</b>.</p></div>
+        <div class="card ringfx p-6"><div class="flex items-center gap-3"><img src="https://placehold.co/64x64/0d2a22/eaf6f1?text=J" class="h-10 w-10 rounded-full ring-1 ring-white/20"/><div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div></div><div class="mt-3 text-vault-gold"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="mt-3 text-vault-mute">Closed my first <b class="text-white">$15k</b> prompt package. The attention → proof loop just works.</p></div>
+        <div class="card ringfx p-6"><div class="flex items-center gap-3"><img src="https://placehold.co/64x64/0d2a22/eaf6f1?text=L" class="h-10 w-10 rounded-full ring-1 ring-white/20"/><div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div></div><div class="mt-3 text-vault-gold"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star" style="opacity:.6"></span></div><p class="mt-3 text-vault-mute">From 0 to paid collabs in two weeks. Proof > polish, every time.</p></div>
+        <div class="card ringfx p-6"><div class="flex items-center gap-3"><img src="https://placehold.co/64x64/0d2a22/eaf6f1?text=T" class="h-10 w-10 rounded-full ring-1 ring-white/20"/><div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div></div><div class="mt-3 text-vault-gold"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div><p class="mt-3 text-vault-mute">Stripe solved. AI runs my inbox. System <b class="text-white">sells while I sleep</b>.</p></div>
       </div>
     </div>
   </section>
@@ -243,41 +276,96 @@
   <!-- PRICING -->
   <section id="pricing" class="border-t border-white/10 bg-vault-card/40">
     <div class="mx-auto max-w-6xl px-4 py-16 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold">Join Inner Vault</h2>
-      <p class="mt-2 text-slate-300">No fluff. Just plays that print on a 2025 internet.</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Join the Inner Vault</h2>
+      <p class="mt-2 text-vault-mute">No fluff. No trends. Just the system that prints on a 2025 internet.</p>
+
       <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
-        <div class="card ringfx p-8 text-left"><h3 class="text-xl font-bold text-white">Monthly</h3><p class="mt-1 text-slate-200">Start now. Cancel anytime.</p><div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-slate-200">/mo</span></div><ul class="mt-6 space-y-2 text-sm text-slate-200"><li>✔ Core playbooks & community</li><li>✔ Weekly live breakdowns</li><li>✔ Templates & scripts</li></ul><a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow text-center">Start Monthly</a></div>
-        <div class="relative card ringfx p-8 text-left"><div class="absolute -top-3 right-4 z-20 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0F1A0A]">Best Value</div><h3 class="text-xl font-bold text-white">Lifetime</h3><p class="mt-1 text-slate-200">Own the systems. Own the results.</p><div class="mt-4 text-4xl font-extrabold text-white">$399<span class="text-base font-semibold text-slate-200"> one-time</span></div><ul class="mt-6 space-y-2 text-sm text-slate-200"><li>✔ All current & future modules</li><li>✔ Private deal rooms</li><li>✔ Super UGC license</li></ul><a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow text-center">Get Lifetime</a></div>
+        <div class="card ringfx p-8 text-left">
+          <h3 class="text-xl font-bold text-white">Monthly</h3>
+          <p class="mt-1 text-vault-mute">Start now. Cancel anytime.</p>
+          <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-vault-mute">
+            <li>✔ Core playbooks & community</li>
+            <li>✔ Weekly live breakdowns</li>
+            <li>✔ Templates & scripts</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow text-center">Start Monthly</a>
+        </div>
+
+        <div class="relative card ringfx p-8 text-left">
+          <div class="absolute -top-3 right-4 z-20 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0E140F]">Best Value</div>
+          <h3 class="text-xl font-bold text-white">Lifetime</h3>
+          <p class="mt-1 text-vault-mute">Own the systems. Own the results.</p>
+          <div class="mt-4 text-4xl font-extrabold text-white">$399<span class="text-base font-semibold text-vault-mute"> one-time</span></div>
+          <ul class="mt-6 space-y-2 text-sm text-vault-mute">
+            <li>✔ All current & future modules</li>
+            <li>✔ Private deal rooms</li>
+            <li>✔ Super UGC license</li>
+          </ul>
+          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow text-center">Get Lifetime</a>
+        </div>
       </div>
-      <p class="mt-5 text-xs text-slate-400">This isn’t pay-and-pray. You must run the plays and do the work.</p>
+
+      <p class="mt-5 text-xs text-vault-mute">This isn’t pay-and-pray. You run the plays. You get the wins.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="border-t border-white/10 bg-vault-card/40">
+    <div class="mx-auto max-w-4xl px-4 py-14">
+      <h2 class="text-3xl md:text-4xl font-bold text-white">FAQ</h2>
+      <div class="mt-6 space-y-4">
+        <details class="group card ringfx p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+            Do I need a laptop?
+            <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-vault-mute">No. Phone-only is supported. Prompts, DM flows, mobile templates — you’re covered.</p>
+        </details>
+        <details class="group card ringfx p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+            How fast can I get results?
+            <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-vault-mute">Some move in 48–72 hours. Speed = effort + offer fit + proof loop execution.</p>
+        </details>
+        <details class="group card ringfx p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+            Can I do this without showing my face?
+            <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-vault-mute">Yes. Super UGC + operator-led pages. You stay the strategist, not the product.</p>
+        </details>
+      </div>
     </div>
   </section>
 
   <footer class="border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-slate-300">
+    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-vault-mute">
       <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
       <div class="flex items-center gap-4">
-        <a class="hover:text-vault-emerald">Terms</a>
-        <a class="hover:text-vault-emerald">Privacy</a>
-        <a href="#pricing" class="hover:text-vault-emerald">Join</a>
+        <a class="hover:text-vault-em">Terms</a>
+        <a class="hover:text-vault-em">Privacy</a>
+        <a href="#pricing" class="hover:text-vault-em">Join</a>
       </div>
     </div>
   </footer>
 
   <!-- Mobile urgency bar -->
   <div class="fixed left-0 right-0 bottom-3 z-40 flex justify-center">
-    <a href="#pricing" class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
+    <a href="#pricing" class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
-  <!-- Ambience (soft fire sfx) -->
+  <!-- Ambient fire (soft) -->
   <audio id="ambience" preload="auto" loop>
-    <!-- Replace with your hosted file if you want -->
+    <!-- Replace with your hosted file -->
     <source src="/fire-soft.mp3" type="audio/mpeg"/>
   </audio>
   <button id="ambToggle" class="ambience" aria-label="Toggle ambience">🔊 ambience</button>
 
+  <!-- Scripts -->
   <script>
-    // Assets
+    // Logo + year
     (function(){
       const logoSrc  = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
       const fallback = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
@@ -286,11 +374,23 @@
       document.getElementById('y').textContent = new Date().getFullYear();
     })();
 
-    // Starfield
+    // Ember canvas (gold sparks rising — cheap on GPU)
     (function(){
-      const c = document.getElementById('stars'), ctx = c.getContext('2d');
-      let W,H,s=[]; function rs(){W=c.width=innerWidth; H=c.height=innerHeight; s=Array.from({length:innerWidth<768?80:140},()=>({x:Math.random()*W,y:Math.random()*H,z:Math.random()*1.2+.2}))}
-      function loop(){ctx.clearRect(0,0,W,H); ctx.fillStyle='rgba(230,197,94,.6)'; for(const p of s){const r=p.z*1.2; ctx.globalAlpha=p.z*.6; ctx.beginPath(); ctx.arc(p.x,p.y,r,0,6.283); ctx.fill(); p.y+=p.z*.25; if(p.y>H){p.y=-2; p.x=Math.random()*W}} requestAnimationFrame(loop) }
+      const c = document.getElementById('embers'), ctx = c.getContext('2d');
+      let W,H,parts=[];
+      function rs(){W=c.width=innerWidth; H=c.height=innerHeight; const n=innerWidth<768?60:110;
+        parts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.2+.3,op:Math.random()*.5+.2}));
+      }
+      function loop(){
+        ctx.clearRect(0,0,W,H);
+        for(const p of parts){
+          ctx.globalAlpha=p.op; ctx.fillStyle='rgba(230,197,94,.85)';
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.s,0,6.283); ctx.fill();
+          p.y -= p.s*.35; p.x += Math.sin(p.y/50)*.2;
+          if(p.y<-2){ p.y=H+2; p.x=Math.random()*W; }
+        }
+        requestAnimationFrame(loop);
+      }
       rs(); addEventListener('resize',rs); loop();
     })();
 
@@ -298,39 +398,50 @@
     const rev = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('revealed'); rev.unobserve(e.target);} }),{threshold:.15});
     document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
 
-    // Counters
-    function animateCount(el){const end=parseFloat(el.dataset.end||0),d=+el.dataset.decimals||0,prefix=el.dataset.prefix||"",suffix=el.dataset.suffix||"";let t0;const dur=900;function step(ts){if(!t0)t0=ts;const pr=Math.min((ts-t0)/dur,1);el.textContent=`${prefix}${(end*pr).toFixed(d)}${suffix}`; if(pr<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
+    // Stat counters
+    function animateCount(el){const end=parseFloat(el.dataset.end||0),d=+el.dataset.decimals||0,pre=el.dataset.prefix||"",suf=el.dataset.suffix||"";let t0;const dur=900;function step(ts){if(!t0)t0=ts;const pr=Math.min((ts-t0)/dur,1);el.textContent=`${pre}${(end*pr).toFixed(d)}${suf}`; if(pr<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
     const co=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){animateCount(e.target); co.unobserve(e.target)} }),{threshold:.4});
     document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
 
-    // Countdown (hard deadline)
-    const COHORT_CLOSE_AT="2025-08-20T23:59:59+12:00", PANIC_MS=6*60*60*1000;
+    // Countdown (fixed hard deadline — change once, no reset)
+    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00";
+    const PANIC_MS = 6*60*60*1000;
     const timer=document.getElementById('timer'), mini=document.getElementById('t-mini'), bar=document.getElementById('deadlinebar');
-    const start=Date.now(), end=new Date(COHORT_CLOSE_AT).getTime(); const pad=n=>String(n).padStart(2,'0');
-    function tick(){const left=Math.max(0,end-Date.now()); const tot=Math.max(1,end-start); const h=Math.floor(left/3.6e6), m=Math.floor((left%3.6e6)/6e4), s=Math.floor((left%6e4)/1e3); const t=`${pad(h)} : ${pad(m)} : ${pad(s)}`; timer.textContent=t; mini.textContent=t; bar.style.transform=`scaleX(${left/tot})`; document.querySelectorAll('.cta').forEach(b=>{ if(left<=PANIC_MS && left>0) b.classList.add('glow-pulse'); else b.classList.remove('glow-pulse');}); requestAnimationFrame(()=>setTimeout(tick,1000))} tick();
+    const start=Date.now(), end=new Date(COHORT_CLOSE_AT).getTime();
+    const pad=n=>String(n).padStart(2,'0');
+    function tick(){
+      const left=Math.max(0,end-Date.now()), total=Math.max(1,end-start);
+      const h=Math.floor(left/3.6e6), m=Math.floor((left%3.6e6)/6e4), s=Math.floor((left%6e4)/1e3);
+      const t=`${pad(h)} : ${pad(m)} : ${pad(s)}`;
+      timer.textContent=t; mini.textContent=t; bar.style.transform=`scaleX(${left/total})`;
+      document.querySelectorAll('.cta').forEach(b=>{ if(left<=PANIC_MS && left>0) b.classList.add('glow-pulse'); else b.classList.remove('glow-pulse');});
+      requestAnimationFrame(()=>setTimeout(tick,1000));
+    }
+    tick();
 
-    // Video sound strategy: try with sound; if blocked, start muted and unmute on first interaction anywhere.
+    // Video sound strategy (autoplay; unmute on first interaction if blocked)
     (async function(){
       const v=document.getElementById('proofVideo'); if(!v) return;
-      try{ v.muted=false; v.volume=.9; await v.play(); }catch(e){
+      try{ v.muted=false; v.volume=.9; await v.play(); }
+      catch(e){
         v.muted=true; try{ await v.play(); }catch(_){}
-        const unlock=async()=>{ try{ v.muted=false; v.removeAttribute('muted'); v.volume=.9; await v.play(); cleanup(); }catch(_){} };
-        const cleanup=()=>{ ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>removeEventListener(ev,unlock)); };
-        ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>addEventListener(ev,unlock,{once:true,passive:true}));
+        const go=async()=>{ try{ v.muted=false; v.removeAttribute('muted'); v.volume=.9; await v.play(); stop(); }catch(_){} };
+        const stop=()=>['touchstart','pointerdown','keydown','scroll'].forEach(ev=>removeEventListener(ev,go));
+        ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>addEventListener(ev,go,{once:true,passive:true}));
       }
     })();
 
-    // Ambient audio: starts quietly on first interaction; toggle button to mute/unmute
+    // Ambient fire: soft, starts on first interaction; toggle to mute/unmute
     (function(){
       const a=document.getElementById('ambience'), btn=document.getElementById('ambToggle'); if(!a||!btn) return;
-      a.volume=.15; // very soft
+      a.volume=.12;
       const start=async()=>{ try{ await a.play(); }catch(_){} cleanup(); };
       const cleanup=()=>['touchstart','pointerdown','keydown','scroll'].forEach(ev=>removeEventListener(ev,start));
       ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>addEventListener(ev,start,{once:true,passive:true}));
       btn.addEventListener('click',()=>{ if(a.paused){ a.play(); btn.textContent='🔊 ambience'; } else { a.pause(); btn.textContent='🔇 ambience'; } });
     })();
 
-    // Logo
+    // Logo fallback guard
     (function(){ const l=document.getElementById('logo'); if(!l) return; l.src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"; l.onerror=()=>l.src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png"; })();
   </script>
 </body>
