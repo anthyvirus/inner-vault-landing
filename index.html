@@ -24,7 +24,7 @@
           colors: {
             vault: {
               bg:   '#03110C',   /* page */
-              card: '#0B2A21',   /* surfaces (brighter for contrast) */
+              card: '#0B2A21',   /* surfaces */
               gold: '#E6C55E',   /* primary */
               goldh:'#CFAF4A',
               emerald:'#00B36E'  /* accent */
@@ -55,7 +55,7 @@
     /* Perf: only paint on-screen */
     section, header, footer{content-visibility:auto; contain-intrinsic-size:1px 1000px}
 
-    /* Subtle grid for futurism */
+    /* Subtle grid */
     .gridline:before{
       content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
       background:
@@ -77,9 +77,7 @@
     }
 
     /* Decorative outer ring (subtle) */
-    .ringfx{
-      position:relative; isolation:isolate;
-    }
+    .ringfx{position:relative; isolation:isolate;}
     .ringfx:before{
       content:""; position:absolute; inset:-1px; border-radius:inherit; z-index:-1;
       background: conic-gradient(from 210deg, #00B36E, #E6C55E, #00B36E);
@@ -106,10 +104,11 @@
     .glow-pulse{animation:gp 1.6s infinite alternate}
     @keyframes gp{from{box-shadow:0 0 8px rgba(230,197,94,.55),0 0 18px rgba(230,197,94,.35)}to{box-shadow:0 0 18px rgba(230,197,94,.85),0 0 36px rgba(230,197,94,.5)}}
 
-    /* Mobile: disable extra overlays for max clarity */
-    @media (max-width:768px){
-      .gridline:before{opacity:.12}
-    }
+    /* Stars */
+    .star{width:16px;height:16px;display:inline-block;background:
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23E6C55E"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.739 1.548 8.268L12 18.896l-7.484 4.417 1.548-8.268L0 9.306l8.332-1.151z"/></svg>') center/contain no-repeat}
+
+    @media (max-width:768px){ .gridline:before{opacity:.12} }
   </style>
 </head>
 
@@ -153,6 +152,7 @@
       <a href="#proof" class="hover:text-vault-emerald">Proof</a>
       <a href="#unlock" class="hover:text-vault-emerald">What You Unlock</a>
       <a href="#how" class="hover:text-vault-emerald">How It Works</a>
+      <a href="#reviews" class="hover:text-vault-emerald">Reviews</a>
       <a href="#pricing" class="hover:text-vault-emerald">Pricing</a>
       <a href="#faq" class="hover:text-vault-emerald">FAQ</a>
     </nav>
@@ -172,7 +172,7 @@
             Convert <span class="text-vault-gold">Power</span>.
           </h1>
           <p class="mt-4 text-lg text-slate-200">
-            Make the internet chase you:
+            The only system built for Pacific hustlers. Make the internet chase you:
             <span class="text-vault-emerald font-medium">manufacture attention → trigger emotion → capture proof → convert</span>.
             IRL streaming, AI + prompts, Super UGC. Plug in. Print.
           </p>
@@ -222,7 +222,7 @@
         <div class="card ringfx p-6"><h3 class="font-semibold text-white">Super UGC Army</h3><p class="mt-2 text-slate-200">Recruit editors, syndicate everywhere. You own the feed.</p></div>
         <div class="card ringfx p-6"><h3 class="font-semibold text-white">Reflexivity Engine</h3><p class="mt-2 text-slate-200">Signal → belief → demand. Make them chase you first.</p></div>
         <div class="card ringfx p-6"><h3 class="font-semibold text-white">Conversion Stack</h3><p class="mt-2 text-slate-200">Offers, CTAs, ethical scarcity. WHOP templates included.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Proof Flywheel</h3><p class="mt-2 text-slate-2 00">1 win → 30 days of content → compounding trust.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Proof Flywheel</h3><p class="mt-2 text-slate-200">1 win → 30 days of content → compounding trust.</p></div>
       </div>
     </div>
   </section>
@@ -235,6 +235,84 @@
         <div class="card ringfx p-6"><h3 class="text-xl font-semibold text-white">1) Prime Desire</h3><p class="mt-2 text-slate-200">Storylines > features. Script emotion before supply.</p></div>
         <div class="card ringfx p-6"><h3 class="text-xl font-semibold text-white">2) Capture Proof</h3><p class="mt-2 text-slate-200">IRL + receipts. Proof beats polish every time.</p></div>
         <div class="card ringfx p-6"><h3 class="text-xl font-semibold text-white">3) Convert on Command</h3><p class="mt-2 text-slate-200">Super UGC + tight CTAs → WHOP checkout in minutes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="border-t border-white/10 bg-vault-card/40">
+    <div class="mx-auto max-w-7xl px-4 py-14">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-3xl md:text-4xl font-bold">Student Reviews</h2>
+        <div class="hidden md:flex items-center gap-2 text-sm text-slate-300">
+          <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+          <span>4.9/5 average</span>
+        </div>
+      </div>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <!-- Review 1 -->
+        <div class="card ringfx p-6">
+          <div class="flex items-center gap-3">
+            <img src="https://placehold.co/64x64/0b2a21/e5f3ef?text=J" class="h-10 w-10 rounded-full ring-1 ring-white/20" alt="J"/>
+            <div>
+              <div class="font-semibold text-white">Jae — Port Moresby</div>
+              <div class="text-xs text-slate-300">PNG • AI Prompts</div>
+            </div>
+          </div>
+          <div class="mt-3 text-vault-gold">
+            <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+          </div>
+          <p class="mt-3 text-slate-200">
+            Closed my first <span class="font-semibold text-white">$15k</span> prompt package to a construction company.
+            The “manufacture attention → proof” loop just works.
+          </p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="card ringfx p-6">
+          <div class="flex items-center gap-3">
+            <img src="https://placehold.co/64x64/0b2a21/e5f3ef?text=L" class="h-10 w-10 rounded-full ring-1 ring-white/20" alt="L"/>
+            <div>
+              <div class="font-semibold text-white">Litia — Suva</div>
+              <div class="text-xs text-slate-300">Fiji • IRL Streams</div>
+            </div>
+          </div>
+          <div class="mt-3 text-vault-gold">
+            <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star" style="opacity:.6"></span>
+          </div>
+          <p class="mt-3 text-slate-200">
+            Went from 0 to <span class="font-semibold text-white">paid collabs</span> in two weeks.
+            The “proof over polish” streams converted faster than my edited videos.
+          </p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="card ringfx p-6">
+          <div class="flex items-center gap-3">
+            <img src="https://placehold.co/64x64/0b2a21/e5f3ef?text=T" class="h-10 w-10 rounded-full ring-1 ring-white/20" alt="T"/>
+            <div>
+              <div class="font-semibold text-white">Toma — Apia</div>
+              <div class="text-xs text-slate-300">Samoa • Ops Systems</div>
+            </div>
+          </div>
+          <div class="mt-3 text-vault-gold">
+            <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+          </div>
+          <p class="mt-3 text-slate-200">
+            Stripe solved. AI runs my inbox. Hired one VA. Now the system
+            <span class="font-semibold text-white">sells while I sleep</span>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Social proof bar -->
+      <div class="mt-8 card ringfx p-4 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-200">
+        <div class="flex items-center gap-2"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span> <b class="text-white">4.9/5</b> rated by students</div>
+        <div class="opacity-50">•</div>
+        <div>Pacific cohort: PNG, Fiji, Samoa, Tonga</div>
+        <div class="opacity-50">•</div>
+        <div>Proof beats polish — always</div>
       </div>
     </div>
   </section>
@@ -276,11 +354,34 @@
     </div>
   </section>
 
-  <!-- NCS -->
-  <section class="mx-auto max-w-4xl px-4 py-12 text-center">
-    <img class="mx-auto h-14 opacity-95" src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="No Code Society"/>
-    <h3 class="mt-6 text-2xl font-bold">Access to No Code Society is through Inner Vault.</h3>
-    <p class="mt-2 text-slate-300">Get inside, run the plays, and earn your seat.</p>
+  <!-- FAQ -->
+  <section id="faq" class="border-t border-white/10 bg-vault-card/40">
+    <div class="mx-auto max-w-4xl px-4 py-14">
+      <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
+      <div class="mt-6 space-y-4">
+        <details class="group card ringfx p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+            Do I need a laptop?
+            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-slate-200">No. Phone-only is supported. You’ll get prompts, DM flows, and mobile-first templates.</p>
+        </details>
+        <details class="group card ringfx p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+            How fast can I get results?
+            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-slate-200">Some get movement in 48–72 hours. Speed = effort + offer fit + proof loop execution.</p>
+        </details>
+        <details class="group card ringfx p-5">
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+            Can I do this without showing my face?
+            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
+          </summary>
+          <p class="mt-3 text-slate-200">Yes. Use Super UGC and operator-led pages. You stay behind the scenes, money still shows up.</p>
+        </details>
+      </div>
+    </div>
   </section>
 
   <footer class="border-t border-white/10">
@@ -310,7 +411,7 @@
       document.getElementById('y').textContent = new Date().getFullYear();
     })();
 
-    // Reveal
+    // Reveal on scroll
     const rev = new IntersectionObserver((es)=>es.forEach(e=>{
       if(e.isIntersecting){ e.target.classList.add('revealed'); rev.unobserve(e.target); }
     }),{threshold:.15});
@@ -331,13 +432,12 @@
     const co = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ animateCount(e.target); co.unobserve(e.target); } }),{threshold:.4});
     document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
 
-    // Countdown (fixed end date that never resets unless you change the constant)
-    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00";  // <— set your hard deadline here
+    // Countdown (hard deadline; no reset)
+    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00";  // <— set your deadline
     const PANIC_MS = 6*60*60*1000;
     const timer = document.getElementById('timer');
     const mini = document.getElementById('t-mini');
     const bar = document.getElementById('deadlinebar');
-    const ctas = document.querySelectorAll('.cta');
     const start = Date.now();
     const end = new Date(COHORT_CLOSE_AT).getTime();
     const pad = n => String(n).padStart(2,'0');
@@ -349,24 +449,22 @@
       if(timer) timer.textContent = t;
       if(mini)  mini.textContent  = t;
       if(bar)   bar.style.transform = `scaleX(${left/total})`;
-      if(left<=PANIC_MS && left>0){ ctas.forEach(b=>b.classList.add('glow-pulse')); }
+      document.querySelectorAll('.cta').forEach(b=>{
+        if(left<=PANIC_MS && left>0){ b.classList.add('glow-pulse'); } else { b.classList.remove('glow-pulse'); }
+      });
       requestAnimationFrame(()=>setTimeout(tick,1000));
     }
     tick();
 
     // Video autoplay with sound (best possible on mobile):
-    // 1) Try play with sound immediately (works on desktop & some Android).
-    // 2) If blocked, play muted.
-    // 3) On FIRST user interaction ANYWHERE (scroll/touch/click/keydown),
-    //    unmute + replay automatically (no on-video tap needed).
+    // Try sound now; if blocked, play muted and auto-unmute on first interaction anywhere.
     (async function(){
       const v = document.getElementById('proofVideo');
       if(!v) return;
       try {
         v.muted = false; v.volume = 0.85;
-        await v.play(); // may throw on mobile
+        await v.play(); // desktop / some Android succeed
       } catch(e) {
-        // fallback: start muted
         v.muted = true;
         try { await v.play(); } catch(_) {}
         const unlock = async () => {
@@ -378,7 +476,7 @@
             removeEventListener('pointerdown', unlock, {passive:true});
             removeEventListener('keydown', unlock, {passive:true});
             removeEventListener('scroll', unlock, {passive:true});
-          } catch(_) { /* ignore */ }
+          } catch(_) {}
         };
         addEventListener('touchstart', unlock, {once:true, passive:true});
         addEventListener('pointerdown', unlock, {once:true, passive:true});
@@ -388,4 +486,4 @@
     })();
   </script>
 </body>
-</html>
+  </html>
