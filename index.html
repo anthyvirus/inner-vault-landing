@@ -47,7 +47,7 @@
     }
     @keyframes bgShift { 0%{background-position:0 0,0 0} 100%{background-position:30px -20px,-40px 20px} }
 
-    /* perf: only paint when on-screen */
+    /* paint only when on-screen */
     section, header, footer{content-visibility:auto; contain-intrinsic-size: 1px 1000px}
 
     .gridline:before{
@@ -103,12 +103,15 @@
       animation:auroraShift 18s ease-in-out infinite alternate}
     @keyframes auroraShift{0%{transform:translateY(-2%) rotate(0)}100%{transform:translateY(4%) rotate(6deg)}}
 
-    /* Clean holo surface (no dark circles) */
-    .holo{position:relative; background:rgba(6,32,24,.88); border-radius:18px; }
+    /* Clean holo surface (no dark circles) + isolation so z-index works */
+    .holo{
+      position:relative; background:rgba(6,32,24,.90); border-radius:18px;
+      isolation:isolate; overflow:visible;
+    }
     .holo:before{content:""; position:absolute; inset:-1px; border-radius:inherit; z-index:-1;
-      background:conic-gradient(from 200deg,#00B36E,#E6C55E,#00B36E); opacity:.45}
-    .holo:after{content:""; position:absolute; inset:0; border-radius:inherit; background:rgba(6,32,24,.90);
-      border:1px solid rgba(255,255,255,.08); box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+      background:conic-gradient(from 200deg,#00B36E,#E6C55E,#00B36E); opacity:.42}
+    .holo:after{content:""; position:absolute; inset:0; border-radius:inherit; background:rgba(6,32,24,.94);
+      border:1px solid rgba(255,255,255,.12); box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
 
     .scanlines:before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
       background:repeating-linear-gradient(to bottom, rgba(255,255,255,.02), rgba(255,255,255,.02) 1px, transparent 3px, transparent 4px); mix-blend-mode:overlay}
@@ -127,15 +130,12 @@
     @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .badge{display:inline-flex; align-items:center; gap:.4rem; background:linear-gradient(90deg, rgba(0,179,110,.18), rgba(230,197,94,.18)); border:1px solid rgba(255,255,255,.12); padding:.35rem .6rem; border-radius:999px; font-size:.75rem; letter-spacing:.02em}
 
-    /* Mobile perf: disable heavier layers */
     @media (max-width: 768px){
       .grain:after, .scanlines:before{display:none}
       .aurora{filter:blur(28px)}
     }
-    /* Motion sensitivity */
     @media (prefers-reduced-motion: reduce){
-      body{animation:none}
-      .shine{animation:none}
+      body,.shine{animation:none}
     }
   </style>
 </head>
@@ -229,14 +229,21 @@
         <!-- Proof video -->
         <div id="proof" class="relative reveal tilt">
           <div class="shine rounded-3xl border border-vault-emerald/40 bg-vault-card p-3 shadow-soft lift holo">
-            <!-- Autoplay + loop + muted for mobile; tap-to-unmute overlay -->
+            <!-- Autoplay + loop + muted; tap to unmute -->
             <div class="relative">
-              <video class="w-full rounded-2xl" id="proofVideo" autoplay loop muted playsinline controls preload="metadata"
+              <video class="w-full rounded-2xl"
+                     id="proofVideo"
+                     autoplay
+                     loop
+                     muted
+                     playsinline
+                     controls
+                     preload="metadata"
                      poster="https://placehold.co/960x540/062018/8debb3?text=IRL+Stream+Proof">
                 <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
                 <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
               </video>
-              <button id="soundBtn" class="absolute bottom-3 left-3 rounded-full bg-black/55 backdrop-blur px-3 py-1 text-xs font-semibold ring-1 ring-white/20 hover:bg-black/70">
+              <button id="soundBtn" class="absolute bottom-3 left-3 z-20 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-xs font-semibold ring-1 ring-white/20 hover:bg-black/70">
                 🔊 Tap for sound
               </button>
             </div>
@@ -286,9 +293,9 @@
       <p class="mt-2 text-slate-400">No fluff. Just plays that print on a 2025 internet.</p>
 
       <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-8 reveal lift holo">
+        <div class="relative rounded-2xl border border-white/10 bg-vault-card p-8 reveal lift holo overflow-visible">
           <h3 class="text-xl font-bold">Monthly</h3>
-          <p class="mt-1 text-slate-400">Start now. Cancel anytime.</p>
+          <p class="mt-1 text-slate-300">Start now. Cancel anytime.</p>
           <div class="mt-4 text-4xl font-extrabold">$39<span class="text-base font-semibold text-slate-400">/mo</span></div>
           <ul class="mt-6 space-y-2 text-left text-sm text-slate-300">
             <li>✔ Core playbooks & community</li>
@@ -298,8 +305,8 @@
           <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" id="ctaMonthly" class="magnetic cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Start Monthly</a>
         </div>
 
-        <div class="relative rounded-2xl border border-vault-gold/50 bg-gradient-to-b from-vault-card to-vault-card/60 p-8 reveal lift holo">
-          <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0F1A0A]" id="badge">Best Value</div>
+        <div class="relative rounded-2xl border border-vault-gold/50 bg-gradient-to-b from-vault-card to-vault-card/60 p-8 reveal lift holo overflow-visible">
+          <div class="absolute -top-3 right-4 z-20 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0F1A0A]" id="badge">Best Value</div>
           <h3 class="text-xl font-bold">Lifetime</h3>
           <p class="mt-1 text-slate-300">Own the systems. Own the results.</p>
           <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-slate-400"> one-time</span></div>
@@ -399,7 +406,7 @@
       el.addEventListener('mouseleave', ()=> ring.style.transform = ring.style.transform.replace(/ scale\(.+\)/,''));
     });
 
-    // Particles (throttled for smoothness)
+    // Particles (throttled)
     (function(){
       const fx = document.getElementById('fx'), ctx = fx.getContext('2d');
       let W,H,parts=[], last=0, fps = (innerWidth<768)?24:32, interval=1000/fps;
@@ -453,19 +460,28 @@
       setInterval(()=>{ tMini.textContent = timerEl.textContent; if(timerEl.classList.contains('animate-pulse')) bar.querySelector('.cta').classList.add('glow-pulse'); },500);
     })();
 
-    // Video: tap to unmute (autoplay with sound is blocked on mobile)
+    // Video: tap to unmute (remove muted attr + replay in same gesture)
     (function(){
       const v = document.getElementById('proofVideo');
       const btn = document.getElementById('soundBtn');
       if(!v || !btn) return;
+
       const enableSound = async () => {
         try {
-          v.muted = false; v.volume = 0.85;
-          await v.play(); btn.style.display='none';
+          v.muted = false;
+          v.removeAttribute('muted');  // important for some Android browsers
+          v.volume = 0.85;
+          await v.play();              // restart with sound in the same gesture
+          btn.style.display = 'none';
         } catch(e){ /* ignore */ }
       };
+
+      // show the chip once video can play
+      v.addEventListener('canplay', ()=> btn.style.display = '');
+      // user gestures to enable sound
       btn.addEventListener('click', enableSound, {passive:true});
       v.addEventListener('click', ()=>{ if(v.muted) enableSound(); }, {passive:true});
+      v.addEventListener('touchstart', ()=>{ if(v.muted) enableSound(); }, {passive:true});
     })();
   </script>
 </body>
