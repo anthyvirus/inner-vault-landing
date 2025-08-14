@@ -14,7 +14,6 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    /* Tailwind palette (Futuristic Emerald + Gold) */
     tailwind.config = {
       theme: {
         extend: {
@@ -28,8 +27,8 @@
             }
           },
           boxShadow: {
-            soft: '0 10px 30px rgba(0,0,0,.25)',
-            glow: '0 0 25px rgba(0,179,110,0.6)'
+            soft: '0 10px 30px rgba(0,0,0,.22)',
+            glow: '0 0 22px rgba(0,179,110,0.5)'
           }
         }
       }
@@ -37,142 +36,113 @@
   </script>
 
   <style>
-    /* Smooth scrolling */
     html{scroll-behavior:smooth}
-
-    /* --- Global vibe: animated gradient + grid + grain --- */
     body{
       background:
         radial-gradient(1200px 600px at 20% -10%, rgba(0,179,110,.18), transparent 60%),
         radial-gradient(1000px 500px at 120% 120%, rgba(230,197,94,.12), transparent 55%),
         #03110C;
       animation:bgShift 16s ease-in-out infinite alternate;
+      padding-bottom: 84px; /* room for mobile urgency bar */
     }
     @keyframes bgShift { 0%{background-position:0 0,0 0} 100%{background-position:30px -20px,-40px 20px} }
 
-    /* Thin cyber grid overlay */
+    /* perf: only paint when on-screen */
+    section, header, footer{content-visibility:auto; contain-intrinsic-size: 1px 1000px}
+
     .gridline:before{
       content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
       background:
         linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
       background-size: 60px 60px, 60px 60px;
-      mix-blend-mode: overlay; opacity:.22;
+      mix-blend-mode: overlay; opacity:.20;
     }
-    /* Film grain (lightweight) */
     .grain:after{
       content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".045"/></svg>');
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".04"/></svg>');
       background-size: 200px 200px; mix-blend-mode: soft-light;
       animation:grain 6s steps(6) infinite;
     }
     @keyframes grain{0%{transform:translate(0,0)}100%{transform:translate(20px,-15px)}}
 
-    /* Glass + shine */
     .glass{backdrop-filter:saturate(160%) blur(12px); background:rgba(3,17,12,.55)}
     .shine{background:linear-gradient(110deg,rgba(255,255,255,.08),rgba(255,255,255,0) 40%,rgba(255,255,255,.08)); background-size:200% 100%; animation:shine 7s linear infinite}
     @keyframes shine{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-    /* Panic countdown */
     .panic-glow{ text-shadow:0 0 8px rgba(239,68,68,.9),0 0 18px rgba(239,68,68,.6); }
 
-    /* Hero parallax wrapper */
     .parallax{ transform-style:preserve-3d; perspective:1200px; }
-    .tilt { transform:translateZ(40px); }
+    .tilt { transform:translateZ(40px); will-change: transform; }
 
-    /* CTA pulse in panic */
     .glow-pulse{ animation: glowPulse 1.6s infinite alternate }
-    @keyframes glowPulse{
-      from{ box-shadow: 0 0 10px rgba(230,197,94,.55), 0 0 20px rgba(230,197,94,.35) }
-      to{   box-shadow: 0 0 20px rgba(230,197,94,.85), 0 0 40px rgba(230,197,94,.55) }
-    }
+    @keyframes glowPulse{from{ box-shadow:0 0 10px rgba(230,197,94,.5),0 0 20px rgba(230,197,94,.3)}to{ box-shadow:0 0 20px rgba(230,197,94,.85),0 0 40px rgba(230,197,94,.45)}}
 
-    /* Reveal on scroll */
-    .reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease}
+    .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; will-change: transform}
     .revealed{opacity:1; transform:translateY(0)}
 
-    /* Neon cursor ring */
     .cursor-ring{
-      position: fixed; width:28px; height:28px; border:2px solid rgba(0,179,110,.75);
+      position:fixed; width:28px; height:28px; border:2px solid rgba(0,179,110,.75);
       border-radius:50%; pointer-events:none; z-index:50; mix-blend-mode:screen;
-      box-shadow: 0 0 12px rgba(0,179,110,.7);
+      box-shadow:0 0 12px rgba(0,179,110,.7);
       transition: transform .08s linear, opacity .2s ease;
     }
-
-    /* Sticky urgency bar (mobile dopamine) */
     .urgency{
       position: fixed; left:0; right:0; bottom:8px; z-index:40;
       display:flex; gap:.5rem; justify-content:center; align-items:center;
     }
-
-    /* Progress bar (countdown) */
     .deadlinebar{height:4px; background:linear-gradient(90deg,#E6C55E,#00B36E); transform-origin:left center; transition:transform .4s linear}
 
-    /* ===== FUTURISM PACK ===== */
-
-    /* Aurora beams */
-    .aurora {
-      position: fixed; inset: -10% -10% auto -10%; height: 65vh; z-index: -1; pointer-events:none;
-      filter: blur(40px) saturate(140%);
+    /* Futurism */
+    .aurora{position:fixed; inset:-10% -10% auto -10%; height:65vh; z-index:-1; pointer-events:none;
+      filter:blur(36px) saturate(140%);
       background:
-        conic-gradient(from 0deg at 20% 40%, rgba(0,179,110,.35), transparent 55%),
-        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.22), transparent 60%),
-        conic-gradient(from 90deg at 50% 30%, rgba(0,179,110,.20), transparent 65%);
-      animation: auroraShift 18s ease-in-out infinite alternate;
-    }
-    @keyframes auroraShift { 0% { transform: translateY(-2%) rotate(0) } 100% { transform: translateY(4%) rotate(6deg) } }
+        conic-gradient(from 0deg at 20% 40%, rgba(0,179,110,.32), transparent 55%),
+        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.20), transparent 60%),
+        conic-gradient(from 90deg at 50% 30%, rgba(0,179,110,.18), transparent 65%);
+      animation:auroraShift 18s ease-in-out infinite alternate}
+    @keyframes auroraShift{0%{transform:translateY(-2%) rotate(0)}100%{transform:translateY(4%) rotate(6deg)}}
 
-    /* Holographic gradient border — cleaned (no corner masks = no circles) */
-    .holo { position: relative; background: rgba(6,32,24,.88); border-radius: 18px; }
-    .holo:before {
-      content:""; position:absolute; inset: -1px; border-radius: inherit; z-index:-1;
-      background: conic-gradient(from 200deg, #00B36E, #E6C55E, #00B36E);
-      filter: saturate(130%); opacity:.55;
-    }
-    .holo:after {
-      /* simple inner surface; removed radial masks that caused circles */
-      content:""; position:absolute; inset: 0; border-radius: inherit; background: rgba(6,32,24,.96);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
-    }
+    /* Clean holo surface (no dark circles) */
+    .holo{position:relative; background:rgba(6,32,24,.88); border-radius:18px; }
+    .holo:before{content:""; position:absolute; inset:-1px; border-radius:inherit; z-index:-1;
+      background:conic-gradient(from 200deg,#00B36E,#E6C55E,#00B36E); opacity:.45}
+    .holo:after{content:""; position:absolute; inset:0; border-radius:inherit; background:rgba(6,32,24,.90);
+      border:1px solid rgba(255,255,255,.08); box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
 
-    /* Scanlines layer (kept subtle) */
-    .scanlines:before{
-      content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
-      background: repeating-linear-gradient(to bottom, rgba(255,255,255,.025), rgba(255,255,255,.025) 1px, transparent 3px, transparent 4px);
-      mix-blend-mode: overlay;
+    .scanlines:before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+      background:repeating-linear-gradient(to bottom, rgba(255,255,255,.02), rgba(255,255,255,.02) 1px, transparent 3px, transparent 4px); mix-blend-mode:overlay}
+
+    .glitch{position:relative; display:inline-block; animation:glitchShift 3.5s infinite steps(1,end)}
+    .glitch:before,.glitch:after{content:attr(data-text); position:absolute; inset:0; pointer-events:none}
+    .glitch:before{transform:translate(1px,-1px); color:rgba(0,179,110,.8); mix-blend-mode:screen}
+    .glitch:after{transform:translate(-1px,1px); color:rgba(230,197,94,.8); mix-blend-mode:screen}
+    @keyframes glitchShift{0%,97%,100%{clip-path:inset(0 0 0 0)}20%{clip-path:inset(10% 0 65% 0)}40%{clip-path:inset(60% 0 20% 0)}60%{clip-path:inset(30% 0 40% 0)}80%{clip-path:inset(0 0 80% 0)}}
+
+    .lift{transition:transform .22s ease, box-shadow .22s ease; will-change: transform}
+    .lift:hover{transform:translateY(-3px) scale(1.01); box-shadow:0 12px 36px rgba(0,0,0,.30),0 0 16px rgba(0,179,110,.22)}
+
+    .ticker{--speed:28s; display:flex; overflow:hidden; gap:2rem; white-space:nowrap; mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+    .ticker>div{display:flex; gap:2rem; animation:ticker var(--speed) linear infinite}
+    @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .badge{display:inline-flex; align-items:center; gap:.4rem; background:linear-gradient(90deg, rgba(0,179,110,.18), rgba(230,197,94,.18)); border:1px solid rgba(255,255,255,.12); padding:.35rem .6rem; border-radius:999px; font-size:.75rem; letter-spacing:.02em}
+
+    /* Mobile perf: disable heavier layers */
+    @media (max-width: 768px){
+      .grain:after, .scanlines:before{display:none}
+      .aurora{filter:blur(28px)}
     }
-
-    /* Glitch text (use on a span) */
-    .glitch { position: relative; display:inline-block; animation: glitchShift 3.5s infinite steps(1,end); }
-    .glitch:before, .glitch:after { content: attr(data-text); position:absolute; inset:0; pointer-events:none; }
-    .glitch:before { transform: translate(1px,-1px); color: rgba(0,179,110,.8); mix-blend-mode:screen; }
-    .glitch:after  { transform: translate(-1px,1px); color: rgba(230,197,94,.8); mix-blend-mode:screen; }
-    @keyframes glitchShift {
-      0%,97%,100% { clip-path: inset(0 0 0 0) }
-      20% { clip-path: inset(10% 0 65% 0) }
-      40% { clip-path: inset(60% 0 20% 0) }
-      60% { clip-path: inset(30% 0 40% 0) }
-      80% { clip-path: inset(0 0 80% 0) }
+    /* Motion sensitivity */
+    @media (prefers-reduced-motion: reduce){
+      body{animation:none}
+      .shine{animation:none}
     }
-
-    /* 3D hover lift */
-    .lift { transition: transform .25s ease, box-shadow .25s ease; will-change: transform; }
-    .lift:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 12px 40px rgba(0,0,0,.35), 0 0 20px rgba(0,179,110,.25) }
-
-    /* Ticker badges */
-    .ticker { --speed: 28s; display:flex; overflow:hidden; gap:2rem; white-space:nowrap; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-    .ticker > div { display:flex; gap:2rem; animation: ticker var(--speed) linear infinite; }
-    @keyframes ticker { 0%{ transform: translateX(0) } 100%{ transform: translateX(-50%) } }
-    .badge { display:inline-flex; align-items:center; gap:.4rem; background: linear-gradient(90deg, rgba(0,179,110,.18), rgba(230,197,94,.18)); border:1px solid rgba(255,255,255,.12); padding:.35rem .6rem; border-radius:999px; font-size:.75rem; letter-spacing:.02em; }
   </style>
 </head>
 <body class="gridline grain bg-vault-bg text-slate-100 selection:bg-vault-gold selection:text-[#0A0A0A]">
 
-  <!-- Futurism overlays -->
   <div class="aurora"></div>
   <div class="scanlines"></div>
-
-  <!-- Floating particles canvas -->
   <canvas id="fx" class="fixed inset-0 -z-10"></canvas>
 
   <!-- Top urgency strip -->
@@ -182,31 +152,19 @@
     </div>
     <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
       <div>Seats Left: <span id="seats" class="font-semibold text-vault-emerald">7</span></div>
-      <div class="flex items-center gap-2">
-        <span>Cohort closes in</span>
-        <span id="timer" class="tabular-nums text-vault-emerald"></span>
-      </div>
+      <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-vault-emerald"></span></div>
       <div class="hidden sm:flex items-center gap-3">
         <a href="#pricing" class="magnetic rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-emerald/10 hover:text-vault-emerald">See Pricing</a>
         <a href="#pricing" id="joinTop" class="magnetic cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join Now</a>
       </div>
     </div>
-    <!-- Ticker badges -->
     <div class="mx-auto max-w-7xl px-4 pb-2">
       <div class="ticker text-[.8rem] text-slate-300">
         <div>
-          <span class="badge">AI + Prompts</span>
-          <span class="badge">IRL Streams</span>
-          <span class="badge">Super UGC</span>
-          <span class="badge">Reflexivity Engine</span>
-          <span class="badge">Conversion Stack</span>
-          <span class="badge">Proof > Polish</span>
-          <span class="badge">AI + Prompts</span>
-          <span class="badge">IRL Streams</span>
-          <span class="badge">Super UGC</span>
-          <span class="badge">Reflexivity Engine</span>
-          <span class="badge">Conversion Stack</span>
-          <span class="badge">Proof > Polish</span>
+          <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
+          <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
+          <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
+          <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
         </div>
       </div>
     </div>
@@ -253,23 +211,16 @@
           <p class="mt-5 text-slate-400">Access to <span class="text-vault-emerald font-semibold">No Code Society</span> is only through Inner Vault.</p>
 
           <div class="mt-6 grid grid-cols-3 gap-3 text-center">
-            <!-- FIXED: show $15k (not 15000k) -->
             <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal lift holo">
-              <div class="text-2xl font-extrabold text-white">
-                <span data-count data-end="15" data-prefix="$" data-suffix="k">15k</span>
-              </div>
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="15" data-prefix="$" data-suffix="k">15k</span></div>
               <div class="text-xs text-slate-300">Prompt deal</div>
             </div>
             <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal lift holo">
-              <div class="text-2xl font-extrabold text-white">
-                <span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span>
-              </div>
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span></div>
               <div class="text-xs text-slate-300">DM replies</div>
             </div>
             <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal lift holo">
-              <div class="text-2xl font-extrabold text-white">
-                <span data-count data-end="48" data-suffix="h">48h</span>
-              </div>
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="48" data-suffix="h">48h</span></div>
               <div class="text-xs text-slate-300">to first sale</div>
             </div>
           </div>
@@ -278,19 +229,17 @@
         <!-- Proof video -->
         <div id="proof" class="relative reveal tilt">
           <div class="shine rounded-3xl border border-vault-emerald/40 bg-vault-card p-3 shadow-soft lift holo">
-            <!-- AUTOPLAY + LOOP + MUTED + PLAYSINLINE -->
-            <video class="w-full rounded-2xl"
-                   id="proofVideo"
-                   autoplay
-                   loop
-                   muted
-                   playsinline
-                   controls
-                   preload="metadata"
-                   poster="https://placehold.co/960x540/062018/8debb3?text=IRL+Stream+Proof">
-              <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
-              <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
-            </video>
+            <!-- Autoplay + loop + muted for mobile; tap-to-unmute overlay -->
+            <div class="relative">
+              <video class="w-full rounded-2xl" id="proofVideo" autoplay loop muted playsinline controls preload="metadata"
+                     poster="https://placehold.co/960x540/062018/8debb3?text=IRL+Stream+Proof">
+                <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
+                <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
+              </video>
+              <button id="soundBtn" class="absolute bottom-3 left-3 rounded-full bg-black/55 backdrop-blur px-3 py-1 text-xs font-semibold ring-1 ring-white/20 hover:bg-black/70">
+                🔊 Tap for sound
+              </button>
+            </div>
             <div class="mt-3 grid grid-cols-3 gap-3 text-center text-xs text-slate-300">
               <div class="rounded-xl bg-white/5 p-3 lift"><div class="text-white font-bold">Live close</div><div>on stream</div></div>
               <div class="rounded-xl bg-white/5 p-3 lift"><div class="text-white font-bold">Receipts</div><div>shown</div></div>
@@ -298,6 +247,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -349,7 +299,7 @@
         </div>
 
         <div class="relative rounded-2xl border border-vault-gold/50 bg-gradient-to-b from-vault-card to-vault-card/60 p-8 reveal lift holo">
-          <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0F1A14]" id="badge">Best Value</div>
+          <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0F1A0A]" id="badge">Best Value</div>
           <h3 class="text-xl font-bold">Lifetime</h3>
           <p class="mt-1 text-slate-300">Own the systems. Own the results.</p>
           <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-slate-400"> one-time</span></div>
@@ -384,11 +334,10 @@
     </div>
   </footer>
 
-  <!-- Neon cursor -->
   <div class="cursor-ring" id="cursor"></div>
 
   <script>
-    // ==== Assets ====
+    // Assets
     (function(){
       const logoEl = document.getElementById('logo');
       const primary = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
@@ -397,13 +346,13 @@
       document.getElementById('y').textContent = new Date().getFullYear();
     })();
 
-    // ==== Scroll reveal ====
+    // Reveal
     const rev = new IntersectionObserver((es)=>es.forEach(e=>{
       if(e.isIntersecting){ e.target.classList.add('revealed'); rev.unobserve(e.target); }
     }),{threshold:.15});
     document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
 
-    // ==== Parallax hero tilt ====
+    // Parallax tilt
     const hero = document.querySelector('.parallax');
     hero?.addEventListener('mousemove', (e)=>{
       const r = hero.getBoundingClientRect();
@@ -415,114 +364,108 @@
     });
     hero?.addEventListener('mouseleave', ()=> hero.querySelectorAll('.tilt').forEach(el=> el.style.transform='translateZ(40px)'));
 
-    // ==== Stat counters (formats 15k correctly) ====
+    // Counters
     function animateCount(el){
       const end = parseFloat(el.dataset.end||0);
       const decimals = parseInt(el.dataset.decimals||0,10);
       const prefix = el.dataset.prefix||"";
       const suffix = el.dataset.suffix||"";
-      const duration = 1200; let t0;
+      const duration = 1000; let t0;
       function step(ts){ if(!t0) t0=ts; const p=Math.min((ts-t0)/duration,1);
-        const val = (end*p).toFixed(decimals);
-        el.textContent = `${prefix}${val}${suffix}`;
-        if(p<1) requestAnimationFrame(step);
-      }
+        el.textContent = `${prefix}${(end*p).toFixed(decimals)}${suffix}`; if(p<1) requestAnimationFrame(step) }
       requestAnimationFrame(step);
     }
     const co = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ animateCount(e.target); co.unobserve(e.target); } }),{threshold:.4});
     document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
 
-    // ==== Magnetic buttons ====
+    // Magnetic buttons
     document.querySelectorAll(".magnetic").forEach(btn=>{
-      const str = 16;
-      btn.style.transition="transform .12s ease-out";
+      const str = 14; btn.style.transition="transform .12s ease-out";
       btn.addEventListener("mousemove",e=>{
         const r = btn.getBoundingClientRect();
         const x=((e.clientX-r.left)/r.width-.5)*2, y=((e.clientY-r.top)/r.height-.5)*2;
-        btn.style.transform=`translate(${x*str}px,${y*str}px)`;
-      });
+        btn.style.transform=`translate(${x*str}px,${y*str}px)`;});
       btn.addEventListener("mouseleave",()=> btn.style.transform="translate(0,0)");
     });
 
-    // ==== Neon cursor ring ====
+    // Cursor ring
     const ring = document.getElementById('cursor');
     window.addEventListener('mousemove', e=>{
-      ring.style.transform = `translate(${e.clientX-14}px, ${e.clientY-14}px)`;
-      ring.style.opacity = 1;
-    });
+      ring.style.transform = `translate(${e.clientX-14}px, ${e.clientY-14}px)`; ring.style.opacity = 1;
+    }, {passive:true});
     document.addEventListener('mouseleave', ()=> ring.style.opacity = 0);
     document.querySelectorAll('a,button,.cta,.magnetic').forEach(el=>{
-      el.addEventListener('mouseenter', ()=> ring.style.transform += ' scale(1.25)');
+      el.addEventListener('mouseenter', ()=> ring.style.transform += ' scale(1.22)');
       el.addEventListener('mouseleave', ()=> ring.style.transform = ring.style.transform.replace(/ scale\(.+\)/,''));
     });
 
-    // ==== Floating particles (lighter for smooth scroll) ====
+    // Particles (throttled for smoothness)
     (function(){
       const fx = document.getElementById('fx'), ctx = fx.getContext('2d');
-      let W,H,parts=[], last=0, fps=30, interval=1000/fps;
+      let W,H,parts=[], last=0, fps = (innerWidth<768)?24:32, interval=1000/fps;
       function resize(){ W=fx.width=innerWidth; H=fx.height=innerHeight; }
-      function spawn(n){ parts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.15,vy:(Math.random()-.5)*.15, r:Math.random()*1.4+0.4, a:Math.random()*0.4+0.2})); }
-      function loop(ts){
-        requestAnimationFrame(loop);
-        if(ts-last<interval) return; last=ts;
-        ctx.clearRect(0,0,W,H); ctx.fillStyle='rgba(0,179,110,.30)';
-        parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W) p.vx*=-1; if(p.y<0||p.y>H) p.vy*=-1; ctx.globalAlpha=p.a; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();});
+      function spawn(n){ parts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12,r:Math.random()*1.2+0.4,a:Math.random()*0.35+0.18})) }
+      function loop(ts){ requestAnimationFrame(loop); if(ts-last<interval) return; last=ts;
+        ctx.clearRect(0,0,W,H); ctx.fillStyle='rgba(0,179,110,.28)';
+        for(const p of parts){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W) p.vx*=-1; if(p.y<0||p.y>H) p.vy*=-1;
+          ctx.globalAlpha=p.a; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); }
       }
-      resize();
-      const small = Math.min(innerWidth, innerHeight) < 760;
-      spawn(small ? 20 : 35);       // fewer particles for mobile = smoother
-      addEventListener('resize',()=>{resize(); spawn(small ? 20 : 35);});
-      // Respect Reduced Motion
-      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){ requestAnimationFrame(loop); }
+      resize(); spawn(innerWidth<768?18:30);
+      addEventListener('resize',()=>{resize(); spawn(innerWidth<768?18:30)});
+      if(!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(loop);
     })();
 
-    // ==== Countdown (fixed, panic, progress, CTA text) ====
-    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00"; // <-- set your deadline
+    // Countdown
+    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00"; // set your deadline
     const PANIC_MS = 6*60*60*1000;
     const timerEl = document.getElementById('timer');
     const barEl = document.getElementById('deadlinebar');
     const ctas = document.querySelectorAll('.cta');
     const badge = document.getElementById('badge');
     const pad=n=>String(n).padStart(2,'0');
-
     const startTs = Date.now(); const endTs = new Date(COHORT_CLOSE_AT).getTime();
     function renderCountdown(){
       const left = Math.max(0, endTs - Date.now());
       const total = Math.max(1, endTs - startTs);
       const h = Math.floor(left/3.6e6), m = Math.floor((left%3.6e6)/6e4), s = Math.floor((left%6e4)/1e3);
-      if(timerEl) timerEl.textContent = `${pad(h)} : ${pad(m)} : ${pad(s)}`;
-      const p = left/total; barEl.style.transform = `scaleX(${p})`;
-
-      if (left <= PANIC_MS && left > 0){
-        timerEl.classList.add("text-red-400","animate-pulse","panic-glow");
-        timerEl.classList.remove("text-vault-emerald");
-        ctas.forEach(b=>{ b.classList.add("glow-pulse"); b.textContent = "Last seats — Join now"; });
-        badge && (badge.textContent = "Closing Soon");
-      } else if (left === 0){
+      timerEl.textContent = `${pad(h)} : ${pad(m)} : ${pad(s)}`;
+      barEl.style.transform = `scaleX(${left/total})`;
+      if(left<=PANIC_MS && left>0){
+        timerEl.classList.add("text-red-400","animate-pulse","panic-glow"); timerEl.classList.remove("text-vault-emerald");
+        ctas.forEach(b=>{b.classList.add("glow-pulse"); b.textContent="Last seats — Join now"}); badge && (badge.textContent="Closing Soon");
+      } else if(left===0){
         timerEl.classList.remove("animate-pulse","panic-glow","text-vault-emerald"); timerEl.classList.add("text-red-500");
-        ctas.forEach(b=>{ b.classList.remove("glow-pulse"); b.textContent="Join Waitlist"; b.href="#pricing"; b.classList.add("opacity-80","pointer-events-none"); });
-        badge && (badge.textContent = "Waitlist");
+        ctas.forEach(b=>{b.classList.remove("glow-pulse"); b.textContent="Join Waitlist"; b.href="#pricing"; b.classList.add("opacity-80","pointer-events-none")}); badge && (badge.textContent="Waitlist");
       } else {
         timerEl.classList.remove("text-red-400","text-red-500","animate-pulse","panic-glow"); timerEl.classList.add("text-vault-emerald");
-        ctas.forEach(b=> b.classList.remove("glow-pulse"));
-        badge && (badge.textContent = "Best Value");
+        ctas.forEach(b=>b.classList.remove("glow-pulse")); badge && (badge.textContent="Best Value");
       }
     }
     renderCountdown(); setInterval(renderCountdown,1000);
 
-    // ==== Mobile urgency bar (mirrors timer) ====
+    // Mobile urgency bar
     (function(){
       const bar=document.createElement('div');
       bar.className='urgency';
-      bar.innerHTML=`
-        <a href="#pricing" class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
-      `;
+      bar.innerHTML=`<a href="#pricing" class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>`;
       document.body.appendChild(bar);
       const tMini=bar.querySelector('#t-mini');
-      setInterval(()=>{
-        if(!timerEl||!tMini) return; tMini.textContent = timerEl.textContent;
-        if(timerEl.classList.contains('animate-pulse')) bar.querySelector('.cta').classList.add('glow-pulse');
-      },500);
+      setInterval(()=>{ tMini.textContent = timerEl.textContent; if(timerEl.classList.contains('animate-pulse')) bar.querySelector('.cta').classList.add('glow-pulse'); },500);
+    })();
+
+    // Video: tap to unmute (autoplay with sound is blocked on mobile)
+    (function(){
+      const v = document.getElementById('proofVideo');
+      const btn = document.getElementById('soundBtn');
+      if(!v || !btn) return;
+      const enableSound = async () => {
+        try {
+          v.muted = false; v.volume = 0.85;
+          await v.play(); btn.style.display='none';
+        } catch(e){ /* ignore */ }
+      };
+      btn.addEventListener('click', enableSound, {passive:true});
+      v.addEventListener('click', ()=>{ if(v.muted) enableSound(); }, {passive:true});
     })();
   </script>
 </body>
