@@ -10,32 +10,34 @@
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
   <!-- THEME COLOR (Deep Emerald bg) -->
-  <meta name="theme-color" content="#071510"/>
+  <meta name="theme-color" content="#03110C"/>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    /* ===== Tailwind palette (Deep Emerald) ===== */
+    /* ===== Tailwind palette (Futuristic Emerald + Gold) ===== */
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             vault: {
-              bg:   '#071510',   // page background
-              card: '#0D2018',   // surfaces/cards
-              gold: '#D3B24C',   // primary (gold)
-              goldh:'#BFA142'    // hover gold
+              bg:   '#03110C',   // deep near-black green background
+              card: '#062018',   // dark emerald card surface
+              gold: '#E6C55E',   // warm gold
+              goldh:'#CFAF4A',   // hover gold
+              emerald: '#00B36E' // vibrant emerald accent
             }
           },
           boxShadow: {
-            soft: '0 10px 30px rgba(0,0,0,.25)'
+            soft: '0 10px 30px rgba(0,0,0,.25)',
+            glow: '0 0 25px rgba(0,179,110,0.6)' // emerald glow
           }
         }
       }
     }
   </script>
   <style>
-    .glass{backdrop-filter:saturate(160%) blur(12px); background:rgba(7,21,16,.55)}
+    .glass{backdrop-filter:saturate(160%) blur(12px); background:rgba(3,17,12,.55)}
     .shine{background:linear-gradient(110deg,rgba(255,255,255,.08),rgba(255,255,255,0) 40%,rgba(255,255,255,.08));background-size:200% 100%;animation:shine 7s linear infinite}
     @keyframes shine{0%{background-position:200% 0}100%{background-position:-200% 0}}
   </style>
@@ -45,11 +47,11 @@
   <!-- Top strip -->
   <div class="sticky top-0 z-50 border-b border-white/10 glass">
     <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
-      <div>Seats Left: <span id="seats" class="font-semibold">7</span></div>
-      <div>Cohort closes in <span id="timer" class="tabular-nums"></span></div>
+      <div>Seats Left: <span id="seats" class="font-semibold text-vault-emerald">7</span></div>
+      <div>Cohort closes in <span id="timer" class="tabular-nums text-vault-emerald"></span></div>
       <div class="hidden sm:flex items-center gap-3">
-        <a href="#pricing" class="rounded-xl border border-white/15 px-3 py-1 hover:bg-white/5">See Pricing</a>
-        <a href="#pricing" class="rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0F1A14] hover:bg-vault-goldh">Join Now</a>
+        <a href="#pricing" class="rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-emerald/10 hover:text-vault-emerald">See Pricing</a>
+        <a href="#pricing" class="rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join Now</a>
       </div>
     </div>
   </div>
@@ -58,23 +60,23 @@
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a href="#" class="flex items-center gap-3">
       <img id="logo" class="h-9 w-9 rounded-lg ring-1 ring-white/10 shadow-soft" alt="Inner Vault logo"/>
-      <span class="tracking-widest text-sm text-slate-300">INNER VAULT</span>
+      <span class="tracking-widest text-sm text-vault-emerald">INNER VAULT</span>
     </a>
     <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
-      <a href="#proof" class="hover:text-white">Proof</a>
-      <a href="#unlock" class="hover:text-white">What You Unlock</a>
-      <a href="#how" class="hover:text-white">How It Works</a>
-      <a href="#pricing" class="hover:text-white">Pricing</a>
-      <a href="#faq" class="hover:text-white">FAQ</a>
+      <a href="#proof" class="hover:text-vault-emerald">Proof</a>
+      <a href="#unlock" class="hover:text-vault-emerald">What You Unlock</a>
+      <a href="#how" class="hover:text-vault-emerald">How It Works</a>
+      <a href="#pricing" class="hover:text-vault-emerald">Pricing</a>
+      <a href="#faq" class="hover:text-vault-emerald">FAQ</a>
     </nav>
     <div class="flex md:hidden">
-      <a href="#pricing" class="rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0F1A14] hover:bg-vault-goldh">Join</a>
+      <a href="#pricing" class="rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join</a>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="relative overflow-hidden">
-    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(211,178,76,.16),transparent_60%)]"></div>
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,179,110,.16),transparent_60%)]"></div>
     <div class="mx-auto max-w-7xl px-4 py-10 md:py-16">
       <div class="grid gap-10 md:grid-cols-2 md:items-center">
         <div>
@@ -88,10 +90,10 @@
             Frameworks to turn attention into income — fast.
           </p>
           <div class="mt-7 flex flex-wrap items-center gap-3">
-            <a href="#pricing" class="rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh">See Pricing</a>
-            <a href="#proof" class="rounded-2xl border border-white/15 px-6 py-3 hover:bg-white/5">View Proof ↓</a>
+            <a href="#pricing" class="rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">See Pricing</a>
+            <a href="#proof" class="rounded-2xl border border-vault-emerald px-6 py-3 hover:bg-vault-emerald/10 text-vault-emerald">View Proof ↓</a>
           </div>
-          <p class="mt-5 text-slate-400">Access to <span class="text-white font-semibold">No Code Society</span> is only through Inner Vault.</p>
+          <p class="mt-5 text-slate-400">Access to <span class="text-vault-emerald font-semibold">No Code Society</span> is only through Inner Vault.</p>
 
           <div class="mt-6 grid grid-cols-3 gap-3 text-center">
             <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10">
@@ -111,7 +113,7 @@
 
         <!-- Proof video -->
         <div id="proof" class="relative">
-          <div class="shine rounded-3xl border border-white/10 bg-vault-card p-3 shadow-soft">
+          <div class="shine rounded-3xl border border-vault-emerald/40 bg-vault-card p-3 shadow-soft">
             <video class="w-full rounded-2xl" id="proofVideo" controls playsinline poster="https://placehold.co/960x540/0d2018/7aa69a?text=IRL+Stream+Proof"></video>
             <div class="mt-3 grid grid-cols-3 gap-3 text-center text-xs text-slate-300">
               <div class="rounded-xl bg-white/5 p-3"><div class="text-white font-bold">Live close</div><div>on stream</div></div>
@@ -194,7 +196,7 @@
             <li>✔ Weekly live breakdowns</li>
             <li>✔ Templates & scripts</li>
           </ul>
-          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh">Start Monthly</a>
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Start Monthly</a>
         </div>
 
         <div class="relative rounded-2xl border border-vault-gold/50 bg-gradient-to-b from-vault-card to-vault-card/60 p-8">
@@ -207,7 +209,7 @@
             <li>✔ Private deal rooms</li>
             <li>✔ Super UGC license</li>
           </ul>
-          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh">Get Lifetime</a>
+          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Get Lifetime</a>
         </div>
       </div>
 
@@ -232,67 +234,4 @@
             Do I need a laptop?
             <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
           </summary>
-          <p class="mt-3 text-slate-300">No. Phone-only is supported. We give you prompts, DM flows, and mobile-first templates.</p>
-        </details>
-        <details class="group rounded-xl border border-white/10 bg-vault-card p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            How fast can I get results?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-slate-300">Many see movement in 48–72 hours. Your speed = your effort + offer fit + proof loop execution.</p>
-        </details>
-        <details class="group rounded-xl border border-white/10 bg-vault-card p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            What if I’m camera-shy?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-slate-300">Use Super UGC. You stay operator; let editors & pages syndicate your message.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <footer class="border-t border-white/10">
-    <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-slate-400">
-      <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
-      <div class="flex items-center gap-4">
-        <a href="#" class="hover:text-white">Terms</a>
-        <a href="#" class="hover:text-white">Privacy</a>
-        <a href="#pricing" class="hover:text-white">Join</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // assets
-    const logoSrc  = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
-    const videoSrc = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4";
-    document.getElementById('logo').src = logoSrc;
-    document.getElementById('proofVideo').src = videoSrc;
-
-    // footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // simple cohort countdown: 72h from first load
-    (function(){
-      const key = 'iv_countdown_start';
-      let start = localStorage.getItem(key);
-      if(!start){ start = Date.now(); localStorage.setItem(key, start); }
-      const end = Number(start) + 72*60*60*1000;
-
-      function tick(){
-        const now = Date.now();
-        const left = Math.max(0, end - now);
-        const h = Math.floor(left/3.6e6);
-        const m = Math.floor((left%3.6e6)/6e4);
-        const s = Math.floor((left%6e4)/1e3);
-        const pad=n=>String(n).padStart(2,'0');
-        const el=document.getElementById('timer');
-        if(el) el.textContent = `${pad(h)} : ${pad(m)} : ${pad(s)}`;
-        requestAnimationFrame(()=>setTimeout(tick, 1000));
-      }
-      tick();
-    })();
-  </script>
-</body>
-  </html>
+          <p class="mt-3 text-slate-300">No. Phone-only is supported. We give you prompts, DM flows, and mobile-first templates.</
