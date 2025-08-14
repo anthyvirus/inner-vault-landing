@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Inner Vault — Build Leverage. Convert Power.</title>
-  <meta name="description" content="Phone-only money systems. IRL chaos that prints. AI + prompt engineering that turns strangers into buyers. We don’t teach trends — we teach the engine: manufacture attention, emotion, and proof — then convert."/>
+  <meta name="description" content="Phone-only money systems. IRL chaos that prints. AI + prompt engineering that turns strangers into buyers. We teach the engine: manufacture attention → emotion → proof → conversion."/>
   <meta property="og:title" content="Inner Vault — Build Leverage. Convert Power."/>
-  <meta property="og:description" content="Phone-only systems, IRL streaming, AI & prompt engineering. Learn the engine: manufacture attention → emotion → proof → conversion."/>
+  <meta property="og:description" content="IRL streaming, AI & prompt engineering, Super UGC. Not trends — the mechanism that prints attention and converts it."/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
   <meta name="theme-color" content="#03110C"/>
@@ -14,7 +14,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    /* ===== Tailwind palette (Futuristic Emerald + Gold) ===== */
+    /* Tailwind palette (Futuristic Emerald + Gold) */
     tailwind.config = {
       theme: {
         extend: {
@@ -35,43 +35,97 @@
       }
     }
   </script>
+
   <style>
-    .glass{backdrop-filter:saturate(160%) blur(12px); background:rgba(3,17,12,.55)}
-    .shine{background:linear-gradient(110deg,rgba(255,255,255,.08),rgba(255,255,255,0) 40%,rgba(255,255,255,.08));background-size:200% 100%;animation:shine 7s linear infinite}
-    @keyframes shine{0%{background-position:200% 0}100%{background-position:-200% 0}}
-    .panic-glow{ text-shadow:0 0 8px rgba(239,68,68,.85),0 0 18px rgba(239,68,68,.55); }
-
-    /* Hero animated background glow */
-    .bg-animated{
+    /* --- Global vibe: animated gradient + grid + grain --- */
+    body{
       background:
-        radial-gradient(circle at 30% 20%, rgba(0,179,110,.18), transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(230,197,94,.12), transparent 55%);
-      background-size: 200% 200%;
-      animation: bgMove 12s ease-in-out infinite alternate;
+        radial-gradient(1200px 600px at 20% -10%, rgba(0,179,110,.18), transparent 60%),
+        radial-gradient(1000px 500px at 120% 120%, rgba(230,197,94,.12), transparent 55%),
+        #03110C;
+      animation:bgShift 16s ease-in-out infinite alternate;
     }
-    @keyframes bgMove{
-      0%{background-position: top left, bottom right}
-      100%{background-position: bottom right, top left}
-    }
+    @keyframes bgShift { 0%{background-position:0 0,0 0} 100%{background-position:30px -20px,-40px 20px} }
 
-    /* CTA panic pulse */
+    /* Thin cyber grid overlay */
+    .gridline:before{
+      content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 60px 60px, 60px 60px;
+      mix-blend-mode: overlay; opacity:.25;
+    }
+    /* Film grain */
+    .grain:after{
+      content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".05"/></svg>');
+      background-size: 200px 200px; mix-blend-mode: soft-light;
+      animation:grain 6s steps(6) infinite;
+    }
+    @keyframes grain{0%{transform:translate(0,0)}100%{transform:translate(20px,-15px)}}
+
+    /* Glass + shine (kept) */
+    .glass{backdrop-filter:saturate(160%) blur(12px); background:rgba(3,17,12,.55)}
+    .shine{background:linear-gradient(110deg,rgba(255,255,255,.08),rgba(255,255,255,0) 40%,rgba(255,255,255,.08));
+      background-size:200% 100%;animation:shine 7s linear infinite}
+    @keyframes shine{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+    /* Panic countdown */
+    .panic-glow{ text-shadow:0 0 8px rgba(239,68,68,.9),0 0 18px rgba(239,68,68,.6); }
+
+    /* Hero parallax wrapper */
+    .parallax{ transform-style:preserve-3d; perspective:1200px; }
+    .tilt { transform:translateZ(40px); }
+
+    /* CTA pulse in panic */
     .glow-pulse{ animation: glowPulse 1.6s infinite alternate }
     @keyframes glowPulse{
       from{ box-shadow: 0 0 10px rgba(230,197,94,.55), 0 0 20px rgba(230,197,94,.35) }
       to{   box-shadow: 0 0 20px rgba(230,197,94,.85), 0 0 40px rgba(230,197,94,.55) }
     }
+
+    /* Reveal on scroll */
+    .reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease}
+    .revealed{opacity:1; transform:translateY(0)}
+
+    /* Neon cursor ring */
+    .cursor-ring{
+      position: fixed; width:28px; height:28px; border:2px solid rgba(0,179,110,.75);
+      border-radius:50%; pointer-events:none; z-index:50; mix-blend-mode:screen;
+      box-shadow: 0 0 12px rgba(0,179,110,.7);
+      transition: transform .08s linear, opacity .2s ease;
+    }
+
+    /* Sticky urgency bar (mobile dopamine) */
+    .urgency{
+      position: fixed; left:0; right:0; bottom:8px; z-index:40;
+      display:flex; gap:.5rem; justify-content:center; align-items:center;
+    }
+
+    /* Progress bar for countdown */
+    .deadlinebar{height:3px; background:linear-gradient(90deg,#E6C55E,#00B36E); transform-origin:left center; transition:transform .4s linear}
   </style>
 </head>
-<body class="bg-vault-bg text-slate-100 selection:bg-vault-gold selection:text-[#0A0A0A]">
+<body class="gridline grain bg-vault-bg text-slate-100 selection:bg-vault-gold selection:text-[#0A0A0A]">
 
-  <!-- Top strip -->
+  <!-- Floating particles canvas -->
+  <canvas id="fx" class="fixed inset-0 -z-10"></canvas>
+
+  <!-- Top urgency strip -->
   <div class="sticky top-0 z-50 border-b border-white/10 glass">
+    <div class="mx-auto max-w-7xl px-4 pt-2">
+      <div class="deadlinebar" id="deadlinebar"></div>
+    </div>
     <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
       <div>Seats Left: <span id="seats" class="font-semibold text-vault-emerald">7</span></div>
-      <div>Cohort closes in <span id="timer" class="tabular-nums text-vault-emerald"></span></div>
+      <div class="flex items-center gap-2">
+        <span>Cohort closes in</span>
+        <span id="timer" class="tabular-nums text-vault-emerald"></span>
+      </div>
       <div class="hidden sm:flex items-center gap-3">
         <a href="#pricing" class="magnetic rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-emerald/10 hover:text-vault-emerald">See Pricing</a>
-        <a href="#pricing" class="magnetic cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0F1A0F] hover:bg-vault-goldh shadow-glow">Join Now</a>
+        <a href="#pricing" id="joinTop" class="magnetic cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join Now</a>
       </div>
     </div>
   </div>
@@ -90,56 +144,50 @@
       <a href="#faq" class="hover:text-vault-emerald">FAQ</a>
     </nav>
     <div class="flex md:hidden">
-      <a href="#pricing" class="magnetic cta rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join</a>
+      <a href="#pricing" id="joinMobile" class="magnetic cta rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Join</a>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="relative overflow-hidden bg-animated">
+  <section class="relative overflow-hidden parallax">
     <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(0,179,110,.16),transparent_60%)]"></div>
     <div class="mx-auto max-w-7xl px-4 py-10 md:py-16">
       <div class="grid gap-10 md:grid-cols-2 md:items-center">
-        <div class="reveal">
+        <div class="reveal tilt">
           <p class="mb-3 tracking-widest text-xs text-slate-400">INNER VAULT</p>
           <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
             Build <span class="text-vault-gold">Leverage</span>.<br/>
             Convert <span class="text-vault-gold">Power</span>.
           </h1>
           <p class="mt-4 text-lg text-slate-300">
-            Phone-only money. IRL shenanigans with structure. AI + prompt engineering that replaces departments.
-            We don’t chase trends — we run the mechanism:
-            <span class="text-vault-emerald">manufacture attention → create emotion → capture proof → convert.</span>
+            You don’t need gear. You need a mechanism. We make the internet chase you:
+            <span class="text-vault-emerald">manufacture attention → trigger emotion → capture proof → convert</span>.
+            IRL streaming, AI+prompts, Super UGC. Plug in. Print.
           </p>
           <div class="mt-7 flex flex-wrap items-center gap-3">
-            <a href="#pricing" class="magnetic cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">See Pricing</a>
+            <a href="#pricing" class="magnetic cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow" id="primaryCta">See Pricing</a>
             <a href="#proof" class="magnetic rounded-2xl border border-vault-emerald px-6 py-3 hover:bg-vault-emerald/10 text-vault-emerald">View Proof ↓</a>
           </div>
           <p class="mt-5 text-slate-400">Access to <span class="text-vault-emerald font-semibold">No Code Society</span> is only through Inner Vault.</p>
 
           <div class="mt-6 grid grid-cols-3 gap-3 text-center">
             <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal">
-              <div class="text-2xl font-extrabold text-white">
-                <span data-count data-end="15000" data-prefix="$" data-suffix="k" data-decimals="0">$15k</span>
-              </div>
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="15000" data-prefix="$" data-suffix="k">15</span></div>
               <div class="text-xs text-slate-300">Prompt deal</div>
             </div>
             <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal">
-              <div class="text-2xl font-extrabold text-white">
-                <span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span>
-              </div>
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span></div>
               <div class="text-xs text-slate-300">DM replies</div>
             </div>
             <div class="rounded-xl bg-vault-card/70 p-4 ring-1 ring-white/10 reveal">
-              <div class="text-2xl font-extrabold text-white">
-                <span data-count data-end="48" data-suffix="h" data-decimals="0">48h</span>
-              </div>
+              <div class="text-2xl font-extrabold text-white"><span data-count data-end="48" data-suffix="h">48h</span></div>
               <div class="text-xs text-slate-300">to first sale</div>
             </div>
           </div>
         </div>
 
         <!-- Proof video -->
-        <div id="proof" class="relative reveal">
+        <div id="proof" class="relative reveal tilt">
           <div class="shine rounded-3xl border border-vault-emerald/40 bg-vault-card p-3 shadow-soft">
             <video class="w-full rounded-2xl" id="proofVideo" controls playsinline preload="metadata" poster="https://placehold.co/960x540/062018/8debb3?text=IRL+Stream+Proof">
               <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
@@ -161,30 +209,12 @@
     <div class="mx-auto max-w-7xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">What You’ll Build Inside</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="font-semibold">Phone-Only Closers</h3>
-          <p class="mt-2 text-slate-300">DM macros, reply trees, and prompts so you can sell from your pocket.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="font-semibold">IRL Stream System</h3>
-          <p class="mt-2 text-slate-300">Chaos with a blueprint: hooks, retention loops, clip traps, monetization.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="font-semibold">Super UGC Army</h3>
-          <p class="mt-2 text-slate-300">Recruit editors, syndicate everywhere, own the feed without being online 24/7.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="font-semibold">Reflexivity Engine</h3>
-          <p class="mt-2 text-slate-300">Signal → belief → demand. Make them chase you before you sell.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="font-semibold">Conversion Stack</h3>
-          <p class="mt-2 text-slate-300">Offers, CTAs, and ethical scarcity that isn’t cringe. WHOP templates included.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="font-semibold">Proof Flywheel</h3>
-          <p class="mt-2 text-slate-300">Turn one win into 30 days of content and compounding trust.</p>
-        </div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Phone-Only Closers</h3><p class="mt-2 text-slate-300">DM macros, reply trees, prompts. Close from your pocket.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">IRL Stream System</h3><p class="mt-2 text-slate-300">Hooks, retention loops, clip traps. Chaos with a blueprint.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Super UGC Army</h3><p class="mt-2 text-slate-300">Recruit editors, syndicate everywhere. You own the feed.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Reflexivity Engine</h3><p class="mt-2 text-slate-300">Signal → belief → demand. Make them chase you first.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Conversion Stack</h3><p class="mt-2 text-slate-300">Offers, CTAs, ethical scarcity. WHOP templates included.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="font-semibold">Proof Flywheel</h3><p class="mt-2 text-slate-300">1 win → 30 days of content → compounding trust.</p></div>
       </div>
     </div>
   </section>
@@ -194,18 +224,9 @@
     <div class="mx-auto max-w-7xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold">How the Vault Prints</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="text-xl font-semibold">1) Prime Desire</h3>
-          <p class="mt-2 text-slate-300">Manufacture attention first. Storylines, stakes, and emotion before product.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="text-xl font-semibold">2) Capture Proof</h3>
-          <p class="mt-2 text-slate-300">IRL + receipts. Unedited beats over-edited. Proof > polish.</p>
-        </div>
-        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal">
-          <h3 class="text-xl font-semibold">3) Convert on Command</h3>
-          <p class="mt-2 text-slate-300">Super UGC distribution + tight CTAs → WHOP checkout in minutes.</p>
-        </div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="text-xl font-semibold">1) Prime Desire</h3><p class="mt-2 text-slate-300">Storylines > features. We script emotion before supply.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="text-xl font-semibold">2) Capture Proof</h3><p class="mt-2 text-slate-300">IRL + receipts. Proof beats polish — every time.</p></div>
+        <div class="rounded-2xl border border-white/10 bg-vault-card p-6 reveal"><h3 class="text-xl font-semibold">3) Convert on Command</h3><p class="mt-2 text-slate-300">Super UGC + tight CTAs → checkout in minutes.</p></div>
       </div>
     </div>
   </section>
@@ -214,7 +235,7 @@
   <section id="pricing" class="border-t border-white/10 bg-vault-card/40 reveal">
     <div class="mx-auto max-w-6xl px-4 py-16 text-center">
       <h2 class="text-3xl md:text-4xl font-bold">Join Inner Vault</h2>
-      <p class="mt-2 text-slate-400">No fluff. No theory. Plug-and-print plays for the 2025 internet.</p>
+      <p class="mt-2 text-slate-400">No fluff. Just plays that print on a 2025 internet.</p>
 
       <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
         <div class="rounded-2xl border border-white/10 bg-vault-card p-8 reveal">
@@ -226,11 +247,11 @@
             <li>✔ Weekly live breakdowns</li>
             <li>✔ Templates & scripts</li>
           </ul>
-          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="magnetic cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Start Monthly</a>
+          <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" id="ctaMonthly" class="magnetic cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Start Monthly</a>
         </div>
 
         <div class="relative rounded-2xl border border-vault-gold/50 bg-gradient-to-b from-vault-card to-vault-card/60 p-8 reveal">
-          <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0F1A14]">Best Value</div>
+          <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0F1A14]" id="badge">Best Value</div>
           <h3 class="text-xl font-bold">Lifetime</h3>
           <p class="mt-1 text-slate-300">Own the systems. Own the results.</p>
           <div class="mt-4 text-4xl font-extrabold">$399<span class="text-base font-semibold text-slate-400"> one-time</span></div>
@@ -239,7 +260,7 @@
             <li>✔ Private deal rooms</li>
             <li>✔ Super UGC license</li>
           </ul>
-          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="magnetic cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Get Lifetime</a>
+          <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" id="ctaLifetime" class="magnetic cta mt-6 inline-block w-full rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] hover:bg-vault-goldh shadow-glow">Get Lifetime</a>
         </div>
       </div>
 
@@ -260,47 +281,24 @@
       <h2 class="text-3xl md:text-4xl font-bold">FAQ</h2>
       <div class="mt-6 space-y-4">
         <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            Do I need a laptop?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">Do I need a laptop?
+            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
           <p class="mt-3 text-slate-300">No. Phone-only is supported. We give you prompts, DM flows, and mobile-first templates.</p>
         </details>
         <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            How fast can I get results?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-slate-300">Many see movement in 48–72 hours. Your speed = your effort + offer fit + proof loop execution.</p>
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">How fast can I get results?
+            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
+          <p class="mt-3 text-slate-300">Many see movement in 48–72 hours. Your speed = execution × offer fit × proof loop.</p>
         </details>
         <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            What if I’m camera-shy?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-slate-300">Use Super UGC. You stay operator; let editors & pages syndicate your message.</p>
-        </details>
-        <!-- New FAQs -->
-        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            What if I have zero followers?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-slate-300">Built for day-one operators. We help you create proof and reach from scratch.</p>
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">What if I’m camera-shy?
+            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
+          <p class="mt-3 text-slate-300">Use Super UGC. You operate; editors + pages syndicate your message.</p>
         </details>
         <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            Do I need money to start?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-slate-300">No. Your leverage is execution + proof. The systems run on a phone.</p>
-        </details>
-        <details class="group rounded-xl border border-white/10 bg-vault-card p-5 reveal">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">
-            How much time per day do I need?
-            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-slate-300">Give it 1–2 hours daily and execute. Faster work = faster results.</p>
+          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium">What if I have zero followers?
+            <span class="text-slate-400 group-open:hidden">＋</span><span class="hidden text-slate-400 group-open:inline">－</span></summary>
+          <p class="mt-3 text-slate-300">Built for day-one. We show you how to create proof and reach from scratch.</p>
         </details>
       </div>
     </div>
@@ -317,101 +315,129 @@
     </div>
   </footer>
 
+  <!-- Neon cursor -->
+  <div class="cursor-ring" id="cursor"></div>
+
   <script>
-    // Correct logo with fallback
+    // ==== Assets ====
     (function(){
       const logoEl = document.getElementById('logo');
       const primary = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
       const fallback = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
       if (logoEl){ logoEl.src = primary; logoEl.onerror = ()=> logoEl.src = fallback; }
+      document.getElementById('y').textContent = new Date().getFullYear();
     })();
 
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // ==== Scroll reveal ====
+    const rev = new IntersectionObserver((es)=>es.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('revealed'); rev.unobserve(e.target); }
+    }),{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
 
-    // ==== Scroll Reveal ====
-    document.querySelectorAll(".reveal").forEach(el=>{
-      el.classList.add("opacity-0","translate-y-6","transition-all","duration-700");
-    });
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add("opacity-100","translate-y-0");
-          io.unobserve(e.target);
-        }
+    // ==== Parallax hero tilt ====
+    const hero = document.querySelector('.parallax');
+    hero?.addEventListener('mousemove', (e)=>{
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left)/r.width - .5;
+      const y = (e.clientY - r.top)/r.height - .5;
+      hero.querySelectorAll('.tilt').forEach(el=>{
+        el.style.transform = `translateZ(40px) rotateX(${ -y*4 }deg) rotateY(${ x*6 }deg)`;
       });
-    }, {threshold:0.15});
-    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+    });
+    hero?.addEventListener('mouseleave', ()=> hero.querySelectorAll('.tilt').forEach(el=> el.style.transform='translateZ(40px)'));
 
-    // ==== Stat Counters ====
+    // ==== Stat counters ====
     function animateCount(el){
-      const end = parseFloat(el.dataset.end || "0");
-      const decimals = parseInt(el.dataset.decimals || "0",10);
-      const prefix = el.dataset.prefix || "";
-      const suffix = el.dataset.suffix || "";
-      const duration = 1500;
-      let startTime;
-      function step(ts){
-        if(!startTime) startTime = ts;
-        const p = Math.min((ts - startTime)/duration, 1);
-        const val = (end * p).toFixed(decimals);
-        el.textContent = `${prefix}${val}${suffix}`;
-        if(p < 1) requestAnimationFrame(step);
-      }
+      const end = parseFloat(el.dataset.end||0);
+      const decimals = parseInt(el.dataset.decimals||0,10);
+      const prefix = el.dataset.prefix||"";
+      const suffix = el.dataset.suffix||"";
+      const duration = 1500; let t0;
+      function step(ts){ if(!t0) t0=ts; const p=Math.min((ts-t0)/duration,1);
+        el.textContent = `${prefix}${(end*p).toFixed(decimals)}${suffix}`; if(p<1) requestAnimationFrame(step) }
       requestAnimationFrame(step);
     }
-    const counterObserver = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ animateCount(e.target); counterObserver.unobserve(e.target); }
-      });
-    }, {threshold:0.4});
-    document.querySelectorAll("[data-count]").forEach(el=>counterObserver.observe(el));
+    const co = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ animateCount(e.target); co.unobserve(e.target); } }),{threshold:.4});
+    document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
 
-    // ==== Magnetic Buttons ====
+    // ==== Magnetic buttons ====
     document.querySelectorAll(".magnetic").forEach(btn=>{
-      const strength = 18; // px
-      btn.style.transition = "transform .12s ease-out";
-      btn.addEventListener("mousemove", (e)=>{
+      const str = 16;
+      btn.style.transition="transform .12s ease-out";
+      btn.addEventListener("mousemove",e=>{
         const r = btn.getBoundingClientRect();
-        const x = ((e.clientX - r.left) / r.width - 0.5) * 2;
-        const y = ((e.clientY - r.top) / r.height - 0.5) * 2;
-        btn.style.transform = `translate(${x*strength}px, ${y*strength}px)`;
+        const x=((e.clientX-r.left)/r.width-.5)*2, y=((e.clientY-r.top)/r.height-.5)*2;
+        btn.style.transform=`translate(${x*str}px,${y*str}px)`;
       });
-      btn.addEventListener("mouseleave", ()=> btn.style.transform = "translate(0,0)");
+      btn.addEventListener("mouseleave",()=> btn.style.transform="translate(0,0)");
     });
 
-    // ===== FIXED COHORT COUNTDOWN (no reset) + PANIC MODE =====
-    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00"; // <-- set your deadline (UTC+12 example)
-    const PANIC_MS = 6 * 60 * 60 * 1000;
-    const timerEl = document.getElementById("timer");
-    const pad = n => String(n).padStart(2,'0');
+    // ==== Neon cursor ring ====
+    const ring = document.getElementById('cursor');
+    window.addEventListener('mousemove', e=>{
+      ring.style.transform = `translate(${e.clientX-14}px, ${e.clientY-14}px)`;
+      ring.style.opacity = 1;
+    });
+    document.addEventListener('mouseleave', ()=> ring.style.opacity = 0);
 
+    // ==== Floating particles (lightweight) ====
+    const fx = document.getElementById('fx'), ctx = fx.getContext('2d');
+    let W,H,parts=[]; function resize(){ W=fx.width=innerWidth; H=fx.height=innerHeight; }
+    function spawn(){ parts=Array.from({length:70},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2, r:Math.random()*1.6+0.4, a:Math.random()*0.5+0.2})); }
+    function loop(){ ctx.clearRect(0,0,W,H); ctx.fillStyle='rgba(0,179,110,.35)'; parts.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W) p.vx*=-1; if(p.y<0||p.y>H) p.vy*=-1; ctx.globalAlpha=p.a; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();}); requestAnimationFrame(loop);}
+    resize(); spawn(); addEventListener('resize',()=>{resize(); spawn();}); loop();
+
+    // ==== Countdown (fixed, panic, progress, CTA text) ====
+    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00"; // <- set your deadline
+    const PANIC_MS = 6*60*60*1000;
+    const timerEl = document.getElementById('timer');
+    const barEl = document.getElementById('deadlinebar');
+    const ctas = document.querySelectorAll('.cta');
+    const badge = document.getElementById('badge');
+    const pad=n=>String(n).padStart(2,'0');
+
+    const startTs = Date.now(); const endTs = new Date(COHORT_CLOSE_AT).getTime();
     function renderCountdown(){
-      const closeTs = new Date(COHORT_CLOSE_AT).getTime();
-      const left = Math.max(0, closeTs - Date.now());
-      const h = Math.floor(left/3.6e6);
-      const m = Math.floor((left%3.6e6)/6e4);
-      const s = Math.floor((left%6e4)/1e3);
-      if (timerEl){
-        timerEl.textContent = `${pad(h)} : ${pad(m)} : ${pad(s)}`;
-        const ctAs = document.querySelectorAll(".cta");
-        if (left <= PANIC_MS && left > 0){
-          timerEl.classList.add("text-red-400","animate-pulse","panic-glow");
-          timerEl.classList.remove("text-vault-emerald");
-          ctAs.forEach(b=>b.classList.add("glow-pulse"));
-        } else if (left === 0){
-          timerEl.classList.remove("animate-pulse","panic-glow","text-vault-emerald");
-          timerEl.classList.add("text-red-500");
-          ctAs.forEach(b=>b.classList.remove("glow-pulse"));
-        } else {
-          timerEl.classList.remove("text-red-400","text-red-500","animate-pulse","panic-glow");
-          timerEl.classList.add("text-vault-emerald");
-          ctAs.forEach(b=>b.classList.remove("glow-pulse"));
-        }
+      const left = Math.max(0, endTs - Date.now());
+      const total = Math.max(1, endTs - startTs);
+      const h = Math.floor(left/3.6e6), m = Math.floor((left%3.6e6)/6e4), s = Math.floor((left%6e4)/1e3);
+      if(timerEl) timerEl.textContent = `${pad(h)} : ${pad(m)} : ${pad(s)}`;
+
+      // progress bar
+      const p = left/total; barEl.style.transform = `scaleX(${p})`;
+
+      // panic mode + CTA text
+      if (left <= PANIC_MS && left > 0){
+        timerEl.classList.add("text-red-400","animate-pulse","panic-glow");
+        timerEl.classList.remove("text-vault-emerald");
+        ctas.forEach(b=>{ b.classList.add("glow-pulse"); b.textContent = "Last seats — Join now"; });
+        badge && (badge.textContent = "Closing Soon");
+      } else if (left === 0){
+        timerEl.classList.remove("animate-pulse","panic-glow","text-vault-emerald"); timerEl.classList.add("text-red-500");
+        ctas.forEach(b=>{ b.classList.remove("glow-pulse"); b.textContent="Join Waitlist"; b.href="#pricing"; b.classList.add("opacity-80","pointer-events-none"); });
+        badge && (badge.textContent = "Waitlist");
+      } else {
+        timerEl.classList.remove("text-red-400","text-red-500","animate-pulse","panic-glow"); timerEl.classList.add("text-vault-emerald");
+        ctas.forEach(b=> b.classList.remove("glow-pulse"));
+        badge && (badge.textContent = "Best Value");
       }
     }
-    renderCountdown();
-    setInterval(renderCountdown, 1000);
+    renderCountdown(); setInterval(renderCountdown,1000);
+
+    // ==== Mobile urgency bar ====
+    (function(){
+      const bar=document.createElement('div');
+      bar.className='urgency';
+      bar.innerHTML=`
+        <a href="#pricing" class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0F1A14] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
+      `;
+      document.body.appendChild(bar);
+      const tMini=bar.querySelector('#t-mini');
+      setInterval(()=>{
+        if(!timerEl||!tMini) return; tMini.textContent = timerEl.textContent;
+        if(timerEl.classList.contains('animate-pulse')) bar.querySelector('.cta').classList.add('glow-pulse');
+      },500);
+    })();
   </script>
 </body>
-          </html>
+        </html>
