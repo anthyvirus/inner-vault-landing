@@ -6,12 +6,12 @@
   <title>Inner Vault — Build Leverage. Convert Power.</title>
 
   <!-- Meta -->
-  <meta name="description" content="Pacific warrior energy, phone-first execution. Stripe from the islands. $5k–$15k AI prompts. IRL proof. The mechanism: manufacture attention → emotion → proof → conversion."/>
+  <meta name="description" content="Pacific warrior energy. Stripe from the islands. $5k–$15k AI prompts. IRL proof. The mechanism: manufacture attention → emotion → proof → conversion."/>
   <meta property="og:title" content="Inner Vault — Build Leverage. Convert Power."/>
   <meta property="og:description" content="Not ‘content’. A system. Stripe anywhere. IRL + AI + Super UGC. The engine the Pacific was missing."/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
-  <meta name="theme-color" content="#05120E"/>
+  <meta name="theme-color" content="#050E0B"/>
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>'"/>
 
@@ -23,8 +23,8 @@
         extend: {
           colors: {
             vault: {
-              bg:    '#05120E',  /* deep emerald/black */
-              card:  '#0D2A22',  /* surfaces - high contrast */
+              bg:    '#050E0B',  /* deep emerald/black */
+              card:  '#0D2A22',  /* surfaces */
               gold:  '#E6C55E',  /* matte gold */
               goldh: '#CFAF4A',
               em:    '#00B36E',  /* emerald accent */
@@ -44,30 +44,53 @@
   <!-- Styles -->
   <style>
     html{scroll-behavior:smooth}
-    body{background:#05120E;padding-bottom:90px}
+    body{background:#050E0B;padding-bottom:90px}
 
-    /* ===== BACKGROUND VIBE LAYERS ===== */
+    /* ===== BACKGROUND STACK ===== */
+    /* Aurora + BLOOD VIGNETTE for war vibe */
     .aurora{
-      position:fixed; inset:-8% -8% auto -8%; height:72vh; z-index:-3; pointer-events:none;
+      position:fixed; inset:-8% -8% auto -8%; height:74vh; z-index:-4; pointer-events:none;
       filter:blur(42px) saturate(140%);
       background:
-        conic-gradient(from 0deg at 20% 40%, rgba(255,74,26,.17), transparent 60%),
-        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.16), transparent 62%),
-        radial-gradient(900px 440px at 60% 10%, rgba(0,179,110,.22), transparent 65%);
+        radial-gradient(1200px 540px at 70% 10%, rgba(0,179,110,.22), transparent 65%),
+        conic-gradient(from 0deg at 20% 40%, rgba(255,86,30,.18), transparent 60%),
+        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.16), transparent 62%);
       animation:aShift 16s ease-in-out infinite alternate;
+    }
+    .blood{
+      position:fixed; inset:0; z-index:-3; pointer-events:none;
+      background:
+        radial-gradient(1200px 500px at 50% 100%, rgba(160,18,22,.22), transparent 60%),
+        radial-gradient(900px 420px at 0% 100%, rgba(160,18,22,.16), transparent 60%),
+        radial-gradient(900px 420px at 100% 100%, rgba(160,18,22,.16), transparent 60%);
+      mix-blend-mode:screen;
     }
     @keyframes aShift{0%{transform:translateY(-2%) rotate(0)}100%{transform:translateY(3%) rotate(5deg)}}
 
+    /* Tapa pattern (subtle) */
     .tapa:before{
       content:""; position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.07;
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180"><defs><pattern id="p" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M0 22.5h45M22.5 0v45" stroke="%23ffffff" stroke-opacity=".75" stroke-width="1"/><path d="M0 0l22.5 22.5L0 45 22.5 22.5 45 0 22.5 22.5 45 45" fill="none" stroke="%23ffffff" stroke-opacity=".42" stroke-width="0.8"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180"><defs><pattern id="p" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M0 22.5h45M22.5 0v45" stroke="%23ffffff" stroke-opacity=".7" stroke-width="1"/><path d="M0 0l22.5 22.5L0 45 22.5 22.5 45 0 22.5 22.5 45 45" fill="none" stroke="%23ffffff" stroke-opacity=".38" stroke-width="0.8"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
       mix-blend-mode:overlay;
       animation:tapaFloat 30s linear infinite;
     }
     @keyframes tapaFloat{from{transform:translate3d(0,0,0)}to{transform:translate3d(-180px,-180px,0)}}
 
-    /* Ember field (canvas) at z:-4 */
-    .spears{position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.14}
+    /* Scar stripes (diagonal war scars) */
+    .scars{
+      position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.20;
+      background:
+        repeating-linear-gradient(-14deg,
+          rgba(230,197,94,.10) 0 12px,
+          transparent 12px 22px),
+        repeating-linear-gradient(14deg,
+          rgba(0,179,110,.10) 0 10px,
+          transparent 10px 24px);
+      mask-image:radial-gradient(60% 60% at 50% 40%, #000 45%, transparent 80%);
+    }
+
+    /* Ember field (canvas) lives at z:-5 */
+    .spears{position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.18}
     .spear{
       position:absolute; width:22vw; max-width:320px; aspect-ratio:1/6; background-repeat:no-repeat; background-size:contain;
       filter:drop-shadow(0 10px 18px rgba(0,0,0,.55));
@@ -97,7 +120,7 @@
 
     .star{width:16px;height:16px;display:inline-block;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23E6C55E"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.739 1.548 8.268L12 18.896l-7.484 4.417 1.548-8.268L0 9.306l8.332-1.151z"/></svg>') center/contain no-repeat}
 
-    /* Headline slash vibe */
+    /* Headline gold slash */
     .slash{position:relative; display:inline-block}
     .slash:after{
       content:""; position:absolute; left:-4px; right:-4px; bottom:4px; height:10px; z-index:-1; filter:blur(6px);
@@ -112,8 +135,10 @@
 
 <body class="tapa bg-vault-bg text-vault-text selection:bg-vault-gold selection:text-[#0A0A0A]">
   <!-- BG layers -->
-  <canvas id="embers" class="fixed inset-0 -z-4"></canvas>
+  <canvas id="embers" class="fixed inset-0 -z-5"></canvas>
   <div class="aurora"></div>
+  <div class="blood"></div>
+  <div class="scars"></div>
   <div class="spears">
     <div class="spear s1" style="--r:-12deg"></div>
     <div class="spear s2" style="--r:8deg"></div>
@@ -173,8 +198,8 @@
           </h1>
 
           <p class="mt-4 text-lg text-vault-text">
-            This is a cult of execution. From the South Pacific to the world.  
-            Get paid on Stripe from the islands. Sell <span class="text-white font-semibold">$5k–$15k</span> AI prompts.  
+            This is a cult of execution. From the South Pacific to the world.
+            Get paid on Stripe from the islands. Sell <span class="text-white font-semibold">$5k–$15k</span> AI prompts.
             Run IRL proof that closes. Not “content” — a <span class="text-vault-em font-medium">money mechanism</span>:
             manufacture attention → trigger emotion → capture proof → convert on command.
           </p>
@@ -324,18 +349,17 @@
     <a href="#pricing" class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
-  <!-- SFX -->
-  <audio id="sfxWaves" preload="auto" loop>
-    <source src="/sfx-waves.mp3" type="audio/mpeg"/>
+  <!-- BACKGROUND AUDIO: use the SOUND from this MP4 only -->
+  <!-- Place lv_0_20250815112807.mp4 in the project root or adjust src -->
+  <audio id="bgAudio" preload="auto" loop>
+    <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
+    <source src="/lv_0_20250815112807.mp4" type="audio/mp4"/>
   </audio>
-  <audio id="sfxArrow" preload="auto">
-    <source src="/sfx-arrow.mp3" type="audio/mpeg"/>
-  </audio>
-  <button id="sfxToggle" class="ambience" aria-label="Toggle ambience">🔇 sfx</button>
+  <button id="sfxToggle" class="ambience" aria-label="Toggle background sound">🔇 sound</button>
 
   <!-- Scripts -->
   <script>
-    // Logo + year
+    // assets
     (function(){
       const logoSrc  = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
       const fallback = "https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
@@ -344,18 +368,18 @@
       document.getElementById('y').textContent = new Date().getFullYear();
     })();
 
-    // Ember canvas (gold sparks rising)
+    // Ember canvas (gold + blood sparks)
     (function(){
       const c = document.getElementById('embers'), ctx = c.getContext('2d');
       let W,H,parts=[];
-      function rs(){W=c.width=innerWidth; H=c.height=innerHeight; const n=innerWidth<768?60:110;
-        parts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.2+.3,op:Math.random()*.5+.2, hue:Math.random()<.25?22:46}));
+      function rs(){W=c.width=innerWidth; H=c.height=innerHeight; const n=innerWidth<768?70:130;
+        parts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.2+.3,op:Math.random()*.5+.25, blood:Math.random()<.35}));
       }
       function loop(){
         ctx.clearRect(0,0,W,H);
         for(const p of parts){
           ctx.globalAlpha=p.op;
-          ctx.fillStyle = p.hue===22 ? 'rgba(255,90,40,.9)' : 'rgba(230,197,94,.85)';
+          ctx.fillStyle = p.blood ? 'rgba(180,20,24,.85)' : 'rgba(230,197,94,.85)';
           ctx.beginPath(); ctx.arc(p.x,p.y,p.s,0,6.283); ctx.fill();
           p.y -= p.s*.35; p.x += Math.sin(p.y/50)*.2;
           if(p.y<-2){ p.y=H+2; p.x=Math.random()*W; }
@@ -390,60 +414,68 @@
     }
     tick();
 
-    // Video sound strategy
+    // Main proof video: autoplay + loop; unmute on first interaction if blocked
     (async function(){
       const v=document.getElementById('proofVideo'); if(!v) return;
-      try{ v.muted=false; v.volume=.9; await v.play(); }
+      try{ v.muted=false; v.volume=.95; await v.play(); }
       catch(e){
         v.muted=true; try{ await v.play(); }catch(_){}
-        const go=async()=>{ try{ v.muted=false; v.removeAttribute('muted'); v.volume=.9; await v.play(); stop(); }catch(_){} };
+        const go=async()=>{ try{ v.muted=false; v.removeAttribute('muted'); v.volume=.95; await v.play(); stop(); }catch(_){} };
         const stop=()=>['touchstart','pointerdown','keydown','scroll'].forEach(ev=>removeEventListener(ev,go));
         ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>addEventListener(ev,go,{once:true,passive:true}));
       }
     })();
 
-    // SFX: waves loop + random arrow whooshes (start on first interaction, mobile-safe)
+    // BACKGROUND SOUND from provided MP4 (runs loop; ducks when video plays; fades in on pause)
     (function(){
-      const waves=document.getElementById('sfxWaves');
-      const arrow=document.getElementById('sfxArrow');
-      const btn=document.getElementById('sfxToggle');
-      if(!waves || !arrow || !btn) return;
-      waves.volume=.12; // soft ocean rumble
-      arrow.volume=.25; // quick whoosh
+      const A = document.getElementById('bgAudio');
+      const btn = document.getElementById('sfxToggle');
+      const V = document.getElementById('proofVideo');
+      if(!A || !btn) return;
 
-      let whooshTimer=null;
-      function scheduleWhoosh(){
-        const next = 3200 + Math.random()*5200; // 3.2s – 8.4s
-        whooshTimer = setTimeout(()=>{
-          try{ arrow.currentTime=0; arrow.play(); }catch(_){}
-          scheduleWhoosh();
-        }, next);
+      let targetVol = .22;      // base ambience volume
+      let raf;                  // for smooth fades
+
+      function setVolSmooth(el, to, ms=800){
+        const start = el.volume, t0 = performance.now();
+        cancelAnimationFrame(raf);
+        function step(t){
+          const p = Math.min(1,(t-t0)/ms);
+          el.volume = start + (to-start)*p;
+          if(p<1) raf=requestAnimationFrame(step);
+        }
+        raf=requestAnimationFrame(step);
       }
 
-      const startAll = async () => {
-        try{ await waves.play(); }catch(_){}
-        scheduleWhoosh();
-        btn.textContent='🔊 sfx';
-        cleanup();
-      };
-
-      const cleanup=()=>['touchstart','pointerdown','keydown','scroll'].forEach(ev=>removeEventListener(ev,startAll));
-
-      ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>addEventListener(ev,startAll,{once:true,passive:true}));
-
-      btn.addEventListener('click',()=>{
-        if(waves.paused){
-          startAll();
-        }else{
-          waves.pause();
-          try{ arrow.pause(); }catch(_){}
-          clearTimeout(whooshTimer); whooshTimer=null;
-          btn.textContent='🔇 sfx';
+      async function startAudioAuto(){
+        try{
+          A.loop = true; A.volume = targetVol;
+          await A.play();
+          btn.textContent='🔊 sound';
+        }catch(_){
+          // if autoplay blocked, start on first user gesture (mobile policy)
+          const kick=async()=>{ try{ await A.play(); btn.textContent='🔊 sound'; clean(); }catch(_){} };
+          const clean=()=>['touchstart','pointerdown','keydown','scroll'].forEach(ev=>removeEventListener(ev,kick));
+          ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>addEventListener(ev,kick,{once:true,passive:true}));
         }
+      }
+      startAudioAuto();
+
+      // Ducking vs main video
+      if(V){
+        V.addEventListener('play', ()=> setVolSmooth(A, 0.0, 700));   // fade out ambience when main video plays
+        V.addEventListener('pause',()=> setVolSmooth(A, targetVol, 1200)); // fade back in on pause
+        V.addEventListener('ended',()=> setVolSmooth(A, targetVol, 1200));
+      }
+
+      // manual toggle
+      btn.addEventListener('click', ()=>{
+        if(A.paused){ A.play(); btn.textContent='🔊 sound'; setVolSmooth(A, targetVol, 400); }
+        else { setVolSmooth(A, 0.0, 300); setTimeout(()=>{A.pause(); btn.textContent='🔇 sound';}, 320); }
       });
     })();
 
-    // Logo fallback guard
+    // Logo fallback guard (extra)
     (function(){ const l=document.getElementById('logo'); if(!l) return; l.src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"; l.onerror=()=>l.src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png"; })();
   </script>
 </body>
