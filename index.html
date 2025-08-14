@@ -23,18 +23,18 @@
         extend: {
           colors: {
             vault: {
-              bg:    '#05120E',   /* deep emerald/black */
-              card:  '#0D2A22',   /* surfaces - high contrast */
-              gold:  '#E6C55E',   /* primary accent (matte gold) */
+              bg:    '#05120E',  /* deep emerald/black */
+              card:  '#0D2A22',  /* surfaces - high contrast */
+              gold:  '#E6C55E',  /* matte gold */
               goldh: '#CFAF4A',
-              em:    '#00B36E',   /* emerald accent */
-              text:  '#EAF6F1',   /* main body text (off-white) */
-              mute:  '#CDE7DD'    /* secondary text */
+              em:    '#00B36E',  /* emerald accent */
+              text:  '#EAF6F1',  /* main body text */
+              mute:  '#CDE7DD'   /* secondary text */
             }
           },
           boxShadow: {
-            soft: '0 12px 30px rgba(0,0,0,.30)',
-            glow: '0 0 24px rgba(0,179,110,.55)'
+            soft:'0 12px 30px rgba(0,0,0,.30)',
+            glow:'0 0 24px rgba(0,179,110,.55)'
           }
         }
       }
@@ -47,45 +47,43 @@
     body{background:#05120E;padding-bottom:90px}
 
     /* ===== BACKGROUND VIBE LAYERS ===== */
-    /* Aurora/Flame */
     .aurora{
       position:fixed; inset:-8% -8% auto -8%; height:72vh; z-index:-3; pointer-events:none;
       filter:blur(42px) saturate(140%);
       background:
-        conic-gradient(from 0deg at 20% 40%, rgba(255,96,24,.16), transparent 60%),
-        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.17), transparent 62%),
+        conic-gradient(from 0deg at 20% 40%, rgba(255,74,26,.17), transparent 60%),
+        conic-gradient(from 180deg at 80% 50%, rgba(230,197,94,.16), transparent 62%),
         radial-gradient(900px 440px at 60% 10%, rgba(0,179,110,.22), transparent 65%);
       animation:aShift 16s ease-in-out infinite alternate;
     }
     @keyframes aShift{0%{transform:translateY(-2%) rotate(0)}100%{transform:translateY(3%) rotate(5deg)}}
 
-    /* Tapa pattern (very subtle) */
     .tapa:before{
       content:""; position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.07;
-      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180"><defs><pattern id="p" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M0 22.5h45M22.5 0v45" stroke="%23ffffff" stroke-opacity=".8" stroke-width="1"/><path d="M0 0l22.5 22.5L0 45 22.5 22.5 45 0 22.5 22.5 45 45" fill="none" stroke="%23ffffff" stroke-opacity=".45" stroke-width="0.8"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180"><defs><pattern id="p" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M0 22.5h45M22.5 0v45" stroke="%23ffffff" stroke-opacity=".75" stroke-width="1"/><path d="M0 0l22.5 22.5L0 45 22.5 22.5 45 0 22.5 22.5 45 45" fill="none" stroke="%23ffffff" stroke-opacity=".42" stroke-width="0.8"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
       mix-blend-mode:overlay;
       animation:tapaFloat 30s linear infinite;
     }
     @keyframes tapaFloat{from{transform:translate3d(0,0,0)}to{transform:translate3d(-180px,-180px,0)}}
 
-    /* Embers (canvas) sits at z:-4 */
-    /* Spears */
+    /* Ember field (canvas) at z:-4 */
     .spears{position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.14}
     .spear{
       position:absolute; width:22vw; max-width:320px; aspect-ratio:1/6; background-repeat:no-repeat; background-size:contain;
       filter:drop-shadow(0 10px 18px rgba(0,0,0,.55));
       animation:spearDrift 22s ease-in-out infinite alternate;
     }
-    .spear.s1{left:-4vw; top:10vh; transform:rotate(-12deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L50 40 L30 30 L10 40 Z" fill="%23E6C55E"/><rect x="27" y="40" width="6" height="290" fill="%23E6C55E"/><circle cx="30" cy="330" r="10" fill="%2300B36E"/></svg>')}
+    .spear.s1{left:-4vw; top:10vh; transform:rotate(-12deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L50 40 L30 30 L10 40 Z" fill="%23E6C55E"/><rect x="27" y="40" width="6" height="300" fill="%23E6C55E"/><circle cx="30" cy="330" r="10" fill="%2300B36E"/></svg>')}
     .spear.s2{right:-6vw; top:28vh; transform:rotate(8deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L48 36 L30 28 L12 36 Z" fill="%23E6C55E"/><rect x="27" y="36" width="6" height="300" fill="%23E6C55E"/><circle cx="30" cy="330" r="10" fill="%2300B36E"/></svg>')}
     .spear.s3{left:12vw; bottom:-6vh; transform:rotate(-6deg); background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 360"><path d="M30 0 L50 40 L30 30 L10 40 Z" fill="%23E6C55E"/><rect x="27" y="40" width="6" height="300" fill="%23E6C55E"/></svg>')}
     @keyframes spearDrift{0%{transform:translateY(0) rotate(var(--r,0))}100%{transform:translateY(-12px) rotate(calc(var(--r,0) + 2deg))}}
 
-    /* ===== UI BASICS ===== */
+    /* UI */
     .glass{backdrop-filter:saturate(160%) blur(10px); background:rgba(5,18,14,.6)}
-    .card{background:linear-gradient(180deg,rgba(13,42,34,.98),rgba(13,42,34,.94)); border:1px solid rgba(255,255,255,.14); border-radius:18px; box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 6px 24px rgba(0,0,0,.25); color:var(--tx,#EAF6F1)}
+    .card{background:linear-gradient(180deg,rgba(13,42,34,.98),rgba(13,42,34,.94)); border:1px solid rgba(255,255,255,.14); border-radius:18px; box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 6px 24px rgba(0,0,0,.25); color:#EAF6F1}
     .ringfx{position:relative; isolation:isolate}
     .ringfx:before{content:""; position:absolute; inset:-1px; border-radius:inherit; z-index:-1; background:conic-gradient(from 210deg,#00B36E,#E6C55E,#00B36E); opacity:.35; filter:saturate(130%)}
+
     .deadlinebar{height:4px;background:linear-gradient(90deg,#E6C55E,#00B36E);transform-origin:left center;transition:transform .4s linear}
     .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
     .revealed{opacity:1;transform:translateY(0)}
@@ -93,14 +91,22 @@
     .ticker>div{display:flex;gap:2rem;animation:ticker var(--speed) linear infinite}
     @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(90deg,rgba(0,179,110,.18),rgba(230,197,94,.18));border:1px solid rgba(255,255,255,.14);padding:.35rem .6rem;border-radius:999px;font-size:.75rem}
+
     .glow-pulse{animation:gp 1.6s infinite alternate}
     @keyframes gp{from{box-shadow:0 0 8px rgba(230,197,94,.55),0 0 18px rgba(230,197,94,.35)}to{box-shadow:0 0 18px rgba(230,197,94,.85),0 0 36px rgba(230,197,94,.5)}}
+
     .star{width:16px;height:16px;display:inline-block;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%23E6C55E"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.739 1.548 8.268L12 18.896l-7.484 4.417 1.548-8.268L0 9.306l8.332-1.151z"/></svg>') center/contain no-repeat}
 
-    /* Ambience button */
-    .ambience{position:fixed; left:10px; bottom:10px; z-index:60; padding:.45rem .6rem; font-size:.8rem; border-radius:999px; background:rgba(0,0,0,.55); color:#e8fff7; border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px)}
+    /* Headline slash vibe */
+    .slash{position:relative; display:inline-block}
+    .slash:after{
+      content:""; position:absolute; left:-4px; right:-4px; bottom:4px; height:10px; z-index:-1; filter:blur(6px);
+      background:linear-gradient(90deg, rgba(230,197,94,.45), rgba(0,179,110,.35));
+      transform:skewX(-12deg);
+    }
 
-    @media (max-width:768px){ .aurora{filter:blur(34px)} .tapa:before{opacity:.06} }
+    /* Ambience toggle */
+    .ambience{position:fixed; left:10px; bottom:10px; z-index:60; padding:.45rem .6rem; font-size:.8rem; border-radius:999px; background:rgba(0,0,0,.55); color:#e8fff7; border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(6px)}
   </style>
 </head>
 
@@ -161,21 +167,22 @@
         <div class="reveal">
           <p class="mb-3 tracking-widest text-xs text-vault-mute">INNER VAULT</p>
           <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white">
-            Build <span class="text-vault-gold">Leverage</span>.<br/>Convert <span class="text-vault-gold">Power</span>.
+            <span class="slash">Island Blood.</span><br/>
+            <span class="slash">Warrior Math.</span><br/>
+            Build <span class="text-vault-gold">Leverage</span> — Convert <span class="text-vault-gold">Power</span>.
           </h1>
 
-          <!-- OFFER: Bobby AX copy -->
           <p class="mt-4 text-lg text-vault-text">
-            **Pacific Warrior School** for Gen-Z who refuse small.
-            Get paid on Stripe from the islands. Sell <span class="text-white font-semibold">$5k–$15k</span> AI prompts.
-            Run IRL proof that converts. We don’t teach “content,” we install a <span class="text-vault-em font-medium">money mechanism</span>:
-            manufacture attention → trigger emotion → capture proof → conversion on command.
+            This is a cult of execution. From the South Pacific to the world.  
+            Get paid on Stripe from the islands. Sell <span class="text-white font-semibold">$5k–$15k</span> AI prompts.  
+            Run IRL proof that closes. Not “content” — a <span class="text-vault-em font-medium">money mechanism</span>:
+            manufacture attention → trigger emotion → capture proof → convert on command.
           </p>
 
           <ul class="mt-4 grid gap-2 text-vault-mute">
-            <li>• <b class="text-white">Stripe Anywhere</b> — legit routes for PNG/Fiji/Samoa/Tonga.</li>
+            <li>• <b class="text-white">Stripe Anywhere</b> — legit routes for PNG / Fiji / Samoa / Tonga.</li>
             <li>• <b class="text-white">AI Prompt Catalog</b> — enterprise prompts you can resell.</li>
-            <li>• <b class="text-white">IRL Proof > Polish</b> — streams engineered to sell.</li>
+            <li>• <b class="text-white">IRL Proof & Clips</b> — engineered streams that sell.</li>
             <li>• <b class="text-white">Phone-Only Ops</b> — AI + templates replace the office.</li>
           </ul>
 
@@ -187,18 +194,9 @@
           <p class="mt-5 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
 
           <div class="mt-6 grid grid-cols-3 gap-3 text-center">
-            <div class="card ringfx p-4">
-              <div class="text-2xl font-extrabold text-white"><span data-count data-end="15" data-prefix="$" data-suffix="k">15k</span></div>
-              <div class="text-xs text-vault-mute/90">prompt deal</div>
-            </div>
-            <div class="card ringfx p-4">
-              <div class="text-2xl font-extrabold text-white"><span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span></div>
-              <div class="text-xs text-vault-mute/90">DM replies</div>
-            </div>
-            <div class="card ringfx p-4">
-              <div class="text-2xl font-extrabold text-white"><span data-count data-end="48" data-suffix="h">48h</span></div>
-              <div class="text-xs text-vault-mute/90">to first sale</div>
-            </div>
+            <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="15" data-prefix="$" data-suffix="k">15k</span></div><div class="text-xs text-vault-mute/90">prompt deal</div></div>
+            <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span></div><div class="text-xs text-vault-mute/90">DM replies</div></div>
+            <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="48" data-suffix="h">48h</span></div><div class="text-xs text-vault-mute/90">to first sale</div></div>
           </div>
         </div>
 
@@ -231,16 +229,16 @@
     </div>
   </section>
 
-  <!-- WHAT YOU UNLOCK -->
+  <!-- UNLOCK -->
   <section id="unlock" class="border-t border-white/10 bg-vault-card/40">
     <div class="mx-auto max-w-7xl px-4 py-14">
       <h2 class="text-3xl md:text-4xl font-bold text-white">What You’ll Build Inside</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
         <div class="card ringfx p-6"><h3 class="font-semibold text-white">Phone-Only Closers</h3><p class="mt-2 text-vault-mute">DM macros, reply trees, scripts. Close from your pocket.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">IRL Stream System</h3><p class="mt-2 text-vault-mute">Hooks, retention loops, clip traps. Proof over polish.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Stripe Anywhere</h3><p class="mt-2 text-vault-mute">International paths even if your country blocks it.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">IRL Stream System</h3><p class="mt-2 text-vault-mute">Hooks, retention loops, clip traps. Proof beats polish.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Stripe Anywhere</h3><p class="mt-2 text-vault-mute">International routes even if your country blocks it.</p></div>
         <div class="card ringfx p-6"><h3 class="font-semibold text-white">Reflexivity Engine</h3><p class="mt-2 text-vault-mute">Signal → belief → demand. Make them chase you.</p></div>
-        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Super UGC Army</h3><p class="mt-2 text-vault-mute">Recruit editors. Syndicate everywhere. Own the feed.</p></div>
+        <div class="card ringfx p-6"><h3 class="font-semibold text-white">Super UGC Army</h3><p class="mt-2 text-vault-mute">Recruit editors, syndicate everywhere. Own the feed.</p></div>
         <div class="card ringfx p-6"><h3 class="font-semibold text-white">Proof Flywheel</h3><p class="mt-2 text-vault-mute">1 win → 30 days of content → compounding trust.</p></div>
       </div>
     </div>
@@ -310,36 +308,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="border-t border-white/10 bg-vault-card/40">
-    <div class="mx-auto max-w-4xl px-4 py-14">
-      <h2 class="text-3xl md:text-4xl font-bold text-white">FAQ</h2>
-      <div class="mt-6 space-y-4">
-        <details class="group card ringfx p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
-            Do I need a laptop?
-            <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-vault-mute">No. Phone-only is supported. Prompts, DM flows, mobile templates — you’re covered.</p>
-        </details>
-        <details class="group card ringfx p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
-            How fast can I get results?
-            <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-vault-mute">Some move in 48–72 hours. Speed = effort + offer fit + proof loop execution.</p>
-        </details>
-        <details class="group card ringfx p-5">
-          <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
-            Can I do this without showing my face?
-            <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
-          </summary>
-          <p class="mt-3 text-vault-mute">Yes. Super UGC + operator-led pages. You stay the strategist, not the product.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
   <footer class="border-t border-white/10">
     <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-vault-mute">
       <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
@@ -356,12 +324,14 @@
     <a href="#pricing" class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
-  <!-- Ambient fire (soft) -->
-  <audio id="ambience" preload="auto" loop>
-    <!-- Replace with your hosted file -->
-    <source src="/fire-soft.mp3" type="audio/mpeg"/>
+  <!-- SFX -->
+  <audio id="sfxWaves" preload="auto" loop>
+    <source src="/sfx-waves.mp3" type="audio/mpeg"/>
   </audio>
-  <button id="ambToggle" class="ambience" aria-label="Toggle ambience">🔊 ambience</button>
+  <audio id="sfxArrow" preload="auto">
+    <source src="/sfx-arrow.mp3" type="audio/mpeg"/>
+  </audio>
+  <button id="sfxToggle" class="ambience" aria-label="Toggle ambience">🔇 sfx</button>
 
   <!-- Scripts -->
   <script>
@@ -374,17 +344,18 @@
       document.getElementById('y').textContent = new Date().getFullYear();
     })();
 
-    // Ember canvas (gold sparks rising — cheap on GPU)
+    // Ember canvas (gold sparks rising)
     (function(){
       const c = document.getElementById('embers'), ctx = c.getContext('2d');
       let W,H,parts=[];
       function rs(){W=c.width=innerWidth; H=c.height=innerHeight; const n=innerWidth<768?60:110;
-        parts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.2+.3,op:Math.random()*.5+.2}));
+        parts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.2+.3,op:Math.random()*.5+.2, hue:Math.random()<.25?22:46}));
       }
       function loop(){
         ctx.clearRect(0,0,W,H);
         for(const p of parts){
-          ctx.globalAlpha=p.op; ctx.fillStyle='rgba(230,197,94,.85)';
+          ctx.globalAlpha=p.op;
+          ctx.fillStyle = p.hue===22 ? 'rgba(255,90,40,.9)' : 'rgba(230,197,94,.85)';
           ctx.beginPath(); ctx.arc(p.x,p.y,p.s,0,6.283); ctx.fill();
           p.y -= p.s*.35; p.x += Math.sin(p.y/50)*.2;
           if(p.y<-2){ p.y=H+2; p.x=Math.random()*W; }
@@ -398,14 +369,14 @@
     const rev = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('revealed'); rev.unobserve(e.target);} }),{threshold:.15});
     document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
 
-    // Stat counters
+    // Counters
     function animateCount(el){const end=parseFloat(el.dataset.end||0),d=+el.dataset.decimals||0,pre=el.dataset.prefix||"",suf=el.dataset.suffix||"";let t0;const dur=900;function step(ts){if(!t0)t0=ts;const pr=Math.min((ts-t0)/dur,1);el.textContent=`${pre}${(end*pr).toFixed(d)}${suf}`; if(pr<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
     const co=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){animateCount(e.target); co.unobserve(e.target)} }),{threshold:.4});
     document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
 
-    // Countdown (fixed hard deadline — change once, no reset)
-    const COHORT_CLOSE_AT = "2025-08-20T23:59:59+12:00";
-    const PANIC_MS = 6*60*60*1000;
+    // Countdown (fixed deadline)
+    const COHORT_CLOSE_AT="2025-08-20T23:59:59+12:00";
+    const PANIC_MS=6*60*60*1000;
     const timer=document.getElementById('timer'), mini=document.getElementById('t-mini'), bar=document.getElementById('deadlinebar');
     const start=Date.now(), end=new Date(COHORT_CLOSE_AT).getTime();
     const pad=n=>String(n).padStart(2,'0');
@@ -419,7 +390,7 @@
     }
     tick();
 
-    // Video sound strategy (autoplay; unmute on first interaction if blocked)
+    // Video sound strategy
     (async function(){
       const v=document.getElementById('proofVideo'); if(!v) return;
       try{ v.muted=false; v.volume=.9; await v.play(); }
@@ -431,14 +402,45 @@
       }
     })();
 
-    // Ambient fire: soft, starts on first interaction; toggle to mute/unmute
+    // SFX: waves loop + random arrow whooshes (start on first interaction, mobile-safe)
     (function(){
-      const a=document.getElementById('ambience'), btn=document.getElementById('ambToggle'); if(!a||!btn) return;
-      a.volume=.12;
-      const start=async()=>{ try{ await a.play(); }catch(_){} cleanup(); };
-      const cleanup=()=>['touchstart','pointerdown','keydown','scroll'].forEach(ev=>removeEventListener(ev,start));
-      ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>addEventListener(ev,start,{once:true,passive:true}));
-      btn.addEventListener('click',()=>{ if(a.paused){ a.play(); btn.textContent='🔊 ambience'; } else { a.pause(); btn.textContent='🔇 ambience'; } });
+      const waves=document.getElementById('sfxWaves');
+      const arrow=document.getElementById('sfxArrow');
+      const btn=document.getElementById('sfxToggle');
+      if(!waves || !arrow || !btn) return;
+      waves.volume=.12; // soft ocean rumble
+      arrow.volume=.25; // quick whoosh
+
+      let whooshTimer=null;
+      function scheduleWhoosh(){
+        const next = 3200 + Math.random()*5200; // 3.2s – 8.4s
+        whooshTimer = setTimeout(()=>{
+          try{ arrow.currentTime=0; arrow.play(); }catch(_){}
+          scheduleWhoosh();
+        }, next);
+      }
+
+      const startAll = async () => {
+        try{ await waves.play(); }catch(_){}
+        scheduleWhoosh();
+        btn.textContent='🔊 sfx';
+        cleanup();
+      };
+
+      const cleanup=()=>['touchstart','pointerdown','keydown','scroll'].forEach(ev=>removeEventListener(ev,startAll));
+
+      ['touchstart','pointerdown','keydown','scroll'].forEach(ev=>addEventListener(ev,startAll,{once:true,passive:true}));
+
+      btn.addEventListener('click',()=>{
+        if(waves.paused){
+          startAll();
+        }else{
+          waves.pause();
+          try{ arrow.pause(); }catch(_){}
+          clearTimeout(whooshTimer); whooshTimer=null;
+          btn.textContent='🔇 sfx';
+        }
+      });
     })();
 
     // Logo fallback guard
