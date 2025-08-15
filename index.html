@@ -41,7 +41,7 @@
   html{scroll-behavior:smooth}
   body{background:#030906; line-height:1.55; padding-bottom:160px}
 
-  /* ===== BACKGROUND WRATH (no spear wallpaper) ===== */
+  /* ===== BACKGROUND WRATH (no spear wallpaper image) ===== */
   .void{position:fixed;inset:0;z-index:-11;pointer-events:none;background:
     radial-gradient(85% 70% at 50% 6%,#08130F 0%,#05100C 55%,#030906 100%)}
   .ridges{position:fixed;inset:0;z-index:-10;pointer-events:none}
@@ -114,7 +114,6 @@
   .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
 
   /* === FUTURISTIC BUTTONS (Wope vibe) === */
-  .cta{} /* marker for JS (panic pulse) */
   .btn{
     --r:18px; --px:22px; --py:14px;
     position:relative; display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
@@ -123,7 +122,6 @@
     transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
   }
   .btn:active{transform:translateY(0) scale(.98)}
-  /* neon ring + scan beam */
   .btn::before{
     content:""; position:absolute; inset:-2px; border-radius:inherit; z-index:-2;
     background:conic-gradient(from var(--ang,0deg), rgba(233,201,96,.9), rgba(0,179,110,.85), rgba(233,201,96,.9));
@@ -139,25 +137,28 @@
   .btn:hover::before{opacity:.65}
   .btn:hover::after{opacity:.9}
   @keyframes spin{to{--ang:360deg}}
-
-  /* Variants */
-  .btn-gold{
-    background:linear-gradient(180deg,#E9C960,#C9A642); color:#0E140F;
-    box-shadow:0 10px 26px rgba(233,201,96,.25);
-  }
+  .btn-gold{ background:linear-gradient(180deg,#E9C960,#C9A642); color:#0E140F; box-shadow:0 10px 26px rgba(233,201,96,.25); }
   .btn-gold:hover{box-shadow:0 12px 28px rgba(233,201,96,.35); transform:translateY(-2px) rotateX(var(--rx,0)) rotateY(var(--ry,0))}
-  .btn-outline{
-    background:rgba(255,255,255,0.03); color:#F2FBF7; border:1px solid rgba(255,255,255,.22);
-  }
+  .btn-outline{ background:rgba(255,255,255,0.03); color:#F2FBF7; border:1px solid rgba(255,255,255,.22); }
   .btn-outline:hover{background:rgba(255,255,255,0.08); transform:translateY(-2px) rotateX(var(--rx,0)) rotateY(var(--ry,0))}
   .glow-pulse{animation:gp 1.6s infinite alternate}
   @keyframes gp{from{box-shadow:0 0 8px rgba(233,201,96,.55),0 0 18px rgba(233,201,96,.35)}to{box-shadow:0 0 20px rgba(233,201,96,.9),0 0 40px rgba(233,201,96,.5)}}
 
-  /* Lock bar */
-  .lockbar{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#330909,#5f0a0a); color:#ffe0e0; border-bottom:1px solid rgba(255,255,255,.15)}
-
-  /* Headings / copy: full center everywhere */
+  /* Center the hero/section headings by default */
   .center-copy *{ text-align:center !important; margin-left:auto; margin-right:auto; }
+
+  /* Pricing alignment like TRW */
+  .pricing           { max-width: 880px; margin: 0 auto; }
+  .pricing .cards    { display:grid; gap:24px; }
+  .pricing-card      { text-align:left; border-radius:22px; padding:28px; }
+  .pricing-card .plan-name { text-align:center; letter-spacing:.6px; }
+  .price { font-size: 2.6rem; font-weight: 800; line-height:1; margin:.35rem 0 0; color:#fff; text-align:center; }
+  .price small { font-size:1rem; color: rgba(205,231,221,.9) }
+  .checks{ list-style:none; padding:0; margin-top:18px; display:grid; gap:.75rem; }
+  .li-check{ display:flex; align-items:flex-start; gap:.6rem; }
+  .li-check svg{ flex:0 0 18px; margin-top:2px; opacity:.9; }
+  .btn-row{ margin-top:18px; display:flex; justify-content:center; }
+  .cc-icon{ width:20px; height:20px; }
 
   /* Fun body quake */
   @keyframes quake{0%{transform:translate(0,0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,2px)}80%{transform:translate(2px,1px)}100%{transform:translate(0,0)}}
@@ -407,51 +408,102 @@
         </div>
       </div>
 
-      <main class="wrap px-4 py-10 text-center center-copy">
+      <main class="wrap px-4 py-10 text-center">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Choose your path</h1>
         <p class="mt-2 text-vault-mute">No fluff. Plays that print on a 2025 internet.</p>
 
-        <div class="mx-auto mt-8 grid gap-6 max-w-3xl">
-          <!-- WARRIOR MONTHLY -->
-          <div class="card p-8 text-center">
-            <h3 class="text-xl font-bold text-white">WARRIOR — Monthly</h3>
-            <p class="mt-1 text-vault-mute">Start now. Cancel anytime.</p>
-            <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
-            <ul class="mt-6 space-y-2 text-sm text-vault-mute">
-              <li>✔ Stripe Anywhere setup & support (PNG/Fiji/Samoa/Tonga)</li>
-              <li>✔ AI Prompt Catalog — resellable enterprise prompts</li>
-              <li>✔ IRL Hooks, retention loops & Proof-clip templates</li>
-              <li>✔ Phone-Only Ops: DM macros, reply trees, scripts</li>
-              <li>✔ Weekly live breakdowns + Q&A</li>
-              <li>✔ Members chat & deal sharing</li>
-            </ul>
-            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-               class="btn btn-gold cta w-full mt-6 justify-center"
-               data-external data-lockin>Join with Card</a>
-          </div>
+        <!-- PRICING (TRW-style: centered titles, left-aligned ticks) -->
+        <div class="pricing mt-8">
+          <div class="cards">
+            <!-- WARRIOR MONTHLY -->
+            <div class="pricing-card card ringfx">
+              <h3 class="plan-name text-xl font-bold text-white">WARRIOR — Monthly</h3>
+              <div class="price">$39<small>/mo</small></div>
 
-          <!-- CHIEF LIFETIME -->
-          <div class="relative card p-8 text-center">
-            <div style="z-index:1" class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0E140F]">Best Value</div>
-            <h3 class="text-xl font-bold text-white">CHIEF — Lifetime</h3>
-            <p class="mt-1 text-vault-mute">Own the systems. Own the results.</p>
-            <div class="mt-4 text-4xl font-extrabold text-white">$399<span class="text-base font-semibold text-vault-mute"> one-time</span></div>
-            <ul class="mt-6 space-y-2 text-sm text-vault-mute">
-              <li>✔ Everything in WARRIOR</li>
-              <li>✔ Lifetime updates & future modules</li>
-              <li>✔ Private deal rooms + partner heatmap</li>
-              <li>✔ 1× Prompt audit token (use anytime)</li>
-              <li>✔ Super UGC license for your editors</li>
-              <li>✔ Founder badge & early drops</li>
-            </ul>
-            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
-               class="btn btn-gold cta w-full mt-6 justify-center"
-               data-external data-lockin>Join with Card</a>
+              <ul class="checks text-vault-mute text-sm">
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Stripe Anywhere setup & support (PNG/Fiji/Samoa/Tonga)</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>AI Prompt Catalog — resellable enterprise prompts</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>IRL Hooks, retention loops & Proof-clip templates</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Phone-Only Ops: DM macros, reply trees, scripts</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Weekly live breakdowns + Q&A</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Members chat & deal sharing</span>
+                </li>
+              </ul>
+
+              <div class="btn-row">
+                <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
+                   class="btn btn-gold cta"
+                   data-external data-lockin>
+                  <svg class="cc-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                  Join with Card
+                </a>
+              </div>
+            </div>
+
+            <!-- CHIEF LIFETIME -->
+            <div class="pricing-card card ringfx relative">
+              <div style="z-index:1" class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0E140F]">Best Value</div>
+              <h3 class="plan-name text-xl font-bold text-white">CHIEF — Lifetime</h3>
+              <div class="price">$399<small> one-time</small></div>
+
+              <ul class="checks text-vault-mute text-sm">
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Everything in WARRIOR</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Lifetime updates & future modules</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Private deal rooms + partner heatmap</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>1× Prompt audit token (use anytime)</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Super UGC license for your editors</span>
+                </li>
+                <li class="li-check">
+                  <svg class="text-vault-em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+                  <span>Founder badge & early drops</span>
+                </li>
+              </ul>
+
+              <div class="btn-row">
+                <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
+                   class="btn btn-gold cta"
+                   data-external data-lockin>
+                  <svg class="cc-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                  Join with Card
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- “OR DO NOTHING…” -->
-        <section class="mx-auto max-w-3xl mt-12" data-hide-cta>
+        <section class="mx-auto max-w-3xl mt-12">
           <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">OR DO NOTHING..</h2>
           <p class="text-vault-mute mt-1">Go watch Netflix. Work a 9–5.</p>
           <div class="card ringfx p-6 mt-6 text-center">
@@ -459,7 +511,10 @@
             <p class="text-vault-mute mt-2">Hold lasts <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>.</p>
             <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
                class="btn btn-gold cta mt-5"
-               data-external data-lockin>Join with Card</a>
+               data-external data-lockin>
+              <svg class="cc-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              Join with Card
+            </a>
           </div>
           <p class="mt-6 text-sm text-vault-mute"><a href="#home" class="router text-vault-em">← Back to Home</a> • <a href="#terms" class="router text-vault-em">Terms</a> • <a href="#privacy" class="router text-vault-em">Privacy</a></p>
         </section>
@@ -553,7 +608,7 @@
   addEventListener('hashchange',route); route();
 })();
 
-/* particles / ash (heavier) */
+/* particles / ash */
 (() => {
   const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
   function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?200:280;
@@ -716,20 +771,17 @@ document.querySelectorAll('[data-external]').forEach(a=>{
       const x=e.clientX-r.left, y=e.clientY-r.top;
       const mx = (x/r.width*100).toFixed(2)+'%';
       const my = (y/r.height*100).toFixed(2)+'%';
-      const ry = ((x/r.width)-0.5)*8;  // rotateY
-      const rx = -((y/r.height)-0.5)*8; // rotateX
+      const ry = ((x/r.width)-0.5)*8;
+      const rx = -((y/r.height)-0.5)*8;
       b.style.setProperty('--mx', mx);
       b.style.setProperty('--my', my);
       b.style.setProperty('--ry', ry+'deg');
       b.style.setProperty('--rx', rx+'deg');
       b.style.transform = `translateY(-2px) rotateX(${rx}deg) rotateY(${ry}deg)`;
     });
-    b.addEventListener('mouseleave', ()=>{
-      b.style.transform='translateY(0) rotateX(0) rotateY(0)';
-    });
+    b.addEventListener('mouseleave', ()=>{ b.style.transform='translateY(0) rotateX(0) rotateY(0)'; });
   });
 })();
 </script>
 </body>
-</html>
-```0
+  </html>
