@@ -20,8 +20,8 @@
       extend: {
         colors: {
           vault: {
-            bg:'#030906',            /* darker base */
-            card:'#0A1814',          /* darker card */
+            bg:'#030906',
+            card:'#07120F',          /* darker */
             gold:'#E9C960',
             goldh:'#D3B350',
             em:'#00B36E',
@@ -42,56 +42,67 @@
   body{background:#030906; line-height:1.55; padding-bottom:160px}
 
   /* ===== BACKGROUND WRATH ===== */
-  .void{position:fixed;inset:0;z-index:-9;pointer-events:none;background:
+  .void{position:fixed;inset:0;z-index:-11;pointer-events:none;background:
     radial-gradient(85% 70% at 50% 6%,#08130F 0%,#05100C 55%,#030906 100%)}
-  .ridges{position:fixed;inset:0;z-index:-8;pointer-events:none}
+  .ridges{position:fixed;inset:0;z-index:-10;pointer-events:none}
   .ridges:before,.ridges:after{content:"";position:absolute;top:-10vh;width:56vw;height:130vh;filter:blur(.3px);opacity:.22;mix-blend-mode:screen;background:linear-gradient(135deg,rgba(233,201,96,.28),rgba(0,0,0,0) 70%);clip-path:polygon(0 0,84% 0,40% 100%,0% 100%)}
   .ridges:before{left:-8vw;transform:skewX(-7deg) rotate(-3deg)}
   .ridges:after{right:-8vw;transform:scaleX(-1) skewX(-7deg) rotate(-2deg);background:linear-gradient(135deg,rgba(0,179,110,.26),rgba(0,0,0,0) 70%)}
-  .blood{position:fixed;inset:0;z-index:-7;pointer-events:none;background:
-    radial-gradient(1200px 520px at 50% 100%,rgba(160,18,22,.35),transparent 62%),
-    radial-gradient(900px 420px at 0% 100%,rgba(160,18,22,.22),transparent 60%),
-    radial-gradient(900px 420px at 100% 100%,rgba(160,18,22,.22),transparent 60%);mix-blend-mode:screen}
-  .rift{position:fixed;inset:0;z-index:-6;pointer-events:none;opacity:.22;background:conic-gradient(from -30deg at 60% 40%,rgba(233,201,96,.45),rgba(0,179,110,.35),rgba(0,0,0,0) 65%);transform:skewX(-10deg) translateY(-2%);animation:riftMove 18s ease-in-out infinite alternate}
+  .blood{position:fixed;inset:0;z-index:-9;pointer-events:none;background:
+    radial-gradient(1200px 520px at 50% 100%,rgba(160,18,22,.45),transparent 62%),
+    radial-gradient(900px 420px at 0% 100%,rgba(160,18,22,.28),transparent 60%),
+    radial-gradient(900px 420px at 100% 100%,rgba(160,18,22,.28),transparent 60%);mix-blend-mode:screen}
+  .rift{position:fixed;inset:0;z-index:-8;pointer-events:none;opacity:.22;background:conic-gradient(from -30deg at 60% 40%,rgba(233,201,96,.45),rgba(0,179,110,.35),rgba(0,0,0,0) 65%);transform:skewX(-10deg) translateY(-2%);animation:riftMove 18s ease-in-out infinite alternate}
   @keyframes riftMove{0%{transform:skewX(-10deg) translateY(-2%)}100%{transform:skewX(-12deg) translateY(3%)}}
-  .lightning{position:fixed;inset:0;z-index:-5;pointer-events:none}
+  .lightning{position:fixed;inset:0;z-index:-7;pointer-events:none}
   .bolt{position:absolute;width:2px;height:72vh;top:-22vh;opacity:0;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.95),rgba(255,255,255,0));filter:drop-shadow(0 0 20px rgba(233,201,96,.6));animation:flash 8s infinite ease-in}
   .bolt.b1{left:18%;transform:rotate(-16deg);animation-delay:2.2s}
   .bolt.b2{left:54%;transform:rotate(-10deg);animation-delay:5.1s}
   .bolt.b3{left:82%;transform:rotate(-24deg);animation-delay:7.4s}
   @keyframes flash{0%,92%,100%{opacity:0}93%{opacity:.95}95%{opacity:.2}96%{opacity:.8}97%{opacity:0}}
-  .shock{position:fixed;inset:0;z-index:-4;pointer-events:none;background:rgba(255,255,255,0)}
+  .shock{position:fixed;inset:0;z-index:-6;pointer-events:none;background:rgba(255,255,255,0)}
   .shock.flash{animation:shock 120ms ease}
   @keyframes shock{0%{background:rgba(255,255,255,.06)}100%{background:rgba(255,255,255,0)}}
 
-  /* Ocean / Rain / Volcano from previous wrath file */
-  .volcano{position:fixed;inset:0;z-index:-3;pointer-events:none;
+  .volcano{position:fixed;inset:0;z-index:-5;pointer-events:none;
     background:
-     radial-gradient(900px 420px at 50% 105%,rgba(255,60,0,.24),transparent 65%),
-     radial-gradient(700px 340px at 12% 100%,rgba(180,18,22,.22),transparent 60%),
-     radial-gradient(700px 340px at 88% 100%,rgba(180,18,22,.22),transparent 60%);
-    animation:lavaPulse 4.5s ease-in-out infinite; mix-blend-mode:screen}
-  @keyframes lavaPulse{0%,100%{opacity:.48;transform:translateY(0)}
-    50%{opacity:.8;transform:translateY(-1.5%)}}
-  .rain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.16;
-    background-image:repeating-linear-gradient(120deg,rgba(255,255,255,.0) 0, rgba(255,255,255,.09) 1px, rgba(255,255,255,.0) 2px);
-    background-size:100% 100%; animation:rainFall 1.2s linear infinite}
-  @keyframes rainFall{from{background-position:0 0}to{background-position:-140px 240px}}
-  .ocean{position:fixed;left:0;right:0;bottom:-2vh;height:18vh;z-index:-2;pointer-events:none;
-    background:radial-gradient(60% 120% at 50% 100%, rgba(0,40,32,.65), transparent 70%),repeating-linear-gradient(to right, rgba(233,201,96,.25) 0 2px, rgba(0,0,0,0) 2px 6px );
-    mask-image:linear-gradient(to top, black 40%, transparent 100%);animation:chop 4s ease-in-out infinite}
+     radial-gradient(900px 420px at 50% 105%,rgba(255,60,0,.30),transparent 65%),
+     radial-gradient(700px 340px at 12% 100%,rgba(180,18,22,.24),transparent 60%),
+     radial-gradient(700px 340px at 88% 100%,rgba(180,18,22,.24),transparent 60%);
+    animation:lavaPulse 4.2s ease-in-out infinite; mix-blend-mode:screen}
+  @keyframes lavaPulse{0%,100%{opacity:.56;transform:translateY(0)}
+    50%{opacity:.88;transform:translateY(-1.5%)}}
+
+  .rain{position:fixed;inset:0;z-index:-4;pointer-events:none;opacity:.24;
+    background-image:repeating-linear-gradient(120deg,rgba(255,255,255,.0) 0, rgba(255,255,255,.12) 1px, rgba(255,255,255,.0) 2px);
+    background-size:100% 100%; animation:rainFall .9s linear infinite}
+  @keyframes rainFall{from{background-position:0 0}to{background-position:-160px 260px}}
+
+  .ocean{position:fixed;left:0;right:0;bottom:-2vh;height:18vh;z-index:-3;pointer-events:none;
+    background:radial-gradient(60% 120% at 50% 100%, rgba(0,40,32,.75), transparent 70%),repeating-linear-gradient(to right, rgba(233,201,96,.25) 0 2px, rgba(0,0,0,0) 2px 6px );
+    mask-image:linear-gradient(to top, black 40%, transparent 100%);animation:chop 3.6s ease-in-out infinite}
   @keyframes chop{0%,100%{transform:skewX(-4deg) translateY(0)}50%{transform:skewX(-8deg) translateY(-6px)}}
+
+  /* Spear chaos */
   .spearBand{position:fixed;left:0;right:0;height:18px;z-index:45;pointer-events:none;background:
-     repeating-linear-gradient(to right, rgba(255,255,255,.08) 0 1px, rgba(255,255,255,0) 1px 48px),
+     repeating-linear-gradient(to right, rgba(255,255,255,.10) 0 1px, rgba(255,255,255,0) 1px 48px),
      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='18' viewBox='0 0 140 18'%3E%3Cpath d='M6 9 L26 9' stroke='%23D3B350' stroke-width='2'/%3E%3Cpath d='M26 9 L34 5 L34 13 Z' fill='%23E9C960'/%3E%3Ccircle cx='4' cy='9' r='3' fill='none' stroke='%23E9C960' stroke-width='2'/%3E%3C/svg%3E");
-    background-size:auto 18px, 140px 18px; background-repeat:repeat-x, repeat-x; opacity:.7}
+    background-size:auto 18px, 140px 18px; background-repeat:repeat-x, repeat-x; opacity:.85}
   .spearBand.top{top:0}.spearBand.bottom{bottom:0}
 
-  /* Cards and chrome */
+  .spearStorm{position:fixed;inset:-10vh -10vw;z-index:-2;pointer-events:none;opacity:.20;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='40' viewBox='0 0 180 40'%3E%3Cg transform='rotate(-18 90 20) translate(10 10)'><rect x='0' y='8' width='120' height='3' fill='%23D3B350'/><polygon points='120,9 135,0 135,18' fill='%23E9C960'/></g>%3C/svg%3E");
+    background-size:180px 40px; background-repeat:repeat; transform:rotate(-8deg); animation:stormDrift 12s linear infinite}
+  @keyframes stormDrift{from{background-position:0 0}to{background-position:-360px 180px}}
+
+  /* Cards darker + vignette */
   .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.62)}
-  .card{background:linear-gradient(180deg,rgba(10,24,20,.98),rgba(10,24,20,.94));border:1px solid rgba(255,255,255,.14);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 32px rgba(0,0,0,.35);color:#F2FBF7}
+  .card{position:relative;background:linear-gradient(180deg,rgba(7,18,15,.98),rgba(7,18,15,.94));border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 32px rgba(0,0,0,.38);color:#F2FBF7}
+  .card:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:
+    radial-gradient(120% 120% at 50% 0%, rgba(0,0,0,.35), transparent 40%),
+    radial-gradient(140% 110% at 50% 120%, rgba(0,0,0,.4), transparent 42%)}
   .ringfx{position:relative;isolation:isolate}
-  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#00B36E,#E9C960,#00B36E);opacity:.35;filter:saturate(130%)}
+  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#00B36E,#E9C960,#00B36E);opacity:.32;filter:saturate(130%)}
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
   .revealed{opacity:1;transform:translateY(0)}
   .deadlinebar{height:4px;background:linear-gradient(90deg,#E9C960,#00B36E);transform-origin:left center;transition:transform .4s linear}
@@ -111,10 +122,9 @@
   /* Header logo booster */
   .logoWrap{position:relative;display:inline-flex;align-items:center;justify-content:center;border-radius:16px}
   .logoWrap:before{content:"";position:absolute;inset:-2px;border-radius:inherit;background:conic-gradient(from 210deg,#00B36E,#E9C960,#00B36E);filter:blur(10px);opacity:.55;z-index:-1}
-  .logoIMG{height:48px;width:48px;border-radius:12px;box-shadow:0 0 28px rgba(233,201,96,.35), 0 0 14px rgba(0,179,110,.25)}
-  @media (min-width:768px){ .logoIMG{height:56px;width:56px} }
+  .logoIMG{height:64px;width:64px;border-radius:12px;box-shadow:0 0 28px rgba(233,201,96,.35), 0 0 14px rgba(0,179,110,.25)}
+  @media (min-width:768px){ .logoIMG{height:72px;width:72px} }
 
-  /* Title glow */
   .h1-wrath{text-shadow:0 0 16px rgba(233,201,96,.35), 0 0 34px rgba(0,179,110,.22)}
 
   @keyframes quake{0%{transform:translate(0,0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,2px)}80%{transform:translate(2px,1px)}100%{transform:translate(0,0)}}
@@ -125,11 +135,12 @@
   <!-- BACKGROUND -->
   <div class="void"></div><div class="ridges"></div><div class="blood"></div>
   <div class="volcano"></div><div class="ocean"></div><div class="rain"></div>
+  <div class="spearStorm"></div>
   <div class="rift"></div><div class="lightning"><div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div></div>
   <div class="spearBand top"></div><div class="spearBand bottom"></div>
   <div class="shock" id="shock"></div>
-  <canvas id="embers" class="fixed inset-0 -z-3"></canvas>
-  <canvas id="ash" class="fixed inset-0 -z-2"></canvas>
+  <canvas id="embers" class="fixed inset-0 -z-1"></canvas>
+  <canvas id="ash" class="fixed inset-0 -z-0"></canvas>
 
   <!-- STICKY TOP -->
   <div class="sticky top-0 z-50 border-b border-white/10 glass">
@@ -208,7 +219,7 @@
             <div id="proof" class="reveal">
               <div class="card ringfx p-3">
                 <video class="w-full rounded-xl" id="proofVideo" autoplay loop playsinline controls preload="metadata"
-                  poster="https://placehold.co/960x540/0a1814/f2fbf7?text=IRL+Stream+Proof">
+                  poster="https://placehold.co/960x540/07120f/f2fbf7?text=IRL+Stream+Proof">
                   <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
                   <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
                 </video>
@@ -234,7 +245,7 @@
           <div class="grid gap-8 md:grid-cols-[1fr,1.4fr] md:items-center">
             <div class="reveal">
               <div class="card ringfx p-6 flex items-center gap-5">
-                <img class="h-16 w-16 md:h-20 md:w-20 rounded-xl ring-1 ring-white/15 shadow-[0_0_26px_rgba(233,201,96,.35)]"
+                <img class="h-24 w-24 md:h-28 md:w-28 rounded-xl ring-1 ring-white/15 shadow-[0_0_32px_rgba(233,201,96,.40)]"
                      src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png"
                      alt="NCS crest"/>
                 <div>
@@ -272,8 +283,8 @@
                     <div class="text-sm text-vault-mute">deal rooms</div>
                   </div>
                 </div>
-                <div class="mt-6 flex items-center justify-center gap-6 opacity-90">
-                  <img class="h-10" src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Legacy NCS mark"/>
+                <div class="mt-6 flex items-center justify-center opacity-90">
+                  <img class="h-12" src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Legacy NCS mark"/>
                 </div>
               </div>
             </div>
@@ -314,17 +325,17 @@
           <h2 class="text-3xl md:text-4xl font-bold text-white">Student Reviews</h2>
           <div class="mt-8 grid gap-6 md:grid-cols-3">
             <div class="card ringfx p-6"><div class="flex items-center gap-3">
-              <img src="https://placehold.co/64x64/0a1814/f2fbf7?text=J" class="h-10 w-10 rounded-full ring-1 ring-white/20"/>
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">J</div>
               <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div></div>
               <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p></div>
 
             <div class="card ringfx p-6"><div class="flex items-center gap-3">
-              <img src="https://placehold.co/64x64/0a1814/f2fbf7?text=L" class="h-10 w-10 rounded-full ring-1 ring-white/20"/>
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">L</div>
               <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div></div>
               <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p></div>
 
             <div class="card ringfx p-6"><div class="flex items-center gap-3">
-              <img src="https://placehold.co/64x64/0a1814/f2fbf7?text=T" class="h-10 w-10 rounded-full ring-1 ring-white/20"/>
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
               <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div></div>
               <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p></div>
           </div>
@@ -546,19 +557,19 @@
   addEventListener('hashchange',route); route();
 })();
 
-/* particles / ash */
+/* particles / ash (heavier) */
 (() => {
   const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?120:200; /* heavier */ 
-    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.4+.35,o:Math.random()*.5+.25,b:Math.random()<.38}))}
-  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(180,20,24,.9)':'rgba(233,201,96,.95)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.36;a.x+=Math.sin(a.y/42)*.24;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?200:280;
+    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.5+.35,o:Math.random()*.55+.28,b:Math.random()<.42}))}
+  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(180,20,24,.95)':'rgba(233,201,96,.98)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.38;a.x+=Math.sin(a.y/42)*.26;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
 (() => {
   const c=document.getElementById('ash'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?42:80;
-    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*40+20,sp:Math.random()*1.2+.6,o:Math.random()*.25+.06}))}
-  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(242,251,247,.16)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.35;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?90:140;
+    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*46+22,sp:Math.random()*1.4+.7,o:Math.random()*.3+.08}))}
+  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(242,251,247,.18)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.38;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
 /* lightning tick */
@@ -612,9 +623,9 @@ tick();
   }
 })();
 
-/* ambience: loops low, ducks near video */
+/* ambience audio + thunder quake */
 (() => {
-  const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); if(!A) return;
+  const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); const thunder = document.getElementById('thunder');
   let started=false, retryId=null, raf; const baseVol=.24;
   function fade(el,to,ms=900){const from=el.volume,t0=performance.now();cancelAnimationFrame(raf);
     function step(t){const p=Math.min(1,(t-t0)/ms);el.volume=from+(to-from)*p;if(p<1)raf=requestAnimationFrame(step)}raf=requestAnimationFrame(step)}
@@ -637,6 +648,16 @@ tick();
     V.addEventListener('pause',()=>fade(A,baseVol,800));
     V.addEventListener('ended',()=>fade(A,baseVol,800));
   }
+
+  function quake(){ document.body.classList.add('quake'); setTimeout(()=>document.body.classList.remove('quake'), 360); }
+  async function boom(){
+    try { if(thunder){ thunder.currentTime = 0; await thunder.play(); } } catch(_) {}
+    document.getElementById('shock')?.classList.add('flash'); quake();
+    setTimeout(()=>document.getElementById('shock')?.classList.remove('flash'), 160);
+  }
+  const evs=['click','touchstart','pointerdown','keydown','scroll','mousemove','wheel'];
+  const start=()=>{ const run=()=>{ setTimeout(()=>{ boom(); run(); }, 8000+Math.random()*12000); }; run(); evs.forEach(e=>removeEventListener(e,start)); };
+  evs.forEach(e=>addEventListener(e,start,{once:true,passive:true}));
 })();
 
 /* ===== 10-MIN LOCK-IN TIMER ===== */
@@ -680,20 +701,17 @@ document.querySelectorAll('[data-external]').forEach(a=>{
   }, {passive:true});
 });
 
-/* ===== Thunder loop + quake ===== */
+/* ===== FIX: mobile FAQ taps not opening ===== */
 (() => {
-  const thunder = document.getElementById('thunder');
-  const shock = document.getElementById('shock');
-  function quake(){ document.body.classList.add('quake'); setTimeout(()=>document.body.classList.remove('quake'), 360); }
-  async function boom(){
-    try { if(thunder){ thunder.currentTime = 0; await thunder.play(); } } catch(_) {}
-    shock?.classList.add('flash'); quake();
-    setTimeout(()=>shock?.classList.remove('flash'), 160);
-  }
-  const evs=['click','touchstart','pointerdown','keydown','scroll','mousemove','wheel'];
-  const start=()=>{ const run=()=>{ setTimeout(()=>{ boom(); run(); }, 9000+Math.random()*14000); }; run(); evs.forEach(e=>removeEventListener(e,start)); };
-  evs.forEach(e=>addEventListener(e,start,{once:true,passive:true}));
+  document.querySelectorAll('#faq details > summary').forEach((s)=>{
+    s.addEventListener('click',(e)=>{
+      const d=s.parentElement;
+      // prevent double-toggle bugs on some Android builds
+      e.preventDefault();
+      d.open = !d.open;
+    }, {passive:false});
+  });
 })();
 </script>
 </body>
-                                                                                             </html>
+                                                                                 </html>
