@@ -304,10 +304,9 @@
               <li>✔ Weekly live breakdowns + Q&A</li>
               <li>✔ Members chat & deal sharing</li>
             </ul>
-            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" target="_blank" rel="noopener"
-               data-lockin aria-label="Join with Card monthly"
-               class="cta w-full mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">
-               <!-- card icon -->
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
+               class="joinbtn cta relative z-10 w-full mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh"
+               data-external data-lockin>
                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
                Join with Card
             </a>
@@ -327,9 +326,9 @@
               <li>✔ Super UGC license for your editors</li>
               <li>✔ Founder badge & early drops</li>
             </ul>
-            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" target="_blank" rel="noopener"
-               data-lockin aria-label="Join with Card lifetime"
-               class="cta w-full mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">
+            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
+               class="joinbtn cta relative z-10 w-full mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh"
+               data-external data-lockin>
                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
                Join with Card
             </a>
@@ -343,7 +342,9 @@
           <div class="card ringfx p-6 mt-6 text-center">
             <div class="text-3xl font-extrabold text-white">LOCK-IN YOUR PRICE OF <span class="text-vault-gold">$39</span></div>
             <p class="text-vault-mute mt-2">Hold lasts <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>.</p>
-            <a href="#join" data-lockin class="cta mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
+               class="joinbtn cta relative z-10 mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh"
+               data-external data-lockin>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
             </a>
@@ -353,7 +354,7 @@
       </main>
     </section>
 
-    <!-- TERMS -->
+    <!-- TERMS (hidden until clicked) -->
     <section data-view="terms" class="hidden">
       <main class="max-w-3xl mx-auto px-4 py-10">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Terms of Service</h1>
@@ -372,7 +373,7 @@
       </main>
     </section>
 
-    <!-- PRIVACY -->
+    <!-- PRIVACY (hidden until clicked) -->
     <section data-view="privacy" class="hidden">
       <main class="max-w-3xl mx-auto px-4 py-10">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Privacy Policy</h1>
@@ -390,12 +391,12 @@
     </section>
   </main>
 
-  <!-- FLOATING CTA (auto-hides near footer & join section) -->
+  <!-- FLOATING CTA (auto-hides) -->
   <div id="ctaBar" class="cta-bar">
     <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
-  <!-- AMBIENCE (sound-only) -->
+  <!-- AMBIENCE -->
   <audio id="bgAudio" preload="auto" loop playsinline crossorigin="anonymous">
     <source src="/lv_0_20250815112807.mp4" type="audio/mp4"/>
     <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
@@ -410,26 +411,24 @@
   const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
 })();
 
-/* SPA router by hash */
+/* SPA router */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
   const links=[...document.querySelectorAll('.navlink')];
+  const ctaBar=document.getElementById('ctaBar');
   function route(){
     const hash=(location.hash.replace('#','')||'home').toLowerCase();
     views.forEach(v=>v.classList.toggle('hidden', v.dataset.view!==hash));
     links.forEach(a=>a.classList.toggle('active', a.dataset.route===hash));
+    // hide floating CTA outside the home view
+    if(ctaBar) ctaBar.classList.toggle('hide', hash!=='home');
     scrollTo(0,0);
     if(hash==='join') ensureLockStarted();
   }
-  addEventListener('hashchange',route);
-  document.addEventListener('click',(e)=>{
-    const a=e.target.closest('a[href^="#"]'); if(!a) return;
-    setTimeout(route,0);
-  });
-  route();
+  addEventListener('hashchange',route); route();
 })();
 
-/* background particles */
+/* particles / ash */
 (() => {
   const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
   function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?80:140;p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.3+.3,o:Math.random()*.5+.25,b:Math.random()<.35}))}
@@ -442,7 +441,7 @@
   function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(234,246,241,.16)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.35;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
-/* lightning overlay tick */
+/* lightning tick */
 (() => { const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
   bolts.forEach(b=>b.addEventListener('animationiteration',()=>{shock.classList.add('flash');setTimeout(()=>shock.classList.remove('flash'),120);}));})();
 
@@ -489,7 +488,7 @@ tick();
   }
 })();
 
-/* ambience: loops, auto-start post-interaction, ducks near video */
+/* ambience: loops low, ducks near video */
 (() => {
   const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); if(!A) return;
   let started=false, retryId=null, raf; const baseVol=.24;
@@ -541,11 +540,26 @@ function renderLock(){
 }
 renderLock();
 
-/* start lock when any join/see pricing CTA is clicked */
+/* start lock when any CTA/Join is clicked */
 document.addEventListener('click',(e)=>{
   const a=e.target.closest('[data-lockin]'); if(!a) return;
   ensureLockStarted();
 });
+
+/* ===== Whop OPEN: make sure Join buttons always navigate ===== */
+document.querySelectorAll('[data-external]').forEach(a=>{
+  a.setAttribute('target','_blank');
+  a.setAttribute('rel','noopener noreferrer');
+  a.addEventListener('click', (ev)=>{
+    // safety: if anything tries to block, force navigation
+    const url=a.getAttribute('href');
+    // let the browser open _blank; also schedule a fallback
+    setTimeout(()=>{ try{
+      // if popup was blocked or tab didn't open, fallback same tab
+      if(!document.hidden) window.location.href=url;
+    }catch(_){} }, 150);
+  }, {passive:true});
+});
 </script>
 </body>
-  </html>
+</html>
