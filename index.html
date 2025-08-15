@@ -1,109 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
 <title>Inner Vault — Island Blood. Warrior Math.</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0a1210;
-    --bg2:#0c1713;
-    --ink:#eaf6f1;
-    --mute:rgba(217,239,233,.75);
-    --gold:#e6c55e;
-    --gold-2:#f0d67a;
-    --neon:#00e6a6;
-    --danger:#b31616;
-    --card:rgba(10,22,18,.55);
-    --ring:rgba(255,255,255,.12);
-    --glow:0 20px 40px rgba(0, 230, 166, .18), 0 0 60px rgba(230,197,94,.18);
+    --bg:#0a1210;--bg2:#0b1714;--ink:#eaf6f1;--mute:rgba(217,239,233,.78);
+    --gold:#e6c55e;--gold2:#f0d67a;--neon:#00e6a6;--ring:rgba(255,255,255,.12);
+    --card:rgba(9,18,15,.52);
   }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-    color:var(--ink); background:radial-gradient(1200px 700px at 50% -10%, #163225 0%, #0b1a14 60%, #070d0b 100%), #07100d;
-    background-attachment:fixed; overflow-x:hidden; scroll-behavior:smooth;
-  }
-  a{color:inherit; text-decoration:none}
+  *{box-sizing:border-box} html,body{height:100%}
+  body{margin:0;background:radial-gradient(1200px 700px at 50% -10%, #183528 0%, #0b1a14 60%, #070d0b 100%) #07100d;
+       color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+       background-attachment:fixed;scroll-behavior:smooth;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
   .wrap{max-width:1120px;margin:0 auto;padding:0 16px}
-  /* top strip */
+  .meter{height:4px;background:linear-gradient(90deg,var(--gold),var(--neon));box-shadow:0 0 18px rgba(230,197,94,.35) inset}
   .strip{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#0f261d,#0f231c);border-bottom:1px solid var(--ring)}
-  .strip .meter{height:4px;background:linear-gradient(90deg,var(--gold),var(--neon));box-shadow:0 0 14px rgba(230,197,94,.35) inset}
-  .strip .row{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:10px 0}
-  .chip{padding:8px 14px;border-radius:999px;border:1px solid var(--ring);background:rgba(7,15,12,.55);color:var(--mute);backdrop-filter:blur(6px)}
-  /* hero */
-  header{position:relative;overflow:hidden;padding:38px 0 16px}
-  .halo::before,.halo::after{content:"";position:absolute;inset:-10%;z-index:-1}
-  .halo::before{background:radial-gradient(800px 450px at 50% 0%, rgba(230,197,94,.08), transparent 60%);}
-  .halo::after{background:radial-gradient(1200px 800px at 50% 100%, rgba(0,230,166,.06), transparent 70%);}
-  h1{font-size:clamp(34px,7vw,64px);line-height:1.04;margin:6px 0 14px}
+  .row{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:10px 0}
+  .chip{padding:8px 14px;border-radius:999px;border:1px solid var(--ring);background:rgba(7,15,12,.55);color:var(--mute)}
+  header{position:relative;padding:36px 0 10px}
+  .halo:before{content:"";position:absolute;inset:-10%;background:
+    radial-gradient(800px 420px at 50% 0%, rgba(230,197,94,.08), transparent 60%),
+    radial-gradient(1200px 820px at 50% 100%, rgba(0,230,166,.06), transparent 70%);
+    pointer-events:none}
+  h1{font-size:clamp(34px,7vw,64px);line-height:1.04;margin:8px 0 12px}
   .lead{font-size:clamp(16px,2.7vw,22px);color:var(--mute)}
-  .cta{display:inline-flex;gap:10px;align-items:center;padding:14px 18px;border-radius:16px;font-weight:700;letter-spacing:.2px}
-  .cta-gold{background:var(--gold);color:#0E140F;box-shadow:var(--glow)}
+  .stack{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}
+  .cta{display:inline-flex;gap:10px;align-items:center;padding:14px 18px;border-radius:16px;font-weight:800}
+  .cta-gold{background:var(--gold);color:#0E140F;box-shadow:0 16px 46px rgba(0,230,166,.2)}
   .cta-ghost{border:1px solid var(--ring);color:var(--mute)}
-  .stack{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
-  /* cards */
   .grid{display:grid;gap:16px}
-  @media(min-width:860px){ .grid-2{grid-template-columns:1fr 1fr} .grid-3{grid-template-columns:repeat(3,1fr)} }
+  @media(min-width:860px){.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}}
   .card{background:var(--card);border:1px solid var(--ring);border-radius:22px}
-  .ringfx{box-shadow:0 0 0 1px rgba(230,197,94,.14) inset, 0 0 30px rgba(0,230,166,.08) inset}
-  .section{padding:60px 0}
-  .title{font-size:clamp(26px,4.8vw,44px);line-height:1.1;margin:0 0 8px}
-  .muted{color:var(--mute)}
-  .stat{display:flex;gap:14px;align-items:center;padding:16px;border-radius:18px;background:linear-gradient(180deg,rgba(18,36,29,.6),rgba(11,22,18,.6))}
-  .stat b{font-size:28px}
-  .badge{position:absolute;right:12px;top:-16px; background:var(--gold); color:#0E140F; padding:8px 14px; border-radius:999px; font-weight:800}
-  /* proof video */
+  .section{padding:56px 0}
+  .title{font-size:clamp(26px,4.8vw,44px);margin:0 0 8px}
+  .stat{display:flex;gap:12px;align-items:center;padding:14px;border-radius:18px;background:rgba(12,24,19,.5)}
+  .stat b{font-size:26px}
   .frame{position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--ring);background:#000;box-shadow:0 12px 60px rgba(0,0,0,.55)}
-  .frame::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(700px 260px at 50% 100%, rgba(0,230,166,.08), transparent 60%)}
   video{display:block;width:100%;height:auto}
-  /* lockin bar */
-  .lockbar{position:sticky;top:52px;z-index:39;background:linear-gradient(90deg, #4b0a0a, #7a1212 60%, #4b0a0a);color:#fff;font-weight:900;letter-spacing:.08em;text-align:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1)}
-  .lockbar small{font-weight:800}
+  /* red lock-in bar */
+  .lockbar{position:sticky;top:52px;z-index:39;background:linear-gradient(90deg,#4b0a0a,#7a1212 60%,#4b0a0a);color:#fff;font-weight:900;letter-spacing:.08em;text-align:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);display:none}
   /* pricing */
   .price{font-size:52px;margin:0 0 6px}
-  .list{padding:0;margin:16px 0;list-style:none}
+  .list{list-style:none;margin:16px 0;padding:0}
   .list li{margin:10px 0;color:var(--mute)}
-  .joinbtn{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:14px;padding:14px;border-radius:14px;background:var(--gold);color:#0E140F;font-weight:800;box-shadow:var(--glow)}
+  .joinbtn{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:14px;padding:14px;border-radius:14px;background:var(--gold);color:#0E140F;font-weight:900}
   .joinbtn svg{width:22px;height:22px}
-  /* Or do nothing */
-  .or{font-weight:900;letter-spacing:.06em;text-align:center;margin:42px 0 8px}
-  .lockpanel{padding:22px;border-radius:22px;background:linear-gradient(180deg, rgba(24,50,38,.8), rgba(14,28,22,.9));border:1px solid var(--ring);text-align:center}
+  .badge{position:absolute;right:12px;top:-16px;background:var(--gold);color:#0E140F;padding:8px 14px;border-radius:999px;font-weight:900}
+  /* small NCS strip (clean) */
+  .ncs{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;background:rgba(8,16,13,.5);border:1px solid var(--ring)}
+  .ncs img{height:40px;width:auto;object-fit:contain;border-radius:8px;border:1px solid var(--ring)}
+  .ncs .chips{display:flex;gap:10px;flex-wrap:wrap}
+  .ncs .chips span{padding:6px 10px;border-radius:999px;background:rgba(12,24,19,.6);border:1px solid var(--ring);font-weight:700}
   /* FAQ */
-  .faq q{quotes:"“" "”" "‘" "’"}
   details{border:1px solid var(--ring);border-radius:18px;padding:14px 18px;background:rgba(8,16,13,.5)}
-  details+details{margin-top:10px}
-  summary{cursor:pointer;font-weight:700}
-  /* footer */
+  details+details{margin-top:10px} summary{cursor:pointer;font-weight:800}
+  /* footer + screens */
   footer{border-top:1px solid var(--ring);padding:26px 0;color:var(--mute)}
   .footlinks{display:flex;gap:16px;flex-wrap:wrap}
-  /* hidden screens (terms/privacy) */
-  .screen{display:none}
-  .screen.active{display:block}
-  /* NCS aura pulse */
-  .ncs-mark { position: relative; display:inline-block; }
-  .ncs-mark:before{
-    content:""; position:absolute; inset:-12%; border-radius:999px;
-    background: radial-gradient(circle at 50% 50%, rgba(230,197,94,.24), rgba(0,179,110,.14), transparent 70%);
-    filter: blur(10px); z-index:-1; animation: ncsPulse 2.4s ease-in-out infinite alternate;
-  }
-  @keyframes ncsPulse { from{opacity:.6; transform:scale(.98)} to{opacity:1; transform:scale(1.05)} }
-  /* warrior background spears */
-  .spears:before,.spears:after{
-    content:"";position:absolute;inset:-10%;pointer-events:none;
+  .screen{display:none} .screen.active{display:block}
+  /* sticky bottom CTA (cohort countdown) */
+  .sticky{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:45}
+  .pill{background:var(--gold);color:#0E140F;border-radius:18px;padding:14px 18px;font-weight:900;box-shadow:0 16px 46px rgba(230,197,94,.25)}
+  /* subtle spear lines */
+  body:before,body:after{
+    content:"";position:fixed;inset:-10%;pointer-events:none;
     background:
-      linear-gradient(120deg, transparent 45%, rgba(214,167,54,.08) 46%, transparent 48%) -30% -10%/40% 140% no-repeat,
-      linear-gradient(-117deg, transparent 45%, rgba(214,167,54,.08) 46%, transparent 48%) 130% -10%/40% 140% no-repeat;
+      linear-gradient(120deg,transparent 45%,rgba(214,167,54,.08) 46%,transparent 48%) -30% -10%/40% 140% no-repeat,
+      linear-gradient(-117deg,transparent 45%,rgba(214,167,54,.08) 46%,transparent 48%) 130% -10%/40% 140% no-repeat;
   }
-  .no-scrollbar::-webkit-scrollbar{display:none}
 </style>
 </head>
-<body id="top" class="spears">
+<body>
 
-<!-- ambience (plays quietly; resumes when video not playing) -->
+<!-- ambience -->
 <audio id="ambience" src="lv_0_20250815112807.mp4" preload="auto" loop></audio>
 
 <!-- top strip -->
@@ -112,31 +86,21 @@
   <div class="wrap row">
     <div class="chip">Seats Left: <b id="seats">7</b></div>
     <div class="chip">Cohort closes in <b id="cohort"></b></div>
-    <div class="chip no-scrollbar" style="overflow:auto;max-width:40vw">
-      <span>IRL Streams</span>&nbsp;&bull;&nbsp;<span>Super UGC</span>&nbsp;&bull;&nbsp;<span>Reflexivity Engine</span>&nbsp;&bull;&nbsp;<span>AI + Prompts</span>
-    </div>
+    <div class="chip" style="white-space:nowrap;overflow:auto;max-width:42vw">IRL Streams • Super UGC • Reflexivity Engine • AI + Prompts</div>
   </div>
 </div>
 
-<!-- lock-in bar -->
-<div class="lockbar" id="lockbar" style="display:none;">
-  YOUR PRICING IS LOCKED IN FOR — <span id="lockin"></span>
-</div>
+<!-- red lock-in bar -->
+<div id="lockbar" class="lockbar">YOUR PRICING IS LOCKED IN FOR — <span id="lockin"></span></div>
 
 <header class="halo">
-  <div class="wrap" style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;justify-content:space-between">
-    <div style="display:flex;align-items:center;gap:14px">
-      <img id="logo" alt="Inner Vault" style="width:44px;height:44px;border-radius:10px;border:1px solid var(--ring);object-fit:cover">
-      <div style="font-weight:800;letter-spacing:.12em;color:var(--mute)">INNER VAULT</div>
-    </div>
+  <div class="wrap" style="display:flex;align-items:center;gap:12px">
+    <img id="logo" alt="Inner Vault" style="width:44px;height:44px;border-radius:10px;border:1px solid var(--ring);object-fit:cover">
+    <div style="font-weight:800;letter-spacing:.12em;color:var(--mute)">INNER VAULT</div>
   </div>
-
-  <div class="wrap" style="margin-top:26px">
-    <h1>Island Blood.<br>Warrior Math.<br>Build <span style="color:var(--gold)">Leverage</span> — Convert <span style="color:var(--gold)">Power</span>.</h1>
-    <p class="lead">
-      South Pacific to the world. Stripe from the islands. Sell <b>$5k–$15k</b> AI prompts. Run IRL proof that closes.
-      Not “content” — a <b style="color:var(--neon)">money mechanism</b>: manufacture attention → trigger emotion → capture proof → convert on command.
-    </p>
+  <div class="wrap" style="margin-top:22px">
+    <h1>Island Blood. Warrior Math.<br>Build <span style="color:var(--gold)">Leverage</span> — Convert <span style="color:var(--gold)">Power</span>.</h1>
+    <p class="lead">South Pacific to the world. Stripe from the islands. Sell <b>$5k–$15k</b> AI prompts. IRL proof. Not “content” — a <b style="color:var(--neon)">money mechanism</b>: manufacture attention → trigger emotion → capture proof → convert on command.</p>
     <div class="stack">
       <a href="#join" class="cta cta-gold" data-lockin>Join the Cohort</a>
       <a href="#proof" class="cta cta-ghost">See Proof ↓</a>
@@ -144,13 +108,14 @@
   </div>
 </header>
 
+<!-- HOME SCREEN -->
 <main id="home" class="screen active">
   <!-- proof + stats -->
   <section class="section">
     <div class="wrap grid grid-2">
       <div id="proof" class="frame">
-        <video id="proofVideo" playsinline autoplay loop controls muted preload="auto" poster="">
-          <source src="lv_0_20250808150232.mp4" type="video/mp4" />
+        <video id="proofVideo" playsinline autoplay loop controls muted preload="auto">
+          <source src="lv_0_20250808150232.mp4" type="video/mp4"/>
         </video>
       </div>
       <div class="grid">
@@ -161,45 +126,30 @@
     </div>
   </section>
 
-  <!-- NCS -->
-  <section id="ncs" class="section" style="padding-top:10px">
-    <div class="wrap grid grid-2" style="align-items:center">
-      <div>
-        <div class="ncs-mark" style="display:inline-block;padding:8px 10px;border-radius:16px;background:rgba(0,0,0,.25);border:1px solid var(--ring)">
-          <img id="ncsLogo" alt="No Code Society (NCS)" style="height:56px;width:auto;display:block;object-fit:contain" />
-        </div>
-        <h2 class="title" style="margin-top:8px">No Code Society</h2>
-        <p class="muted">
-          Our private clan — operators only. Daily breakdowns, deal rooms, and plays that print from the islands to the world.
-        </p>
-        <ul class="list">
-          <li>✔ <b><span data-count data-end="220" data-suffix="+">220+</span> warriors & chiefs</b> already inside.</li>
-          <li>✔ <b>Deal Rooms</b> — share wins, swap prompts, move faster.</li>
-          <li>✔ <b>Live Sprints</b> — weekly IRL + AI working sessions.</li>
-          <li>✔ <b>Prompt Drops</b> — enterprise packs you can resell.</li>
-        </ul>
-        <div class="stack">
-          <a href="#join" data-lockin class="cta cta-gold">Enter the Vault</a>
-          <a href="#reviews" class="cta cta-ghost">See Reviews ↓</a>
-        </div>
+  <!-- Legacy Oath -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="card" style="padding:16px 18px;border-radius:18px">
+        <strong style="color:#122; background:linear-gradient(90deg,rgba(230,197,94,.25),rgba(0,230,166,.18)); padding:8px 12px;border-radius:12px;border:1px solid var(--ring)">The Legacy Oath</strong>
+        <div style="margin-top:10px;color:var(--mute)">If I fall tomorrow, my family still eats. Poverty stops with us. Proof over pride. Work over wishes.</div>
       </div>
-      <div class="card ringfx" style="padding:16px">
-        <div class="card" style="overflow:hidden">
-          <div class="no-scrollbar" style="display:flex;gap:12px;padding:14px;overflow:auto">
-            <img class="avatar" style="height:48px;width:48px;border-radius:999px;border:1px solid var(--ring)" src="https://placehold.co/96x96/0d2a22/eaf6f1?text=A" alt="">
-            <img class="avatar" style="height:48px;width:48px;border-radius:999px;border:1px solid var(--ring)" src="https://placehold.co/96x96/0d2a22/eaf6f1?text=J" alt="">
-            <img class="avatar" style="height:48px;width:48px;border-radius:999px;border:1px solid var(--ring)" src="https://placehold.co/96x96/0d2a22/eaf6f1?text=L" alt="">
-            <img class="avatar" style="height:48px;width:48px;border-radius:999px;border:1px solid var(--ring)" src="https://placehold.co/96x96/0d2a22/eaf6f1?text=K" alt="">
-            <img class="avatar" style="height:48px;width:48px;border-radius:999px;border:1px solid var(--ring)" src="https://placehold.co/96x96/0d2a22/eaf6f1?text=T" alt="">
-            <img class="avatar" style="height:48px;width:48px;border-radius:999px;border:1px solid var(--ring)" src="https://placehold.co/96x96/0d2a22/eaf6f1?text=P" alt="">
-            <img class="avatar" style="height:48px;width:48px;border-radius:999px;border:1px solid var(--ring)" src="https://placehold.co/96x96/0d2a22/eaf6f1?text=V" alt="">
+    </div>
+  </section>
+
+  <!-- No Code Society (clean strip) -->
+  <section class="section" style="padding-top:22px">
+    <div class="wrap">
+      <h2 class="title" style="margin-bottom:10px">No Code Society</h2>
+      <div class="ncs">
+        <img id="ncsLogo" alt="NCS">
+        <div style="flex:1">
+          <div class="muted" style="margin-bottom:8px">Our private clan — operators only. Access is only through Inner Vault.</div>
+          <div class="chips">
+            <span><b><span data-count data-end="220" data-suffix="+">220+</span></b> members</span>
+            <span>Deal Rooms</span><span>Live Sprints</span><span>Prompt Drops</span>
           </div>
         </div>
-        <div class="grid grid-3" style="margin-top:12px;text-align:center">
-          <div class="card" style="padding:10px 8px"><div style="font-weight:900;font-size:22px">37+</div><div class="muted" style="font-size:12px">wins this week</div></div>
-          <div class="card" style="padding:10px 8px"><div style="font-weight:900;font-size:22px">9/wk</div><div class="muted" style="font-size:12px">live sprints</div></div>
-          <div class="card" style="padding:10px 8px"><div style="font-weight:900;font-size:22px">4+</div><div class="muted" style="font-size:12px">deal rooms</div></div>
-        </div>
+        <a href="#join" class="cta cta-gold" data-lockin>Enter the Vault</a>
       </div>
     </div>
   </section>
@@ -212,7 +162,7 @@
 
       <div class="grid grid-2" style="margin-top:16px">
         <!-- Monthly -->
-        <div class="card ringfx" style="padding:22px;position:relative">
+        <div class="card" style="padding:22px;position:relative">
           <h3 style="margin:0 0 2px;font-size:24px;font-weight:900">WARRIOR — Monthly</h3>
           <p class="muted">Start now. Cancel anytime.</p>
           <h4 class="price">$39<span style="font-size:18px">/mo</span></h4>
@@ -231,7 +181,7 @@
         </div>
 
         <!-- Lifetime -->
-        <div class="card ringfx" style="padding:22px;position:relative">
+        <div class="card" style="padding:22px;position:relative">
           <div class="badge">Best Value</div>
           <h3 style="margin:0 0 2px;font-size:24px;font-weight:900">CHIEF — Lifetime</h3>
           <p class="muted">Own the systems. Own the results.</p>
@@ -250,17 +200,17 @@
         </div>
       </div>
 
-      <!-- OR DO NOTHING -->
-      <h3 class="or">OR DO NOTHING..</h3>
+      <!-- Or do nothing -->
+      <h3 style="text-align:center;margin:36px 0 6px;font-weight:900;letter-spacing:.06em">OR DO NOTHING..</h3>
       <p class="muted" style="text-align:center;margin:0 0 14px">Go watch Netflix. Work a 9–5.</p>
-      <div class="lockpanel card wrap-narrow">
-        <h3 style="font-size:28px;margin:6px 0 2px;letter-spacing:.04em;font-weight:900">LOCK-IN YOUR PRICE OF <span style="color:var(--gold)">$39</span></h3>
-        <div class="muted" style="margin:6px 0 14px">Hold lasts <b id="lockin2">10M : 00S</b>.</div>
-        <a class="joinbtn" data-join data-lockin>
+      <div class="card" style="padding:22px;border-radius:22px;text-align:center">
+        <h3 style="margin:6px 0 8px;font-size:28px;font-weight:900">LOCK-IN YOUR PRICE OF <span style="color:var(--gold)">$39</span></h3>
+        <div class="muted">Hold lasts <b id="lockin2">10M : 00S</b>.</div>
+        <a class="joinbtn" style="margin:14px auto 0;max-width:320px" data-join data-lockin>
           <svg viewBox="0 0 24 24" fill="none" stroke="#0E140F"><rect x="2" y="5" width="20" height="14" rx="3" stroke-width="2"/><path d="M2 9h20" stroke-width="2"/></svg>
           Join with Card
         </a>
-        <div style="margin-top:10px;color:var(--mute);font-size:14px">
+        <div style="margin-top:12px;color:var(--mute);font-size:14px">
           <a href="#home" data-nav="home">← Back to Home</a> · <a href="#terms" data-nav="terms">Terms</a> · <a href="#privacy" data-nav="privacy">Privacy</a>
         </div>
       </div>
@@ -288,9 +238,12 @@
       </div>
     </div>
   </footer>
+
+  <!-- sticky cohort CTA -->
+  <div class="sticky"><a href="#join" class="pill" data-lockin>Join before <span id="cohortBottom"></span></a></div>
 </main>
 
-<!-- TERMS screen -->
+<!-- TERMS -->
 <section id="terms" class="screen">
   <div class="wrap section">
     <h2 class="title">Terms of Service</h2>
@@ -303,14 +256,11 @@
       <li><b>Termination</b> — we may suspend/terminate access for violations.</li>
       <li><b>Revisions</b> — continued use confirms acceptance of updates.</li>
     </ol>
-    <div class="stack" style="margin-top:20px">
-      <a href="#home" data-nav="home" class="cta cta-gold">← Back to Home</a>
-      <a href="#privacy" data-nav="privacy" class="cta cta-ghost">Privacy →</a>
-    </div>
+    <div class="stack"><a class="cta cta-gold" data-nav="home" href="#home">← Back to Home</a><a class="cta cta-ghost" data-nav="privacy" href="#privacy">Privacy →</a></div>
   </div>
 </section>
 
-<!-- PRIVACY screen -->
+<!-- PRIVACY -->
 <section id="privacy" class="screen">
   <div class="wrap section">
     <h2 class="title">Privacy Policy</h2>
@@ -322,130 +272,77 @@
       <li><b>Deletion</b>: email support@nocodesociety.com for account deletion.</li>
       <li><b>Analytics</b>: limited cookies for behavior analysis.</li>
     </ol>
-    <div class="stack" style="margin-top:20px">
-      <a href="#home" data-nav="home" class="cta cta-gold">← Back to Home</a>
-      <a href="#terms" data-nav="terms" class="cta cta-ghost">Terms →</a>
-    </div>
+    <div class="stack"><a class="cta cta-gold" data-nav="home" href="#home">← Back to Home</a><a class="cta cta-ghost" data-nav="terms" href="#terms">Terms →</a></div>
   </div>
 </section>
 
 <script>
-/* ---------- config (edit these) ---------- */
-const WHOP_URL = "https://whop.com/checkout/inner-vault"; // TODO: replace with your real checkout
+/* ===== config ===== */
+const WHOP_URL = "https://whop.com/checkout/inner-vault"; // <-- replace with your Whop checkout
 const COHORT_DEADLINE = localStorage.getItem("COHORT_DEADLINE")
-  || (()=>{ // default: +6 days from first visit
-      const t = Date.now() + 6*24*60*60*1000;
-      localStorage.setItem("COHORT_DEADLINE", t);
-      return t;
-    })();
+  || (()=>{ const t=Date.now()+6*24*60*60*1000; localStorage.setItem("COHORT_DEADLINE",t); return t; })();
 
-/* ---------- assets + year + NCS logos ---------- */
+/* year + logos */
 (() => {
+  const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
   const logoSrc="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
-  const fallback="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
-  const logo=document.getElementById('logo'); if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallback;}
+  const logoFallback="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
+  const logo=document.getElementById('logo'); logo.src=logoSrc; logo.onerror=()=>logo.src=logoFallback;
 
   const ncsNew="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png";
   const ncsOld="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
-  const ncs=document.getElementById('ncsLogo'); if(ncs){ ncs.src=ncsNew; ncs.onerror=()=>ncs.src=ncsOld; }
-
-  const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
+  const ncs=document.getElementById('ncsLogo'); ncs.src=ncsNew; ncs.onerror=()=>ncs.src=ncsOld;
 })();
 
-/* ---------- cohort countdown ---------- */
-const cohortEl = document.getElementById('cohort');
-function fmt(ms){
-  if(ms<0) return "00 : 00 : 00";
-  const s=Math.floor(ms/1000);
-  const h=Math.floor(s/3600);
-  const m=Math.floor((s%3600)/60);
-  const sec=s%60;
-  return `${String(h).padStart(2,"0")} : ${String(m).padStart(2,"0")} : ${String(sec).padStart(2,"0")}`;
-}
-setInterval(()=>{ cohortEl.textContent = fmt(COHORT_DEADLINE - Date.now()); }, 1000);
+/* cohort countdown (top & bottom) */
+const cohortTop=document.getElementById('cohort');
+const cohortBottom=document.getElementById('cohortBottom');
+function fmt(ms){ if(ms<0) return "00 : 00 : 00";
+  const s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=s%60;
+  return `${String(h).padStart(2,"0")} : ${String(m).padStart(2,"0")} : ${String(sec).padStart(2,"0")}` }
+setInterval(()=>{
+  const left=COHORT_DEADLINE-Date.now();
+  cohortTop.textContent=fmt(left);
+  cohortBottom.textContent=fmt(left);
+},1000);
 
-/* ---------- lock-in timer (10 min persisted) ---------- */
-const LOCK_KEY = "IV_LOCKIN_START";
-const lockbar = document.getElementById('lockbar');
-const lock1 = document.getElementById('lockin');
-const lock2 = document.getElementById('lockin2');
-function startLockin(){
-  const now = Date.now();
-  localStorage.setItem(LOCK_KEY, now);
-  updateLockin(); lockbar.style.display='block';
-}
-function getLockMs(){
-  const start = +localStorage.getItem(LOCK_KEY)||0;
-  const ttl = 10*60*1000;
-  return Math.max(0, start? (start+ttl-Date.now()) : 0);
-}
-function updateLockin(){
-  const ms = getLockMs();
-  const s = Math.floor(ms/1000), m=Math.floor(s/60), sec=s%60;
-  const t = `${String(m).padStart(2,"0")}M : ${String(sec).padStart(2,"0")}S`;
-  if(lock1) lock1.textContent=t;
-  if(lock2) lock2.textContent=t;
-  if(ms<=0){ lockbar.style.display='none'; localStorage.removeItem(LOCK_KEY); }
-}
-setInterval(updateLockin, 500); updateLockin();
+/* lock-in timer (10m, persistent) */
+const LOCK_KEY="IV_LOCKIN_START";
+const lockbar=document.getElementById('lockbar');
+const l1=document.getElementById('lockin'); const l2=document.getElementById('lockin2');
+function startLock(){ const now=Date.now(); localStorage.setItem(LOCK_KEY,now); lockbar.style.display="block"; }
+function remain(){ const s=+localStorage.getItem(LOCK_KEY)||0; const ttl=10*60*1000; return Math.max(0,s? s+ttl-Date.now():0); }
+function tickLock(){ const ms=remain(); const ss=Math.floor(ms/1000),m=Math.floor(ss/60),sec=ss%60,txt=`${String(m).padStart(2,"0")}M : ${String(sec).padStart(2,"0")}S`;
+  if(l1) l1.textContent=txt; if(l2) l2.textContent=txt; if(ms<=0){lockbar.style.display="none"; localStorage.removeItem(LOCK_KEY);} }
+setInterval(tickLock,500); tickLock();
+document.querySelectorAll('[data-lockin]').forEach(el=> el.addEventListener('click', startLock, {passive:true}));
 
-/* ---------- Join with Card (open Whop in new tab) ---------- */
+/* Join with Card → Whop */
 document.querySelectorAll('[data-join]').forEach(btn=>{
-  btn.addEventListener('click', (e)=>{
-    e.preventDefault();
-    startLockin();
-    window.open(WHOP_URL, '_blank', 'noopener');
-  });
-});
-document.querySelectorAll('[data-lockin]').forEach(el=>{
-  el.addEventListener('click', ()=> startLockin(), {passive:true});
+  btn.addEventListener('click', (e)=>{ e.preventDefault(); startLock(); window.open(WHOP_URL,'_blank','noopener'); });
 });
 
-/* ---------- in-page screens: home / terms / privacy ---------- */
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  const el = document.getElementById(id);
-  if(el){ el.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
-}
-document.querySelectorAll('[data-nav]').forEach(a=>{
-  a.addEventListener('click', (e)=>{
-    e.preventDefault();
-    const dest = a.getAttribute('data-nav');
-    if(dest==='home'){ showScreen('home'); }
-    else if(dest==='terms'){ showScreen('terms'); }
-    else if(dest==='privacy'){ showScreen('privacy'); }
-  });
-});
+/* in-page screens */
+function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById(id); if(el){ el.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); } }
+document.querySelectorAll('[data-nav]').forEach(a=> a.addEventListener('click',(e)=>{ e.preventDefault(); show(a.getAttribute('data-nav')); }));
 
-/* ---------- ambience audio auto-play strategy ---------- */
-const ambience = document.getElementById('ambience');
-ambience.volume = 0.10; // low
-function tryPlayAmbience(){ ambience.play().catch(()=>{}); }
-document.addEventListener('DOMContentLoaded', tryPlayAmbience);
-['pointerdown','touchstart','scroll'].forEach(ev=>{
-  window.addEventListener(ev, function once(){ tryPlayAmbience(); window.removeEventListener(ev, once); }, {passive:true});
-});
-
-/* pause ambience while video is actively playing */
-const vid = document.getElementById('proofVideo');
+/* ambience auto-play (low) + video sync */
+const amb=document.getElementById('ambience'); amb.volume=.10;
+function playAmb(){ amb.play().catch(()=>{}); }
+document.addEventListener('DOMContentLoaded', playAmb);
+['pointerdown','touchstart','scroll'].forEach(ev=> window.addEventListener(ev,function once(){ playAmb(); window.removeEventListener(ev,once); },{passive:true}));
+const vid=document.getElementById('proofVideo');
 if(vid){
-  const sync = () => { if(!vid.paused && !vid.muted){ ambience.pause(); } else { tryPlayAmbience(); } };
-  ['play','pause','volumechange','ended'].forEach(ev=> vid.addEventListener(ev, sync));
-  // attempt to unmute video on first gesture for louder proof
-  window.addEventListener('pointerdown', ()=>{ if(vid.muted){ vid.muted=false; vid.play().catch(()=>{}); }},{once:true,passive:true});
+  const sync=()=>{ if(!vid.paused && !vid.muted){ amb.pause(); } else { playAmb(); } };
+  ['play','pause','volumechange','ended'].forEach(ev=> vid.addEventListener(ev,sync));
+  window.addEventListener('pointerdown', ()=>{ if(vid.muted){ vid.muted=false; vid.play().catch(()=>{});} }, {once:true,passive:true});
 }
 
-/* ---------- animated counters ---------- */
+/* small counters */
 document.querySelectorAll('[data-count]').forEach(el=>{
-  const end = +el.dataset.end || 0;
-  const suffix = el.dataset.suffix || '';
-  let t0=null;
-  function step(ts){
-    if(!t0) t0=ts;
-    const p = Math.min(1,(ts-t0)/900);
-    el.textContent = Math.floor(end*p) + suffix;
-    if(p<1) requestAnimationFrame(step);
-  }
+  const end=+el.dataset.end||0, suf=el.dataset.suffix||''; let t0=null;
+  function step(ts){ if(!t0) t0=ts; const p=Math.min(1,(ts-t0)/900); el.textContent=Math.floor(end*p)+suf; if(p<1) requestAnimationFrame(step); }
   requestAnimationFrame(step);
 });
 </script>
