@@ -44,7 +44,7 @@
     radial-gradient(900px 420px at 0% 100%,rgba(160,18,22,.12),transparent 60%),
     radial-gradient(900px 420px at 100% 100%,rgba(160,18,22,.12),transparent 60%);mix-blend-mode:screen}
   .rift{position:fixed;inset:0;z-index:-6;pointer-events:none;opacity:.18;background:conic-gradient(from -30deg at 60% 40%,rgba(230,197,94,.45),rgba(0,179,110,.35),rgba(0,0,0,0) 65%);transform:skewX(-10deg) translateY(-2%);animation:riftMove 18s ease-in-out infinite alternate}
-  @keyframes riftMove{0%{transform:skewX(-10deg) translateY(-2%)}100%{transform:skewX(-12deg) translateY(3%)}} 
+  @keyframes riftMove{0%{transform:skewX(-10deg) translateY(-2%)}100%{transform:skewX(-12deg) translateY(3%)}}
   .lightning{position:fixed;inset:0;z-index:-5;pointer-events:none}
   .bolt{position:absolute;width:2px;height:72vh;top:-22vh;opacity:0;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.95),rgba(255,255,255,0));filter:drop-shadow(0 0 16px rgba(230,197,94,.55));animation:flash 8s infinite ease-in}
   .bolt.b1{left:18%;transform:rotate(-16deg);animation-delay:2.2s}
@@ -118,12 +118,12 @@
       <a data-route="terms" class="navlink hover:text-vault-em" href="#terms">Terms</a>
       <a data-route="privacy" class="navlink hover:text-vault-em" href="#privacy">Privacy</a>
     </nav>
-    <a href="#join" data-lockin class="md:hidden cta rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join</a>
+    <!-- removed the mobile yellow Join button -->
   </header>
 
   <main id="app">
     <!-- HOME -->
-    <section data-view="home">
+    <section id="home" data-view="home">
       <section class="relative overflow-hidden">
         <div class="mx-auto max-w-7xl px-4 py-10 md:py-16">
           <div class="grid gap-10 md:grid-cols-2 md:items-center">
@@ -270,16 +270,16 @@
         <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-vault-mute">
           <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
           <div class="flex items-center gap-4">
-            <a href="#terms" class="hover:text-vault-em">Terms</a>
-            <a href="#privacy" class="hover:text-vault-em">Privacy</a>
-            <a href="#join" class="hover:text-vault-em" data-lockin>Join</a>
+            <a href="#terms" class="router hover:text-vault-em">Terms</a>
+            <a href="#privacy" class="router hover:text-vault-em">Privacy</a>
+            <a href="#join" class="router hover:text-vault-em" data-lockin>Join</a>
           </div>
         </div>
       </footer>
     </section>
 
     <!-- JOIN -->
-    <section data-view="join" class="hidden">
+    <section id="join" data-view="join" class="hidden">
       <div id="lockWrap" class="lockbar hidden">
         <div class="mx-auto max-w-6xl px-4 py-2 text-center text-sm md:text-base">
           <b>YOUR PRICING IS LOCKED IN FOR — <span id="lockTimer">10M : 00S</span></b>
@@ -349,13 +349,13 @@
               Join with Card
             </a>
           </div>
-          <p class="mt-6 text-sm text-vault-mute"><a href="#home" class="text-vault-em">← Back to Home</a> • <a href="#terms" class="text-vault-em">Terms</a> • <a href="#privacy" class="text-vault-em">Privacy</a></p>
+          <p class="mt-6 text-sm text-vault-mute"><a href="#home" class="router text-vault-em">← Back to Home</a> • <a href="#terms" class="router text-vault-em">Terms</a> • <a href="#privacy" class="router text-vault-em">Privacy</a></p>
         </section>
       </main>
     </section>
 
-    <!-- TERMS (hidden until clicked) -->
-    <section data-view="terms" class="hidden">
+    <!-- TERMS -->
+    <section id="terms" data-view="terms" class="hidden">
       <main class="max-w-3xl mx-auto px-4 py-10">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Terms of Service</h1>
         <p class="mt-3 text-vault-mute">Effective: 2025</p>
@@ -369,12 +369,12 @@
           <p><b>7) Revisions.</b> We may update these terms; continued use constitutes acceptance.</p>
           <p class="text-vault-mute">Questions: <a href="mailto:support@nocodesociety.com" class="text-vault-em">support@nocodesociety.com</a></p>
         </div>
-        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em">← Back to Home</a></p>
+        <p class="mt-8 text-sm"><a href="#home" class="router text-vault-em">← Back to Home</a></p>
       </main>
     </section>
 
-    <!-- PRIVACY (hidden until clicked) -->
-    <section data-view="privacy" class="hidden">
+    <!-- PRIVACY -->
+    <section id="privacy" data-view="privacy" class="hidden">
       <main class="max-w-3xl mx-auto px-4 py-10">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Privacy Policy</h1>
         <p class="mt-3 text-vault-mute">Effective: 2025</p>
@@ -386,12 +386,12 @@
           <p><b>Deletion.</b> Email <a href="mailto:support@nocodesociety.com" class="text-vault-em">support@nocodesociety.com</a> to request account/data deletion.</p>
           <p><b>Analytics.</b> Our site may use cookies/analytics to improve performance.</p>
         </div>
-        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em">← Back to Home</a></p>
+        <p class="mt-8 text-sm"><a href="#home" class="router text-vault-em">← Back to Home</a></p>
       </main>
     </section>
   </main>
 
-  <!-- FLOATING CTA (now HOME only + auto-hide near footer) -->
+  <!-- FLOATING CTA (Home only + auto-hide near footer) -->
   <div id="ctaBar" class="cta-bar">
     <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
@@ -411,21 +411,37 @@
   const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
 })();
 
-/* SPA router */
+/* SPA router + force-hash handling */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
   const links=[...document.querySelectorAll('.navlink')];
   const ctaBar=document.getElementById('ctaBar');
-  function route(){
-    const hash=(location.hash.replace('#','')||'home').toLowerCase();
-    views.forEach(v=>v.classList.toggle('hidden', v.dataset.view!==hash));
-    links.forEach(a=>a.classList.toggle('active', a.dataset.route===hash));
-    // HARD hide/show floating CTA by view (prevents overlays on links)
-    if(ctaBar) ctaBar.style.display = (hash==='home') ? 'flex' : 'none';
+
+  function show(view){
+    views.forEach(v=>v.classList.toggle('hidden', v.id!==view));
+    links.forEach(a=>a.classList.toggle('active', a.dataset.route===view));
+    if(ctaBar) ctaBar.style.display = (view==='home') ? 'flex' : 'none';
     scrollTo(0,0);
-    if(hash==='join') ensureLockStarted();
+    if(view==='join') ensureLockStarted();
   }
-  addEventListener('hashchange',route); route();
+
+  function route(){
+    const view=(location.hash.replace('#','')||'home').toLowerCase();
+    const valid=['home','join','terms','privacy'];
+    show(valid.includes(view)?view:'home');
+  }
+
+  // make every in-app anchor with #hash force route immediately
+  document.addEventListener('click', (e)=>{
+    const a=e.target.closest('a[href^="#"]'); if(!a) return;
+    const h=a.getAttribute('href').slice(1);
+    if(!h) return;
+    e.preventDefault();
+    if(location.hash.slice(1)!==h){ location.hash = '#'+h; } else { route(); }
+  });
+
+  addEventListener('hashchange',route);
+  route();
 })();
 
 /* particles / ash */
@@ -465,7 +481,7 @@ function tick(){const left=Math.max(0,end-Date.now()),total=Math.max(1,end-start
   setTimeout(tick,1000)}
 tick();
 
-/* FLOATING CTA: extra auto-hide near footer on scroll (for Home) */
+/* FLOATING CTA: auto-hide near footer on scroll (Home only) */
 (() => {
   const barEl=document.getElementById('ctaBar'); if(!barEl) return;
   function check(){
@@ -550,7 +566,7 @@ document.addEventListener('click',(e)=>{
   ensureLockStarted();
 });
 
-/* ===== Whop OPEN: make sure Join buttons always navigate ===== */
+/* ===== Whop OPEN: always navigate ===== */
 document.querySelectorAll('[data-external]').forEach(a=>{
   a.setAttribute('target','_blank');
   a.setAttribute('rel','noopener noreferrer');
