@@ -12,36 +12,28 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
 <meta name="theme-color" content="#030906"/>
 
-<!-- Font (clean, modern) -->
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
   theme: {
     extend: {
-      fontFamily: { sans: ["Inter", "system-ui", "Segoe UI", "Roboto", "Helvetica", "Arial", "Apple Color Emoji", "Segoe UI Emoji"] },
       colors: {
         vault: {
           bg:   '#030906',
-          glass:'#08130F',
-          card: '#0A1512',
-          rim:  '#12211B',
+          card: '#06110E',   /* darker jade */
+          rim:  '#0C1915',
+          gold: '#D8BF6A',   /* toned down */
+          goldh:'#C3AA58',
           em:   '#00B36E',
-          gold: '#D8BF6A',
-          goldh:'#CDB05B',
           mute: '#CDE7DD',
-          text: '#F2FBF7',
-          red:  '#AA2A2F'
+          text: '#F2FBF7'
         }
       },
       boxShadow:{
         soft:'0 12px 30px rgba(0,0,0,.30)',
-        glow:'0 0 24px rgba(216,191,106,.28)'
-      },
-      borderRadius:{ xl2:'18px' }
+        glow:'0 0 26px rgba(216,191,106,.38)'
+      }
     }
   }
 }
@@ -49,96 +41,80 @@ tailwind.config = {
 
 <style>
   html{scroll-behavior:smooth}
-  body{background:#030906; line-height:1.55; color:#F2FBF7; font-feature-settings:"ss01","cv10","tnum"; padding-bottom:140px}
-  @media (min-width:768px){ body{padding-bottom:100px} }
+  body{background:#030906; line-height:1.55; color:#F2FBF7}
 
-  /* ===== Fluid Type (consistent across sections) ===== */
-  :root{
-    --fs-display: clamp(2.1rem, 3.4vw + 1rem, 3.8rem);
-    --fs-h2:      clamp(1.6rem, 1.6vw + .9rem, 2.4rem);
-    --fs-h3:      clamp(1.25rem, 1.1vw + .8rem, 1.6rem);
-    --fs-lead:    clamp(1.05rem, .6vw + .8rem, 1.25rem);
-    --fs-body:    clamp(1rem, .35vw + .9rem, 1.125rem);
-    --fs-small:   clamp(.9rem, .25vw + .8rem, 1rem);
-  }
-  .fs-display{font-size:var(--fs-display);line-height:1.1}
-  .fs-h2{font-size:var(--fs-h2);line-height:1.18}
-  .fs-h3{font-size:var(--fs-h3);line-height:1.2}
-  .fs-lead{font-size:var(--fs-lead)}
-  .fs-body{font-size:var(--fs-body)}
-  .fs-small{font-size:var(--fs-small)}
+  /* ===== TYPE SCALE (mobile → desktop) ===== */
+  .fs-h1{font-size:clamp(2.4rem, 1.4rem + 3.2vw, 4.3rem);line-height:1.1;letter-spacing:-.01em;font-weight:800}
+  .fs-h2{font-size:clamp(1.8rem, 1.1rem + 2.0vw, 2.7rem);line-height:1.18;font-weight:800}
+  .fs-h3{font-size:clamp(1.125rem, 1rem + .6vw, 1.375rem);line-height:1.25}
+  .fs-body{font-size:clamp(1rem, .95rem + .2vw, 1.125rem)}
+  .fs-small{font-size:clamp(.875rem, .84rem + .1vw, .95rem)}
 
-  /* ===== Background layers ===== */
+  /* ===== BACKGROUND ===== */
   .void{position:fixed;inset:0;z-index:-6;pointer-events:none;background:
-    radial-gradient(80% 70% at 50% 5%,#07120E 0%,#05100C 55%,#030906 100%)}
+    radial-gradient(85% 70% at 50% 6%,#08130F 0%,#05100C 55%,#030906 100%)}
   .blood{position:fixed;inset:0;z-index:-5;pointer-events:none;background:
-    radial-gradient(1100px 520px at 50% 100%,rgba(120,14,18,.30),transparent 62%),
-    radial-gradient(900px 420px at 0% 100%,rgba(120,14,18,.18),transparent 60%),
-    radial-gradient(900px 420px at 100% 100%,rgba(120,14,18,.18),transparent 60%);mix-blend-mode:screen}
+    radial-gradient(1200px 520px at 50% 100%,rgba(120,14,18,.35),transparent 62%),
+    radial-gradient(900px 420px at 0% 100%,rgba(120,14,18,.22),transparent 60%),
+    radial-gradient(900px 420px at 100% 100%,rgba(120,14,18,.22),transparent 60%);mix-blend-mode:screen}
   .volcano{position:fixed;inset:0;z-index:-4;pointer-events:none;background:
-    radial-gradient(900px 420px at 50% 105%,rgba(255,60,0,.16),transparent 65%);animation:lavaPulse 4.2s ease-in-out infinite;mix-blend-mode:screen}
+    radial-gradient(900px 420px at 50% 105%,rgba(255,60,0,.18),transparent 65%);animation:lavaPulse 4.2s ease-in-out infinite;mix-blend-mode:screen}
   @keyframes lavaPulse{0%,100%{opacity:.5}50%{opacity:.85}}
   canvas#embers, canvas#ash{position:fixed;inset:0;pointer-events:none}
   canvas#embers{z-index:-3} canvas#ash{z-index:-2}
 
-  /* ===== Glass cards ===== */
-  .card{
-    position:relative;
-    background:linear-gradient(180deg, rgba(10,21,18,.86), rgba(10,21,18,.80));
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:18px;
-    backdrop-filter:saturate(140%) blur(8px);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 10px 32px rgba(0,0,0,.38);
-  }
-  .ringfx:before{
-    content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;
-    background:conic-gradient(from 210deg,#0C1915,#2C3B32,#0C1915);
-    opacity:.55;filter:saturate(120%);
-  }
+  /* ===== CARDS ===== */
+  .card{position:relative;background:linear-gradient(180deg,rgba(6,17,14,.98),rgba(6,17,14,.94));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 10px 32px rgba(0,0,0,.38)}
+  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#0C1915,#2C3B32,#0C1915);opacity:.6;filter:saturate(120%)}
 
-  /* ===== Buttons ===== */
+  /* ===== BUTTONS (dark premium) ===== */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:14px;font-weight:800;letter-spacing:.2px;padding:.9rem 1.25rem;transition:transform .12s ease, box-shadow .2s ease, background .2s ease}
   .btn:active{transform:translateY(1px)}
-  .btn-premium{color:#EEF6F3;background:linear-gradient(180deg,#111C18,#0B1512);border:1px solid #1E2A25;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 8px 24px rgba(0,0,0,.45)}
+  .btn-premium{color:#EEF6F3;background:linear-gradient(180deg,#0F1A17,#0A1411);border:1px solid #1E2A25;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 8px 24px rgba(0,0,0,.45)}
   .btn-premium:hover{box-shadow:inset 0 0 0 1px rgba(216,191,106,.35),0 0 18px rgba(216,191,106,.22)}
+  .btn-premium .ico{opacity:.9}
   .btn-outline{border:1px solid rgba(0,179,110,.6);color:#00B36E;background:transparent}
   .btn-outline:hover{background:rgba(0,179,110,.10)}
-  .btn-weak{background:linear-gradient(180deg,rgba(120,20,24,.22),rgba(120,20,24,.16));border:1px solid rgba(255,255,255,.06);color:#F2FBF7}
 
-  /* ===== Nav glass ===== */
+  /* Weak red for the “do nothing” block */
+  .btn-weak{background:linear-gradient(180deg,rgba(40,12,12,.94),rgba(22,8,8,.94));border:1px solid rgba(255,80,80,.18)}
+
+  /* ===== TOP ===== */
   .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.62)}
   .deadlinebar{height:4px;background:linear-gradient(90deg,#D8BF6A,#00B36E);transform-origin:left center;transition:transform .4s linear}
 
-  /* ===== Hero alignment ===== */
+  /* ===== HERO ===== */
+  .h1-hero{text-shadow:0 0 16px rgba(216,191,106,.28), 0 0 30px rgba(0,179,110,.18)}
   .center-copy{text-align:center}
   .center-copy *{text-align:inherit}
-  .checks, .checks *{text-align:left!important}
-  .checks{max-width:680px;margin-left:auto;margin-right:auto}
+  /* keep bullets left, aligned */
+  .center-copy .checks,.center-copy .checks *{text-align:left!important}
+  .center-copy .checks{max-width:680px;margin-left:auto;margin-right:auto}
   .li-check{display:flex;gap:.75rem;align-items:flex-start}
   .li-check svg{flex:0 0 18px;margin-top:4px;opacity:.95}
   .li-check span{flex:1}
 
-  /* FAQ tidy */
-  details.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-radius:16px;background:rgba(6,17,14,.92);border:1px solid rgba(255,255,255,.08);cursor:pointer}
+  /* ===== FAQ tidy ===== */
+  details.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-radius:16px;background:rgba(6,17,14,.94);border:1px solid rgba(255,255,255,.10);cursor:pointer}
   details.faq summary::-webkit-details-marker{display:none}
   .faq-plus{width:18px;text-align:center;opacity:.85;flex:none}
   .faq-a{padding:.5rem 1.1rem 1rem 1.1rem;color:#CDE7DD}
 
-  /* Floating CTA */
+  /* floating CTA on home only (router toggles it) */
   .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
   .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
 </style>
 </head>
-<body class="bg-vault-bg font-sans">
+<body class="bg-vault-bg">
 
-  <!-- Background -->
+  <!-- BACKGROUND LAYERS -->
   <div class="void"></div>
   <div class="blood"></div>
   <div class="volcano"></div>
   <canvas id="embers"></canvas>
   <canvas id="ash"></canvas>
 
-  <!-- Sticky top -->
+  <!-- STICKY TOP -->
   <div class="sticky top-0 z-50 border-b border-white/10 glass">
     <div class="mx-auto max-w-7xl px-4 pt-2"><div class="deadlinebar" id="deadlinebar"></div></div>
     <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between fs-small">
@@ -152,11 +128,11 @@ tailwind.config = {
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a class="flex items-center gap-3" href="#home">
-      <img id="logo" class="h-11 w-11 md:h-14 md:w-14 rounded-xl ring-1 ring-white/10 shadow-[0_0_24px_rgba(216,191,106,.28)]" alt="Inner Vault logo"/>
-      <span class="tracking-widest fs-small text-vault-em">INNER VAULT</span>
+      <img id="logo" class="h-12 w-12 md:h-14 md:w-14 rounded-xl ring-1 ring-white/10 shadow-[0_0_28px_rgba(216,191,106,.32)]" alt="Inner Vault logo"/>
+      <span class="tracking-widest fs-small md:text-sm text-vault-em">INNER VAULT</span>
     </a>
     <nav class="hidden md:flex items-center gap-6 fs-small text-vault-mute">
       <a data-route="home" class="hover:text-vault-em" href="#home">Home</a>
@@ -167,13 +143,13 @@ tailwind.config = {
   </header>
 
   <main id="app">
-    <!-- HOME -->
+    <!-- ===== VIEW: HOME ===== -->
     <section id="home" data-view="home">
-      <!-- Hero -->
+      <!-- HERO -->
       <section class="relative overflow-hidden">
         <div class="mx-auto max-w-4xl px-5 pt-4 pb-12 md:pb-16 center-copy">
-          <h1 class="fs-display font-extrabold leading-tight drop-shadow h1-hero">Money Making is a Mechanism.</h1>
-          <p class="mt-3 fs-lead text-vault-mute">We’ll teach you to run it from the islands.</p>
+          <h1 class="h1-hero fs-h1">Money Making is a Mechanism.</h1>
+          <p class="mt-3 fs-body text-vault-mute">We’ll teach you to run it from the islands.</p>
 
           <ul class="checks mt-6 space-y-3 fs-body">
             <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">$5k–$15k</b> AI prompt deals</span></li>
@@ -189,33 +165,39 @@ tailwind.config = {
             <a href="#proof" class="btn btn-outline">See Proof ↓</a>
           </div>
 
-          <p class="mt-6 fs-small text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
+          <p class="mt-6 fs-body text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
         </div>
       </section>
 
-      <!-- Proof -->
+      <!-- PROOF -->
       <section id="proof" class="mx-auto max-w-5xl px-5 pb-12">
         <div class="card ringfx p-3">
           <video class="w-full rounded-xl" id="proofVideo" autoplay loop playsinline controls preload="metadata"
-            poster="https://placehold.co/960x540/0A1512/F2FBF7?text=IRL+Stream+Proof">
+            poster="https://placehold.co/960x540/06110E/F2FBF7?text=IRL+Stream+Proof">
             <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
             <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
           </video>
         </div>
       </section>
 
-      <!-- NCS (no giant crest) -->
+      <!-- NCS (cleaner, darker) -->
       <section id="ncs" class="border-t border-white/10">
         <div class="mx-auto max-w-5xl px-5 py-12">
           <div class="card ringfx p-8 text-center">
-            <h3 class="fs-h2 font-bold text-white">No Code Society</h3>
+            <div class="mb-4 flex justify-center">
+              <img class="h-14 w-14 md:h-16 md:w-16 rounded-xl ring-1 ring-white/10 shadow-[0_0_26px_rgba(216,191,106,.30)]"
+                   src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS crest"/>
+            </div>
+            <h3 class="fs-h2 text-white">No Code Society</h3>
             <p class="mt-2 fs-body text-vault-mute">Our clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
+
             <ul class="checks mt-6 space-y-3 fs-body">
               <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga</span></li>
               <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Deal Rooms</b> — share wins, swap prompts, move faster</span></li>
               <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions</span></li>
               <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Prompt Drops</b> — enterprise packs you can resell</span></li>
             </ul>
+
             <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
               <a href="#join" class="btn btn-premium">Enter the Vault
                 <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -226,7 +208,7 @@ tailwind.config = {
         </div>
       </section>
 
-      <!-- Reviews -->
+      <!-- REVIEWS -->
       <section id="reviews" class="border-t border-white/10">
         <div class="mx-auto max-w-6xl px-5 py-12">
           <h2 class="text-center fs-h2 font-bold text-white">Student Reviews</h2>
@@ -262,26 +244,26 @@ tailwind.config = {
           <h2 class="text-center fs-h2 font-bold text-white">FAQ</h2>
           <div class="mt-6 space-y-4">
             <details class="faq card p-0">
-              <summary class="fs-body"><span class="font-semibold">Can I do this from the islands?</span><span class="faq-plus">＋</span></summary>
-              <div class="faq-a fs-body">Yes. Legit Stripe routes and clean money flow for PNG/Fiji/Samoa/Tonga.</div>
+              <summary><span class="font-semibold">Can I do this from the islands?</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-a">Yes. Legit Stripe routes and clean money flow for PNG/Fiji/Samoa/Tonga.</div>
             </details>
             <details class="faq card p-0">
-              <summary class="fs-body"><span class="font-semibold">What if I hate “content”?</span><span class="faq-plus">＋</span></summary>
-              <div class="faq-a fs-body">Good. We don’t chase trends. We build proof engines that convert.</div>
+              <summary><span class="font-semibold">What if I hate “content”?</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-a">Good. We don’t chase trends. We build proof engines that convert.</div>
             </details>
             <details class="faq card p-0">
-              <summary class="fs-body"><span class="font-semibold">Do I need a laptop?</span><span class="faq-plus">＋</span></summary>
-              <div class="faq-a fs-body">No. Phone-first plays. Desktop optional.</div>
+              <summary><span class="font-semibold">Do I need a laptop?</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-a">No. Phone-first plays. Desktop optional.</div>
             </details>
             <details class="faq card p-0">
-              <summary class="fs-body"><span class="font-semibold">How fast can this print?</span><span class="faq-plus">＋</span></summary>
-              <div class="faq-a fs-body">If you execute, most see movement in <b class="text-white">48–72 hours</b>.</div>
+              <summary><span class="font-semibold">How fast can this print?</span><span class="faq-plus">＋</span></summary>
+              <div class="faq-a">If you execute, most see movement in <b class="text-white">48–72 hours</b>.</div>
             </details>
           </div>
         </div>
       </section>
 
-      <!-- Footer (home) -->
+      <!-- FOOTER (home) -->
       <footer class="border-t border-white/10">
         <div class="mx-auto max-w-7xl px-4 py-8 fs-small text-vault-mute flex items-center justify-between">
           <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
@@ -294,20 +276,24 @@ tailwind.config = {
       </footer>
     </section>
 
-    <!-- PRICING VIEW -->
+    <!-- ===== VIEW: JOIN (separate page) ===== -->
     <section id="join" data-view="join" class="hidden">
       <main class="max-w-5xl mx-auto px-5 py-10 text-center">
         <h1 class="fs-h2 md:text-4xl font-bold text-white">Choose your path</h1>
         <p class="mt-2 fs-body text-vault-mute">No fluff. Plays that print on a 2025 internet.</p>
 
-        <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
+        <!-- Equal-height cards with bottom-aligned CTAs -->
+        <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2 items-stretch">
+
           <!-- Monthly -->
           <div class="card ringfx p-8 text-left flex flex-col">
             <h3 class="fs-h3 font-bold text-white">WARRIOR — Monthly</h3>
             <p class="mt-1 fs-body text-vault-mute">Start now. Cancel anytime.</p>
-            <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
+            <div class="mt-4 text-4xl font-extrabold text-white">$39
+              <span class="text-base font-semibold text-vault-mute">/mo</span>
+            </div>
 
-            <ul class="mt-6 space-y-3 text-vault-mute fs-body">
+            <ul class="mt-6 space-y-3 text-vault-mute fs-body flex-1">
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Stripe Anywhere setup &amp; support (PNG/Fiji/Samoa/Tonga)</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>AI Prompt Catalog — resellable enterprise prompts</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>IRL Hooks, retention loops &amp; Proof-clip templates</span></li>
@@ -317,7 +303,7 @@ tailwind.config = {
             </ul>
 
             <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-               class="btn btn-premium w-full mt-6"
+               class="btn btn-premium w-full mt-auto"
                target="_blank" rel="noopener noreferrer">
               <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
@@ -329,9 +315,11 @@ tailwind.config = {
             <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 fs-small font-bold text-[#0E140F]">Best Value</div>
             <h3 class="fs-h3 font-bold text-white">CHIEF — Lifetime</h3>
             <p class="mt-1 fs-body text-vault-mute">Own the systems. Own the results.</p>
-            <div class="mt-4 text-4xl font-extrabold text-white">$399<span class="text-base font-semibold text-vault-mute"> one-time</span></div>
+            <div class="mt-4 text-4xl font-extrabold text-white">$399
+              <span class="text-base font-semibold text-vault-mute"> one-time</span>
+            </div>
 
-            <ul class="mt-6 space-y-3 text-vault-mute fs-body">
+            <ul class="mt-6 space-y-3 text-vault-mute fs-body flex-1">
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in WARRIOR</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime updates &amp; future modules</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Private deal rooms + partner heatmap</span></li>
@@ -340,7 +328,7 @@ tailwind.config = {
             </ul>
 
             <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
-               class="btn btn-premium w-full mt-6"
+               class="btn btn-premium w-full mt-auto"
                target="_blank" rel="noopener noreferrer">
               <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
@@ -348,7 +336,7 @@ tailwind.config = {
           </div>
         </div>
 
-        <!-- Or do nothing (weak red) -->
+        <!-- Or do nothing -->
         <section class="mx-auto max-w-3xl mt-12">
           <h2 class="fs-h2 font-extrabold text-white tracking-wide">OR DO NOTHING..</h2>
           <p class="text-vault-mute mt-1 fs-body">Go watch Netflix. Work a 9–5.</p>
@@ -378,14 +366,14 @@ tailwind.config = {
     </section>
   </main>
 
-  <!-- Floating CTA -->
+  <!-- FLOATING CTA (only on home) -->
   <div id="ctaBar" class="cta-bar">
-    <a href="#join" class="btn btn-premium shadow-glow cta fs-small">
+    <a href="#join" class="btn btn-premium shadow-glow cta">
       Enter the Vault before <span id="t-mini" class="ml-1 tabular-nums">00:00:00</span>
     </a>
   </div>
 
-  <!-- Background audio (loop) -->
+  <!-- BACKGROUND AUDIO (loop) -->
   <audio id="bgAudio" preload="auto" loop playsinline crossorigin="anonymous">
     <source src="/lv_0_20250815112807.mp4" type="audio/mp4"/>
     <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
@@ -401,7 +389,7 @@ tailwind.config = {
   const y2=document.getElementById('y2'); if(y2) y2.textContent=new Date().getFullYear();
 })();
 
-/* SPA router */
+/* SPA router (home vs pricing) */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
   const ctaBar=document.getElementById('ctaBar');
@@ -425,15 +413,15 @@ tailwind.config = {
 /* particles / embers */
 (() => {
   const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?160:240;
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?180:260;
     p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.4+.35,o:Math.random()*.55+.26,b:Math.random()<.38}))}
   function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(160,20,22,.92)':'rgba(216,191,106,.95)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.35;a.x+=Math.sin(a.y/42)*.23;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
-/* ash */
+/* ash streaks */
 (() => {
   const c=document.getElementById('ash'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?70:120;
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?80:130;
     p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*46+22,sp:Math.random()*1.2+.6,o:Math.random()*.3+.08}))}
   function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(242,251,247,.16)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.32;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
@@ -444,13 +432,13 @@ const COHORT_CLOSE_AT="2025-08-20T23:59:59+12:00";
 const startTs=Date.now(), endTs=new Date(COHORT_CLOSE_AT).getTime();
 const timer=document.getElementById('timer'), mini=document.getElementById('t-mini'), bar=document.getElementById('deadlinebar');
 const pad=n=>String(n).padStart(2,'0');
-(function tick(){const left=Math.max(0,endTs-Date.now()), total=Math.max(1,endTs-startTs);
+function tick(){const left=Math.max(0,endTs-Date.now()), total=Math.max(1,endTs-startTs);
   const h=Math.floor(left/3.6e6), m=Math.floor((left%3.6e6)/6e4), s=Math.floor((left%6e4)/1e3);
   const t=`${pad(h)} : ${pad(m)} : ${pad(s)}`;
   if(timer) timer.textContent=t; if(mini) mini.textContent=t; if(bar) bar.style.transform=`scaleX(${left/total})`;
-  setTimeout(tick,1000)})();
+  setTimeout(tick,1000)} tick();
 
-/* audio loop + fade near video */
+/* audio: loop + respectful fade vs video */
 (async () => {
   const A=document.getElementById('bgAudio'), V=document.getElementById('proofVideo');
   async function tryPlay(){ try{A.volume=.22;await A.play();return true}catch{ return false } }
@@ -469,18 +457,21 @@ const pad=n=>String(n).padStart(2,'0');
 /* lock-in timer */
 const LOCK_KEY='iv_lock_start', LOCK_MS=10*60*1000;
 const lockTimer2=document.getElementById('lockTimer2');
-(function renderLock(){
+function renderLock(){
   let t=Number(localStorage.getItem(LOCK_KEY)); const now=Date.now();
   if(!t || now-t>LOCK_MS){ t=now; localStorage.setItem(LOCK_KEY,String(t)); }
   const left=Math.max(0,(t+LOCK_MS)-Date.now()), m=Math.floor(left/6e4), s=Math.floor((left%6e4)/1e3);
   if(lockTimer2) lockTimer2.textContent=`${String(m).padStart(2,'0')}M : ${String(s).padStart(2,'0')}S`;
   setTimeout(renderLock,250);
-})();
+}
+renderLock();
 
-/* FAQ mobile tap fix */
-document.querySelectorAll('#faq details > summary').forEach((s)=>{
-  s.addEventListener('click',(e)=>{ const d=s.parentElement; e.preventDefault(); d.open=!d.open; }, {passive:false});
-});
+/* Mobile FAQ tap fix */
+(() => {
+  document.querySelectorAll('#faq details > summary').forEach((s)=>{
+    s.addEventListener('click',(e)=>{ const d=s.parentElement; e.preventDefault(); d.open=!d.open; }, {passive:false});
+  });
+})();
 </script>
 </body>
-              </html>
+</html>
