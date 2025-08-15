@@ -13,7 +13,6 @@
 <meta name="theme-color" content="#050E0B"/>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
-
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -26,21 +25,14 @@
             em:'#00B36E', text:'#EAF6F1', mute:'#CDE7DD'
           }
         },
-        boxShadow:{
-          soft:'0 12px 30px rgba(0,0,0,.30)',
-          glow:'0 0 24px rgba(0,179,110,.55)'
-        }
+        boxShadow:{ soft:'0 12px 30px rgba(0,0,0,.30)', glow:'0 0 24px rgba(0,179,110,.55)' }
       }
     }
   }
 </script>
-
 <style>
   html{scroll-behavior:smooth}
   body{background:#050E0B; line-height:1.55; padding-bottom:90px}
-  a{transition:color .2s ease, background .2s ease, opacity .2s ease}
-
-  /* ===== WRATH BACKGROUND ===== */
   .void{position:fixed;inset:0;z-index:-9;pointer-events:none;background:
     radial-gradient(85% 65% at 50% 8%,#0A1814 0%,#060F0C 55%,#050E0B 100%)}
   .ridges{position:fixed;inset:0;z-index:-8;pointer-events:none}
@@ -62,9 +54,6 @@
   .shock{position:fixed;inset:0;z-index:-4;pointer-events:none;background:rgba(255,255,255,0)}
   .shock.flash{animation:shock 120ms ease}
   @keyframes shock{0%{background:rgba(255,255,255,.06)}100%{background:rgba(255,255,255,0)}}
-  /* canvases inserted in DOM for embers + ash */
-
-  /* ===== UI Atoms ===== */
   .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.6)}
   .card{background:linear-gradient(180deg,rgba(13,42,34,.98),rgba(13,42,34,.94));border:1px solid rgba(255,255,255,.16);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 6px 24px rgba(0,0,0,.25);color:#EAF6F1}
   .ringfx{position:relative;isolation:isolate}
@@ -83,14 +72,10 @@
   .navlink.active{color:#00B36E}
 </style>
 </head>
-
 <body class="bg-vault-bg text-vault-text selection:bg-vault-gold selection:text-[#0A0A0A]">
-  <!-- BACKGROUND LAYERS -->
-  <div class="void"></div>
-  <div class="ridges"></div>
-  <div class="blood"></div>
-  <div class="rift"></div>
-  <div class="lightning"><div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div></div>
+  <!-- BACKGROUND -->
+  <div class="void"></div><div class="ridges"></div><div class="blood"></div>
+  <div class="rift"></div><div class="lightning"><div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div></div>
   <div class="shock" id="shock"></div>
   <canvas id="embers" class="fixed inset-0 -z-3"></canvas>
   <canvas id="ash" class="fixed inset-0 -z-2"></canvas>
@@ -133,12 +118,9 @@
     <a href="#join" class="md:hidden cta rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join</a>
   </header>
 
-  <!-- ============== APP VIEWS (SPA) ============== -->
   <main id="app">
-
     <!-- HOME -->
     <section data-view="home">
-      <!-- HERO -->
       <section class="relative overflow-hidden">
         <div class="mx-auto max-w-7xl px-4 py-10 md:py-16">
           <div class="grid gap-10 md:grid-cols-2 md:items-center">
@@ -189,15 +171,12 @@
         <div class="mx-auto max-w-6xl px-4 py-12">
           <div class="card ringfx p-8">
             <h2 class="text-2xl md:text-3xl font-bold text-vault-gold">The Legacy Oath</h2>
-            <p class="mt-4 text-lg leading-relaxed">
-              If I fall tomorrow, my family still eats. Poverty stops with us.
-              Proof over pride. Work over wishes. I build now so my name feeds people when I’m gone.
-            </p>
+            <p class="mt-4 text-lg">If I fall tomorrow, my family still eats. Poverty stops with us. Proof over pride. Work over wishes.</p>
           </div>
         </div>
       </section>
 
-      <!-- UNLOCK -->
+      <!-- UNLOCK / HOW / REVIEWS / FAQ (unchanged for brevity) -->
       <section id="unlock" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-7xl px-4 py-14">
           <h2 class="text-3xl md:text-4xl font-bold text-white">What You’ll Build Inside</h2>
@@ -212,7 +191,6 @@
         </div>
       </section>
 
-      <!-- HOW -->
       <section id="how">
         <div class="mx-auto max-w-7xl px-4 py-14">
           <h2 class="text-3xl md:text-4xl font-bold text-white">How the Machine Prints</h2>
@@ -224,15 +202,9 @@
         </div>
       </section>
 
-      <!-- REVIEWS -->
       <section id="reviews" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-7xl px-4 py-14">
-          <div class="flex items-end justify-between gap-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-white">Student Reviews</h2>
-            <div class="hidden md:flex items-center gap-2 text-sm text-vault-mute">
-              <span>★★★★★</span><span>4.9/5 average</span>
-            </div>
-          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white">Student Reviews</h2>
           <div class="mt-8 grid gap-6 md:grid-cols-3">
             <div class="card ringfx p-6"><div class="flex items-center gap-3">
               <img src="https://placehold.co/64x64/0d2a22/eaf6f1?text=J" class="h-10 w-10 rounded-full ring-1 ring-white/20"/>
@@ -252,7 +224,6 @@
         </div>
       </section>
 
-      <!-- FAQ -->
       <section id="faq" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-4xl px-4 py-14">
           <h2 class="text-3xl md:text-4xl font-bold text-white">FAQ</h2>
@@ -289,14 +260,13 @@
         </div>
       </section>
 
-      <!-- FOOTER (Home view) -->
       <footer class="border-t border-white/10">
         <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-vault-mute">
           <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
           <div class="flex items-center gap-4">
-            <a href="#terms" class="hover:text-vault-em">Terms</a>
-            <a href="#privacy" class="hover:text-vault-em">Privacy</a>
-            <a href="#join" class="hover:text-vault-em">Join</a>
+            <a href="#terms" class="router-link hover:text-vault-em">Terms</a>
+            <a href="#privacy" class="router-link hover:text-vault-em">Privacy</a>
+            <a href="#join" class="router-link hover:text-vault-em">Join</a>
           </div>
         </div>
       </footer>
@@ -307,7 +277,6 @@
       <main class="max-w-5xl mx-auto px-4 py-10 text-center">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Join Inner Vault</h1>
         <p class="mt-2 text-vault-mute">No fluff. Just the system that prints.</p>
-
         <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
           <div class="card p-8 text-left">
             <h3 class="text-xl font-bold text-white">Monthly</h3>
@@ -334,9 +303,8 @@
             <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="cta w-full mt-6 inline-block rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">Get Lifetime — Own the Engine</a>
           </div>
         </div>
-
-        <p class="mt-6 text-xs text-vault-mute">All sales are final. See <a href="#terms" class="text-vault-em">Terms</a> for our No-Refund policy.</p>
-        <p class="mt-2 text-sm"><a href="#home" class="text-vault-em">← Back to Home</a></p>
+        <p class="mt-6 text-xs text-vault-mute">All sales are final. See <a href="#terms" class="text-vault-em router-link">Terms</a> for our No-Refund policy.</p>
+        <p class="mt-2 text-sm"><a href="#home" class="text-vault-em router-link">← Back to Home</a></p>
       </main>
     </section>
 
@@ -355,7 +323,7 @@
           <p><b>7) Revisions.</b> We may update these terms; continued use constitutes acceptance.</p>
           <p class="text-vault-mute">Questions: <a href="mailto:support@nocodesociety.com" class="text-vault-em">support@nocodesociety.com</a></p>
         </div>
-        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em">← Back to Home</a></p>
+        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em router-link">← Back to Home</a></p>
       </main>
     </section>
 
@@ -372,75 +340,77 @@
           <p><b>Deletion.</b> Email <a href="mailto:support@nocodesociety.com" class="text-vault-em">support@nocodesociety.com</a> to request account/data deletion.</p>
           <p><b>Analytics.</b> Our site may use cookies/analytics to improve performance.</p>
         </div>
-        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em">← Back to Home</a></p>
+        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em router-link">← Back to Home</a></p>
       </main>
     </section>
-
   </main>
 
   <!-- MOBILE URGENCY BAR -->
   <div class="fixed left-0 right-0 bottom-3 z-40 flex justify-center">
-    <a href="#join" class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
+    <a href="#join" class="cta router-link rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
   <!-- AMBIENCE audio (loops quietly) -->
   <audio id="bgAudio" preload="auto" loop playsinline crossorigin="anonymous">
-    <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
+    <!-- Prefer local file; GitHub raw is fallback -->
     <source src="/lv_0_20250815112807.mp4" type="audio/mp4"/>
-    <source src="/lv_0_20250815112807.mp4" type="video/mp4"/>
+    <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
   </audio>
 
 <script>
-/* ---------- assets, year ---------- */
-(function(){
+/* assets + year */
+(() => {
   const logoSrc="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
   const fallback="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
-  const logo=document.getElementById('logo');
-  if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallback;}
+  const logo=document.getElementById('logo'); if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallback;}
   const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
 })();
 
-/* ---------- SPA router (#home, #join, #terms, #privacy) ---------- */
-(function(){
+/* simple SPA router (hash) — hardened */
+(() => {
   const views=[...document.querySelectorAll('[data-view]')];
   const links=[...document.querySelectorAll('.navlink')];
-  function render(){
+  const route = () => {
     const hash=(location.hash.replace('#','')||'home').toLowerCase();
     views.forEach(v=>v.classList.toggle('hidden', v.dataset.view!==hash));
     links.forEach(a=>a.classList.toggle('active', a.dataset.route===hash));
-    // scroll to top on route change
-    scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
-  }
-  addEventListener('hashchange',render);
-  render();
+    window.scrollTo(0,0); // safe for all browsers
+  };
+  window.addEventListener('hashchange', route);
+  // intercept any in-page # links (footer etc.)
+  document.addEventListener('click', (e)=>{
+    const a=e.target.closest('a[href^="#"]'); if(!a) return;
+    // allow native hash update, then our hashchange runs
+    setTimeout(route,0);
+  });
+  route();
 })();
 
-/* ---------- background particles (embers & ash) ---------- */
-(function(){
+/* background particles */
+(() => {
   const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
   function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?80:140;p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.3+.3,o:Math.random()*.5+.25,b:Math.random()<.35}))}
   function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(180,20,24,.85)':'rgba(230,197,94,.9)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.34;a.x+=Math.sin(a.y/42)*.22;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
-(function(){
+(() => {
   const c=document.getElementById('ash'),x=c.getContext('2d');let W,H,p=[];
   function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?30:60;p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*40+20,sp:Math.random()*1.2+.6,o:Math.random()*.25+.05}))}
   function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(234,246,241,.16)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.35;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
-/* lightning shock */
-(function(){
+(() => {
   const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
   bolts.forEach(b=>b.addEventListener('animationiteration',()=>{shock.classList.add('flash');setTimeout(()=>shock.classList.remove('flash'),120);}));})();
 
-/* ---------- reveal + counters ---------- */
+/* reveal + counters */
 const rev=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');rev.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
 function animateCount(el){const end=parseFloat(el.dataset.end||0),d=+el.dataset.decimals||0,pre=el.dataset.prefix||"",suf=el.dataset.suffix||"";let t0;const dur=900;function step(ts){if(!t0)t0=ts;const pr=Math.min((ts-t0)/dur,1);el.textContent=`${pre}${(end*pr).toFixed(d)}${suf}`;if(pr<1)requestAnimationFrame(step)}requestAnimationFrame(step)}
 const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}}),{threshold:.4});
 document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
 
-/* ---------- countdown + CTA pulse ---------- */
+/* countdown + CTA */
 const COHORT_CLOSE_AT="2025-08-20T23:59:59+12:00";
 const PANIC_MS=6*60*60*1000;
 const timer=document.getElementById('timer'),mini=document.getElementById('t-mini'),bar=document.getElementById('deadlinebar');
@@ -453,8 +423,8 @@ function tick(){const left=Math.max(0,end-Date.now()),total=Math.max(1,end-start
   setTimeout(tick,1000)}
 tick();
 
-/* ---------- proof video sound (best-effort autoplay with sound) ---------- */
-(async function(){
+/* proof video sound: best effort with-sound; falls back to mute until interaction */
+(async () => {
   const v=document.getElementById('proofVideo'); if(!v) return;
   try{v.muted=false;v.volume=.95;await v.play();}
   catch(e){v.muted=true;try{await v.play();}catch(_){}
@@ -464,26 +434,25 @@ tick();
   }
 })();
 
-/* ---------- background ambience: autoplay quietly; loop; duck under video ---------- */
-(function(){
+/* ambience: auto-start on first interaction, retry, duck under video */
+(() => {
   const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); if(!A) return;
-  const baseVol=.14; let raf, started=false, retryId=null;
+  const baseVol=.14; let started=false, retryId=null, raf;
   function fade(el,to,ms=900){const from=el.volume,t0=performance.now();cancelAnimationFrame(raf);
     function step(t){const p=Math.min(1,(t-t0)/ms);el.volume=from+(to-from)*p;if(p<1)raf=requestAnimationFrame(step)}raf=requestAnimationFrame(step)}
-  async function tryPlay(){ if(started) return true; try{A.loop=true;A.volume=baseVol;await A.play();started=true;return true}catch(e){return false}}
-  async function boot(){ const ok=await tryPlay(); if(ok) return;
-    const kick=async()=>{ if(await tryPlay()) clean(); }; const clean=()=>['scroll','mousemove','touchstart','pointerdown','keydown','wheel','visibilitychange'].forEach(ev=>removeEventListener(ev,kick));
-    ['scroll','mousemove','touchstart','pointerdown','keydown','wheel','visibilitychange'].forEach(ev=>addEventListener(ev,kick,{passive:true})); retryId=setInterval(tryPlay,4000);
-    document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') tryPlay(); });
-  } boot();
+  async function playAudio(){ try{A.volume=baseVol;await A.play();started=true;return true}catch(_){return false} }
+  function armInteraction(){ const kick=async()=>{ if(!started && await playAudio()){ clean(); } };
+    const evs=['scroll','touchstart','pointerdown','keydown','mousemove','wheel']; evs.forEach(e=>addEventListener(e,kick,{passive:true}));
+    function clean(){ evs.forEach(e=>removeEventListener(e,kick)); if(retryId) {clearInterval(retryId); retryId=null;} }
+  }
+  // try immediately, then on interaction, also retry periodically (helps some Android builds)
+  playAudio().then(ok=>{ if(!ok){ armInteraction(); retryId=setInterval(playAudio,4000); document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') playAudio(); }); }});
   if(V){ V.addEventListener('play', ()=>fade(A,0.0,500)); V.addEventListener('pause',()=>fade(A,baseVol,1000)); V.addEventListener('ended',()=>fade(A,baseVol,1000)); }
-  window.addEventListener('unload',()=>{ if(retryId) clearInterval(retryId); });
 })();
 
-/* ---------- lightning shock overlay ---------- */
-(function(){
-  const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
+/* lightning shock overlay */
+(() => { const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
   bolts.forEach(b=>b.addEventListener('animationiteration',()=>{shock.classList.add('flash');setTimeout(()=>shock.classList.remove('flash'),120);}));})();
 </script>
 </body>
-  </html>
+            </html>
