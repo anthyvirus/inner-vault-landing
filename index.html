@@ -83,9 +83,19 @@
     mask-image:linear-gradient(to top, black 40%, transparent 100%);animation:chop 3.6s ease-in-out infinite}
   @keyframes chop{0%,100%{transform:skewX(-4deg) translateY(0)}50%{transform:skewX(-8deg) translateY(-6px)}}
 
-  /* (REMOVED spearBand & spearStorm) */
+  /* Spear chaos */
+  .spearBand{position:fixed;left:0;right:0;height:18px;z-index:45;pointer-events:none;background:
+     repeating-linear-gradient(to right, rgba(255,255,255,.10) 0 1px, rgba(255,255,255,0) 1px 48px),
+     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='18' viewBox='0 0 140 18'%3E%3Cpath d='M6 9 L26 9' stroke='%23D3B350' stroke-width='2'/%3E%3Cpath d='M26 9 L34 5 L34 13 Z' fill='%23E9C960'/%3E%3Ccircle cx='4' cy='9' r='3' fill='none' stroke='%23E9C960' stroke-width='2'/%3E%3C/svg%3E");
+    background-size:auto 18px, 140px 18px; background-repeat:repeat-x, repeat-x; opacity:.85}
+  .spearBand.top{top:0}.spearBand.bottom{bottom:0}
 
-  /* Cards & UI */
+  .spearStorm{position:fixed;inset:-10vh -10vw;z-index:-2;pointer-events:none;opacity:.20;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='40' viewBox='0 0 180 40'%3E%3Cg transform='rotate(-18 90 20) translate(10 10)'><rect x='0' y='8' width='120' height='3' fill='%23D3B350'/><polygon points='120,9 135,0 135,18' fill='%23E9C960'/></g>%3C/svg%3E");
+    background-size:180px 40px; background-repeat:repeat; transform:rotate(-8deg); animation:stormDrift 12s linear infinite}
+  @keyframes stormDrift{from{background-position:0 0}to{background-position:-360px 180px}}
+
+  /* Cards darker + vignette */
   .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.62)}
   .card{position:relative;background:linear-gradient(180deg,rgba(7,18,15,.98),rgba(7,18,15,.94));border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 32px rgba(0,0,0,.38);color:#F2FBF7}
   .card:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:
@@ -108,11 +118,15 @@
   .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
   .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
   .lockbar{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#330909,#5f0a0a); color:#ffe0e0; border-bottom:1px solid rgba(255,255,255,.15)}
+
+  /* Header logo booster */
   .logoWrap{position:relative;display:inline-flex;align-items:center;justify-content:center;border-radius:16px}
   .logoWrap:before{content:"";position:absolute;inset:-2px;border-radius:inherit;background:conic-gradient(from 210deg,#00B36E,#E9C960,#00B36E);filter:blur(10px);opacity:.55;z-index:-1}
   .logoIMG{height:64px;width:64px;border-radius:12px;box-shadow:0 0 28px rgba(233,201,96,.35), 0 0 14px rgba(0,179,110,.25)}
   @media (min-width:768px){ .logoIMG{height:72px;width:72px} }
+
   .h1-wrath{text-shadow:0 0 16px rgba(233,201,96,.35), 0 0 34px rgba(0,179,110,.22)}
+
   @keyframes quake{0%{transform:translate(0,0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,2px)}80%{transform:translate(2px,1px)}100%{transform:translate(0,0)}}
   body.quake{animation:quake .35s linear}
 </style>
@@ -121,8 +135,9 @@
   <!-- BACKGROUND -->
   <div class="void"></div><div class="ridges"></div><div class="blood"></div>
   <div class="volcano"></div><div class="ocean"></div><div class="rain"></div>
-  <div class="rift"></div>
-  <div class="lightning"><div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div></div>
+  <div class="spearStorm"></div>
+  <div class="rift"></div><div class="lightning"><div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div></div>
+  <div class="spearBand top"></div><div class="spearBand bottom"></div>
   <div class="shock" id="shock"></div>
   <canvas id="embers" class="fixed inset-0 -z-1"></canvas>
   <canvas id="ash" class="fixed inset-0 -z-0"></canvas>
@@ -172,31 +187,57 @@
       <section class="relative overflow-hidden">
         <div class="mx-auto max-w-7xl px-4 py-10 md:py-16">
           <div class="grid gap-10 md:grid-cols-2 md:items-center">
+            <!-- ===== HERO COPY (Option 1) ===== -->
             <div class="reveal">
               <p class="mb-3 tracking-widest text-xs text-vault-mute">INNER VAULT</p>
+
               <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white h1-wrath">
-                <span class="slash">Bloodline Online.</span><br/>
-                <span class="slash">Leverage → Power.</span>
+                <span class="slash">Money Making</span><br/>
+                <span class="slash">is a Mechanism.</span>
               </h1>
-              <p class="mt-4 text-lg text-vault-text">
-                Stripe from the islands. Sell <span class="text-white font-semibold">$5k–$15k</span> AI prompts.
-                IRL proof. Not “content” — a <span class="text-vault-em font-medium">money mechanism</span>.
-              </p>
+
+              <p class="mt-3 text-lg text-vault-text">We’ll teach you to run it from your phone.</p>
+
               <ul class="mt-4 grid gap-2 text-vault-mute">
-                <li>• <b class="text-white">Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga routes.</li>
-                <li>• <b class="text-white">AI Prompt Catalog</b> — enterprise prompts you can resell.</li>
-                <li>• <b class="text-white">IRL Proof & Clips</b> — streams engineered to sell.</li>
+                <li>• <b class="text-white">$5k–$15k</b> AI prompt deals</li>
+                <li>• <b class="text-white">Stripe Anywhere</b> (PNG • Fiji • Samoa • Tonga)</li>
+                <li>• <b class="text-white">IRL proof</b> — daily wins</li>
               </ul>
+
               <div class="mt-7 flex flex-wrap items-center gap-3">
-                <a href="#join" data-lockin class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join the Cohort</a>
-                <a href="#proof" class="rounded-2xl border border-vault-em px-6 py-3 hover:bg-vault-em/10 text-vault-em">See Proof ↓</a>
+                <a href="#join" data-lockin
+                   class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">
+                  Enter the Vault
+                </a>
+                <a href="#proof"
+                   class="rounded-2xl border border-vault-em px-6 py-3 hover:bg-vault-em/10 text-vault-em">
+                  Watch Proof ↓
+                </a>
               </div>
-              <p class="mt-5 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
+
+              <p class="mt-5 text-vault-mute">
+                Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.
+              </p>
 
               <div class="mt-6 grid grid-cols-3 gap-3 text-center">
-                <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="15" data-prefix="$" data-suffix="k">15k</span></div><div class="text-xs text-vault-mute/90">prompt deal</div></div>
-                <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span></div><div class="text-xs text-vault-mute/90">DM replies</div></div>
-                <div class="card ringfx p-4"><div class="text-2xl font-extrabold text-white"><span data-count data-end="48" data-suffix="h">48h</span></div><div class="text-xs text-vault-mute/90">to first sale</div></div>
+                <div class="card ringfx p-4">
+                  <div class="text-2xl font-extrabold text-white">
+                    <span data-count data-end="15" data-prefix="$" data-suffix="k">15k</span>
+                  </div>
+                  <div class="text-xs text-vault-mute/90">prompt deal</div>
+                </div>
+                <div class="card ringfx p-4">
+                  <div class="text-2xl font-extrabold text-white">
+                    <span data-count data-end="3.6" data-suffix="×" data-decimals="1">3.6×</span>
+                  </div>
+                  <div class="text-xs text-vault-mute/90">DM replies</div>
+                </div>
+                <div class="card ringfx p-4">
+                  <div class="text-2xl font-extrabold text-white">
+                    <span data-count data-end="48" data-suffix="h">48h</span>
+                  </div>
+                  <div class="text-xs text-vault-mute/90">to first sale</div>
+                </div>
               </div>
             </div>
 
@@ -308,22 +349,22 @@
       <section id="reviews" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-7xl px-4 py-14">
           <h2 class="text-3xl md:text-4xl font-bold text-white">Student Reviews</h2>
-        <div class="mt-8 grid gap-6 md:grid-cols-3">
-          <div class="card ringfx p-6"><div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">J</div>
-            <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div></div>
-            <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p></div>
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">J</div>
+              <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div></div>
+              <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p></div>
 
-          <div class="card ringfx p-6"><div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">L</div>
-            <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div></div>
-            <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p></div>
+            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">L</div>
+              <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div></div>
+              <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p></div>
 
-          <div class="card ringfx p-6"><div class="flex items-center gap-3">
-            <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
-            <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div></div>
-            <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p></div>
-        </div>
+            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
+              <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div></div>
+              <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p></div>
+          </div>
         </div>
       </section>
 
@@ -676,7 +717,7 @@ document.addEventListener('click',(e)=>{
   ensureLockStarted();
 });
 
-/* Whop OPEN backup nav */
+/* ===== Whop OPEN: always navigate ===== */
 document.querySelectorAll('[data-external]').forEach(a=>{
   a.setAttribute('target','_blank');
   a.setAttribute('rel','noopener noreferrer');
@@ -686,7 +727,7 @@ document.querySelectorAll('[data-external]').forEach(a=>{
   }, {passive:true});
 });
 
-/* Mobile FAQ tap reliability */
+/* ===== FIX: mobile FAQ taps not opening ===== */
 (() => {
   document.querySelectorAll('#faq details > summary').forEach((s)=>{
     s.addEventListener('click',(e)=>{
@@ -698,4 +739,4 @@ document.querySelectorAll('[data-external]').forEach(a=>{
 })();
 </script>
 </body>
-                                                                                 </html>
+</html>
