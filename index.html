@@ -32,7 +32,7 @@
 </script>
 <style>
   html{scroll-behavior:smooth}
-  body{background:#050E0B; line-height:1.55; padding-bottom:90px}
+  body{background:#050E0B; line-height:1.55; padding-bottom:160px}
   .void{position:fixed;inset:0;z-index:-9;pointer-events:none;background:
     radial-gradient(85% 65% at 50% 8%,#0A1814 0%,#060F0C 55%,#050E0B 100%)}
   .ridges{position:fixed;inset:0;z-index:-8;pointer-events:none}
@@ -70,6 +70,10 @@
   .slash{position:relative;display:inline-block}
   .slash:after{content:"";position:absolute;left:-4px;right:-4px;bottom:4px;height:10px;z-index:-1;filter:blur(6px);background:linear-gradient(90deg,rgba(230,197,94,.45),rgba(0,179,110,.35));transform:skewX(-12deg)}
   .navlink.active{color:#00B36E}
+  .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
+  .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
+  /* lock-in banner (join page) */
+  .lockbar{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#3a0d0d,#710000); color:#ffe0e0; border-bottom:1px solid rgba(255,255,255,.15)}
 </style>
 </head>
 <body class="bg-vault-bg text-vault-text selection:bg-vault-gold selection:text-[#0A0A0A]">
@@ -87,8 +91,8 @@
       <div>Seats Left: <span class="font-semibold text-vault-em">7</span></div>
       <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-vault-em"></span></div>
       <div class="hidden sm:flex items-center gap-3">
-        <a href="#join" class="rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-em/10 hover:text-vault-em">See Pricing</a>
-        <a href="#join" class="cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join Now</a>
+        <a href="#join" data-lockin class="rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-em/10 hover:text-vault-em">See Pricing</a>
+        <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join Now</a>
       </div>
     </div>
     <div class="mx-auto max-w-7xl px-4 pb-2">
@@ -111,11 +115,11 @@
     </a>
     <nav class="hidden md:flex items-center gap-6 text-sm text-vault-mute">
       <a data-route="home" class="navlink hover:text-vault-em" href="#home">Home</a>
-      <a data-route="join" class="navlink hover:text-vault-em" href="#join">Pricing</a>
+      <a data-route="join" class="navlink hover:text-vault-em" href="#join" data-lockin>Pricing</a>
       <a data-route="terms" class="navlink hover:text-vault-em" href="#terms">Terms</a>
       <a data-route="privacy" class="navlink hover:text-vault-em" href="#privacy">Privacy</a>
     </nav>
-    <a href="#join" class="md:hidden cta rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join</a>
+    <a href="#join" data-lockin class="md:hidden cta rounded-xl bg-vault-gold px-4 py-2 text-sm font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join</a>
   </header>
 
   <main id="app">
@@ -140,7 +144,7 @@
                 <li>• <b class="text-white">IRL Proof & Clips</b> — streams engineered to sell.</li>
               </ul>
               <div class="mt-7 flex flex-wrap items-center gap-3">
-                <a href="#join" class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join the Cohort</a>
+                <a href="#join" data-lockin class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join the Cohort</a>
                 <a href="#proof" class="rounded-2xl border border-vault-em px-6 py-3 hover:bg-vault-em/10 text-vault-em">See Proof ↓</a>
               </div>
               <p class="mt-5 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
@@ -157,8 +161,8 @@
               <div class="card ringfx p-3">
                 <video class="w-full rounded-xl" id="proofVideo" autoplay loop playsinline controls preload="metadata"
                   poster="https://placehold.co/960x540/0d2a22/eaf6f1?text=IRL+Stream+Proof">
-                  <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
                   <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
+                  <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
                 </video>
               </div>
             </div>
@@ -166,7 +170,7 @@
         </div>
       </section>
 
-      <!-- OATH -->
+      <!-- LEGACY OATH -->
       <section id="oath" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-6xl px-4 py-12">
           <div class="card ringfx p-8">
@@ -176,7 +180,7 @@
         </div>
       </section>
 
-      <!-- UNLOCK / HOW / REVIEWS / FAQ (unchanged for brevity) -->
+      <!-- UNLOCK / HOW / REVIEWS / FAQ (unchanged content, trimmed for brevity) -->
       <section id="unlock" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-7xl px-4 py-14">
           <h2 class="text-3xl md:text-4xl font-bold text-white">What You’ll Build Inside</h2>
@@ -260,13 +264,13 @@
         </div>
       </section>
 
-      <footer class="border-t border-white/10">
+      <footer id="site-footer" class="border-t border-white/10">
         <div class="mx-auto max-w-7xl px-4 py-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-vault-mute">
           <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
           <div class="flex items-center gap-4">
-            <a href="#terms" class="router-link hover:text-vault-em">Terms</a>
-            <a href="#privacy" class="router-link hover:text-vault-em">Privacy</a>
-            <a href="#join" class="router-link hover:text-vault-em">Join</a>
+            <a href="#terms" class="hover:text-vault-em">Terms</a>
+            <a href="#privacy" class="hover:text-vault-em">Privacy</a>
+            <a href="#join" class="hover:text-vault-em" data-lockin>Join</a>
           </div>
         </div>
       </footer>
@@ -274,9 +278,17 @@
 
     <!-- JOIN -->
     <section data-view="join" class="hidden">
+      <!-- LOCK-IN RED BANNER -->
+      <div id="lockWrap" class="lockbar hidden">
+        <div class="mx-auto max-w-6xl px-4 py-2 text-center text-sm md:text-base">
+          <b>YOUR PRICING IS LOCKED IN FOR — <span id="lockTimer">10M : 00S</span></b>
+        </div>
+      </div>
+
       <main class="max-w-5xl mx-auto px-4 py-10 text-center">
-        <h1 class="text-3xl md:text-4xl font-bold text-white">Join Inner Vault</h1>
-        <p class="mt-2 text-vault-mute">No fluff. Just the system that prints.</p>
+        <h1 class="text-3xl md:text-4xl font-bold text-white">Choose your path</h1>
+        <p class="mt-2 text-vault-mute">No fluff. Just the system that prints on a 2025 internet.</p>
+
         <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
           <div class="card p-8 text-left">
             <h3 class="text-xl font-bold text-white">Monthly</h3>
@@ -287,7 +299,11 @@
               <li>✔ Weekly live breakdowns</li>
               <li>✔ Templates & scripts</li>
             </ul>
-            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="cta w-full mt-6 inline-block rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">Start Monthly — Print Now</a>
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" data-lockin
+               class="cta w-full mt-6 inline-block rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">
+               Join with card — $39/mo
+            </a>
+            <p class="mt-3 text-xs text-vault-mute">By joining you agree to our <a href="#terms" class="text-vault-em">Terms</a> and <a href="#privacy" class="text-vault-em">Privacy</a>. No refunds.</p>
           </div>
 
           <div class="relative card p-8 text-left">
@@ -300,11 +316,25 @@
               <li>✔ Private deal rooms</li>
               <li>✔ Super UGC license</li>
             </ul>
-            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="cta w-full mt-6 inline-block rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">Get Lifetime — Own the Engine</a>
+            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" data-lockin
+               class="cta w-full mt-6 inline-block rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">
+               Join with card — $399
+            </a>
+            <p class="mt-3 text-xs text-vault-mute">By joining you agree to our <a href="#terms" class="text-vault-em">Terms</a> and <a href="#privacy" class="text-vault-em">Privacy</a>. No refunds.</p>
           </div>
         </div>
-        <p class="mt-6 text-xs text-vault-mute">All sales are final. See <a href="#terms" class="text-vault-em router-link">Terms</a> for our No-Refund policy.</p>
-        <p class="mt-2 text-sm"><a href="#home" class="text-vault-em router-link">← Back to Home</a></p>
+
+        <!-- “OR DO NOTHING…” BLOCK -->
+        <section class="mx-auto max-w-3xl mt-12">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">OR DO NOTHING..</h2>
+          <p class="text-vault-mute mt-1">Go watch Netflix. Work a 9–5.</p>
+          <div class="card ringfx p-6 mt-6 text-center">
+            <div class="text-3xl font-extrabold text-white">LOCK-IN YOUR PRICE OF <span class="text-vault-gold">$39</span></div>
+            <p class="text-vault-mute mt-2">This lock holds for <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>. After that, price may increase.</p>
+            <a href="#join" data-lockin class="cta mt-5 inline-block rounded-xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">Join with card</a>
+          </div>
+          <p class="mt-5 text-sm"><a href="#home" class="text-vault-em">← Back to Home</a></p>
+        </section>
       </main>
     </section>
 
@@ -323,7 +353,7 @@
           <p><b>7) Revisions.</b> We may update these terms; continued use constitutes acceptance.</p>
           <p class="text-vault-mute">Questions: <a href="mailto:support@nocodesociety.com" class="text-vault-em">support@nocodesociety.com</a></p>
         </div>
-        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em router-link">← Back to Home</a></p>
+        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em">← Back to Home</a></p>
       </main>
     </section>
 
@@ -340,19 +370,18 @@
           <p><b>Deletion.</b> Email <a href="mailto:support@nocodesociety.com" class="text-vault-em">support@nocodesociety.com</a> to request account/data deletion.</p>
           <p><b>Analytics.</b> Our site may use cookies/analytics to improve performance.</p>
         </div>
-        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em router-link">← Back to Home</a></p>
+        <p class="mt-8 text-sm"><a href="#home" class="text-vault-em">← Back to Home</a></p>
       </main>
     </section>
   </main>
 
-  <!-- MOBILE URGENCY BAR -->
-  <div class="fixed left-0 right-0 bottom-3 z-40 flex justify-center">
-    <a href="#join" class="cta router-link rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
+  <!-- FLOATING CTA (auto-hides near footer) -->
+  <div id="ctaBar" class="cta-bar">
+    <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
-  <!-- AMBIENCE audio (loops quietly) -->
+  <!-- AMBIENCE (sound-only) -->
   <audio id="bgAudio" preload="auto" loop playsinline crossorigin="anonymous">
-    <!-- Prefer local file; GitHub raw is fallback -->
     <source src="/lv_0_20250815112807.mp4" type="audio/mp4"/>
     <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
   </audio>
@@ -366,21 +395,21 @@
   const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
 })();
 
-/* simple SPA router (hash) — hardened */
+/* SPA router by hash */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
   const links=[...document.querySelectorAll('.navlink')];
-  const route = () => {
+  function route(){
     const hash=(location.hash.replace('#','')||'home').toLowerCase();
     views.forEach(v=>v.classList.toggle('hidden', v.dataset.view!==hash));
     links.forEach(a=>a.classList.toggle('active', a.dataset.route===hash));
-    window.scrollTo(0,0); // safe for all browsers
-  };
-  window.addEventListener('hashchange', route);
-  // intercept any in-page # links (footer etc.)
-  document.addEventListener('click', (e)=>{
+    scrollTo(0,0);
+    // if we land on join and no lock exists, start lock
+    if(hash==='join') ensureLockStarted();
+  }
+  addEventListener('hashchange',route);
+  document.addEventListener('click',(e)=>{
     const a=e.target.closest('a[href^="#"]'); if(!a) return;
-    // allow native hash update, then our hashchange runs
     setTimeout(route,0);
   });
   route();
@@ -399,8 +428,8 @@
   function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(234,246,241,.16)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.35;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
-(() => {
-  const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
+/* lightning overlay tick */
+(() => { const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
   bolts.forEach(b=>b.addEventListener('animationiteration',()=>{shock.classList.add('flash');setTimeout(()=>shock.classList.remove('flash'),120);}));})();
 
 /* reveal + counters */
@@ -423,36 +452,85 @@ function tick(){const left=Math.max(0,end-Date.now()),total=Math.max(1,end-start
   setTimeout(tick,1000)}
 tick();
 
-/* proof video sound: best effort with-sound; falls back to mute until interaction */
+/* Hide CTA bar near footer */
+(() => {
+  const barEl=document.getElementById('ctaBar'); const footer=document.getElementById('site-footer'); if(!barEl||!footer) return;
+  const ob=new IntersectionObserver(([e])=>{barEl.classList.toggle('hide', e.isIntersecting)}, {threshold:.15});
+  ob.observe(footer);
+})();
+
+/* proof video sound: try unmuted; if blocked, unmute on first interaction */
 (async () => {
   const v=document.getElementById('proofVideo'); if(!v) return;
-  try{v.muted=false;v.volume=.95;await v.play();}
+  try{v.muted=false;v.volume=1;await v.play();}
   catch(e){v.muted=true;try{await v.play();}catch(_){}
-    const go=async()=>{try{v.muted=false;v.removeAttribute('muted');v.volume=.95;await v.play();stop();}catch(_){}};
-    const stop=()=>['touchstart','pointerdown','keydown','scroll','mousemove','wheel'].forEach(ev=>removeEventListener(ev,go));
-    ['touchstart','pointerdown','keydown','scroll','mousemove','wheel'].forEach(ev=>addEventListener(ev,go,{once:true,passive:true}));
+    const go=async()=>{try{v.muted=false;v.removeAttribute('muted');v.volume=1;await v.play();stop();}catch(_){}};
+    const evs=['click','touchstart','pointerdown','keydown','scroll','mousemove','wheel'];
+    function stop(){evs.forEach(ev=>removeEventListener(ev,go))}
+    evs.forEach(ev=>addEventListener(ev,go,{once:true,passive:true}));
   }
 })();
 
-/* ambience: auto-start on first interaction, retry, duck under video */
+/* ambience: loops, auto-start on first interaction, ducks when video fully in view, resumes on scroll */
 (() => {
   const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); if(!A) return;
-  const baseVol=.14; let started=false, retryId=null, raf;
+  let started=false, retryId=null, raf; const baseVol=.28;
   function fade(el,to,ms=900){const from=el.volume,t0=performance.now();cancelAnimationFrame(raf);
     function step(t){const p=Math.min(1,(t-t0)/ms);el.volume=from+(to-from)*p;if(p<1)raf=requestAnimationFrame(step)}raf=requestAnimationFrame(step)}
-  async function playAudio(){ try{A.volume=baseVol;await A.play();started=true;return true}catch(_){return false} }
-  function armInteraction(){ const kick=async()=>{ if(!started && await playAudio()){ clean(); } };
-    const evs=['scroll','touchstart','pointerdown','keydown','mousemove','wheel']; evs.forEach(e=>addEventListener(e,kick,{passive:true}));
-    function clean(){ evs.forEach(e=>removeEventListener(e,kick)); if(retryId) {clearInterval(retryId); retryId=null;} }
+  async function playAudio(){ try{A.volume=baseVol;await A.play();started=true;return true}catch(_){return false}}
+  function arm(){ const kick=async()=>{ if(!started && await playAudio()){ cleanup(); } };
+    const evs=['click','touchstart','pointerdown','keydown','scroll','mousemove','wheel','visibilitychange'];
+    function onVis(){ if(document.visibilityState==='visible') kick(); }
+    evs.forEach(e=>addEventListener(e, e==='visibilitychange'?onVis:kick,{passive:true}));
+    function cleanup(){ evs.forEach(e=>removeEventListener(e, e==='visibilitychange'?onVis:kick)); if(retryId){clearInterval(retryId);retryId=null;} }
   }
-  // try immediately, then on interaction, also retry periodically (helps some Android builds)
-  playAudio().then(ok=>{ if(!ok){ armInteraction(); retryId=setInterval(playAudio,4000); document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible') playAudio(); }); }});
-  if(V){ V.addEventListener('play', ()=>fade(A,0.0,500)); V.addEventListener('pause',()=>fade(A,baseVol,1000)); V.addEventListener('ended',()=>fade(A,baseVol,1000)); }
+  playAudio().then(ok=>{ if(!ok){ arm(); retryId=setInterval(playAudio,2000); }});
+
+  // duck while video is mostly in view; resume when scrolled away
+  if(V){
+    const io=new IntersectionObserver(([e])=>{
+      if(e.isIntersecting && e.intersectionRatio>0.45){ fade(A,0.0,450); }
+      else { fade(A,baseVol,700); }
+    },{threshold:[0,0.45,0.6,1]});
+    io.observe(V);
+    V.addEventListener('play', ()=>fade(A,0.0,400));
+    V.addEventListener('pause',()=>fade(A,baseVol,800));
+    V.addEventListener('ended',()=>fade(A,baseVol,800));
+  }
 })();
 
-/* lightning shock overlay */
-(() => { const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
-  bolts.forEach(b=>b.addEventListener('animationiteration',()=>{shock.classList.add('flash');setTimeout(()=>shock.classList.remove('flash'),120);}));})();
+/* ===== 10-MIN LOCK-IN TIMER ===== */
+const LOCK_KEY='iv_lock_start';
+const LOCK_MS=10*60*1000;
+const lockWrap=document.getElementById('lockWrap');
+const lockTimer=document.getElementById('lockTimer');
+const lockTimer2=document.getElementById('lockTimer2');
+
+function ensureLockStarted(){
+  let t=Number(localStorage.getItem(LOCK_KEY));
+  const now=Date.now();
+  if(!t || now-t>LOCK_MS){ t=now; localStorage.setItem(LOCK_KEY,String(t)); }
+  if(lockWrap) lockWrap.classList.remove('hidden');
+}
+function renderLock(){
+  const t=Number(localStorage.getItem(LOCK_KEY)); if(!t){ if(lockWrap) lockWrap.classList.add('hidden'); return; }
+  const left=Math.max(0,(t+LOCK_MS)-Date.now());
+  const m=Math.floor(left/6e4), s=Math.floor((left%6e4)/1e3);
+  const txt=`${String(m).padStart(2,'0')}M : ${String(s).padStart(2,'0')}S`;
+  if(lockTimer) lockTimer.textContent=txt;
+  if(lockTimer2) lockTimer2.textContent=txt;
+  if(left===0 && lockWrap) lockWrap.classList.add('hidden');
+  setTimeout(renderLock,250);
+}
+renderLock();
+
+/* start lock when any join/see pricing CTA is clicked */
+document.addEventListener('click',(e)=>{
+  const a=e.target.closest('[data-lockin]'); if(!a) return;
+  ensureLockStarted();
+});
+
+/* ====== END lock-in ====== */
 </script>
 </body>
             </html>
