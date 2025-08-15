@@ -10,7 +10,7 @@
 <meta property="og:description" content="Stripe anywhere. IRL + AI + Super UGC. The engine the Pacific was missing."/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
-<meta name="theme-color" content="#050E0B"/>
+<meta name="theme-color" content="#040A08"/>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -20,57 +20,64 @@
       extend: {
         colors: {
           vault: {
-            bg:'#050B09', card:'#0B221C',
+            bg:'#040A08', card:'#0A201A',
+            card2:'#0B251E',
             gold:'#E6C55E', goldh:'#CFAF4A',
-            em:'#00B36E', text:'#EAF6F1', mute:'#BFE3D6'
+            em:'#00B36E', text:'#EAF6F1', mute:'#CDE7DD'
           }
         },
-        boxShadow:{ soft:'0 12px 30px rgba(0,0,0,.35)', glow:'0 0 24px rgba(0,179,110,.55)' }
+        boxShadow:{ soft:'0 12px 34px rgba(0,0,0,.38)', glow:'0 0 24px rgba(0,179,110,.55)' }
       }
     }
   }
 </script>
 <style>
   html{scroll-behavior:smooth}
-  body{background:#050B09; line-height:1.55; padding-bottom:160px; overflow-x:hidden}
-  /* --- New WARSTORM background stack (all non-interactive) --- */
-  .void{position:fixed;inset:0;z-index:-20;pointer-events:none;background:
-    radial-gradient(90% 65% at 50% 2%,#081612 0%,#060F0C 48%,#050B09 100%)}
-  /* volcano glow + blood tint */
-  .blood{position:fixed;inset:0;z-index:-19;pointer-events:none;background:
-    radial-gradient(1200px 520px at 50% 110%,rgba(160,18,22,.28),transparent 62%),
+  body{background:#040A08; line-height:1.55; padding-bottom:160px}
+
+  /* --- COSMIC WAR BACKDROP (original + meaner) --- */
+  .void{position:fixed;inset:0;z-index:-12;pointer-events:none;background:
+    radial-gradient(85% 65% at 50% 8%,#081511 0%,#06110D 55%,#040A08 100%)}
+
+  .ridges{position:fixed;inset:0;z-index:-11;pointer-events:none}
+  .ridges:before,.ridges:after{content:"";position:absolute;top:-10vh;width:56vw;height:130vh;filter:blur(.3px);opacity:.20;mix-blend-mode:screen;background:linear-gradient(135deg,rgba(230,197,94,.22),rgba(0,0,0,0) 70%);clip-path:polygon(0 0,84% 0,40% 100%,0% 100%)}
+  .ridges:before{left:-8vw;transform:skewX(-7deg) rotate(-3deg)}
+  .ridges:after{right:-8vw;transform:scaleX(-1) skewX(-7deg) rotate(-2deg);background:linear-gradient(135deg,rgba(0,179,110,.25),rgba(0,0,0,0) 70%)}
+
+  .blood{position:fixed;inset:0;z-index:-10;pointer-events:none;background:
+    radial-gradient(1200px 520px at 50% 100%,rgba(160,18,22,.28),transparent 62%),
     radial-gradient(900px 420px at 0% 100%,rgba(160,18,22,.16),transparent 60%),
-    radial-gradient(900px 420px at 100% 100%,rgba(160,18,22,.14),transparent 60%)}
-  /* storm rift */
-  .rift{position:fixed;inset:0;z-index:-18;pointer-events:none;opacity:.18;background:
-    conic-gradient(from -20deg at 60% 35%,rgba(230,197,94,.45),rgba(0,179,110,.35),rgba(0,0,0,0) 65%);transform:skewX(-10deg) translateY(-2%);animation:riftMove 18s ease-in-out infinite alternate}
+    radial-gradient(900px 420px at 100% 100%,rgba(160,18,22,.16),transparent 60%)}
+
+  .rift{position:fixed;inset:0;z-index:-9;pointer-events:none;opacity:.18;background:
+    conic-gradient(from -30deg at 60% 40%,rgba(230,197,94,.45),rgba(0,179,110,.35),rgba(0,0,0,0) 65%);transform:skewX(-10deg) translateY(-2%);animation:riftMove 18s ease-in-out infinite alternate}
   @keyframes riftMove{0%{transform:skewX(-10deg) translateY(-2%)}100%{transform:skewX(-12deg) translateY(3%)}}
-  /* lightning flashes */
-  .lightning{position:fixed;inset:0;z-index:-16;pointer-events:none}
-  .bolt{position:absolute;width:2px;height:72vh;top:-22vh;opacity:0;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.95),rgba(255,255,255,0));filter:drop-shadow(0 0 16px rgba(230,197,94,.55));animation:flash 8s infinite ease-in}
-  .bolt.b1{left:18%;transform:rotate(-16deg);animation-delay:2.2s}
-  .bolt.b2{left:54%;transform:rotate(-10deg);animation-delay:5.1s}
-  .bolt.b3{left:82%;transform:rotate(-24deg);animation-delay:7.4s}
-  @keyframes flash{0%,92%,100%{opacity:0}93%{opacity:.95}95%{opacity:.2}96%{opacity:.8}97%{opacity:0}}
-  .shock{position:fixed;inset:0;z-index:-15;pointer-events:none;background:rgba(255,255,255,0)}
+
+  .lightning{position:fixed;inset:0;z-index:-8;pointer-events:none}
+  .bolt{position:absolute;width:2px;height:78vh;top:-26vh;opacity:0;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.98),rgba(255,255,255,0));filter:drop-shadow(0 0 16px rgba(230,197,94,.6));animation:flash 7.2s infinite ease-in}
+  .bolt.b1{left:14%;transform:rotate(-16deg);animation-delay:1.9s}
+  .bolt.b2{left:38%;transform:rotate(-10deg);animation-delay:4.3s}
+  .bolt.b3{left:62%;transform:rotate(-22deg);animation-delay:6.1s}
+  .bolt.b4{left:82%;transform:rotate(-28deg);animation-delay:2.8s}
+  .bolt.b5{left:5%; transform:rotate(-12deg);animation-delay:5.4s}
+  .bolt.b6{left:50%;transform:rotate(-18deg);animation-delay:0.9s}
+  @keyframes flash{0%,92%,100%{opacity:0}93%{opacity:1}95%{opacity:.15}96%{opacity:.9}97%{opacity:0}}
+
+  .shock{position:fixed;inset:0;z-index:-7;pointer-events:none;background:rgba(255,255,255,0)}
   .shock.flash{animation:shock 120ms ease}
   @keyframes shock{0%{background:rgba(255,255,255,.06)}100%{background:rgba(255,255,255,0)}}
-  /* canvases: ash + embers + waves + missiles */
-  canvas#battle,canvas#embers,canvas#ash,canvas#waves{position:fixed;inset:0;pointer-events:none}
-  #battle{z-index:-14} #embers{z-index:-13} #ash{z-index:-12} #waves{z-index:-11}
 
-  /* UI skin */
-  .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.64)}
-  .card{background:linear-gradient(180deg,rgba(11,34,28,.96),rgba(11,34,28,.94));border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 6px 24px rgba(0,0,0,.28);color:#EAF6F1}
+  /* Cards darker for contrast */
+  .card{background:linear-gradient(180deg,rgba(10,32,26,.98),rgba(10,32,26,.94));border:1px solid rgba(255,255,255,.14);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 28px rgba(0,0,0,.35);color:#EAF6F1}
+  .card-2{background:linear-gradient(180deg,rgba(11,37,30,.98),rgba(11,37,30,.94));border:1px solid rgba(255,255,255,.14);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 28px rgba(0,0,0,.35);color:#EAF6F1}
+
+  .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(4,14,10,.62)}
   .ringfx{position:relative;isolation:isolate}
-  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#00B36E,#E6C55E,#00B36E);opacity:.28;filter:saturate(120%)}
+  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#00B36E,#E6C55E,#00B36E);opacity:.33;filter:saturate(130%)}
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
   .revealed{opacity:1;transform:translateY(0)}
   .deadlinebar{height:4px;background:linear-gradient(90deg,#E6C55E,#00B36E);transform-origin:left center;transition:transform .4s linear}
-  .ticker{--speed:26s;display:flex;overflow:hidden;gap:2rem;white-space:nowrap;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-  .ticker>div{display:flex;gap:2rem;animation:ticker var(--speed) linear infinite}
-  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-  .badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(90deg,rgba(0,179,110,.2),rgba(230,197,94,.2));border:1px solid rgba(255,255,255,.14);padding:.35rem .6rem;border-radius:999px;font-size:.75rem}
+  .badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(90deg,rgba(0,179,110,.18),rgba(230,197,94,.18));border:1px solid rgba(255,255,255,.16);padding:.35rem .6rem;border-radius:999px;font-size:.75rem}
   .glow-pulse{animation:gp 1.6s infinite alternate}
   @keyframes gp{from{box-shadow:0 0 8px rgba(230,197,94,.55),0 0 18px rgba(230,197,94,.35)}to{box-shadow:0 0 18px rgba(230,197,94,.85),0 0 36px rgba(230,197,94,.5)}}
   .slash{position:relative;display:inline-block}
@@ -79,21 +86,30 @@
   .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
   .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
   .lockbar{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#3a0d0d,#710000); color:#ffe0e0; border-bottom:1px solid rgba(255,255,255,.15)}
-  /* FAQ tap fix */
-  details>summary{list-style:none}
-  details>summary::-webkit-details-marker{display:none}
-  details summary{cursor:pointer}
+
+  /* canvases stacked */
+  canvas.layer{position:fixed;inset:0;pointer-events:none}
 </style>
 </head>
 <body class="bg-vault-bg text-vault-text selection:bg-vault-gold selection:text-[#0A0A0A]">
-  <!-- BACKGROUND LAYERS -->
-  <div class="void"></div><div class="blood"></div><div class="rift"></div>
-  <div class="lightning"><div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div></div>
+  <!-- BACKGROUND -->
+  <div class="void"></div>
+  <div class="ridges"></div>
+  <div class="blood"></div>
+  <div class="rift"></div>
+
+  <!-- FX layers -->
+  <div class="lightning">
+    <div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div>
+    <div class="bolt b4"></div><div class="bolt b5"></div><div class="bolt b6"></div>
+  </div>
   <div class="shock" id="shock"></div>
-  <canvas id="battle"></canvas>  <!-- missiles + lava plumes -->
-  <canvas id="embers"></canvas>  <!-- glowing embers -->
-  <canvas id="ash"></canvas>     <!-- falling ash streaks -->
-  <canvas id="waves"></canvas>   <!-- ocean swells -->
+
+  <!-- particles -->
+  <canvas id="embers" class="layer -z-6"></canvas>
+  <canvas id="ash" class="layer -z-5"></canvas>
+  <canvas id="spears" class="layer -z-4"></canvas>
+  <canvas id="bloodmist" class="layer -z-3"></canvas>
 
   <!-- STICKY TOP -->
   <div class="sticky top-0 z-50 border-b border-white/10 glass">
@@ -107,13 +123,9 @@
       </div>
     </div>
     <div class="mx-auto max-w-7xl px-4 pb-2">
-      <div class="ticker text-[.8rem] text-vault-mute">
-        <div>
-          <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
-          <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
-          <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
-          <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
-        </div>
+      <div class="flex gap-2 overflow-x-auto text-[.8rem] text-vault-mute">
+        <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
+        <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
       </div>
     </div>
   </div>
@@ -121,7 +133,7 @@
   <!-- HEADER -->
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a class="flex items-center gap-3" href="#home">
-      <img id="logo" class="h-11 w-11 rounded-lg ring-1 ring-white/10 shadow-soft" alt="Inner Vault logo"/>
+      <img id="logo" class="h-10 w-10 rounded-lg ring-1 ring-white/10 shadow-soft" alt="Inner Vault logo"/>
       <span class="tracking-widest text-sm text-vault-em">INNER VAULT</span>
     </a>
     <nav class="hidden md:flex items-center gap-6 text-sm text-vault-mute">
@@ -170,7 +182,7 @@
             <div id="proof" class="reveal">
               <div class="card ringfx p-3">
                 <video class="w-full rounded-xl" id="proofVideo" autoplay loop playsinline controls preload="metadata"
-                  poster="https://placehold.co/960x540/0b221c/eaf6f1?text=IRL+Stream+Proof">
+                  poster="https://placehold.co/960x540/0b251e/eaf6f1?text=IRL+Stream+Proof">
                   <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
                   <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
                 </video>
@@ -183,7 +195,7 @@
       <!-- OATH -->
       <section id="oath" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-6xl px-4 py-12">
-          <div class="card ringfx p-8">
+          <div class="card-2 ringfx p-8">
             <h2 class="text-2xl md:text-3xl font-bold text-vault-gold">The Legacy Oath</h2>
             <p class="mt-4 text-lg">If I fall tomorrow, my family still eats. Poverty stops with us. Proof over pride. Work over wishes.</p>
           </div>
@@ -192,16 +204,15 @@
 
       <!-- NCS -->
       <section id="ncs" class="border-t border-white/10 bg-vault-card/40">
-        <div class="mx-auto max-w-7xl px-4 py-12">
-          <div class="grid gap-8 md:grid-cols-[auto,1fr] md:items-start">
-            <div class="card ringfx p-4 flex items-center justify-center">
-              <img src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203cea4ffabd_removalai_preview.png"
-                   alt="No Code Society crest" class="h-24 w-24 md:h-28 md:w-28 rounded-xl ring-1 ring-white/20"/>
+        <div class="mx-auto max-w-6xl px-4 py-12">
+          <div class="grid gap-6 md:grid-cols-[120px_1fr]">
+            <div class="card p-3 flex items-center justify-center ringfx">
+              <img id="ncsCrest" alt="No Code Society crest" class="h-20 w-20 md:h-24 md:w-24 object-contain"/>
             </div>
             <div class="card ringfx p-6">
               <h2 class="text-2xl md:text-3xl font-bold text-white">No Code Society</h2>
-              <p class="text-vault-mute mt-2">Our private clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
-              <ul class="mt-4 space-y-2 text-vault-mute">
+              <p class="mt-2 text-vault-mute">Our private clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
+              <ul class="mt-5 space-y-2 text-vault-mute">
                 <li>✔ <b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga.</li>
                 <li>✔ <b class="text-white">Deal Rooms</b> — share wins, swap prompts, move faster.</li>
                 <li>✔ <b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions.</li>
@@ -211,11 +222,10 @@
                 <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">Enter the Vault</a>
                 <a href="#reviews" class="rounded-xl border border-vault-em px-5 py-3 hover:bg-vault-em/10 text-vault-em">See Reviews ↓</a>
               </div>
-              <!-- live stats pill -->
-              <div class="mt-6 grid grid-cols-3 gap-3 text-center">
-                <div class="card p-4"><div class="text-2xl font-extrabold text-white">37+</div><div class="text-xs text-vault-mute/90">wins this week</div></div>
-                <div class="card p-4"><div class="text-2xl font-extrabold text-white">9/wk</div><div class="text-xs text-vault-mute/90">live sprints</div></div>
-                <div class="card p-4"><div class="text-2xl font-extrabold text-white">4+</div><div class="text-xs text-vault-mute/90">deal rooms</div></div>
+              <div class="grid grid-cols-3 gap-3 mt-6 text-center">
+                <div class="card p-3"><div class="text-2xl font-extrabold text-white">37+</div><div class="text-xs text-vault-mute/90">wins this week</div></div>
+                <div class="card p-3"><div class="text-2xl font-extrabold text-white">9/wk</div><div class="text-xs text-vault-mute/90">live sprints</div></div>
+                <div class="card p-3"><div class="text-2xl font-extrabold text-white">4+</div><div class="text-xs text-vault-mute/90">deal rooms</div></div>
               </div>
             </div>
           </div>
@@ -253,40 +263,22 @@
       <section id="reviews" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-7xl px-4 py-14">
           <h2 class="text-3xl md:text-4xl font-bold text-white">Student Reviews</h2>
-        <div class="mt-6 space-y-6">
-          <div class="card ringfx p-6">
-            <div class="flex items-center gap-4">
-              <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center font-bold text-white">J</div>
-              <div>
-                <div class="font-semibold text-white">Jae — Port Moresby</div>
-                <div class="text-xs text-vault-mute">PNG · AI Prompts</div>
-              </div>
-            </div>
-            <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p>
-          </div>
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 bg-[#0b251e] grid place-content-center text-white font-bold">J</div>
+              <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG · AI Prompts</div></div></div>
+              <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p></div>
 
-          <div class="card ringfx p-6">
-            <div class="flex items-center gap-4">
-              <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center font-bold text-white">L</div>
-              <div>
-                <div class="font-semibold text-white">Litia — Suva</div>
-                <div class="text-xs text-vault-mute">Fiji · IRL Streams</div>
-              </div>
-            </div>
-            <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p>
-          </div>
+            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 bg-[#0b251e] grid place-content-center text-white font-bold">L</div>
+              <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji · IRL Streams</div></div></div>
+              <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p></div>
 
-          <div class="card ringfx p-6">
-            <div class="flex items-center gap-4">
-              <div class="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center font-bold text-white">T</div>
-              <div>
-                <div class="font-semibold text-white">Toma — Apia</div>
-                <div class="text-xs text-vault-mute">Samoa · Ops Systems</div>
-              </div>
-            </div>
-            <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p>
+            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 bg-[#0b251e] grid place-content-center text-white font-bold">T</div>
+              <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa · Ops Systems</div></div></div>
+              <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p></div>
           </div>
-        </div>
         </div>
       </section>
 
@@ -295,24 +287,32 @@
         <div class="mx-auto max-w-4xl px-4 py-14">
           <h2 class="text-3xl md:text-4xl font-bold text-white">FAQ</h2>
           <div class="mt-6 space-y-4">
-            <details class="group card p-5">
-              <summary class="flex items-center justify-between text-left font-medium text-white">Can I do this from the islands?
-                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span></summary>
+            <details class="group card p-5 open:!bg-[#0b251e]/95">
+              <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+                Can I do this from the islands?
+                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+              </summary>
               <p class="mt-3 text-vault-mute">Yes. Legit Stripe routes and clean money flow for PNG/Fiji/Samoa/Tonga.</p>
             </details>
             <details class="group card p-5">
-              <summary class="flex items-center justify-between text-left font-medium text-white">What if I hate “content”?
-                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span></summary>
+              <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+                What if I hate “content”?
+                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+              </summary>
               <p class="mt-3 text-vault-mute">Good. We don’t chase trends. We build proof engines that convert.</p>
             </details>
             <details class="group card p-5">
-              <summary class="flex items-center justify-between text-left font-medium text-white">Do I need a laptop?
-                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span></summary>
+              <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+                Do I need a laptop?
+                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+              </summary>
               <p class="mt-3 text-vault-mute">No. Phone-first plays. Desktop optional.</p>
             </details>
             <details class="group card p-5">
-              <summary class="flex items-center justify-between text-left font-medium text-white">How fast can this print?
-                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span></summary>
+              <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+                How fast can this print?
+                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+              </summary>
               <p class="mt-3 text-vault-mute">If you execute, most see movement in <b class="text-white">48–72 hours</b>.</p>
             </details>
           </div>
@@ -444,23 +444,26 @@
     </section>
   </main>
 
-  <!-- FLOATING CTA (Home only + auto-hide near footer) -->
+  <!-- FLOATING CTA -->
   <div id="ctaBar" class="cta-bar">
     <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
-  <!-- AMBIENCE (auto-loop, low volume, ducks near video) -->
+  <!-- AMBIENCE (quiet loop; auto-plays when allowed) -->
   <audio id="bgAudio" preload="auto" loop playsinline crossorigin="anonymous">
     <source src="/lv_0_20250815112807.mp4" type="audio/mp4"/>
     <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
   </audio>
 
 <script>
-/* assets + year */
+/* assets + year + NCS crest */
 (() => {
   const logoSrc="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
-  const fallback="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
-  const logo=document.getElementById('logo'); if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallback;}
+  const fallbackL="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
+  const crestNew="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png"; // sword NCS
+  const crestOld="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png"; // circle text fallback
+  const logo=document.getElementById('logo'); if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallbackL;}
+  const crest=document.getElementById('ncsCrest'); if(crest){crest.src=crestNew;crest.onerror=()=>crest.src=crestOld;}
   const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
 })();
 
@@ -469,7 +472,6 @@
   const views=[...document.querySelectorAll('[data-view]')];
   const links=[...document.querySelectorAll('.navlink')];
   const ctaBar=document.getElementById('ctaBar');
-
   function show(view){
     views.forEach(v=>v.classList.toggle('hidden', v.id!==view));
     links.forEach(a=>a.classList.toggle('active', a.dataset.route===view));
@@ -485,12 +487,76 @@
   document.addEventListener('click', (e)=>{
     const a=e.target.closest('a[href^="#"]'); if(!a) return;
     const h=a.getAttribute('href').slice(1); if(!h) return;
-    e.preventDefault(); if(location.hash.slice(1)!==h){ location.hash = '#'+h; } else { route(); }
+    e.preventDefault(); location.hash = '#'+h;
   });
   addEventListener('hashchange',route); route();
 })();
 
-/* lightning shock flicker */
+/* particles: embers (gold + blood) */
+(() => {
+  const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?110:180;p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.4+.3,o:Math.random()*.5+.25,b:Math.random()<.45}))}
+  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(180,20,24,.85)':'rgba(230,197,94,.9)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.38;a.x+=Math.sin(a.y/42)*.22;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
+  rs();addEventListener('resize',rs);loop();
+})();
+
+/* ash: thicker volcanic diagonals */
+(() => {
+  const c=document.getElementById('ash'),x=c.getContext('2d');let W,H,p=[];
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?60:110;p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*50+30,sp:Math.random()*1.6+.7,o:Math.random()*.25+.08}))}
+  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(234,246,241,.14)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+14,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.55;if(a.y<-60||a.x>W+40){a.x=-30;a.y=H*Math.random()}}requestAnimationFrame(loop)}
+  rs();addEventListener('resize',rs);loop();
+})();
+
+/* spears: real moving darts (no wallpaper) */
+(() => {
+  const c=document.getElementById('spears'),x=c.getContext('2d');let W,H,arr=[];
+  function make(){return{
+      x:Math.random()*W, y:H+40+Math.random()*200,
+      vx:(Math.random()*.8+.9), vy:-(Math.random()*3.6+4.8),
+      len:Math.random()*90+80, w:Math.random()*2.1+1.2,
+      tint:Math.random()<.5?'gold':'green', a:Math.random()*.45+.35
+  }}
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;arr=Array.from({length: innerWidth<768?10:18},make)}
+  function draw(s){
+    x.save();x.globalAlpha=s.a;
+    x.translate(s.x,s.y);x.rotate(Math.atan2(s.vy,s.vx));
+    // shaft
+    x.strokeStyle = s.tint==='gold'?'rgba(230,197,94,.9)':'rgba(0,179,110,.9)';
+    x.lineWidth=s.w; x.beginPath(); x.moveTo(0,0); x.lineTo(s.len,0); x.stroke();
+    // head
+    x.fillStyle='rgba(234,246,241,.95)';
+    x.beginPath(); x.moveTo(s.len,0); x.lineTo(s.len-12,4); x.lineTo(s.len-12,-4); x.closePath(); x.fill();
+    // tail feathers
+    x.strokeStyle='rgba(234,246,241,.5)'; x.lineWidth=1;
+    x.beginPath(); x.moveTo(0,0); x.lineTo(-8,4); x.moveTo(0,0); x.lineTo(-8,-4); x.stroke();
+    x.restore();
+  }
+  function loop(){
+    x.clearRect(0,0,W,H);
+    for(const s of arr){ draw(s); s.x+=s.vx*4.2; s.y+=s.vy*4.2; s.a*=0.996;
+      if(s.y<-100 || s.x>W+200) Object.assign(s, make(), {x:-40, y:H+80}); }
+    requestAnimationFrame(loop);
+  }
+  rs();addEventListener('resize',rs);loop();
+})();
+
+/* blood mist: subtle drifting clouds */
+(() => {
+  const c=document.getElementById('bloodmist'),x=c.getContext('2d');let W,H,p=[];
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;
+    const n=innerWidth<768?3:5;
+    p=Array.from({length:n},()=>({x:Math.random()*W,y:H*.6+Math.random()*H*.4,r:Math.random()*220+180,a:.07+Math.random()*.06,dx:Math.random()*.3+.15,dy:-(Math.random()*.15+.05)}))}
+  function loop(){x.clearRect(0,0,W,H);
+    for(const m of p){const g=x.createRadialGradient(m.x,m.y,10,m.x,m.y,m.r);
+      g.addColorStop(0,'rgba(160,18,22,'+m.a+')'); g.addColorStop(1,'rgba(160,18,22,0)');
+      x.fillStyle=g; x.beginPath(); x.arc(m.x,m.y,m.r,0,6.283); x.fill();
+      m.x+=m.dx; m.y+=m.dy; if(m.y+m.r<0 || m.x-m.r>W){m.x=-m.r; m.y=H*.7;}}
+    requestAnimationFrame(loop)}
+  rs();addEventListener('resize',rs);loop();
+})();
+
+/* lightning camera-shock */
 (() => { const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
   bolts.forEach(b=>b.addEventListener('animationiteration',()=>{shock.classList.add('flash');setTimeout(()=>shock.classList.remove('flash'),120);}));})();
 
@@ -514,16 +580,18 @@ function tick(){const left=Math.max(0,end-Date.now()),total=Math.max(1,end-start
   setTimeout(tick,1000)}
 tick();
 
-/* FLOATING CTA near footer */
+/* FLOATING CTA: auto-hide near footer on scroll (Home only) */
 (() => {
   const barEl=document.getElementById('ctaBar'); if(!barEl) return;
   function check(){
     const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 360);
     if(location.hash.replace('#','').toLowerCase()!=='home'){ barEl.style.display='none'; return; }
-    barEl.style.display='flex';
-    barEl.classList.toggle('hide', nearBottom);
+    barEl.style.display='flex'; barEl.classList.toggle('hide', nearBottom);
   }
-  addEventListener('scroll',check,{passive:true}); addEventListener('hashchange',check); addEventListener('resize',check); check();
+  addEventListener('scroll',check,{passive:true});
+  addEventListener('hashchange',check);
+  addEventListener('resize',check);
+  check();
 })();
 
 /* proof video sound control */
@@ -541,7 +609,7 @@ tick();
 /* ambience: loops low, ducks near video */
 (() => {
   const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); if(!A) return;
-  let started=false, retryId=null, raf; const baseVol=.2;
+  let started=false, retryId=null, raf; const baseVol=.22;
   function fade(el,to,ms=900){const from=el.volume,t0=performance.now();cancelAnimationFrame(raf);
     function step(t){const p=Math.min(1,(t-t0)/ms);el.volume=from+(to-from)*p;if(p<1)raf=requestAnimationFrame(step)}raf=requestAnimationFrame(step)}
   async function playAudio(){ try{A.volume=baseVol;await A.play();started=true;return true}catch(_){return false}}
@@ -571,7 +639,6 @@ const LOCK_MS=10*60*1000;
 const lockWrap=document.getElementById('lockWrap');
 const lockTimer=document.getElementById('lockTimer');
 const lockTimer2=document.getElementById('lockTimer2');
-
 function ensureLockStarted(){
   let t=Number(localStorage.getItem(LOCK_KEY));
   const now=Date.now();
@@ -596,7 +663,7 @@ document.addEventListener('click',(e)=>{
   ensureLockStarted();
 });
 
-/* ===== Whop OPEN: always navigate (also new tab) ===== */
+/* Whop OPEN new tab + backup same tab */
 document.querySelectorAll('[data-external]').forEach(a=>{
   a.setAttribute('target','_blank');
   a.setAttribute('rel','noopener noreferrer');
@@ -605,78 +672,6 @@ document.querySelectorAll('[data-external]').forEach(a=>{
     setTimeout(()=>{ try{ if(!document.hidden) window.location.href=url; }catch(_){} }, 150);
   }, {passive:true});
 });
-
-/* ==================== WARSTORM CANVASES ==================== */
-(() => {
-  const DPR=Math.min(2, window.devicePixelRatio || 1);
-
-  // EMBERS (gold + blood sparks rising)
-  const emb=document.getElementById('embers'), ex=emb.getContext('2d');
-  let EW,EH,EP=[];
-  function eRS(){EW=emb.width=innerWidth*DPR;EH=emb.height=innerHeight*DPR;emb.style.transform=`scale(${1/DPR})`;const n=innerWidth<768?100:180;EP=Array.from({length:n},()=>({x:Math.random()*EW,y:Math.random()*EH,s:(Math.random()*1.2+.5)*DPR,o:Math.random()*.6+.25,b:Math.random()<.35}))}
-  function eLoop(){ex.clearRect(0,0,EW,EH);for(const a of EP){ex.globalAlpha=a.o;ex.fillStyle=a.b?'rgba(180,20,24,.9)':'rgba(230,197,94,.9)';ex.beginPath();ex.arc(a.x,a.y,a.s,0,6.283);ex.fill();a.y-=a.s*.34;a.x+=Math.sin(a.y/42)*.22*DPR;if(a.y<-2*DPR){a.y=EH+2*DPR;a.x=Math.random()*EW}}requestAnimationFrame(eLoop)}
-  eRS();eLoop();
-
-  // ASH (falling streaks)
-  const ash=document.getElementById('ash'), ax=ash.getContext('2d'); let AW,AH,AP=[];
-  function aRS(){AW=ash.width=innerWidth*DPR;AH=ash.height=innerHeight*DPR;ash.style.transform=`scale(${1/DPR})`;const n=innerWidth<768?40:80;AP=Array.from({length:n},()=>({x:Math.random()*AW,y:Math.random()*AH,l:(Math.random()*40+20)*DPR,sp:(Math.random()*1.2+.6)*DPR,o:Math.random()*.22+.05}))}
-  function aLoop(){ax.clearRect(0,0,AW,AH);ax.strokeStyle='rgba(234,246,241,.14)';ax.lineWidth=1*DPR;for(const a of AP){ax.globalAlpha=a.o;ax.beginPath();ax.moveTo(a.x,a.y);ax.lineTo(a.x+10*DPR,a.y-a.l);ax.stroke();a.y-=a.sp;a.x+=.35*DPR;if(a.y<-50*DPR||a.x>AW+20*DPR){a.x=-20*DPR;a.y=AH*Math.random()}}requestAnimationFrame(aLoop)}
-  aRS();aLoop();
-
-  // OCEAN SWELLS (dark lines moving)
-  const wav=document.getElementById('waves'), wx=wav.getContext('2d'); let WW,WH,t=0;
-  function wRS(){WW=wav.width=innerWidth*DPR;WH=wav.height=innerHeight*DPR;wav.style.transform=`scale(${1/DPR})`}
-  function wLoop(){wx.clearRect(0,0,WW,WH);wx.globalAlpha=.08;wx.lineWidth=2*DPR;wx.strokeStyle='#E6C55E';for(let i=0;i<6;i++){wx.beginPath();for(let x=0;x<=WW;x+=24*DPR){const y=WH*.85 - i*16*DPR + Math.sin((x+t)/120 + i)*8*DPR;wx.lineTo(x,y)}wx.stroke()}t+=0.7*DPR;requestAnimationFrame(wLoop)}
-  wRS();wLoop();
-
-  // BATTLE (volcano plumes + missiles: spears, clubs, shark-tooth paddles)
-  const bat=document.getElementById('battle'), bx=bat.getContext('2d'); let BW,BH,objs=[];
-  function mRS(){BW=bat.width=innerWidth*DPR;BH=bat.height=innerHeight*DPR;bat.style.transform=`scale(${1/DPR})`;objs=[];spawnInitial()}
-  function rand(a,b){return a+Math.random()*(b-a)}
-  function spawnMissile(){
-    const kinds=['spear','club','tooth']; const k=kinds[(Math.random()*kinds.length)|0];
-    const y=rand(BH*0.1,BH*0.8), fromLeft=Math.random()<.5;
-    const v=rand(3,6)*DPR*(fromLeft?1:-1), rot=rand(-0.3,0.3);
-    const x=fromLeft?-40*DPR:BW+40*DPR;
-    objs.push({t:'m',k,x,y,v,rot,a:rand(.35,.65)});
-  }
-  function spawnPlume(){
-    // lava plume from bottom center
-    const x=BW*0.5 + rand(-80*DPR,80*DPR);
-    objs.push({t:'plume',x,y:BH+10*DPR,vy:-rand(3,5)*DPR,s:rand(4,7)*DPR,o:rand(.25,.5)});
-  }
-  function spawnInitial(){for(let i=0;i<60;i++) spawnPlume(); for(let i=0;i<18;i++) spawnMissile();}
-  function drawMissile(o){
-    bx.save(); bx.translate(o.x,o.y); bx.rotate(o.a); o.a+=o.rot*0.02;
-    bx.lineWidth=2*DPR; bx.lineCap='round'; 
-    if(o.k==='spear'){ bx.strokeStyle='rgba(230,197,94,.9)'; bx.beginPath(); bx.moveTo(-30*DPR,0); bx.lineTo(30*DPR,0); bx.stroke(); bx.fillStyle='rgba(255,255,255,.9)'; bx.beginPath(); bx.moveTo(30*DPR,0); bx.lineTo(22*DPR,5*DPR); bx.lineTo(22*DPR,-5*DPR); bx.closePath(); bx.fill();}
-    else if(o.k==='club'){ bx.strokeStyle='rgba(191,140,62,.95)'; bx.beginPath(); bx.moveTo(-18*DPR,0); bx.lineTo(22*DPR,0); bx.stroke(); bx.fillStyle='rgba(191,140,62,.95)'; bx.beginPath(); bx.arc(22*DPR,0,6*DPR,0,6.283); bx.fill();}
-    else { // shark tooth paddle
-      bx.strokeStyle='rgba(234,246,241,.9)'; bx.beginPath(); bx.moveTo(-26*DPR,0); bx.lineTo(20*DPR,0); bx.stroke();
-      for(let i=0;i<6;i++){bx.beginPath(); bx.moveTo(-10*DPR + i*6*DPR,0); bx.lineTo(-8*DPR+i*6*DPR,-5*DPR); bx.lineTo(-6*DPR+i*6*DPR,0); bx.fillStyle='rgba(255,255,255,.85)'; bx.fill();}
-    }
-    bx.restore();
-    o.x+=o.v; if(o.x<-60*DPR||o.x>BW+60*DPR) o.dead=true;
-  }
-  function drawPlume(o){
-    bx.globalAlpha=o.o; bx.fillStyle='rgba(180,20,24,.7)'; bx.beginPath(); bx.arc(o.x,o.y,o.s,0,6.283); bx.fill(); 
-    o.y+=o.vy; o.o*=0.985; if(o.y<rand(BH*0.45,BH*0.6)) o.dead=true;
-  }
-  let mt=0, pt=0;
-  function bLoop(ts){
-    bx.clearRect(0,0,BW,BH);
-    // volcano glow mound
-    bx.globalAlpha=.25; bx.fillStyle='rgba(160,18,22,.45)'; bx.beginPath(); bx.ellipse(BW*0.5,BH*0.98,BW*0.22,BH*0.06,0,0,6.283); bx.fill();
-    objs.forEach(o=>{ if(o.t==='m') drawMissile(o); else drawPlume(o); });
-    objs=objs.filter(o=>!o.dead);
-    if(ts-mt>420){ spawnMissile(); mt=ts; }
-    if(ts-pt>90){ spawnPlume(); pt=ts; }
-    requestAnimationFrame(bLoop);
-  }
-  addEventListener('resize',()=>{eRS();aRS();wRS();mRS();},{passive:true});
-  mRS(); requestAnimationFrame(bLoop);
-})();
-
 </script>
 </body>
 </html>
