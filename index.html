@@ -391,7 +391,7 @@
     </section>
   </main>
 
-  <!-- FLOATING CTA (auto-hides) -->
+  <!-- FLOATING CTA (now HOME only + auto-hide near footer) -->
   <div id="ctaBar" class="cta-bar">
     <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
@@ -420,8 +420,8 @@
     const hash=(location.hash.replace('#','')||'home').toLowerCase();
     views.forEach(v=>v.classList.toggle('hidden', v.dataset.view!==hash));
     links.forEach(a=>a.classList.toggle('active', a.dataset.route===hash));
-    // hide floating CTA outside the home view
-    if(ctaBar) ctaBar.classList.toggle('hide', hash!=='home');
+    // HARD hide/show floating CTA by view (prevents overlays on links)
+    if(ctaBar) ctaBar.style.display = (hash==='home') ? 'flex' : 'none';
     scrollTo(0,0);
     if(hash==='join') ensureLockStarted();
   }
@@ -452,7 +452,7 @@ function animateCount(el){const end=parseFloat(el.dataset.end||0),d=+el.dataset.
 const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}}),{threshold:.4});
 document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
 
-/* cohort countdown + CTA */
+/* cohort countdown + CTA clock */
 const COHORT_CLOSE_AT="2025-08-20T23:59:59+12:00";
 const PANIC_MS=6*60*60*1000;
 const timer=document.getElementById('timer'),mini=document.getElementById('t-mini'),bar=document.getElementById('deadlinebar');
@@ -465,15 +465,19 @@ function tick(){const left=Math.max(0,end-Date.now()),total=Math.max(1,end-start
   setTimeout(tick,1000)}
 tick();
 
-/* Hide CTA bar near footer AND when pricing/blocks are visible */
+/* FLOATING CTA: extra auto-hide near footer on scroll (for Home) */
 (() => {
   const barEl=document.getElementById('ctaBar'); if(!barEl) return;
-  const zones=[document.getElementById('site-footer'), ...document.querySelectorAll('[data-hide-cta]')].filter(Boolean);
-  const io=new IntersectionObserver((entries)=>{
-    const hide=entries.some(e=>e.isIntersecting);
-    barEl.classList.toggle('hide', hide);
-  },{threshold:.15});
-  zones.forEach(z=>io.observe(z));
+  function check(){
+    const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 360);
+    if(location.hash.replace('#','').toLowerCase()!=='home'){ barEl.style.display='none'; return; }
+    barEl.style.display='flex';
+    barEl.classList.toggle('hide', nearBottom);
+  }
+  addEventListener('scroll',check,{passive:true});
+  addEventListener('hashchange',check);
+  addEventListener('resize',check);
+  check();
 })();
 
 /* proof video sound control */
@@ -551,13 +555,8 @@ document.querySelectorAll('[data-external]').forEach(a=>{
   a.setAttribute('target','_blank');
   a.setAttribute('rel','noopener noreferrer');
   a.addEventListener('click', (ev)=>{
-    // safety: if anything tries to block, force navigation
     const url=a.getAttribute('href');
-    // let the browser open _blank; also schedule a fallback
-    setTimeout(()=>{ try{
-      // if popup was blocked or tab didn't open, fallback same tab
-      if(!document.hidden) window.location.href=url;
-    }catch(_){} }, 150);
+    setTimeout(()=>{ try{ if(!document.hidden) window.location.href=url; }catch(_){} }, 150);
   }, {passive:true});
 });
 </script>
