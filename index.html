@@ -169,7 +169,7 @@
       <section class="relative overflow-hidden">
         <div class="mx-auto max-w-7xl px-4 py-10 md:py-16">
           <div class="grid gap-10 md:grid-cols-2 md:items-center">
-            <!-- Tight hero copy (removed extra INNER VAULT label) -->
+            <!-- Tight hero copy -->
             <div class="reveal">
               <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white h1-wrath">
                 <span class="slash">Money Making</span><br/>
@@ -317,6 +317,43 @@
               <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
               <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div></div>
               <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ (restored) -->
+      <section id="faq" class="border-t border-white/10 bg-vault-card/40">
+        <div class="mx-auto max-w-4xl px-4 py-14">
+          <h2 class="text-3xl md:text-4xl font-bold text-white">FAQ</h2>
+          <div class="mt-6 space-y-4">
+            <details class="group card p-5">
+              <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+                Can I do this from the islands?
+                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+              </summary>
+              <p class="mt-3 text-vault-mute">Yes. Legit Stripe routes and clean money flow for PNG/Fiji/Samoa/Tonga.</p>
+            </details>
+            <details class="group card p-5">
+              <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+                What if I hate “content”?
+                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+              </summary>
+              <p class="mt-3 text-vault-mute">Good. We don’t chase trends. We build proof engines that convert.</p>
+            </details>
+            <details class="group card p-5">
+              <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+                Do I need a laptop?
+                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+              </summary>
+              <p class="mt-3 text-vault-mute">No. Phone-first plays. Desktop optional.</p>
+            </details>
+            <details class="group card p-5">
+              <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
+                How fast can this print?
+                <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
+              </summary>
+              <p class="mt-3 text-vault-mute">If you execute, most see movement in <b class="text-white">48–72 hours</b>.</p>
+            </details>
           </div>
         </div>
       </section>
@@ -564,7 +601,7 @@ tick();
   }
 })();
 
-/* ambience audio + thunder quake */
+/* ambience audio + thunder quake (bgAudio is looped) */
 (() => {
   const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); const thunder = document.getElementById('thunder');
   let started=false, retryId=null, raf; const baseVol=.24;
@@ -654,4 +691,4 @@ document.querySelectorAll('[data-external]').forEach(a=>{
 })();
 </script>
 </body>
-            </html>
+</html>
