@@ -10,7 +10,7 @@
 <meta property="og:description" content="Stripe anywhere. IRL + AI + Super UGC. The engine the Pacific was missing."/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
-<meta name="theme-color" content="#040A08"/>
+<meta name="theme-color" content="#030906"/>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -20,96 +20,127 @@
       extend: {
         colors: {
           vault: {
-            bg:'#040A08', card:'#0A201A',
-            card2:'#0B251E',
-            gold:'#E6C55E', goldh:'#CFAF4A',
-            em:'#00B36E', text:'#EAF6F1', mute:'#CDE7DD'
+            bg:'#030906',
+            card:'#07120F',          /* darker */
+            gold:'#E9C960',
+            goldh:'#D3B350',
+            em:'#00B36E',
+            text:'#F2FBF7',
+            mute:'#CDE7DD'
           }
         },
-        boxShadow:{ soft:'0 12px 34px rgba(0,0,0,.38)', glow:'0 0 24px rgba(0,179,110,.55)' }
+        boxShadow:{
+          soft:'0 12px 30px rgba(0,0,0,.30)',
+          glow:'0 0 26px rgba(233,201,96,.45)'
+        }
       }
     }
   }
 </script>
 <style>
   html{scroll-behavior:smooth}
-  body{background:#040A08; line-height:1.55; padding-bottom:160px}
+  body{background:#030906; line-height:1.55; padding-bottom:160px}
 
-  /* --- COSMIC WAR BACKDROP (original + meaner) --- */
-  .void{position:fixed;inset:0;z-index:-12;pointer-events:none;background:
-    radial-gradient(85% 65% at 50% 8%,#081511 0%,#06110D 55%,#040A08 100%)}
-
-  .ridges{position:fixed;inset:0;z-index:-11;pointer-events:none}
-  .ridges:before,.ridges:after{content:"";position:absolute;top:-10vh;width:56vw;height:130vh;filter:blur(.3px);opacity:.20;mix-blend-mode:screen;background:linear-gradient(135deg,rgba(230,197,94,.22),rgba(0,0,0,0) 70%);clip-path:polygon(0 0,84% 0,40% 100%,0% 100%)}
+  /* ===== BACKGROUND WRATH ===== */
+  .void{position:fixed;inset:0;z-index:-11;pointer-events:none;background:
+    radial-gradient(85% 70% at 50% 6%,#08130F 0%,#05100C 55%,#030906 100%)}
+  .ridges{position:fixed;inset:0;z-index:-10;pointer-events:none}
+  .ridges:before,.ridges:after{content:"";position:absolute;top:-10vh;width:56vw;height:130vh;filter:blur(.3px);opacity:.22;mix-blend-mode:screen;background:linear-gradient(135deg,rgba(233,201,96,.28),rgba(0,0,0,0) 70%);clip-path:polygon(0 0,84% 0,40% 100%,0% 100%)}
   .ridges:before{left:-8vw;transform:skewX(-7deg) rotate(-3deg)}
-  .ridges:after{right:-8vw;transform:scaleX(-1) skewX(-7deg) rotate(-2deg);background:linear-gradient(135deg,rgba(0,179,110,.25),rgba(0,0,0,0) 70%)}
-
-  .blood{position:fixed;inset:0;z-index:-10;pointer-events:none;background:
-    radial-gradient(1200px 520px at 50% 100%,rgba(160,18,22,.28),transparent 62%),
-    radial-gradient(900px 420px at 0% 100%,rgba(160,18,22,.16),transparent 60%),
-    radial-gradient(900px 420px at 100% 100%,rgba(160,18,22,.16),transparent 60%)}
-
-  .rift{position:fixed;inset:0;z-index:-9;pointer-events:none;opacity:.18;background:
-    conic-gradient(from -30deg at 60% 40%,rgba(230,197,94,.45),rgba(0,179,110,.35),rgba(0,0,0,0) 65%);transform:skewX(-10deg) translateY(-2%);animation:riftMove 18s ease-in-out infinite alternate}
+  .ridges:after{right:-8vw;transform:scaleX(-1) skewX(-7deg) rotate(-2deg);background:linear-gradient(135deg,rgba(0,179,110,.26),rgba(0,0,0,0) 70%)}
+  .blood{position:fixed;inset:0;z-index:-9;pointer-events:none;background:
+    radial-gradient(1200px 520px at 50% 100%,rgba(160,18,22,.45),transparent 62%),
+    radial-gradient(900px 420px at 0% 100%,rgba(160,18,22,.28),transparent 60%),
+    radial-gradient(900px 420px at 100% 100%,rgba(160,18,22,.28),transparent 60%);mix-blend-mode:screen}
+  .rift{position:fixed;inset:0;z-index:-8;pointer-events:none;opacity:.22;background:conic-gradient(from -30deg at 60% 40%,rgba(233,201,96,.45),rgba(0,179,110,.35),rgba(0,0,0,0) 65%);transform:skewX(-10deg) translateY(-2%);animation:riftMove 18s ease-in-out infinite alternate}
   @keyframes riftMove{0%{transform:skewX(-10deg) translateY(-2%)}100%{transform:skewX(-12deg) translateY(3%)}}
-
-  .lightning{position:fixed;inset:0;z-index:-8;pointer-events:none}
-  .bolt{position:absolute;width:2px;height:78vh;top:-26vh;opacity:0;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.98),rgba(255,255,255,0));filter:drop-shadow(0 0 16px rgba(230,197,94,.6));animation:flash 7.2s infinite ease-in}
-  .bolt.b1{left:14%;transform:rotate(-16deg);animation-delay:1.9s}
-  .bolt.b2{left:38%;transform:rotate(-10deg);animation-delay:4.3s}
-  .bolt.b3{left:62%;transform:rotate(-22deg);animation-delay:6.1s}
-  .bolt.b4{left:82%;transform:rotate(-28deg);animation-delay:2.8s}
-  .bolt.b5{left:5%; transform:rotate(-12deg);animation-delay:5.4s}
-  .bolt.b6{left:50%;transform:rotate(-18deg);animation-delay:0.9s}
-  @keyframes flash{0%,92%,100%{opacity:0}93%{opacity:1}95%{opacity:.15}96%{opacity:.9}97%{opacity:0}}
-
-  .shock{position:fixed;inset:0;z-index:-7;pointer-events:none;background:rgba(255,255,255,0)}
+  .lightning{position:fixed;inset:0;z-index:-7;pointer-events:none}
+  .bolt{position:absolute;width:2px;height:72vh;top:-22vh;opacity:0;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,.95),rgba(255,255,255,0));filter:drop-shadow(0 0 20px rgba(233,201,96,.6));animation:flash 8s infinite ease-in}
+  .bolt.b1{left:18%;transform:rotate(-16deg);animation-delay:2.2s}
+  .bolt.b2{left:54%;transform:rotate(-10deg);animation-delay:5.1s}
+  .bolt.b3{left:82%;transform:rotate(-24deg);animation-delay:7.4s}
+  @keyframes flash{0%,92%,100%{opacity:0}93%{opacity:.95}95%{opacity:.2}96%{opacity:.8}97%{opacity:0}}
+  .shock{position:fixed;inset:0;z-index:-6;pointer-events:none;background:rgba(255,255,255,0)}
   .shock.flash{animation:shock 120ms ease}
   @keyframes shock{0%{background:rgba(255,255,255,.06)}100%{background:rgba(255,255,255,0)}}
 
-  /* Cards darker for contrast */
-  .card{background:linear-gradient(180deg,rgba(10,32,26,.98),rgba(10,32,26,.94));border:1px solid rgba(255,255,255,.14);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 28px rgba(0,0,0,.35);color:#EAF6F1}
-  .card-2{background:linear-gradient(180deg,rgba(11,37,30,.98),rgba(11,37,30,.94));border:1px solid rgba(255,255,255,.14);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 28px rgba(0,0,0,.35);color:#EAF6F1}
+  .volcano{position:fixed;inset:0;z-index:-5;pointer-events:none;
+    background:
+     radial-gradient(900px 420px at 50% 105%,rgba(255,60,0,.30),transparent 65%),
+     radial-gradient(700px 340px at 12% 100%,rgba(180,18,22,.24),transparent 60%),
+     radial-gradient(700px 340px at 88% 100%,rgba(180,18,22,.24),transparent 60%);
+    animation:lavaPulse 4.2s ease-in-out infinite; mix-blend-mode:screen}
+  @keyframes lavaPulse{0%,100%{opacity:.56;transform:translateY(0)}
+    50%{opacity:.88;transform:translateY(-1.5%)}}
 
-  .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(4,14,10,.62)}
+  .rain{position:fixed;inset:0;z-index:-4;pointer-events:none;opacity:.24;
+    background-image:repeating-linear-gradient(120deg,rgba(255,255,255,.0) 0, rgba(255,255,255,.12) 1px, rgba(255,255,255,.0) 2px);
+    background-size:100% 100%; animation:rainFall .9s linear infinite}
+  @keyframes rainFall{from{background-position:0 0}to{background-position:-160px 260px}}
+
+  .ocean{position:fixed;left:0;right:0;bottom:-2vh;height:18vh;z-index:-3;pointer-events:none;
+    background:radial-gradient(60% 120% at 50% 100%, rgba(0,40,32,.75), transparent 70%),repeating-linear-gradient(to right, rgba(233,201,96,.25) 0 2px, rgba(0,0,0,0) 2px 6px );
+    mask-image:linear-gradient(to top, black 40%, transparent 100%);animation:chop 3.6s ease-in-out infinite}
+  @keyframes chop{0%,100%{transform:skewX(-4deg) translateY(0)}50%{transform:skewX(-8deg) translateY(-6px)}}
+
+  /* Spear chaos */
+  .spearBand{position:fixed;left:0;right:0;height:18px;z-index:45;pointer-events:none;background:
+     repeating-linear-gradient(to right, rgba(255,255,255,.10) 0 1px, rgba(255,255,255,0) 1px 48px),
+     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='18' viewBox='0 0 140 18'%3E%3Cpath d='M6 9 L26 9' stroke='%23D3B350' stroke-width='2'/%3E%3Cpath d='M26 9 L34 5 L34 13 Z' fill='%23E9C960'/%3E%3Ccircle cx='4' cy='9' r='3' fill='none' stroke='%23E9C960' stroke-width='2'/%3E%3C/svg%3E");
+    background-size:auto 18px, 140px 18px; background-repeat:repeat-x, repeat-x; opacity:.85}
+  .spearBand.top{top:0}.spearBand.bottom{bottom:0}
+
+  .spearStorm{position:fixed;inset:-10vh -10vw;z-index:-2;pointer-events:none;opacity:.20;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='40' viewBox='0 0 180 40'%3E%3Cg transform='rotate(-18 90 20) translate(10 10)'><rect x='0' y='8' width='120' height='3' fill='%23D3B350'/><polygon points='120,9 135,0 135,18' fill='%23E9C960'/></g>%3C/svg%3E");
+    background-size:180px 40px; background-repeat:repeat; transform:rotate(-8deg); animation:stormDrift 12s linear infinite}
+  @keyframes stormDrift{from{background-position:0 0}to{background-position:-360px 180px}}
+
+  /* Cards darker + vignette */
+  .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.62)}
+  .card{position:relative;background:linear-gradient(180deg,rgba(7,18,15,.98),rgba(7,18,15,.94));border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 32px rgba(0,0,0,.38);color:#F2FBF7}
+  .card:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:
+    radial-gradient(120% 120% at 50% 0%, rgba(0,0,0,.35), transparent 40%),
+    radial-gradient(140% 110% at 50% 120%, rgba(0,0,0,.4), transparent 42%)}
   .ringfx{position:relative;isolation:isolate}
-  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#00B36E,#E6C55E,#00B36E);opacity:.33;filter:saturate(130%)}
+  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#00B36E,#E9C960,#00B36E);opacity:.32;filter:saturate(130%)}
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
   .revealed{opacity:1;transform:translateY(0)}
-  .deadlinebar{height:4px;background:linear-gradient(90deg,#E6C55E,#00B36E);transform-origin:left center;transition:transform .4s linear}
-  .badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(90deg,rgba(0,179,110,.18),rgba(230,197,94,.18));border:1px solid rgba(255,255,255,.16);padding:.35rem .6rem;border-radius:999px;font-size:.75rem}
+  .deadlinebar{height:4px;background:linear-gradient(90deg,#E9C960,#00B36E);transform-origin:left center;transition:transform .4s linear}
+  .ticker{--speed:26s;display:flex;overflow:hidden;gap:2rem;white-space:nowrap;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .ticker>div{display:flex;gap:2rem;animation:ticker var(--speed) linear infinite}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(90deg,rgba(0,179,110,.22),rgba(233,201,96,.22));border:1px solid rgba(255,255,255,.16);padding:.35rem .6rem;border-radius:999px;font-size:.75rem}
   .glow-pulse{animation:gp 1.6s infinite alternate}
-  @keyframes gp{from{box-shadow:0 0 8px rgba(230,197,94,.55),0 0 18px rgba(230,197,94,.35)}to{box-shadow:0 0 18px rgba(230,197,94,.85),0 0 36px rgba(230,197,94,.5)}}
+  @keyframes gp{from{box-shadow:0 0 8px rgba(233,201,96,.55),0 0 18px rgba(233,201,96,.35)}to{box-shadow:0 0 20px rgba(233,201,96,.9),0 0 40px rgba(233,201,96,.5)}}
   .slash{position:relative;display:inline-block}
-  .slash:after{content:"";position:absolute;left:-4px;right:-4px;bottom:4px;height:10px;z-index:-1;filter:blur(6px);background:linear-gradient(90deg,rgba(230,197,94,.45),rgba(0,179,110,.35));transform:skewX(-12deg)}
+  .slash:after{content:"";position:absolute;left:-4px;right:-4px;bottom:4px;height:10px;z-index:-1;filter:blur(6px);background:linear-gradient(90deg,rgba(233,201,96,.5),rgba(0,179,110,.35));transform:skewX(-12deg)}
   .navlink.active{color:#00B36E}
   .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
   .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
-  .lockbar{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#3a0d0d,#710000); color:#ffe0e0; border-bottom:1px solid rgba(255,255,255,.15)}
+  .lockbar{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#330909,#5f0a0a); color:#ffe0e0; border-bottom:1px solid rgba(255,255,255,.15)}
 
-  /* canvases stacked */
-  canvas.layer{position:fixed;inset:0;pointer-events:none}
+  /* Header logo booster */
+  .logoWrap{position:relative;display:inline-flex;align-items:center;justify-content:center;border-radius:16px}
+  .logoWrap:before{content:"";position:absolute;inset:-2px;border-radius:inherit;background:conic-gradient(from 210deg,#00B36E,#E9C960,#00B36E);filter:blur(10px);opacity:.55;z-index:-1}
+  .logoIMG{height:64px;width:64px;border-radius:12px;box-shadow:0 0 28px rgba(233,201,96,.35), 0 0 14px rgba(0,179,110,.25)}
+  @media (min-width:768px){ .logoIMG{height:72px;width:72px} }
+
+  .h1-wrath{text-shadow:0 0 16px rgba(233,201,96,.35), 0 0 34px rgba(0,179,110,.22)}
+
+  @keyframes quake{0%{transform:translate(0,0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,2px)}80%{transform:translate(2px,1px)}100%{transform:translate(0,0)}}
+  body.quake{animation:quake .35s linear}
 </style>
 </head>
 <body class="bg-vault-bg text-vault-text selection:bg-vault-gold selection:text-[#0A0A0A]">
   <!-- BACKGROUND -->
-  <div class="void"></div>
-  <div class="ridges"></div>
-  <div class="blood"></div>
-  <div class="rift"></div>
-
-  <!-- FX layers -->
-  <div class="lightning">
-    <div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div>
-    <div class="bolt b4"></div><div class="bolt b5"></div><div class="bolt b6"></div>
-  </div>
+  <div class="void"></div><div class="ridges"></div><div class="blood"></div>
+  <div class="volcano"></div><div class="ocean"></div><div class="rain"></div>
+  <div class="spearStorm"></div>
+  <div class="rift"></div><div class="lightning"><div class="bolt b1"></div><div class="bolt b2"></div><div class="bolt b3"></div></div>
+  <div class="spearBand top"></div><div class="spearBand bottom"></div>
   <div class="shock" id="shock"></div>
-
-  <!-- particles -->
-  <canvas id="embers" class="layer -z-6"></canvas>
-  <canvas id="ash" class="layer -z-5"></canvas>
-  <canvas id="spears" class="layer -z-4"></canvas>
-  <canvas id="bloodmist" class="layer -z-3"></canvas>
+  <canvas id="embers" class="fixed inset-0 -z-1"></canvas>
+  <canvas id="ash" class="fixed inset-0 -z-0"></canvas>
 
   <!-- STICKY TOP -->
   <div class="sticky top-0 z-50 border-b border-white/10 glass">
@@ -123,9 +154,13 @@
       </div>
     </div>
     <div class="mx-auto max-w-7xl px-4 pb-2">
-      <div class="flex gap-2 overflow-x-auto text-[.8rem] text-vault-mute">
-        <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
-        <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
+      <div class="ticker text-[.8rem] text-vault-mute">
+        <div>
+          <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
+          <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
+          <span class="badge">AI + Prompts</span><span class="badge">IRL Streams</span><span class="badge">Super UGC</span>
+          <span class="badge">Reflexivity Engine</span><span class="badge">Conversion Stack</span><span class="badge">Proof > Polish</span>
+        </div>
       </div>
     </div>
   </div>
@@ -133,8 +168,10 @@
   <!-- HEADER -->
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a class="flex items-center gap-3" href="#home">
-      <img id="logo" class="h-10 w-10 rounded-lg ring-1 ring-white/10 shadow-soft" alt="Inner Vault logo"/>
-      <span class="tracking-widest text-sm text-vault-em">INNER VAULT</span>
+      <span class="logoWrap">
+        <img id="logo" class="logoIMG ring-1 ring-white/10" alt="Inner Vault logo"/>
+      </span>
+      <span class="tracking-widest text-sm md:text-base text-vault-em">INNER VAULT</span>
     </a>
     <nav class="hidden md:flex items-center gap-6 text-sm text-vault-mute">
       <a data-route="home" class="navlink hover:text-vault-em" href="#home">Home</a>
@@ -152,7 +189,7 @@
           <div class="grid gap-10 md:grid-cols-2 md:items-center">
             <div class="reveal">
               <p class="mb-3 tracking-widest text-xs text-vault-mute">INNER VAULT</p>
-              <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white">
+              <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white h1-wrath">
                 <span class="slash">Bloodline Online.</span><br/>
                 <span class="slash">Leverage → Power.</span>
               </h1>
@@ -182,7 +219,7 @@
             <div id="proof" class="reveal">
               <div class="card ringfx p-3">
                 <video class="w-full rounded-xl" id="proofVideo" autoplay loop playsinline controls preload="metadata"
-                  poster="https://placehold.co/960x540/0b251e/eaf6f1?text=IRL+Stream+Proof">
+                  poster="https://placehold.co/960x540/07120f/f2fbf7?text=IRL+Stream+Proof">
                   <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
                   <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
                 </video>
@@ -195,7 +232,7 @@
       <!-- OATH -->
       <section id="oath" class="border-t border-white/10 bg-vault-card/40">
         <div class="mx-auto max-w-6xl px-4 py-12">
-          <div class="card-2 ringfx p-8">
+          <div class="card ringfx p-8">
             <h2 class="text-2xl md:text-3xl font-bold text-vault-gold">The Legacy Oath</h2>
             <p class="mt-4 text-lg">If I fall tomorrow, my family still eats. Poverty stops with us. Proof over pride. Work over wishes.</p>
           </div>
@@ -203,29 +240,52 @@
       </section>
 
       <!-- NCS -->
-      <section id="ncs" class="border-t border-white/10 bg-vault-card/40">
-        <div class="mx-auto max-w-6xl px-4 py-12">
-          <div class="grid gap-6 md:grid-cols-[120px_1fr]">
-            <div class="card p-3 flex items-center justify-center ringfx">
-              <img id="ncsCrest" alt="No Code Society crest" class="h-20 w-20 md:h-24 md:w-24 object-contain"/>
-            </div>
-            <div class="card ringfx p-6">
-              <h2 class="text-2xl md:text-3xl font-bold text-white">No Code Society</h2>
-              <p class="mt-2 text-vault-mute">Our private clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
+      <section id="ncs" class="border-t border-white/10">
+        <div class="mx-auto max-w-7xl px-4 py-12">
+          <div class="grid gap-8 md:grid-cols-[1fr,1.4fr] md:items-center">
+            <div class="reveal">
+              <div class="card ringfx p-6 flex items-center gap-5">
+                <img class="h-24 w-24 md:h-28 md:w-28 rounded-xl ring-1 ring-white/15 shadow-[0_0_32px_rgba(233,201,96,.40)]"
+                     src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png"
+                     alt="NCS crest"/>
+                <div>
+                  <h3 class="text-xl font-bold text-white">No Code Society</h3>
+                  <p class="text-vault-mute text-sm">Our private clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
+                </div>
+              </div>
+
               <ul class="mt-5 space-y-2 text-vault-mute">
                 <li>✔ <b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga.</li>
                 <li>✔ <b class="text-white">Deal Rooms</b> — share wins, swap prompts, move faster.</li>
                 <li>✔ <b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions.</li>
                 <li>✔ <b class="text-white">Prompt Drops</b> — enterprise packs you can resell.</li>
               </ul>
-              <div class="mt-6 flex gap-3">
-                <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh">Enter the Vault</a>
-                <a href="#reviews" class="rounded-xl border border-vault-em px-5 py-3 hover:bg-vault-em/10 text-vault-em">See Reviews ↓</a>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="#join" data-lockin class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Enter the Vault</a>
+                <a href="#reviews" class="rounded-2xl border border-vault-em px-6 py-3 hover:bg-vault-em/10 text-vault-em">See Reviews ↓</a>
               </div>
-              <div class="grid grid-cols-3 gap-3 mt-6 text-center">
-                <div class="card p-3"><div class="text-2xl font-extrabold text-white">37+</div><div class="text-xs text-vault-mute/90">wins this week</div></div>
-                <div class="card p-3"><div class="text-2xl font-extrabold text-white">9/wk</div><div class="text-xs text-vault-mute/90">live sprints</div></div>
-                <div class="card p-3"><div class="text-2xl font-extrabold text-white">4+</div><div class="text-xs text-vault-mute/90">deal rooms</div></div>
+            </div>
+
+            <div class="reveal">
+              <div class="card ringfx p-6">
+                <div class="grid gap-4 sm:grid-cols-3">
+                  <div class="text-center">
+                    <div class="text-3xl font-extrabold text-white">37+</div>
+                    <div class="text-sm text-vault-mute">wins this week</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-3xl font-extrabold text-white">9/wk</div>
+                    <div class="text-sm text-vault-mute">live sprints</div>
+                  </div>
+                  <div class="text-center">
+                    <div class="text-3xl font-extrabold text-white">4+</div>
+                    <div class="text-sm text-vault-mute">deal rooms</div>
+                  </div>
+                </div>
+                <div class="mt-6 flex items-center justify-center opacity-90">
+                  <img class="h-12" src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png" alt="Legacy NCS mark"/>
+                </div>
               </div>
             </div>
           </div>
@@ -265,18 +325,18 @@
           <h2 class="text-3xl md:text-4xl font-bold text-white">Student Reviews</h2>
           <div class="mt-8 grid gap-6 md:grid-cols-3">
             <div class="card ringfx p-6"><div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 bg-[#0b251e] grid place-content-center text-white font-bold">J</div>
-              <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG · AI Prompts</div></div></div>
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">J</div>
+              <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div></div>
               <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p></div>
 
             <div class="card ringfx p-6"><div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 bg-[#0b251e] grid place-content-center text-white font-bold">L</div>
-              <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji · IRL Streams</div></div></div>
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">L</div>
+              <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div></div>
               <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p></div>
 
             <div class="card ringfx p-6"><div class="flex items-center gap-3">
-              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 bg-[#0b251e] grid place-content-center text-white font-bold">T</div>
-              <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa · Ops Systems</div></div></div>
+              <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
+              <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div></div>
               <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p></div>
           </div>
         </div>
@@ -287,7 +347,7 @@
         <div class="mx-auto max-w-4xl px-4 py-14">
           <h2 class="text-3xl md:text-4xl font-bold text-white">FAQ</h2>
           <div class="mt-6 space-y-4">
-            <details class="group card p-5 open:!bg-[#0b251e]/95">
+            <details class="group card p-5">
               <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
                 Can I do this from the islands?
                 <span class="text-vault-mute group-open:hidden">＋</span><span class="hidden text-vault-mute group-open:inline">－</span>
@@ -449,21 +509,22 @@
     <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
-  <!-- AMBIENCE (quiet loop; auto-plays when allowed) -->
+  <!-- AMBIENCE -->
   <audio id="bgAudio" preload="auto" loop playsinline crossorigin="anonymous">
     <source src="/lv_0_20250815112807.mp4" type="audio/mp4"/>
     <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
   </audio>
+  <audio id="thunder" preload="auto">
+    <source src="/thunder.mp3" type="audio/mpeg"/>
+    <source src="/thunder.ogg" type="audio/ogg"/>
+  </audio>
 
 <script>
-/* assets + year + NCS crest */
+/* assets + year */
 (() => {
   const logoSrc="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
-  const fallbackL="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
-  const crestNew="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png"; // sword NCS
-  const crestOld="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png"; // circle text fallback
-  const logo=document.getElementById('logo'); if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallbackL;}
-  const crest=document.getElementById('ncsCrest'); if(crest){crest.src=crestNew;crest.onerror=()=>crest.src=crestOld;}
+  const fallback="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
+  const logo=document.getElementById('logo'); if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallback;}
   const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
 })();
 
@@ -472,6 +533,7 @@
   const views=[...document.querySelectorAll('[data-view]')];
   const links=[...document.querySelectorAll('.navlink')];
   const ctaBar=document.getElementById('ctaBar');
+
   function show(view){
     views.forEach(v=>v.classList.toggle('hidden', v.id!==view));
     links.forEach(a=>a.classList.toggle('active', a.dataset.route===view));
@@ -479,84 +541,38 @@
     scrollTo(0,0);
     if(view==='join') ensureLockStarted();
   }
+
   function route(){
     const view=(location.hash.replace('#','')||'home').toLowerCase();
     const valid=['home','join','terms','privacy'];
     show(valid.includes(view)?view:'home');
   }
-  document.addEventListener('click', (e)=>{
+
+  document.addEventListener('click',(e)=>{
     const a=e.target.closest('a[href^="#"]'); if(!a) return;
     const h=a.getAttribute('href').slice(1); if(!h) return;
-    e.preventDefault(); location.hash = '#'+h;
+    e.preventDefault(); if(location.hash.slice(1)!==h){ location.hash='#'+h; } else { route(); }
   });
+
   addEventListener('hashchange',route); route();
 })();
 
-/* particles: embers (gold + blood) */
+/* particles / ash (heavier) */
 (() => {
   const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?110:180;p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.4+.3,o:Math.random()*.5+.25,b:Math.random()<.45}))}
-  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(180,20,24,.85)':'rgba(230,197,94,.9)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.38;a.x+=Math.sin(a.y/42)*.22;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?200:280;
+    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.5+.35,o:Math.random()*.55+.28,b:Math.random()<.42}))}
+  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(180,20,24,.95)':'rgba(233,201,96,.98)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.38;a.x+=Math.sin(a.y/42)*.26;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
-
-/* ash: thicker volcanic diagonals */
 (() => {
   const c=document.getElementById('ash'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?60:110;p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*50+30,sp:Math.random()*1.6+.7,o:Math.random()*.25+.08}))}
-  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(234,246,241,.14)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+14,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.55;if(a.y<-60||a.x>W+40){a.x=-30;a.y=H*Math.random()}}requestAnimationFrame(loop)}
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?90:140;
+    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*46+22,sp:Math.random()*1.4+.7,o:Math.random()*.3+.08}))}
+  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(242,251,247,.18)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.38;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
-
-/* spears: real moving darts (no wallpaper) */
-(() => {
-  const c=document.getElementById('spears'),x=c.getContext('2d');let W,H,arr=[];
-  function make(){return{
-      x:Math.random()*W, y:H+40+Math.random()*200,
-      vx:(Math.random()*.8+.9), vy:-(Math.random()*3.6+4.8),
-      len:Math.random()*90+80, w:Math.random()*2.1+1.2,
-      tint:Math.random()<.5?'gold':'green', a:Math.random()*.45+.35
-  }}
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;arr=Array.from({length: innerWidth<768?10:18},make)}
-  function draw(s){
-    x.save();x.globalAlpha=s.a;
-    x.translate(s.x,s.y);x.rotate(Math.atan2(s.vy,s.vx));
-    // shaft
-    x.strokeStyle = s.tint==='gold'?'rgba(230,197,94,.9)':'rgba(0,179,110,.9)';
-    x.lineWidth=s.w; x.beginPath(); x.moveTo(0,0); x.lineTo(s.len,0); x.stroke();
-    // head
-    x.fillStyle='rgba(234,246,241,.95)';
-    x.beginPath(); x.moveTo(s.len,0); x.lineTo(s.len-12,4); x.lineTo(s.len-12,-4); x.closePath(); x.fill();
-    // tail feathers
-    x.strokeStyle='rgba(234,246,241,.5)'; x.lineWidth=1;
-    x.beginPath(); x.moveTo(0,0); x.lineTo(-8,4); x.moveTo(0,0); x.lineTo(-8,-4); x.stroke();
-    x.restore();
-  }
-  function loop(){
-    x.clearRect(0,0,W,H);
-    for(const s of arr){ draw(s); s.x+=s.vx*4.2; s.y+=s.vy*4.2; s.a*=0.996;
-      if(s.y<-100 || s.x>W+200) Object.assign(s, make(), {x:-40, y:H+80}); }
-    requestAnimationFrame(loop);
-  }
-  rs();addEventListener('resize',rs);loop();
-})();
-
-/* blood mist: subtle drifting clouds */
-(() => {
-  const c=document.getElementById('bloodmist'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;
-    const n=innerWidth<768?3:5;
-    p=Array.from({length:n},()=>({x:Math.random()*W,y:H*.6+Math.random()*H*.4,r:Math.random()*220+180,a:.07+Math.random()*.06,dx:Math.random()*.3+.15,dy:-(Math.random()*.15+.05)}))}
-  function loop(){x.clearRect(0,0,W,H);
-    for(const m of p){const g=x.createRadialGradient(m.x,m.y,10,m.x,m.y,m.r);
-      g.addColorStop(0,'rgba(160,18,22,'+m.a+')'); g.addColorStop(1,'rgba(160,18,22,0)');
-      x.fillStyle=g; x.beginPath(); x.arc(m.x,m.y,m.r,0,6.283); x.fill();
-      m.x+=m.dx; m.y+=m.dy; if(m.y+m.r<0 || m.x-m.r>W){m.x=-m.r; m.y=H*.7;}}
-    requestAnimationFrame(loop)}
-  rs();addEventListener('resize',rs);loop();
-})();
-
-/* lightning camera-shock */
+/* lightning tick */
 (() => { const bolts=document.querySelectorAll('.bolt');const shock=document.getElementById('shock');
   bolts.forEach(b=>b.addEventListener('animationiteration',()=>{shock.classList.add('flash');setTimeout(()=>shock.classList.remove('flash'),120);}));})();
 
@@ -580,13 +596,14 @@ function tick(){const left=Math.max(0,end-Date.now()),total=Math.max(1,end-start
   setTimeout(tick,1000)}
 tick();
 
-/* FLOATING CTA: auto-hide near footer on scroll (Home only) */
+/* FLOATING CTA hide near footer */
 (() => {
   const barEl=document.getElementById('ctaBar'); if(!barEl) return;
   function check(){
     const nearBottom = (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 360);
     if(location.hash.replace('#','').toLowerCase()!=='home'){ barEl.style.display='none'; return; }
-    barEl.style.display='flex'; barEl.classList.toggle('hide', nearBottom);
+    barEl.style.display='flex';
+    barEl.classList.toggle('hide', nearBottom);
   }
   addEventListener('scroll',check,{passive:true});
   addEventListener('hashchange',check);
@@ -606,10 +623,10 @@ tick();
   }
 })();
 
-/* ambience: loops low, ducks near video */
+/* ambience audio + thunder quake */
 (() => {
-  const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); if(!A) return;
-  let started=false, retryId=null, raf; const baseVol=.22;
+  const A=document.getElementById('bgAudio'); const V=document.getElementById('proofVideo'); const thunder = document.getElementById('thunder');
+  let started=false, retryId=null, raf; const baseVol=.24;
   function fade(el,to,ms=900){const from=el.volume,t0=performance.now();cancelAnimationFrame(raf);
     function step(t){const p=Math.min(1,(t-t0)/ms);el.volume=from+(to-from)*p;if(p<1)raf=requestAnimationFrame(step)}raf=requestAnimationFrame(step)}
   async function playAudio(){ try{A.volume=baseVol;await A.play();started=true;return true}catch(_){return false}}
@@ -631,6 +648,16 @@ tick();
     V.addEventListener('pause',()=>fade(A,baseVol,800));
     V.addEventListener('ended',()=>fade(A,baseVol,800));
   }
+
+  function quake(){ document.body.classList.add('quake'); setTimeout(()=>document.body.classList.remove('quake'), 360); }
+  async function boom(){
+    try { if(thunder){ thunder.currentTime = 0; await thunder.play(); } } catch(_) {}
+    document.getElementById('shock')?.classList.add('flash'); quake();
+    setTimeout(()=>document.getElementById('shock')?.classList.remove('flash'), 160);
+  }
+  const evs=['click','touchstart','pointerdown','keydown','scroll','mousemove','wheel'];
+  const start=()=>{ const run=()=>{ setTimeout(()=>{ boom(); run(); }, 8000+Math.random()*12000); }; run(); evs.forEach(e=>removeEventListener(e,start)); };
+  evs.forEach(e=>addEventListener(e,start,{once:true,passive:true}));
 })();
 
 /* ===== 10-MIN LOCK-IN TIMER ===== */
@@ -639,6 +666,7 @@ const LOCK_MS=10*60*1000;
 const lockWrap=document.getElementById('lockWrap');
 const lockTimer=document.getElementById('lockTimer');
 const lockTimer2=document.getElementById('lockTimer2');
+
 function ensureLockStarted(){
   let t=Number(localStorage.getItem(LOCK_KEY));
   const now=Date.now();
@@ -663,7 +691,7 @@ document.addEventListener('click',(e)=>{
   ensureLockStarted();
 });
 
-/* Whop OPEN new tab + backup same tab */
+/* ===== Whop OPEN: always navigate ===== */
 document.querySelectorAll('[data-external]').forEach(a=>{
   a.setAttribute('target','_blank');
   a.setAttribute('rel','noopener noreferrer');
@@ -672,6 +700,18 @@ document.querySelectorAll('[data-external]').forEach(a=>{
     setTimeout(()=>{ try{ if(!document.hidden) window.location.href=url; }catch(_){} }, 150);
   }, {passive:true});
 });
+
+/* ===== FIX: mobile FAQ taps not opening ===== */
+(() => {
+  document.querySelectorAll('#faq details > summary').forEach((s)=>{
+    s.addEventListener('click',(e)=>{
+      const d=s.parentElement;
+      // prevent double-toggle bugs on some Android builds
+      e.preventDefault();
+      d.open = !d.open;
+    }, {passive:false});
+  });
+})();
 </script>
 </body>
-</html>
+                  </html>
