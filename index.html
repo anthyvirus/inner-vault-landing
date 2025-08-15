@@ -63,27 +63,24 @@
   .shock{position:fixed;inset:0;z-index:-6;pointer-events:none;background:rgba(255,255,255,0)}
   .shock.flash{animation:shock 120ms ease}
   @keyframes shock{0%{background:rgba(255,255,255,.06)}100%{background:rgba(255,255,255,0)}}
-
-  .volcano{position:fixed;inset:0;z-index:-5;pointer-events:none;
-    background:
+  .volcano{position:fixed;inset:0;z-index:-5;pointer-events:none;background:
      radial-gradient(900px 420px at 50% 105%,rgba(255,60,0,.30),transparent 65%),
      radial-gradient(700px 340px at 12% 100%,rgba(180,18,22,.24),transparent 60%),
-     radial-gradient(700px 340px at 88% 100%,rgba(180,18,22,.24),transparent 60%);
-    animation:lavaPulse 4.2s ease-in-out infinite; mix-blend-mode:screen}
-  @keyframes lavaPulse{0%,100%{opacity:.56;transform:translateY(0)}
-    50%{opacity:.88;transform:translateY(-1.5%)}}
-
-  .rain{position:fixed;inset:0;z-index:-4;pointer-events:none;opacity:.24;
-    background-image:repeating-linear-gradient(120deg,rgba(255,255,255,.0) 0, rgba(255,255,255,.12) 1px, rgba(255,255,255,.0) 2px);
-    background-size:100% 100%; animation:rainFall .9s linear infinite}
+     radial-gradient(700px 340px at 88% 100%,rgba(180,18,22,.24),transparent 60%);animation:lavaPulse 4.2s ease-in-out infinite; mix-blend-mode:screen}
+  @keyframes lavaPulse{0%,100%{opacity:.56;transform:translateY(0)}50%{opacity:.88;transform:translateY(-1.5%)}}
+  .rain{position:fixed;inset:0;z-index:-4;pointer-events:none;opacity:.24;background-image:repeating-linear-gradient(120deg,rgba(255,255,255,.0) 0, rgba(255,255,255,.12) 1px, rgba(255,255,255,.0) 2px);background-size:100% 100%;animation:rainFall .9s linear infinite}
   @keyframes rainFall{from{background-position:0 0}to{background-position:-160px 260px}}
-
-  .ocean{position:fixed;left:0;right:0;bottom:-2vh;height:18vh;z-index:-3;pointer-events:none;
-    background:radial-gradient(60% 120% at 50% 100%, rgba(0,40,32,.75), transparent 70%),repeating-linear-gradient(to right, rgba(233,201,96,.25) 0 2px, rgba(0,0,0,0) 2px 6px );
-    mask-image:linear-gradient(to top, black 40%, transparent 100%);animation:chop 3.6s ease-in-out infinite}
+  .ocean{position:fixed;left:0;right:0;bottom:-2vh;height:18vh;z-index:-3;pointer-events:none;background:radial-gradient(60% 120% at 50% 100%, rgba(0,40,32,.75), transparent 70%),repeating-linear-gradient(to right, rgba(233,201,96,.25) 0 2px, rgba(0,0,0,0) 2px 6px );mask-image:linear-gradient(to top, black 40%, transparent 100%);animation:chop 3.6s ease-in-out infinite}
   @keyframes chop{0%,100%{transform:skewX(-4deg) translateY(0)}50%{transform:skewX(-8deg) translateY(-6px)}}
 
-  /* Cards darker + vignette */
+  /* Layout: single vertical reading column like Wope */
+  .wrap   { max-width: 1040px; margin: 0 auto; }
+  .narrow { max-width: 760px;  margin: 0 auto; }
+  .section{ padding: 64px 16px; }
+  @media (min-width:768px){ .section{ padding: 96px 24px; } }
+  .stack-1 > .grid { grid-template-columns: 1fr !important; }
+
+  /* Cards */
   .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.62)}
   .card{position:relative;background:linear-gradient(180deg,rgba(7,18,15,.98),rgba(7,18,15,.94));border:1px solid rgba(255,255,255,.12);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 10px 32px rgba(0,0,0,.38);color:#F2FBF7}
   .card:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:
@@ -91,38 +88,80 @@
     radial-gradient(140% 110% at 50% 120%, rgba(0,0,0,.4), transparent 42%)}
   .ringfx{position:relative;isolation:isolate}
   .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#00B36E,#E9C960,#00B36E);opacity:.32;filter:saturate(130%)}
+
+  /* Reveal */
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
   .revealed{opacity:1;transform:translateY(0)}
+
+  /* Top bar + nav */
   .deadlinebar{height:4px;background:linear-gradient(90deg,#E9C960,#00B36E);transform-origin:left center;transition:transform .4s linear}
   .ticker{--speed:26s;display:flex;overflow:hidden;gap:2rem;white-space:nowrap;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
   .ticker>div{display:flex;gap:2rem;animation:ticker var(--speed) linear infinite}
   @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
   .badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(90deg,rgba(0,179,110,.22),rgba(233,201,96,.22));border:1px solid rgba(255,255,255,.16);padding:.35rem .6rem;border-radius:999px;font-size:.75rem}
-  .glow-pulse{animation:gp 1.6s infinite alternate}
-  @keyframes gp{from{box-shadow:0 0 8px rgba(233,201,96,.55),0 0 18px rgba(233,201,96,.35)}to{box-shadow:0 0 20px rgba(233,201,96,.9),0 0 40px rgba(233,201,96,.5)}}
-  .slash{position:relative;display:inline-block}
-  .slash:after{content:"";position:absolute;left:-4px;right:-4px;bottom:4px;height:10px;z-index:-1;filter:blur(6px);background:linear-gradient(90deg,rgba(233,201,96,.5),rgba(0,179,110,.35));transform:skewX(-12deg)}
   .navlink.active{color:#00B36E}
-  .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
-  .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
-  .lockbar{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#330909,#5f0a0a); color:#ffe0e0; border-bottom:1px solid rgba(255,255,255,.15)}
 
-  /* Header logo booster */
+  /* Header logo */
   .logoWrap{position:relative;display:inline-flex;align-items:center;justify-content:center;border-radius:16px}
   .logoWrap:before{content:"";position:absolute;inset:-2px;border-radius:inherit;background:conic-gradient(from 210deg,#00B36E,#E9C960,#00B36E);filter:blur(10px);opacity:.55;z-index:-1}
   .logoIMG{height:56px;width:56px;border-radius:12px;box-shadow:0 0 28px rgba(233,201,96,.35), 0 0 14px rgba(0,179,110,.25)}
   @media (min-width:768px){ .logoIMG{height:64px;width:64px} }
 
   .h1-wrath{text-shadow:0 0 16px rgba(233,201,96,.35), 0 0 34px rgba(0,179,110,.22)}
+
+  /* Footer CTA bar */
+  .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
+  .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
+
+  /* === FUTURISTIC BUTTONS (Wope vibe) === */
+  .cta{} /* marker for JS (panic pulse) */
+  .btn{
+    --r:18px; --px:22px; --py:14px;
+    position:relative; display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+    padding:var(--py) var(--px); border-radius:var(--r); font-weight:800; letter-spacing:.2px;
+    transform-style:preserve-3d; will-change:transform; isolation:isolate;
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  }
+  .btn:active{transform:translateY(0) scale(.98)}
+  /* neon ring + scan beam */
+  .btn::before{
+    content:""; position:absolute; inset:-2px; border-radius:inherit; z-index:-2;
+    background:conic-gradient(from var(--ang,0deg), rgba(233,201,96,.9), rgba(0,179,110,.85), rgba(233,201,96,.9));
+    filter:blur(10px); opacity:0; transition:opacity .25s ease; animation:spin 6s linear infinite;
+  }
+  .btn::after{
+    content:""; position:absolute; inset:0; border-radius:inherit; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(60% 220% at var(--mx,50%) -20%, rgba(255,255,255,.45) 0%, transparent 38%),
+      radial-gradient(120% 120% at 50% 120%, rgba(0,0,0,.35) 10%, transparent 48%);
+    mix-blend-mode:screen; opacity:.0; transition:opacity .25s ease;
+  }
+  .btn:hover::before{opacity:.65}
+  .btn:hover::after{opacity:.9}
+  @keyframes spin{to{--ang:360deg}}
+
+  /* Variants */
+  .btn-gold{
+    background:linear-gradient(180deg,#E9C960,#C9A642); color:#0E140F;
+    box-shadow:0 10px 26px rgba(233,201,96,.25);
+  }
+  .btn-gold:hover{box-shadow:0 12px 28px rgba(233,201,96,.35); transform:translateY(-2px) rotateX(var(--rx,0)) rotateY(var(--ry,0))}
+  .btn-outline{
+    background:rgba(255,255,255,0.03); color:#F2FBF7; border:1px solid rgba(255,255,255,.22);
+  }
+  .btn-outline:hover{background:rgba(255,255,255,0.08); transform:translateY(-2px) rotateX(var(--rx,0)) rotateY(var(--ry,0))}
+  .glow-pulse{animation:gp 1.6s infinite alternate}
+  @keyframes gp{from{box-shadow:0 0 8px rgba(233,201,96,.55),0 0 18px rgba(233,201,96,.35)}to{box-shadow:0 0 20px rgba(233,201,96,.9),0 0 40px rgba(233,201,96,.5)}}
+
+  /* Lock bar */
+  .lockbar{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,#330909,#5f0a0a); color:#ffe0e0; border-bottom:1px solid rgba(255,255,255,.15)}
+
+  /* Headings / copy: full center everywhere */
+  .center-copy *{ text-align:center !important; margin-left:auto; margin-right:auto; }
+
+  /* Fun body quake */
   @keyframes quake{0%{transform:translate(0,0)}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,2px)}80%{transform:translate(2px,1px)}100%{transform:translate(0,0)}}
   body.quake{animation:quake .35s linear}
-
-  /* === Vertical, centered reading widths like Wope === */
-  .wrap   { max-width: 1040px; margin: 0 auto; }
-  .narrow { max-width: 760px;  margin: 0 auto; }
-  .section{ padding: 64px 16px; }
-  @media (min-width:768px){ .section{ padding: 96px 24px; } }
-  .stack-1 > .grid { grid-template-columns: 1fr !important; }
 </style>
 </head>
 <body class="bg-vault-bg text-vault-text selection:bg-vault-gold selection:text-[#0A0A0A]">
@@ -141,8 +180,8 @@
       <div>Seats Left: <span class="font-semibold text-vault-em">7</span></div>
       <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-vault-em"></span></div>
       <div class="hidden sm:flex items-center gap-3">
-        <a href="#join" data-lockin class="rounded-xl border border-white/15 px-3 py-1 hover:bg-vault-em/10 hover:text-vault-em">See Pricing</a>
-        <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-3 py-1 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join Now</a>
+        <a href="#join" data-lockin class="btn btn-outline cta">See Pricing</a>
+        <a href="#join" data-lockin class="btn btn-gold cta">Join Now</a>
       </div>
     </div>
     <div class="wrap px-4 pb-2">
@@ -176,25 +215,26 @@
   <main id="app">
     <!-- HOME -->
     <section id="home" data-view="home">
-      <!-- HERO (Option 1 concise, vertical) -->
-      <section class="section">
-        <div class="wrap text-center">
+
+      <!-- HERO -->
+      <section class="section center-copy">
+        <div class="wrap">
           <div class="narrow mx-auto reveal">
             <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-white h1-wrath">
               <span class="slash">Money Making is a Mechanism.</span>
             </h1>
             <p class="mt-4 text-lg text-vault-text">We’ll teach you to run it from the islands.</p>
 
-            <ul class="mt-6 space-y-3 text-left text-vault-mute narrow">
-              <li>• <b class="text-white">$5k–$15k</b> AI prompt deals.</li>
-              <li>• <b class="text-white">Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga.</li>
-              <li>• <b class="text-white">IRL Proof & Clips</b> — streams engineered to sell.</li>
-              <li>• <b class="text-white">AI Prompt Catalog</b> — enterprise prompts you can resell.</li>
+            <ul class="mt-6 space-y-3 text-vault-mute">
+              <li>• <b class="text-white">$5k–$15k</b> AI prompt deals</li>
+              <li>• <b class="text-white">Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga</li>
+              <li>• <b class="text-white">IRL Proof & Clips</b> — streams engineered to sell</li>
+              <li>• <b class="text-white">AI Prompt Catalog</b> — enterprise prompts you can resell</li>
             </ul>
 
             <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-              <a href="#join" data-lockin class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Join the Cohort</a>
-              <a href="#proof" class="rounded-2xl border border-white/20 px-6 py-3 text-white/90 hover:bg-white/5">See Proof ↓</a>
+              <a href="#join" data-lockin class="btn btn-gold cta">Join the Cohort</a>
+              <a href="#proof" class="btn btn-outline">See Proof ↓</a>
             </div>
             <p class="mt-5 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
           </div>
@@ -213,7 +253,7 @@
       </section>
 
       <!-- OATH -->
-      <section id="oath" class="border-t border-white/10 bg-vault-card/40 section">
+      <section id="oath" class="border-t border-white/10 bg-vault-card/40 section center-copy">
         <div class="wrap">
           <div class="card ringfx p-8 narrow mx-auto">
             <h2 class="text-2xl md:text-3xl font-bold text-vault-gold">The Legacy Oath</h2>
@@ -222,10 +262,10 @@
         </div>
       </section>
 
-      <!-- NCS (vertical) -->
-      <section id="ncs" class="section">
+      <!-- NCS -->
+      <section id="ncs" class="section center-copy">
         <div class="wrap narrow space-y-8">
-          <div class="reveal card ringfx p-6 flex items-center gap-5">
+          <div class="reveal card ringfx p-6 flex flex-col items-center gap-5">
             <img class="h-24 w-24 md:h-28 md:w-28 rounded-xl ring-1 ring-white/15 shadow-[0_0_32px_rgba(233,201,96,.40)]"
                  src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png"
                  alt="NCS crest"/>
@@ -236,15 +276,15 @@
           </div>
 
           <ul class="reveal space-y-2 text-vault-mute">
-            <li>✔ <b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga.</li>
-            <li>✔ <b class="text-white">Deal Rooms</b> — share wins, swap prompts, move faster.</li>
-            <li>✔ <b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions.</li>
-            <li>✔ <b class="text-white">Prompt Drops</b> — enterprise packs you can resell.</li>
+            <li>✔ <b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga</li>
+            <li>✔ <b class="text-white">Deal Rooms</b> — share wins, swap prompts, move faster</li>
+            <li>✔ <b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions</li>
+            <li>✔ <b class="text-white">Prompt Drops</b> — enterprise packs you can resell</li>
           </ul>
 
-          <div class="reveal flex flex-wrap gap-3">
-            <a href="#join" data-lockin class="cta rounded-2xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh shadow-glow">Enter the Vault</a>
-            <a href="#reviews" class="rounded-2xl border border-white/20 px-6 py-3 text-white/90 hover:bg-white/5">See Reviews</a>
+          <div class="reveal flex flex-wrap justify-center gap-3">
+            <a href="#join" data-lockin class="btn btn-gold cta">Enter the Vault</a>
+            <a href="#reviews" class="btn btn-outline">See Reviews</a>
           </div>
 
           <div class="reveal card ringfx p-6">
@@ -260,10 +300,10 @@
         </div>
       </section>
 
-      <!-- WHAT YOU'LL BUILD (stacked) -->
-      <section id="unlock" class="border-t border-white/10 bg-vault-card/40 section stack-1">
+      <!-- WHAT YOU'LL BUILD -->
+      <section id="unlock" class="border-t border-white/10 bg-vault-card/40 section stack-1 center-copy">
         <div class="wrap narrow">
-          <h2 class="text-3xl md:text-4xl font-bold text-white text-center">What You’ll Build Inside</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-white">What You’ll Build Inside</h2>
           <div class="mt-8 grid gap-6">
             <div class="card ringfx p-6"><h3 class="font-semibold text-white">Phone-Only Closers</h3><p class="mt-2 text-vault-mute">DM trees, macros, scripts.</p></div>
             <div class="card ringfx p-6"><h3 class="font-semibold text-white">IRL Stream System</h3><p class="mt-2 text-vault-mute">Hooks, retention, clip traps.</p></div>
@@ -275,10 +315,10 @@
         </div>
       </section>
 
-      <!-- HOW (stacked) -->
-      <section id="how" class="section stack-1">
+      <!-- HOW -->
+      <section id="how" class="section stack-1 center-copy">
         <div class="wrap narrow">
-          <h2 class="text-3xl md:text-4xl font-bold text-white text-center">How the Machine Prints</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-white">How the Machine Prints</h2>
           <div class="mt-8 grid gap-6">
             <div class="card ringfx p-6"><h3 class="text-xl font-semibold text-white">1) Prime Desire</h3><p class="mt-2 text-vault-mute">Narrative before features.</p></div>
             <div class="card ringfx p-6"><h3 class="text-xl font-semibold text-white">2) Capture Proof</h3><p class="mt-2 text-vault-mute">Proof beats polish.</p></div>
@@ -287,22 +327,22 @@
         </div>
       </section>
 
-      <!-- REVIEWS (stacked) -->
-      <section id="reviews" class="border-t border-white/10 bg-vault-card/40 section stack-1">
+      <!-- REVIEWS -->
+      <section id="reviews" class="border-t border-white/10 bg-vault-card/40 section stack-1 center-copy">
         <div class="wrap narrow">
-          <h2 class="text-3xl md:text-4xl font-bold text-white text-center">Student Reviews</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-white">Student Reviews</h2>
           <div class="mt-8 grid gap-6">
-            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+            <div class="card ringfx p-6"><div class="flex items-center justify-center gap-3">
               <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">J</div>
               <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div></div>
               <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p></div>
 
-            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+            <div class="card ringfx p-6"><div class="flex items-center justify-center gap-3">
               <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">L</div>
               <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div></div>
               <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p></div>
 
-            <div class="card ringfx p-6"><div class="flex items-center gap-3">
+            <div class="card ringfx p-6"><div class="flex items-center justify-center gap-3">
               <div class="h-10 w-10 rounded-full ring-1 ring-white/20 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
               <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div></div>
               <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p></div>
@@ -311,9 +351,9 @@
       </section>
 
       <!-- FAQ -->
-      <section id="faq" class="border-t border-white/10 bg-vault-card/40 section">
+      <section id="faq" class="border-t border-white/10 bg-vault-card/40 section center-copy">
         <div class="wrap narrow">
-          <h2 class="text-3xl md:text-4xl font-bold text-white text-center">FAQ</h2>
+          <h2 class="text-3xl md:text-4xl font-bold text-white">FAQ</h2>
           <div class="mt-6 space-y-4">
             <details class="group card p-5">
               <summary class="flex cursor-pointer list-none items-center justify-between text-left font-medium text-white">
@@ -347,10 +387,10 @@
         </div>
       </section>
 
-      <footer id="site-footer" class="border-t border-white/10 section">
+      <footer id="site-footer" class="border-t border-white/10 section center-copy">
         <div class="wrap px-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-vault-mute">
-          <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
-          <div class="flex items-center gap-4">
+          <p class="mx-auto md:mx-0">© <span id="y"></span> Inner Vault. All rights reserved.</p>
+          <div class="flex items-center gap-4 mx-auto md:mx-0">
             <a href="#terms" class="router hover:text-vault-em">Terms</a>
             <a href="#privacy" class="router hover:text-vault-em">Privacy</a>
             <a href="#join" class="router hover:text-vault-em" data-lockin>Join</a>
@@ -367,13 +407,13 @@
         </div>
       </div>
 
-      <main class="wrap px-4 py-10 text-center">
+      <main class="wrap px-4 py-10 text-center center-copy">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Choose your path</h1>
         <p class="mt-2 text-vault-mute">No fluff. Plays that print on a 2025 internet.</p>
 
         <div class="mx-auto mt-8 grid gap-6 max-w-3xl">
           <!-- WARRIOR MONTHLY -->
-          <div class="card p-8 text-left">
+          <div class="card p-8 text-center">
             <h3 class="text-xl font-bold text-white">WARRIOR — Monthly</h3>
             <p class="mt-1 text-vault-mute">Start now. Cancel anytime.</p>
             <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
@@ -386,15 +426,12 @@
               <li>✔ Members chat & deal sharing</li>
             </ul>
             <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-               class="joinbtn cta relative z-10 w-full mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh"
-               data-external data-lockin>
-               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-               Join with Card
-            </a>
+               class="btn btn-gold cta w-full mt-6 justify-center"
+               data-external data-lockin>Join with Card</a>
           </div>
 
           <!-- CHIEF LIFETIME -->
-          <div class="relative card p-8 text-left">
+          <div class="relative card p-8 text-center">
             <div style="z-index:1" class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0E140F]">Best Value</div>
             <h3 class="text-xl font-bold text-white">CHIEF — Lifetime</h3>
             <p class="mt-1 text-vault-mute">Own the systems. Own the results.</p>
@@ -408,11 +445,8 @@
               <li>✔ Founder badge & early drops</li>
             </ul>
             <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
-               class="joinbtn cta relative z-10 w-full mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh"
-               data-external data-lockin>
-               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-               Join with Card
-            </a>
+               class="btn btn-gold cta w-full mt-6 justify-center"
+               data-external data-lockin>Join with Card</a>
           </div>
         </div>
 
@@ -424,11 +458,8 @@
             <div class="text-3xl font-extrabold text-white">LOCK-IN YOUR PRICE OF <span class="text-vault-gold">$39</span></div>
             <p class="text-vault-mute mt-2">Hold lasts <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>.</p>
             <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-               class="joinbtn cta relative z-10 mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-vault-gold px-6 py-3 font-semibold text-[#0E140F] hover:bg-vault-goldh"
-               data-external data-lockin>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-              Join with Card
-            </a>
+               class="btn btn-gold cta mt-5"
+               data-external data-lockin>Join with Card</a>
           </div>
           <p class="mt-6 text-sm text-vault-mute"><a href="#home" class="router text-vault-em">← Back to Home</a> • <a href="#terms" class="router text-vault-em">Terms</a> • <a href="#privacy" class="router text-vault-em">Privacy</a></p>
         </section>
@@ -437,7 +468,7 @@
 
     <!-- TERMS -->
     <section id="terms" data-view="terms" class="hidden">
-      <main class="wrap px-4 py-10 narrow">
+      <main class="wrap px-4 py-10 narrow center-copy">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Terms of Service</h1>
         <p class="mt-3 text-vault-mute">Effective: 2025</p>
         <div class="card p-6 mt-6 space-y-4 leading-relaxed">
@@ -456,7 +487,7 @@
 
     <!-- PRIVACY -->
     <section id="privacy" data-view="privacy" class="hidden">
-      <main class="wrap px-4 py-10 narrow">
+      <main class="wrap px-4 py-10 narrow center-copy">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Privacy Policy</h1>
         <p class="mt-3 text-vault-mute">Effective: 2025</p>
         <div class="card p-6 mt-6 space-y-4 leading-relaxed">
@@ -474,7 +505,7 @@
 
   <!-- FLOATING CTA -->
   <div id="ctaBar" class="cta-bar">
-    <a href="#join" data-lockin class="cta rounded-xl bg-vault-gold px-5 py-3 font-semibold text-[#0E140F] shadow-glow">Join before <span id="t-mini">00:00:00</span></a>
+    <a href="#join" data-lockin class="btn btn-gold cta">Join before <span id="t-mini">00:00:00</span></a>
   </div>
 
   <!-- AMBIENCE -->
@@ -496,7 +527,7 @@
   const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();
 })();
 
-/* SPA router + force hash */
+/* SPA router */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
   const links=[...document.querySelectorAll('.navlink')];
@@ -558,7 +589,7 @@ function tick(){const left=Math.max(0,end-Date.now()),total=Math.max(1,end-start
   setTimeout(tick,1000)}
 tick();
 
-/* FLOATING CTA hide near footer */
+/* FLOATING CTA show/hide near footer */
 (() => {
   const barEl=document.getElementById('ctaBar'); if(!barEl) return;
   function check(){
@@ -663,7 +694,7 @@ document.querySelectorAll('[data-external]').forEach(a=>{
   }, {passive:true});
 });
 
-/* Mobile FAQ taps (reliable) */
+/* Mobile FAQ taps fix */
 (() => {
   document.querySelectorAll('#faq details > summary').forEach((s)=>{
     s.addEventListener('click',(e)=>{
@@ -673,6 +704,32 @@ document.querySelectorAll('[data-external]').forEach(a=>{
     }, {passive:false});
   });
 })();
+
+/* === Magnetic tilt + mouse-position glow for buttons (desktop) === */
+(() => {
+  const btns=[...document.querySelectorAll('.btn')];
+  const isTouch = matchMedia('(pointer: coarse)').matches;
+  if(isTouch) return; // no tilt on touch
+  btns.forEach(b=>{
+    b.addEventListener('mousemove', (e)=>{
+      const r=b.getBoundingClientRect();
+      const x=e.clientX-r.left, y=e.clientY-r.top;
+      const mx = (x/r.width*100).toFixed(2)+'%';
+      const my = (y/r.height*100).toFixed(2)+'%';
+      const ry = ((x/r.width)-0.5)*8;  // rotateY
+      const rx = -((y/r.height)-0.5)*8; // rotateX
+      b.style.setProperty('--mx', mx);
+      b.style.setProperty('--my', my);
+      b.style.setProperty('--ry', ry+'deg');
+      b.style.setProperty('--rx', rx+'deg');
+      b.style.transform = `translateY(-2px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+    b.addEventListener('mouseleave', ()=>{
+      b.style.transform='translateY(0) rotateX(0) rotateY(0)';
+    });
+  });
+})();
 </script>
 </body>
-  </html>
+</html>
+```0
