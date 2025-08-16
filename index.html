@@ -43,13 +43,6 @@ tailwind.config = {
   html{scroll-behavior:smooth}
   body{background:#030906; line-height:1.55; color:#F2FBF7}
 
-  /* ===== TYPE SCALE (mobile → desktop) ===== */
-  .fs-h1{font-size:clamp(2.4rem, 1.4rem + 3.2vw, 4.3rem);line-height:1.1;letter-spacing:-.01em;font-weight:800}
-  .fs-h2{font-size:clamp(1.8rem, 1.1rem + 2.0vw, 2.7rem);line-height:1.18;font-weight:800}
-  .fs-h3{font-size:clamp(1.125rem, 1rem + .6vw, 1.375rem);line-height:1.25}
-  .fs-body{font-size:clamp(1rem, .95rem + .2vw, 1.125rem)}
-  .fs-small{font-size:clamp(.875rem, .84rem + .1vw, .95rem)}
-
   /* ===== BACKGROUND ===== */
   .void{position:fixed;inset:0;z-index:-6;pointer-events:none;background:
     radial-gradient(85% 70% at 50% 6%,#08130F 0%,#05100C 55%,#030906 100%)}
@@ -76,9 +69,6 @@ tailwind.config = {
   .btn-outline{border:1px solid rgba(0,179,110,.6);color:#00B36E;background:transparent}
   .btn-outline:hover{background:rgba(0,179,110,.10)}
 
-  /* Weak red for the “do nothing” block */
-  .btn-weak{background:linear-gradient(180deg,rgba(40,12,12,.94),rgba(22,8,8,.94));border:1px solid rgba(255,80,80,.18)}
-
   /* ===== TOP ===== */
   .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.62)}
   .deadlinebar{height:4px;background:linear-gradient(90deg,#D8BF6A,#00B36E);transform-origin:left center;transition:transform .4s linear}
@@ -103,6 +93,25 @@ tailwind.config = {
   /* floating CTA on home only (router toggles it) */
   .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
   .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
+
+  /* ===== Skills / AI banner ===== */
+  .skill-card{background:linear-gradient(180deg,rgba(6,17,14,.98),rgba(6,17,14,.94));
+    border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px}
+  .skill-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.35), 0 0 22px rgba(0,179,110,.12)}
+  .skill-icon{display:grid;place-items:center;height:42px;width:42px;border-radius:12px;
+    background:radial-gradient(120% 120% at 30% 20%,#0f1a17,rgba(6,17,14,.6));
+    border:1px solid rgba(255,255,255,.08)}
+  .ai-banner{position:relative;overflow:hidden;border-radius:18px;
+    background:linear-gradient(180deg,#0F1A17,#0A1411);border:1px solid #1E2A25;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 10px 30px rgba(0,0,0,.45)}
+  .ai-banner:before{content:"";position:absolute;inset:-30%;
+    background:
+      radial-gradient(800px 220px at 10% 0%,rgba(216,191,106,.12),transparent 60%),
+      radial-gradient(800px 220px at 90% 100%,rgba(0,179,110,.12),transparent 60%),
+      repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 1px,transparent 1px 6px);
+    filter:blur(20px);opacity:.55;pointer-events:none}
+  .badge-new{background:#D8BF6A;color:#0E140F;border-radius:999px;padding:.15rem .5rem;
+    font-size:.65rem;font-weight:800;letter-spacing:.04em}
 </style>
 </head>
 <body class="bg-vault-bg">
@@ -117,7 +126,7 @@ tailwind.config = {
   <!-- STICKY TOP -->
   <div class="sticky top-0 z-50 border-b border-white/10 glass">
     <div class="mx-auto max-w-7xl px-4 pt-2"><div class="deadlinebar" id="deadlinebar"></div></div>
-    <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between fs-small">
+    <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
       <div>Seats Left: <span class="font-semibold text-vault-em">7</span></div>
       <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-vault-em"></span></div>
       <div class="hidden sm:flex items-center gap-3">
@@ -132,9 +141,9 @@ tailwind.config = {
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a class="flex items-center gap-3" href="#home">
       <img id="logo" class="h-12 w-12 md:h-14 md:w-14 rounded-xl ring-1 ring-white/10 shadow-[0_0_28px_rgba(216,191,106,.32)]" alt="Inner Vault logo"/>
-      <span class="tracking-widest fs-small md:text-sm text-vault-em">INNER VAULT</span>
+      <span class="tracking-widest text-sm md:text-base text-vault-em">INNER VAULT</span>
     </a>
-    <nav class="hidden md:flex items-center gap-6 fs-small text-vault-mute">
+    <nav class="hidden md:flex items-center gap-6 text-sm text-vault-mute">
       <a data-route="home" class="hover:text-vault-em" href="#home">Home</a>
       <a data-route="join" class="hover:text-vault-em" href="#join">Pricing</a>
       <a class="hover:text-vault-em" href="#faq">FAQ</a>
@@ -148,10 +157,11 @@ tailwind.config = {
       <!-- HERO -->
       <section class="relative overflow-hidden">
         <div class="mx-auto max-w-4xl px-5 pt-4 pb-12 md:pb-16 center-copy">
-          <h1 class="h1-hero fs-h1">Money Making is a Mechanism.</h1>
-          <p class="mt-3 fs-body text-vault-mute">We’ll teach you to run it from the islands.</p>
+          <!-- removed duplicate “INNER VAULT” kicker -->
+          <h1 class="h1-hero text-4xl md:text-6xl font-extrabold leading-tight">Money Making is a Mechanism.</h1>
+          <p class="mt-3 text-lg text-vault-mute">We’ll teach you to run it from the islands.</p>
 
-          <ul class="checks mt-6 space-y-3 fs-body">
+          <ul class="checks mt-6 space-y-3 text-lg">
             <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">$5k–$15k</b> AI prompt deals</span></li>
             <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga</span></li>
             <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">IRL Proof & Clips</b> — streams engineered to sell</span></li>
@@ -165,7 +175,7 @@ tailwind.config = {
             <a href="#proof" class="btn btn-outline">See Proof ↓</a>
           </div>
 
-          <p class="mt-6 fs-body text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
+          <p class="mt-6 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
         </div>
       </section>
 
@@ -180,18 +190,18 @@ tailwind.config = {
         </div>
       </section>
 
-      <!-- NCS (cleaner, darker) -->
+      <!-- NCS -->
       <section id="ncs" class="border-t border-white/10">
         <div class="mx-auto max-w-5xl px-5 py-12">
           <div class="card ringfx p-8 text-center">
             <div class="mb-4 flex justify-center">
-              <img class="h-14 w-14 md:h-16 md:w-16 rounded-xl ring-1 ring-white/10 shadow-[0_0_26px_rgba(216,191,106,.30)]"
+              <img class="h-16 w-16 rounded-xl ring-1 ring-white/10 shadow-[0_0_26px_rgba(216,191,106,.30)]"
                    src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS crest"/>
             </div>
-            <h3 class="fs-h2 text-white">No Code Society</h3>
-            <p class="mt-2 fs-body text-vault-mute">Our clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
+            <h3 class="text-2xl font-bold text-white">No Code Society</h3>
+            <p class="mt-2 text-vault-mute">Our clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
 
-            <ul class="checks mt-6 space-y-3 fs-body">
+            <ul class="checks mt-6 space-y-3 text-lg">
               <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga</span></li>
               <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Deal Rooms</b> — share wins, swap prompts, move faster</span></li>
               <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions</span></li>
@@ -208,31 +218,138 @@ tailwind.config = {
         </div>
       </section>
 
+      <!-- ===== NEW SKILLS / CATEGORIES ===== -->
+      <section id="skills" class="border-t border-white/10">
+        <div class="mx-auto max-w-6xl px-5 py-12">
+          <h3 class="text-center text-vault-mute tracking-[.28em] uppercase">New Skills</h3>
+          <p class="mt-2 text-center text-3xl md:text-4xl font-extrabold text-white">Build the Empire</p>
+
+          <!-- AI integrated banner -->
+          <div class="ai-banner mt-6 p-5 md:p-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="skill-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8BF6A" stroke-width="2"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M3 10h2M3 14h2M19 10h2M19 14h2M10 3v2M14 3v2M10 19v2M14 19v2"/></svg>
+                </div>
+                <div>
+                  <div class="text-white font-bold">Artificial Intelligence</div>
+                  <div class="text-sm text-vault-mute -mt-0.5">Integrated across all tracks</div>
+                </div>
+              </div>
+              <span class="badge-new self-start md:self-auto">NEW</span>
+            </div>
+          </div>
+
+          <!-- category grid -->
+          <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="skill-card">
+              <div class="flex items-start gap-3">
+                <div class="skill-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+                </div>
+                <div>
+                  <div class="text-white font-semibold">Ready-to-Sell Prompts</div>
+                  <p class="text-sm text-vault-mute">Enterprise packs with resale rights.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="flex items-start gap-3">
+                <div class="skill-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="15" height="10" rx="2"/><path d="M22 7l-5 3v4l5 3z"/></svg>
+                </div>
+                <div>
+                  <div class="text-white font-semibold">IRL Streamer Lab</div>
+                  <p class="text-sm text-vault-mute">Hooks, overlays, auto-clips. Practice daily.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="flex items-start gap-3">
+                <div class="skill-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+                </div>
+                <div>
+                  <div class="text-white font-semibold">UGC & Offer Funnels</div>
+                  <p class="text-sm text-vault-mute">Attention → emotion → proof → conversion.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="flex items-start gap-3">
+                <div class="skill-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div>
+                  <div class="text-white font-semibold">Build & Deploy Apps</div>
+                  <p class="text-sm text-vault-mute">GPT-5 blueprints — ship a tool in a day.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="flex items-start gap-3">
+                <div class="skill-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5V6.5a2 2 0 012-2h12M20 4.5v13m0 0H6a2 2 0 01-2-2"/></svg>
+                </div>
+                <div>
+                  <div class="text-white font-semibold">AI Course OS</div>
+                  <p class="text-sm text-vault-mute">Outline → record → edit → publish with AI.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="flex items-start gap-3">
+                <div class="skill-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                </div>
+                <div>
+                  <div class="text-white font-semibold">Stripe & Payments</div>
+                  <p class="text-sm text-vault-mute">Region-friendly, compliant setups for the Pacific.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-8 text-center">
+            <a href="#join" class="btn btn-premium text-base md:text-lg px-6">ENTER THE VAULT</a>
+            <div class="text-sm text-vault-mute mt-2">Get access to all the secrets</div>
+          </div>
+        </div>
+      </section>
+
       <!-- REVIEWS -->
       <section id="reviews" class="border-t border-white/10">
         <div class="mx-auto max-w-6xl px-5 py-12">
-          <h2 class="text-center fs-h2 font-bold text-white">Student Reviews</h2>
+          <p class="text-center text-xs md:text-sm tracking-[.28em] uppercase text-vault-mute">Inner Vault Wins</p>
+          <h2 class="mt-2 text-center text-3xl md:text-4xl font-extrabold text-white">OUR STUDENTS ARE WINNING</h2>
+
           <div class="mt-8 grid gap-6 md:grid-cols-3">
             <div class="card ringfx p-6">
               <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">J</div>
-                <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="fs-small text-vault-mute">PNG • AI Prompts</div></div>
+                <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div>
               </div>
-              <p class="mt-3 fs-body text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p>
+              <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p>
             </div>
             <div class="card ringfx p-6">
               <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">L</div>
-                <div><div class="font-semibold text-white">Litia — Suva</div><div class="fs-small text-vault-mute">Fiji • IRL Streams</div></div>
+                <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div>
               </div>
-              <p class="mt-3 fs-body text-vault-mute">Two weeks. No ads. Brands DM’d me.</p>
+              <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p>
             </div>
             <div class="card ringfx p-6">
               <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
-                <div><div class="font-semibold text-white">Toma — Apia</div><div class="fs-small text-vault-mute">Samoa • Ops Systems</div></div>
+                <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div>
               </div>
-              <p class="mt-3 fs-body text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p>
+              <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p>
             </div>
           </div>
         </div>
@@ -241,7 +358,7 @@ tailwind.config = {
       <!-- FAQ -->
       <section id="faq" class="border-t border-white/10">
         <div class="mx-auto max-w-4xl px-5 py-12">
-          <h2 class="text-center fs-h2 font-bold text-white">FAQ</h2>
+          <h2 class="text-center text-3xl md:text-4xl font-bold text-white">FAQ</h2>
           <div class="mt-6 space-y-4">
             <details class="faq card p-0">
               <summary><span class="font-semibold">Can I do this from the islands?</span><span class="faq-plus">＋</span></summary>
@@ -265,7 +382,7 @@ tailwind.config = {
 
       <!-- FOOTER (home) -->
       <footer class="border-t border-white/10">
-        <div class="mx-auto max-w-7xl px-4 py-8 fs-small text-vault-mute flex items-center justify-between">
+        <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-vault-mute flex items-center justify-between">
           <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
           <p class="space-x-4">
             <a class="hover:text-vault-em" href="#home">Back to Home</a>
@@ -279,21 +396,17 @@ tailwind.config = {
     <!-- ===== VIEW: JOIN (separate page) ===== -->
     <section id="join" data-view="join" class="hidden">
       <main class="max-w-5xl mx-auto px-5 py-10 text-center">
-        <h1 class="fs-h2 md:text-4xl font-bold text-white">Choose your path</h1>
-        <p class="mt-2 fs-body text-vault-mute">No fluff. Plays that print on a 2025 internet.</p>
+        <h1 class="text-3xl md:text-4xl font-bold text-white">Choose your path</h1>
+        <p class="mt-2 text-vault-mute">No fluff. Plays that print on a 2025 internet.</p>
 
-        <!-- Equal-height cards with bottom-aligned CTAs -->
-        <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2 items-stretch">
-
+        <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2">
           <!-- Monthly -->
           <div class="card ringfx p-8 text-left flex flex-col">
-            <h3 class="fs-h3 font-bold text-white">WARRIOR — Monthly</h3>
-            <p class="mt-1 fs-body text-vault-mute">Start now. Cancel anytime.</p>
-            <div class="mt-4 text-4xl font-extrabold text-white">$39
-              <span class="text-base font-semibold text-vault-mute">/mo</span>
-            </div>
+            <h3 class="text-xl font-bold text-white">WARRIOR — Monthly</h3>
+            <p class="mt-1 text-vault-mute">Start now. Cancel anytime.</p>
+            <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
 
-            <ul class="mt-6 space-y-3 text-vault-mute fs-body flex-1">
+            <ul class="mt-6 space-y-3 text-vault-mute text-sm">
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Stripe Anywhere setup &amp; support (PNG/Fiji/Samoa/Tonga)</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>AI Prompt Catalog — resellable enterprise prompts</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>IRL Hooks, retention loops &amp; Proof-clip templates</span></li>
@@ -303,7 +416,7 @@ tailwind.config = {
             </ul>
 
             <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-               class="btn btn-premium w-full mt-auto"
+               class="btn btn-premium w-full mt-6"
                target="_blank" rel="noopener noreferrer">
               <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
@@ -312,14 +425,12 @@ tailwind.config = {
 
           <!-- Lifetime -->
           <div class="relative card ringfx p-8 text-left flex flex-col">
-            <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 fs-small font-bold text-[#0E140F]">Best Value</div>
-            <h3 class="fs-h3 font-bold text-white">CHIEF — Lifetime</h3>
-            <p class="mt-1 fs-body text-vault-mute">Own the systems. Own the results.</p>
-            <div class="mt-4 text-4xl font-extrabold text-white">$399
-              <span class="text-base font-semibold text-vault-mute"> one-time</span>
-            </div>
+            <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0E140F]">Best Value</div>
+            <h3 class="text-xl font-bold text-white">CHIEF — Lifetime</h3>
+            <p class="mt-1 text-vault-mute">Own the systems. Own the results.</p>
+            <div class="mt-4 text-4xl font-extrabold text-white">$399<span class="text-base font-semibold text-vault-mute"> one-time</span></div>
 
-            <ul class="mt-6 space-y-3 text-vault-mute fs-body flex-1">
+            <ul class="mt-6 space-y-3 text-vault-mute text-sm">
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in WARRIOR</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime updates &amp; future modules</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Private deal rooms + partner heatmap</span></li>
@@ -328,7 +439,7 @@ tailwind.config = {
             </ul>
 
             <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
-               class="btn btn-premium w-full mt-auto"
+               class="btn btn-premium w-full mt-6 self-end"
                target="_blank" rel="noopener noreferrer">
               <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
@@ -338,23 +449,23 @@ tailwind.config = {
 
         <!-- Or do nothing -->
         <section class="mx-auto max-w-3xl mt-12">
-          <h2 class="fs-h2 font-extrabold text-white tracking-wide">OR DO NOTHING..</h2>
-          <p class="text-vault-mute mt-1 fs-body">Go watch Netflix. Work a 9–5.</p>
-          <div class="card ringfx p-6 mt-6 text-center btn-weak">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">OR DO NOTHING..</h2>
+          <p class="text-vault-mute mt-1">Go watch Netflix. Work a 9–5.</p>
+          <div class="card ringfx p-6 mt-6 text-center">
             <div class="text-3xl font-extrabold text-white">LOCK-IN YOUR PRICE OF <span class="text-vault-gold">$39</span></div>
-            <p class="text-vault-mute mt-2 fs-body">Hold lasts <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>.</p>
+            <p class="text-vault-mute mt-2">Hold lasts <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>.</p>
             <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
                class="btn btn-premium mt-5 inline-flex" target="_blank" rel="noopener noreferrer">
               <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
             </a>
           </div>
-          <p class="mt-6 fs-small text-vault-mute"><a href="#home" class="text-vault-em">← Back to Home</a></p>
+          <p class="mt-6 text-sm text-vault-mute"><a href="#home" class="text-vault-em">← Back to Home</a></p>
         </section>
       </main>
 
       <footer class="border-t border-white/10">
-        <div class="mx-auto max-w-7xl px-4 py-8 fs-small text-vault-mute flex items-center justify-between">
+        <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-vault-mute flex items-center justify-between">
           <p>© <span id="y2"></span> Inner Vault.</p>
           <p class="space-x-4">
             <a class="hover:text-vault-em" href="#home">Home</a>
