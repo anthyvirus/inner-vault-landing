@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Inner Vault — Real-Life Money Game</title>
+<title>Inner Vault — Money Making is a Mechanism.</title>
 
-<meta name="description" content="Fans watch. Clippers print. Warriors build. IRL chaos + AI systems. Stripe from the islands. Enter the money game."/>
-<meta property="og:title" content="Inner Vault — Real-Life Money Game"/>
-<meta property="og:description" content="Pick your class → Fan • Clipper • Warrior. Spawn in and cause problems on purpose."/>
+<meta name="description" content="South Pacific operators. Stripe from the islands. $5k–$15k AI prompts. IRL proof. Money mechanism: attention → emotion → proof → conversion."/>
+<meta property="og:title" content="Inner Vault — Money Making is a Mechanism."/>
+<meta property="og:description" content="Stripe anywhere. IRL + AI + Super UGC. The engine the Pacific was missing."/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
-<meta name="theme-color" content="#07110E"/>
+<meta name="theme-color" content="#030906"/>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.84em' font-size='86'>⚡</text></svg>"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -20,112 +20,93 @@ tailwind.config = {
     extend: {
       colors: {
         vault: {
-          bg:'#07110E', grid:'#0B1713',
-          em:'#00C77A', neon:'#21FD8E',
-          gold:'#E3CC7B', goldh:'#CBB361',
-          text:'#F4FFF9', mute:'#CFEADE',
-          purple:'#6C35FF', blood:'#A01416'
+          bg:'#030906', card:'#0B1613', rim:'#12221C',
+          gold:'#E3CC7B', goldh:'#CFB861',
+          em:'#00B36E', mute:'#CDE7DD', text:'#F2FBF7',
+          grid:'#0F201B'
         }
       },
       boxShadow:{
-        neon:'0 0 22px rgba(33,253,142,.16), 0 0 60px rgba(33,253,142,.08)',
-        gold:'0 0 24px rgba(227,204,123,.18)',
-        soft:'0 18px 40px rgba(0,0,0,.28)'
-      }
+        soft:'0 12px 30px rgba(0,0,0,.30)',
+        glow:'0 0 30px rgba(227,204,123,.38)',
+        neon:'0 0 26px rgba(0,179,110,.30)'
+      },
+      borderRadius:{ xxl:'22px' }
     }
   }
 }
 </script>
 
 <style>
-  :root{
-    --glass-bg: rgba(11,23,19,.56);
-    --glass-br: 18px;
-    --glass-b1: rgba(255,255,255,.16);
-    --glass-b2: rgba(255,255,255,.06);
-    --glass-hi: rgba(255,255,255,.35);
-    --noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0 .07 .15 .18'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
   html{scroll-behavior:smooth}
-  body{background:linear-gradient(180deg,#07110E 0%,#04110D 100%);color:#F4FFF9}
-  /* ===== LOBBY BACKGROUND ===== */
-  .void{position:fixed;inset:0;z-index:-10;pointer-events:none;background:
-    radial-gradient(90% 70% at 50% 0%,#0B1713 0%,#07110E 45%,#04110D 100%)}
-  .gridfx:before{content:"";position:fixed;inset:0;z-index:-9;pointer-events:none;opacity:.16;
-    background-image:
-      linear-gradient(to right, rgba(33,253,142,.10) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(33,253,142,.10) 1px, transparent 1px);
-    background-size:34px 34px,34px 34px; mix-blend-mode:screen}
-  .tints{position:fixed;inset:0;z-index:-8;pointer-events:none;mix-blend-mode:screen;background:
-    radial-gradient(900px 420px at 10% 120%,rgba(108,53,255,.12),transparent 60%),
-    radial-gradient(1100px 520px at 90% 120%,rgba(160,20,22,.12),transparent 62%);animation:pulse 6s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.8}}
-  /* canvases */
-  canvas.bg-layer{position:fixed;inset:0;pointer-events:none}
-  #lightning{z-index:-7} #embers{z-index:-6} #ash{z-index:-5}
+  body{background:#030906;color:#F2FBF7;line-height:1.55}
 
-  /* ===== REAL GLASS CARDS ===== */
-  .glasscard{
-    position:relative;border-radius:var(--glass-br);
-    background:linear-gradient(180deg,rgba(15,28,24,.56),rgba(12,24,20,.42));
-    backdrop-filter:saturate(180%) blur(14px);
-    border:1px solid var(--glass-b1);
-    box-shadow:inset 0 1px 0 var(--glass-hi), 0 14px 36px rgba(0,0,0,.28), var(--gold-glow, 0 0 0 rgba(0,0,0,0));
-    overflow:hidden;
-  }
-  .glasscard:before{
-    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-    background:var(--noise);opacity:.6;mix-blend-mode:overlay;filter:contrast(120%) saturate(60%) brightness(120%);
-  }
-  .ringfx{--gold-glow: 0 0 22px rgba(227,204,123,.16)}
-  .tile{border-radius:14px;background:linear-gradient(180deg,rgba(18,31,27,.55),rgba(12,22,19,.48));border:1px solid rgba(255,255,255,.12);backdrop-filter:saturate(160%) blur(10px)}
-  .panel{border-radius:12px;background:linear-gradient(180deg,rgba(10,20,17,.55),rgba(9,18,16,.46));border:1px solid rgba(255,255,255,.10);backdrop-filter:saturate(160%) blur(10px)}
+  /* ===== background grid + soft lightning ===== */
+  .gridbg{position:fixed;inset:0;z-index:-6;pointer-events:none;
+    background:
+      radial-gradient(60% 40% at 50% -10%, rgba(0,179,110,.22), transparent 60%),
+      radial-gradient(70% 50% at 50% 110%, rgba(227,204,123,.18), transparent 60%),
+      linear-gradient(transparent 0,transparent calc(100% - 1px), rgba(255,255,255,.05) 0),
+      linear-gradient(90deg, transparent 0,transparent calc(100% - 1px), rgba(255,255,255,.05) 0);
+    background-size: 100% 100%,100% 100%, 48px 48px, 48px 48px;
+    mix-blend-mode:soft-light; filter: saturate(115%); }
+  .lightning{position:fixed;inset:0;z-index:-5;pointer-events:none;opacity:.25}
+  .lightning:before,
+  .lightning:after{content:"";position:absolute;inset:0;background:
+    radial-gradient(600px 160px at 30% 10%, rgba(0,255,153,.35), transparent 60%),
+    radial-gradient(700px 180px at 70% 100%, rgba(0,255,153,.35), transparent 60%);
+    animation:zap 5.5s ease-in-out infinite;filter:blur(18px)}
+  @keyframes zap{0%,100%{opacity:.15}50%{opacity:.35}}
 
-  /* ===== BUTTONS ===== */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:14px;font-weight:800;letter-spacing:.2px;padding:.9rem 1.25rem;transition:transform .12s ease, box-shadow .22s ease, background .2s ease}
-  .btn:active{transform:translateY(1px)}
-  .btn-premium{color:#10221C;background:linear-gradient(180deg,#E3CC7B,#CBB361);box-shadow:0 10px 28px rgba(227,204,123,.25), inset 0 1px 0 rgba(255,255,255,.55)}
-  .btn-premium:hover{box-shadow:0 16px 38px rgba(227,204,123,.32), 0 0 30px rgba(33,253,142,.10)}
-  .btn-outline{border:1px solid rgba(33,253,142,.55);color:#21FD8E;background:linear-gradient(180deg,rgba(12,24,20,.25),rgba(10,21,18,.18));backdrop-filter:saturate(160%) blur(8px)}
-  .btn-outline:hover{box-shadow:0 0 22px rgba(33,253,142,.18)}
-  .badge{border:1px solid rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(15,28,24,.6),rgba(12,24,20,.45));padding:.38rem .72rem;border-radius:999px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem;backdrop-filter:saturate(160%) blur(8px)}
-  .badge.on{border-color:rgba(33,253,142,.6);color:#21FD8E;box-shadow:inset 0 0 14px rgba(33,253,142,.16)}
+  /* ===== card glass ===== */
+  .card{position:relative;border-radius:18px;
+    background:linear-gradient(180deg,rgba(11,22,19,.92),rgba(11,22,19,.88));
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 12px 30px rgba(0,0,0,.35)}
+  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;
+    background:conic-gradient(from 210deg,#12221C,#263A31,#12221C);opacity:.7}
 
-  /* ===== TOP ===== */
-  .glassbar{backdrop-filter:saturate(170%) blur(12px);background:linear-gradient(180deg,rgba(10,20,17,.55),rgba(10,20,17,.38));border-bottom:1px solid rgba(255,255,255,.12)}
-  .deadlinebar{height:4px;background:linear-gradient(90deg,#E3CC7B,#21FD8E,#6C35FF,#A01416);transform-origin:left center;transition:transform .4s linear}
+  /* ===== BUTTON: original pill with card icon + edge glow on press ===== */
+  .btn-vault{display:inline-flex;align-items:center;gap:.6rem;font-weight:900;
+    padding:1rem 1.25rem;border-radius:16px;letter-spacing:.2px;
+    color:#0E140F;background:linear-gradient(180deg,#EADFA5,#E3CC7B);
+    box-shadow:0 12px 20px rgba(227,204,123,.18), inset 0 0 0 1px rgba(255,255,255,.45);
+    border:1px solid rgba(14,20,15,.2); transition:transform .08s ease, box-shadow .18s ease, filter .18s ease}
+  .btn-vault:hover{box-shadow:0 0 22px rgba(227,204,123,.35),0 10px 22px rgba(0,0,0,.35)}
+  .btn-vault:active{transform:translateY(1px); box-shadow:0 0 30px rgba(227,204,123,.45), inset 0 0 0 1px rgba(255,255,255,.55)}
+  .btn-outline{display:inline-flex;align-items:center;gap:.6rem;font-weight:800;
+    padding:.95rem 1.15rem;border-radius:14px;border:1px solid rgba(0,179,110,.6);
+    color:#00D08A;background:rgba(0,179,110,.06)}
+  .btn-outline:hover{box-shadow:0 0 20px rgba(0,179,110,.28)}
 
-  /* ===== HERO / HUD ===== */
-  .h1-hero{text-shadow:0 0 18px rgba(227,204,123,.26), 0 0 26px rgba(33,253,142,.12)}
-  .hud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
-  .hud .tile .n{font-feature-settings:"tnum" 1,"lnum" 1}
+  /* badge */
+  .ribbon{position:absolute;top:10px;right:-34px;transform:rotate(45deg);
+    background:linear-gradient(180deg,#E3CC7B,#CFB861); color:#0E140F;
+    font-weight:800;font-size:.65rem;letter-spacing:.06em;padding:.35rem 2.2rem;
+    box-shadow:0 10px 24px rgba(227,204,123,.28); border:1px solid rgba(255,255,255,.45)}
 
-  /* slider */
-  .snap-row{display:grid;grid-auto-flow:column;grid-auto-columns:85%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
-  .snap-row>*{scroll-snap-align:center}
-  .pill{font-size:.65rem;letter-spacing:.08em;border-radius:999px;padding:.15rem .55rem}
-  .pill-clip{background:rgba(33,253,142,.14);border:1px solid rgba(33,253,142,.35);color:#21FD8E}
-  .pill-war{background:rgba(227,204,123,.16);border:1px solid rgba(227,204,123,.35);color:#E3CC7B}
-
-  /* floating CTA */
-  .cta-bar{position:fixed;left:0;right:0;bottom:14px;z-index:30;display:flex;justify-content:center}
+  /* small helpers */
+  .center-copy{text-align:center}.center-copy *{text-align:inherit}
+  .li-check{display:flex;gap:.75rem}.li-check svg{flex:0 0 18px;margin-top:4px}
+  .chip{background:rgba(13,37,29,.65);border:1px solid rgba(255,255,255,.08);
+    padding:.35rem .65rem;border-radius:999px;font-size:.75rem;letter-spacing:.08em}
 </style>
 </head>
-<body class="gridfx">
-  <div class="void"></div>
-  <div class="tints"></div>
-  <canvas id="lightning" class="bg-layer"></canvas>
-  <canvas id="embers" class="bg-layer"></canvas>
-  <canvas id="ash" class="bg-layer"></canvas>
+<body class="bg-vault-bg">
+  <div class="gridbg"></div>
+  <div class="lightning"></div>
 
   <!-- STICKY TOP -->
-  <div class="sticky top-0 z-50 glassbar">
-    <div class="mx-auto max-w-7xl px-4 pt-2"><div class="deadlinebar" id="deadlinebar"></div></div>
+  <div class="sticky top-0 z-50 border-b border-white/10 backdrop-blur-md bg-black/35">
     <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
       <div>Seats Left: <span class="font-semibold text-vault-em">7</span></div>
       <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-vault-em"></span></div>
       <div class="hidden sm:flex items-center gap-3">
-        <a href="#join" class="btn btn-premium">Enter the Vault</a>
+        <a href="#join" class="btn-vault">
+          <!-- card icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          ENTER THE VAULT
+        </a>
       </div>
     </div>
   </div>
@@ -133,52 +114,43 @@ tailwind.config = {
   <!-- HEADER -->
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a class="flex items-center gap-3" href="#home">
-      <img id="logo" class="h-12 w-12 md:h-14 md:w-14 rounded-xl ring-1 ring-white/15 shadow-[0_0_28px_rgba(227,204,123,.28)]" alt="Inner Vault logo"/>
+      <img id="logo" class="h-12 w-12 md:h-14 md:w-14 rounded-xl ring-1 ring-white/10 shadow-[0_0_28px_rgba(216,191,106,.32)]" alt="Inner Vault logo"/>
       <span class="tracking-widest text-sm md:text-base text-vault-em">INNER VAULT</span>
     </a>
     <nav class="hidden md:flex items-center gap-6 text-sm text-vault-mute">
-      <a data-route="home" class="hover:text-vault-em" href="#home">Home</a>
-      <a data-route="join" class="hover:text-vault-em" href="#join">Pricing</a>
+      <a class="hover:text-vault-em" href="#home">Home</a>
+      <a class="hover:text-vault-em" href="#join">Pricing</a>
       <a class="hover:text-vault-em" href="#faq">FAQ</a>
       <a class="hover:text-vault-em" href="#reviews">Reviews</a>
     </nav>
   </header>
 
   <main id="app">
-    <!-- ===== HOME ===== -->
+    <!-- HOME -->
     <section id="home" data-view="home">
-      <section>
-        <div class="mx-auto max-w-4xl px-5 pt-2 pb-10 md:pb-12 text-center">
-          <h1 class="h1-hero text-4xl md:text-6xl font-extrabold leading-tight">The Real-Life Money Game.</h1>
-          <p class="mt-3 text-lg text-vault-mute">Pick your class → Fan • Clipper • Warrior. Spawn in. Farm proof. Cash out.</p>
+      <!-- HERO -->
+      <section class="relative overflow-hidden">
+        <div class="mx-auto max-w-4xl px-5 pt-4 pb-10 center-copy">
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow h1-hero">Money Making is a Mechanism.</h1>
+          <p class="mt-3 text-lg text-vault-mute">We’ll teach you to run it from the islands.</p>
 
-          <div class="mt-4 flex flex-wrap items-center justify-center gap-2" id="classBadges">
-            <a href="#fan" class="badge">Fan</a>
-            <a href="#clipper" class="badge">Clipper</a>
-            <a href="#warrior" class="badge">Warrior</a>
+          <div class="mt-4 flex items-center justify-center gap-2 text-xs">
+            <span class="chip">FANS</span><span class="chip">CLIPPERS</span><span class="chip">WARRIORS</span>
           </div>
 
-          <ul class="mt-6 space-y-3 text-lg text-left mx-auto max-w-[680px]">
-            <li class="flex gap-3"><span class="text-vault-em">✦</span><span><b>$5k–$15k</b> AI prompt deals</span></li>
-            <li class="flex gap-3"><span class="text-vault-em">✦</span><span><b>Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga</span></li>
-            <li class="flex gap-3"><span class="text-vault-em">✦</span><span><b>IRL Proof</b> — engineered chaos that sells</span></li>
-            <li class="flex gap-3"><span class="text-vault-em">✦</span><span><b>Clip Farming</b> — edit my chaos → <b>take 40%</b></span></li>
+          <ul class="mt-6 space-y-3 text-lg text-vault-mute max-w-xl mx-auto">
+            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">$5k–$15k</b> AI prompt deals</span></li>
+            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga</span></li>
+            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">IRL Proof & Clips</b> — streams engineered to sell</span></li>
+            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">AI Prompt Catalog</b> — enterprise prompts you can resell</span></li>
           </ul>
 
           <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <a id="heroCta" href="#join" class="btn btn-premium">Enter the Vault — Take 40%</a>
-            <a href="#proof" class="btn btn-outline">See Proof ↓</a>
-          </div>
-
-          <div class="mt-4 flex items-center justify-center gap-3">
-            <a id="discordBtn" class="btn btn-outline" target="_blank" rel="noopener">Join Discord</a>
-            <a id="tgBtn" class="btn btn-outline" target="_blank" rel="noopener">Telegram</a>
-          </div>
-
-          <div class="hud mt-6 mx-auto max-w-3xl">
-            <div class="tile p-3"><div class="text-[11px] text-vault-mute uppercase tracking-widest">War Room</div><div class="text-xl n" id="hud1">0</div></div>
-            <div class="tile p-3"><div class="text-[11px] text-vault-mute uppercase tracking-widest">Clips Today</div><div class="text-xl n" id="hud2">0</div></div>
-            <div class="tile p-3"><div class="text-[11px] text-vault-mute uppercase tracking-widest">Editors Online</div><div class="text-xl n" id="hud3">0</div></div>
+            <a href="#join" class="btn-vault">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              ENTER THE VAULT
+            </a>
+            <a href="#proof" class="btn-outline">See Proof ↓</a>
           </div>
 
           <p class="mt-6 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
@@ -187,136 +159,135 @@ tailwind.config = {
 
       <!-- OATH -->
       <section class="mx-auto max-w-5xl px-5 pb-10">
-        <div class="glasscard ringfx p-6 md:p-8">
+        <div class="card p-6 md:p-8">
           <p class="text-xs md:text-sm tracking-[.28em] uppercase text-vault-mute">Legacy Oath</p>
           <h2 class="mt-2 text-2xl md:text-4xl font-extrabold leading-tight">Your bloodline is counting on you.</h2>
-          <p class="mt-2 text-vault-mute text-base md:text-lg">We build empires from $300 rooms with bedbugs. If I vanish tomorrow, my clan still eats because the systems print. <b>No excuses.</b></p>
-          <div class="mt-5"><a href="#join" class="btn btn-premium">Swear the Oath — Enter</a></div>
+          <p class="mt-2 text-vault-mute text-base md:text-lg">If you started—finish it. If you died tomorrow, would your kid have lunch money? Be the warrior they remember. Build the engine that feeds your family.</p>
+          <div class="mt-5">
+            <a href="#join" class="btn-vault">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              ENTER THE VAULT
+            </a>
+          </div>
         </div>
       </section>
 
       <!-- PROOF -->
       <section id="proof" class="mx-auto max-w-5xl px-5 pb-12">
-        <div class="glasscard p-3">
+        <div class="card ringfx p-3">
           <video class="w-full rounded-xl" id="proofVideo" autoplay loop playsinline controls preload="metadata"
-            poster="https://placehold.co/960x540/0B1613/F4FFF9?text=IRL+Stream+Proof">
+            poster="https://placehold.co/960x540/0B1613/F2FBF7?text=IRL+Stream+Proof">
+            <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
             <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
           </video>
         </div>
       </section>
 
-      <!-- NCS -->
-      <section id="ncs" class="border-t border-white/10/10">
-        <div class="mx-auto max-w-5xl px-5 py-12">
-          <div class="glasscard ringfx p-8 text-center">
-            <div class="mb-4 flex justify-center">
-              <img class="h-16 w-16 rounded-xl ring-1 ring-white/15 shadow-[0_0_26px_rgba(227,204,123,.22)]"
-                   src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS crest"/>
-            </div>
-            <h3 class="text-2xl font-bold text-white">No Code Society</h3>
-            <p class="mt-2 text-vault-mute">Our clan. Daily breakdowns, deal rooms, and plays that print.</p>
-
-            <ul class="mt-6 space-y-3 text-lg text-left mx-auto max-w-[680px]">
-              <li class="flex gap-3"><span class="text-vault-em">✦</span><span><b>220+ members</b> across PNG / Fiji / Samoa / Tonga</span></li>
-              <li class="flex gap-3"><span class="text-vault-em">✦</span><span><b>Deal Rooms</b> — wins, prompts, speed</span></li>
-              <li class="flex gap-3"><span class="text-vault-em">✦</span><span><b>Live Sprints</b> — IRL + AI</span></li>
-              <li class="flex gap-3"><span class="text-vault-em">✦</span><span><b>Prompt Drops</b> — resell rights</span></li>
-            </ul>
-
-            <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-              <a href="#join" class="btn btn-premium">Enter the Vault</a>
-              <a href="#reviews" class="btn btn-outline">See Reviews ↓</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- SKILLS -->
-      <section id="skills" class="border-t border-white/10">
+      <section class="border-t border-white/10">
         <div class="mx-auto max-w-6xl px-5 py-12">
           <h3 class="text-center text-vault-mute tracking-[.28em] uppercase">New Skills</h3>
           <p class="mt-2 text-center text-3xl md:text-4xl font-extrabold text-white">Build the Empire</p>
 
           <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <div class="panel p-5 flex gap-3">
-              <svg width="42" height="42" viewBox="0 0 24 24" class="shrink-0 rounded-xl border border-white/12 p-2" style="background:rgba(15,28,24,.55)"><rect x="8" y="8" width="8" height="8" rx="1" fill="none" stroke="#E3CC7B" stroke-width="2"/><path d="M3 10h2M3 14h2M19 10h2M19 14h2M10 3v2M14 3v2M10 19v2M14 19v2" stroke="#E3CC7B" stroke-width="2"/></svg>
-              <div><div class="text-white font-semibold">Artificial Intelligence</div><p class="text-sm text-vault-mute">Integrated across tracks — prompts, edits, funnels.</p></div>
+            <div class="card p-5 hover:shadow-neon">
+              <div class="flex items-start gap-3">
+                <div class="h-10 w-10 grid place-items-center rounded-xl border border-white/10 bg-[#11221C]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3CC7B" stroke-width="2"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M3 10h2M3 14h2M19 10h2M19 14h2M10 3v2M14 3v2M10 19v2M14 19v2"/></svg>
+                </div>
+                <div><div class="text-white font-semibold">Artificial Intelligence</div>
+                  <p class="text-sm text-vault-mute">Integrated across all tracks — prompts, edits, funnels.</p></div>
+              </div>
+              <span class="mt-3 inline-block chip bg-vault-gold/90 text-[#0E140F]">NEW</span>
             </div>
-            <div class="panel p-5 flex gap-3">
-              <svg width="42" height="42" viewBox="0 0 24 24" class="shrink-0 rounded-xl border border-white/12 p-2" style="background:rgba(15,28,24,.55)"><path d="M4 4h10v6H4zM14 7l6 3-6 3z" fill="none" stroke="#21FD8E" stroke-width="2"/></svg>
-              <div><div class="text-white font-semibold">IRL Clip Farming</div><p class="text-sm text-vault-mute">Edit chaos. Post daily. <b class="text-white">Take 40%.</b></p></div>
+
+            <div class="card p-5 hover:shadow-neon">
+              <div class="flex items-start gap-3">
+                <div class="h-10 w-10 grid place-items-center rounded-xl border border-white/10 bg-[#11221C]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="15" height="10" rx="2"/><path d="M22 7l-5 3v4l5 3z"/></svg>
+                </div>
+                <div><div class="text-white font-semibold">IRL Clip Farming</div>
+                  <p class="text-sm text-vault-mute">Clip chaos → post daily → stack 40% lifetime.</p></div>
+              </div>
             </div>
-            <div class="panel p-5 flex gap-3">
-              <svg width="42" height="42" viewBox="0 0 24 24" class="shrink-0 rounded-xl border border-white/12 p-2" style="background:rgba(15,28,24,.55)"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="#21FD8E" stroke-width="2"/><path d="M7 12h10" stroke="#21FD8E" stroke-width="2"/></svg>
-              <div><div class="text-white font-semibold">UGC & Offer Funnels</div><p class="text-sm text-vault-mute">Attention → emotion → proof → conversion.</p></div>
+
+            <div class="card p-5 hover:shadow-neon">
+              <div class="flex items-start gap-3">
+                <div class="h-10 w-10 grid place-items-center rounded-xl border border-white/10 bg-[#11221C]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+                </div>
+                <div><div class="text-white font-semibold">Ready-to-Sell Prompts</div>
+                  <p class="text-sm text-vault-mute">Enterprise packs ($5k–$15k) with resale rights.</p></div>
+              </div>
             </div>
-            <div class="panel p-5 flex gap-3">
-              <svg width="42" height="42" viewBox="0 0 24 24" class="shrink-0 rounded-xl border border-white/12 p-2" style="background:rgba(15,28,24,.55)"><rect x="3" y="3" width="7" height="7" fill="none" stroke="#21FD8E" stroke-width="2"/><rect x="14" y="3" width="7" height="7" fill="none" stroke="#21FD8E" stroke-width="2"/><rect x="14" y="14" width="7" height="7" fill="none" stroke="#21FD8E" stroke-width="2"/><rect x="3" y="14" width="7" height="7" fill="none" stroke="#21FD8E" stroke-width="2"/></svg>
-              <div><div class="text-white font-semibold">Build & Deploy Apps</div><p class="text-sm text-vault-mute">GPT-5 blueprints — ship in a day.</p></div>
+
+            <div class="card p-5 hover:shadow-neon">
+              <div class="flex items-start gap-3">
+                <div class="h-10 w-10 grid place-items-center rounded-xl border border-white/10 bg-[#11221C]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+                </div>
+                <div><div class="text-white font-semibold">UGC & Offer Funnels</div>
+                  <p class="text-sm text-vault-mute">Attention → emotion → proof → conversion.</p></div>
+              </div>
             </div>
-            <div class="panel p-5 flex gap-3">
-              <svg width="42" height="42" viewBox="0 0 24 24" class="shrink-0 rounded-xl border border-white/12 p-2" style="background:rgba(15,28,24,.55)"><path d="M3 6l9-4 9 4-9 4-9-4zm0 6l9 4 9-4" fill="none" stroke="#E3CC7B" stroke-width="2"/></svg>
-              <div><div class="text-white font-semibold">AI Course OS</div><p class="text-sm text-vault-mute">Outline → record → publish with AI.</p></div>
+
+            <div class="card p-5 hover:shadow-neon">
+              <div class="flex items-start gap-3">
+                <div class="h-10 w-10 grid place-items-center rounded-xl border border-white/10 bg-[#11221C]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div><div class="text-white font-semibold">Build & Deploy Apps</div>
+                  <p class="text-sm text-vault-mute">GPT-5 blueprints — ship a tool in a day.</p></div>
+              </div>
             </div>
-            <div class="panel p-5 flex gap-3">
-              <svg width="42" height="42" viewBox="0 0 24 24" class="shrink-0 rounded-xl border border-white/12 p-2" style="background:rgba(15,28,24,.55)"><rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="#E3CC7B" stroke-width="2"/><path d="M2 10h20" stroke="#E3CC7B" stroke-width="2"/></svg>
-              <div><div class="text-white font-semibold">Stripe & Payments</div><p class="text-sm text-vault-mute">Clean routes for PNG • Fiji • Samoa • Tonga.</p></div>
+
+            <div class="card p-5 hover:shadow-neon">
+              <div class="flex items-start gap-3">
+                <div class="h-10 w-10 grid place-items-center rounded-xl border border-white/10 bg-[#11221C]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                </div>
+                <div><div class="text-white font-semibold">Stripe & Payments</div>
+                  <p class="text-sm text-vault-mute">Region-friendly, compliant setups for the Pacific.</p></div>
+              </div>
             </div>
           </div>
 
           <div class="mt-8 text-center">
-            <a href="#join" class="btn btn-premium text-base md:text-lg px-6">ENTER THE VAULT</a>
-            <div class="text-sm text-vault-mute mt-2">Get access to all the secrets</div>
+            <a href="#join" class="btn-vault">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              ENTER THE VAULT
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- REVIEWS SLIDER -->
+      <!-- REVIEWS -->
       <section id="reviews" class="border-t border-white/10">
         <div class="mx-auto max-w-6xl px-5 py-12">
           <p class="text-center text-xs md:text-sm tracking-[.28em] uppercase text-vault-mute">Inner Vault Wins</p>
           <h2 class="mt-2 text-center text-3xl md:text-4xl font-extrabold text-white">OUR STUDENTS ARE WINNING</h2>
 
-          <div class="snap-row mt-6">
-            <div class="glasscard p-6">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-white/10 text-white/90 font-semibold">J</div>
-                  <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div>
-                </div>
-                <span class="pill pill-war">WARRIOR</span>
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            <div class="card p-6">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">J</div>
+                <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div>
               </div>
-              <p class="mt-3 text-vault-mute">Closed <b class="text-white">$15k</b> prompt pack. “Loop feels illegal.”</p>
+              <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p>
             </div>
-            <div class="glasscard p-6">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-white/10 text-white/90 font-semibold">L</div>
-                  <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div>
-                </div>
-                <span class="pill pill-clip">CLIPPER</span>
+            <div class="card p-6">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">L</div>
+                <div><div class="font-semibold text-white">Litia — Suva</div><div class="text-xs text-vault-mute">Fiji • IRL Streams</div></div>
               </div>
               <p class="mt-3 text-vault-mute">Two weeks. No ads. Brands DM’d me.</p>
             </div>
-            <div class="glasscard p-6">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-white/10 text-white/90 font-semibold">T</div>
-                  <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div>
-                </div>
-                <span class="pill pill-war">WARRIOR</span>
+            <div class="card p-6">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
+                <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div>
               </div>
-              <p class="mt-3 text-vault-mute">Stripe solved. Inbox = AI. <b class="text-white">Sales while I sleep.</b></p>
-            </div>
-            <div class="glasscard p-6">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-white/10 text-white/90 font-semibold">S</div>
-                  <div><div class="font-semibold text-white">Sione — Nukuʻalofa</div><div class="text-xs text-vault-mute">Tonga • Clips</div></div>
-                </div>
-                <span class="pill pill-clip">CLIPPER</span>
-              </div>
-              <p class="mt-3 text-vault-mute">3 viral shorts → <b class="text-white">40% rev share</b> locked.</p>
+              <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p>
             </div>
           </div>
         </div>
@@ -327,31 +298,40 @@ tailwind.config = {
         <div class="mx-auto max-w-4xl px-5 py-12">
           <h2 class="text-center text-3xl md:text-4xl font-bold text-white">FAQ</h2>
           <div class="mt-6 space-y-4">
-            <details class="glasscard p-0">
-              <summary class="px-4 py-3 cursor-pointer"><span class="font-semibold">Can I do this from the islands?</span></summary>
-              <div class="px-4 pb-4 text-vault-mute">Yep. Real Stripe routes for PNG/Fiji/Samoa/Tonga.</div>
+            <details class="card p-0 overflow-hidden">
+              <summary class="list-none flex items-center justify-between gap-2 px-4 py-3 cursor-pointer">
+                <span class="font-semibold">Can I do this from the islands?</span><span class="opacity-75">＋</span>
+              </summary>
+              <div class="px-4 pb-4 text-vault-mute">Yes. Legit Stripe routes and clean money flow for PNG/Fiji/Samoa/Tonga.</div>
             </details>
-            <details class="glasscard p-0">
-              <summary class="px-4 py-3 cursor-pointer"><span class="font-semibold">What if I hate “content”?</span></summary>
-              <div class="px-4 pb-4 text-vault-mute">Perfect. We build proof engines, not dances.</div>
+            <details class="card p-0 overflow-hidden">
+              <summary class="list-none flex items-center justify-between gap-2 px-4 py-3 cursor-pointer">
+                <span class="font-semibold">What if I hate “content”?</span><span class="opacity-75">＋</span>
+              </summary>
+              <div class="px-4 pb-4 text-vault-mute">Good. We don’t chase trends. We build proof engines that convert.</div>
             </details>
-            <details class="glasscard p-0">
-              <summary class="px-4 py-3 cursor-pointer"><span class="font-semibold">Do I need a laptop?</span></summary>
+            <details class="card p-0 overflow-hidden">
+              <summary class="list-none flex items-center justify-between gap-2 px-4 py-3 cursor-pointer">
+                <span class="font-semibold">Do I need a laptop?</span><span class="opacity-75">＋</span>
+              </summary>
               <div class="px-4 pb-4 text-vault-mute">No. Phone-first plays. Desktop optional.</div>
             </details>
-            <details class="glasscard p-0">
-              <summary class="px-4 py-3 cursor-pointer"><span class="font-semibold">How fast can this print?</span></summary>
-              <div class="px-4 pb-4 text-vault-mute">Execute → see movement in <b class="text-white">48–72 hours</b>.</div>
+            <details class="card p-0 overflow-hidden">
+              <summary class="list-none flex items-center justify-between gap-2 px-4 py-3 cursor-pointer">
+                <span class="font-semibold">How fast can this print?</span><span class="opacity-75">＋</span>
+              </summary>
+              <div class="px-4 pb-4 text-vault-mute">If you execute, most see movement in <b class="text-white">48–72 hours</b>.</div>
             </details>
           </div>
         </div>
       </section>
 
+      <!-- FOOTER -->
       <footer class="border-t border-white/10">
         <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-vault-mute flex items-center justify-between">
           <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
           <p class="space-x-4">
-            <a class="hover:text-vault-em" href="#home">Home</a>
+            <a class="hover:text-vault-em" href="#home">Back to Home</a>
             <a class="hover:text-vault-em" href="#faq">FAQ</a>
             <a class="hover:text-vault-em" href="#join">Pricing</a>
           </p>
@@ -359,46 +339,67 @@ tailwind.config = {
       </footer>
     </section>
 
-    <!-- ===== JOIN ===== -->
+    <!-- JOIN -->
     <section id="join" data-view="join" class="hidden">
       <main class="max-w-5xl mx-auto px-5 py-10 text-center">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Choose your path</h1>
         <p class="mt-2 text-vault-mute">No fluff. Plays that print on a 2025 internet.</p>
 
         <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2 items-stretch">
-          <div class="glasscard p-8 text-left flex flex-col h-full">
+          <!-- Monthly -->
+          <div class="card p-8 text-left flex flex-col h-full relative">
             <h3 class="text-xl font-bold text-white">WARRIOR — Monthly</h3>
             <p class="mt-1 text-vault-mute">Start now. Cancel anytime.</p>
             <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
+
             <ul class="mt-6 space-y-3 text-vault-mute text-sm">
-              <li>Stripe Anywhere setup &amp; support</li><li>AI Prompt Catalog — resell rights</li>
-              <li>IRL hooks &amp; proof-clip templates</li><li>Phone-Only Ops</li>
-              <li>Weekly live breakdowns + Q&amp;A</li><li>Members chat &amp; deal sharing</li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Stripe Anywhere setup &amp; support (PNG/Fiji/Samoa/Tonga)</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>AI Prompt Catalog — resellable enterprise prompts</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>IRL hooks &amp; proof-clip templates</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Phone-Only Ops</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Weekly live breakdowns + Q&amp;A</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Members chat &amp; deal sharing</span></li>
             </ul>
-            <a id="monthlyBtn" class="btn btn-premium w-full mt-auto" target="_blank" rel="noopener noreferrer">Join with Card</a>
+
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" target="_blank" rel="noopener noreferrer"
+               class="btn-vault w-full mt-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              ENTER THE VAULT
+            </a>
           </div>
 
-          <div class="relative glasscard p-8 text-left flex flex-col h-full">
-            <div class="absolute -top-3 right-4 rounded-full bg-vault-gold px-3 py-1 text-xs font-bold text-[#0E140F]">Best Value</div>
+          <!-- Lifetime -->
+          <div class="card p-8 text-left flex flex-col h-full relative">
+            <span class="ribbon">BEST VALUE</span>
             <h3 class="text-xl font-bold text-white">CHIEF — Lifetime</h3>
             <p class="mt-1 text-vault-mute">Own the systems. Own the results.</p>
             <div class="mt-4 text-4xl font-extrabold text-white">$399<span class="text-base font-semibold text-vault-mute"> one-time</span></div>
+
             <ul class="mt-6 space-y-3 text-vault-mute text-sm">
-              <li>Everything in WARRIOR</li><li>Lifetime updates &amp; future modules</li>
-              <li>Private deal rooms + partner heatmap</li><li>1× Prompt audit token</li>
-              <li>Super UGC license for your editors</li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in WARRIOR</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime updates &amp; future modules</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Private deal rooms + partner heatmap</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>1× Prompt audit token (use anytime)</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Super UGC license for your editors</span></li>
             </ul>
-            <a id="lifetimeBtn" class="btn btn-premium w-full mt-auto" target="_blank" rel="noopener noreferrer">Join with Card</a>
+
+            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" target="_blank" rel="noopener noreferrer"
+               class="btn-vault w-full mt-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              ENTER THE VAULT
+            </a>
           </div>
         </div>
 
+        <!-- lock-in -->
         <section class="mx-auto max-w-3xl mt-12">
-          <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-wide">OR DO NOTHING..</h2>
-          <p class="text-vault-mute mt-1">Go watch Netflix. Work a 9–5.</p>
-          <div class="glasscard p-6 mt-6 text-center">
+          <div class="card p-6 text-center">
             <div class="text-3xl font-extrabold text-white">LOCK-IN YOUR PRICE OF <span class="text-vault-gold">$39</span></div>
             <p class="text-vault-mute mt-2">Hold lasts <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>.</p>
-            <a id="monthlyBtn2" class="btn btn-premium mt-5 inline-flex" target="_blank" rel="noopener noreferrer">Join with Card</a>
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn-vault mt-5 inline-flex" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              ENTER THE VAULT
+            </a>
           </div>
           <p class="mt-6 text-sm text-vault-mute"><a href="#home" class="text-vault-em">← Back to Home</a></p>
         </section>
@@ -418,128 +419,45 @@ tailwind.config = {
   </main>
 
   <!-- FLOATING CTA -->
-  <div id="ctaBar" class="cta-bar">
-    <a href="#join" class="btn btn-premium shadow-[0_0_24px_rgba(227,204,123,.26)]">
-      <span id="t-mini" class="tabular-nums mr-2">00:00:00</span> Enter the Vault
+  <div id="ctaBar" class="fixed left-0 right-0 bottom-4 z-40 flex justify-center">
+    <a href="#join" class="btn-vault shadow-glow">
+      <span id="t-mini" class="mr-2 tabular-nums">00:00:00</span>
+      ENTER THE VAULT
     </a>
   </div>
 
 <script>
-/* LINKS */
-const DISCORD_URL   = "https://discord.gg/G9TwqkwZ8G";
-const TELEGRAM_URL  = "https://t.me/+0HpFhs9tme03NTM1";
-const WHOP_MONTHLY  = "https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true";
-const WHOP_LIFETIME = "https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true";
-
-/* assets + year + buttons */
+/* assets + year */
 (() => {
   const logoSrc="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
   const fallback="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
   const logo=document.getElementById('logo'); if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallback;}
   ['y','y2'].forEach(id=>{const n=document.getElementById(id); if(n) n.textContent=new Date().getFullYear();});
-  document.getElementById('discordBtn').href = DISCORD_URL;
-  document.getElementById('tgBtn').href      = TELEGRAM_URL;
-  ['monthlyBtn','monthlyBtn2'].forEach(id=>{const a=document.getElementById(id); if(a) a.href=WHOP_MONTHLY;});
-  const lb=document.getElementById('lifetimeBtn'); if(lb) lb.href=WHOP_LIFETIME;
 })();
 
-/* SPA router + role badges highlight */
+/* router */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
-  const badges=document.getElementById('classBadges');
-  function show(view){ views.forEach(v=>v.classList.toggle('hidden', v.id!==view)); scrollTo(0,0); }
-  function route(){
-    const raw=(location.hash.replace('#','')||'home').toLowerCase();
-    const view=(['home','join'].includes(raw)?raw:(raw.includes('join')?'join':'home'));
-    show(view);
-    const role = raw.includes('fan')?'#fan' : raw.includes('clipper')?'#clipper' : raw.includes('warrior')?'#warrior' : '#clipper';
-    badges?.querySelectorAll('a').forEach(a=>a.classList.toggle('on', a.getAttribute('href')===role));
-  }
-  document.addEventListener('click',(e)=>{ const a=e.target.closest('a[href^="#"]'); if(!a) return; const h=a.getAttribute('href').slice(1); e.preventDefault(); location.hash='#'+h; });
+  function route(){const v=(location.hash.replace('#','')||'home').toLowerCase(); views.forEach(el=>el.classList.toggle('hidden',el.id!==v)); scrollTo(0,0);}
   addEventListener('hashchange',route); route();
-})();
-
-/* EMBERS (very soft) */
-(() => {
-  const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?90:140;
-    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.2+.3,o:Math.random()*.35+.12,col:Math.random()<.55}))}
-  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.col?'rgba(227,204,123,.55)':'rgba(33,253,142,.45)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.24;a.x+=Math.sin(a.y/42)*.18;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
-  rs();addEventListener('resize',rs);loop();
-})();
-
-/* ASH streaks (subtle) */
-(() => {
-  const c=document.getElementById('ash'),x=c.getContext('2d');let W,H,p=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?50:80;
-    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*40+18,sp:Math.random()*.9+.4,o:Math.random()*.18+.06}))}
-  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(244,255,249,.10)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.22;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
-  rs();addEventListener('resize',rs);loop();
-})();
-
-/* LIGHTNING (softer, slower, eye-friendly) */
-(() => {
-  const c=document.getElementById('lightning'),ctx=c.getContext('2d');let W,H,bolts=[];
-  function rs(){W=c.width=innerWidth;H=c.height=innerHeight}
-  function spawn(){
-    const startX=Math.random()*W, startY=-20, endX=startX+(Math.random()*100-50), endY=H*(.35+.45*Math.random());
-    const segs=10+Math.floor(Math.random()*6), path=[{x:startX,y:startY}];
-    for(let i=1;i<segs;i++){ const t=i/segs; path.push({x:startX+(endX-startX)*t+(Math.random()*28-14), y:startY+(endY-startY)*t+(Math.random()*20-10)}); }
-    path.push({x:endX,y:endY});
-    bolts.push({path,life:0,max:520+Math.random()*280});
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    for(const b of bolts){
-      const alpha=0.35*(1-Math.min(1,b.life/b.max)); // very soft
-      ctx.lineWidth=1.8; ctx.strokeStyle=`rgba(33,253,142,${alpha})`; ctx.shadowBlur=10; ctx.shadowColor='rgba(33,253,142,.35)';
-      ctx.beginPath(); ctx.moveTo(b.path[0].x,b.path[0].y); for(let i=1;i<b.path.length;i++) ctx.lineTo(b.path[i].x,b.path[i].y); ctx.stroke();
-      b.life+=14;
-    }
-    bolts=bolts.filter(b=>b.life<b.max);
-    if(Math.random()<0.035) spawn();  // fewer bolts
-    requestAnimationFrame(draw);
-  }
-  rs();addEventListener('resize',rs);draw();
 })();
 
 /* countdowns */
 const COHORT_CLOSE_AT="2025-08-20T23:59:59+12:00";
 const startTs=Date.now(), endTs=new Date(COHORT_CLOSE_AT).getTime();
-const timer=document.getElementById('timer'), mini=document.getElementById('t-mini'), bar=document.getElementById('deadlinebar');
+const timer=document.getElementById('timer'), mini=document.getElementById('t-mini');
 const pad=n=>String(n).padStart(2,'0');
-(function tick(){const left=Math.max(0,endTs-Date.now()), total=Math.max(1,endTs-startTs);
+(function tick(){const left=Math.max(0,endTs-Date.now());
   const h=Math.floor(left/3.6e6), m=Math.floor((left%3.6e6)/6e4), s=Math.floor((left%6e4)/1e3);
-  const t=`${pad(h)}:${pad(m)}:${pad(s)}`; if(timer) timer.textContent=t; if(mini) mini.textContent=t; if(bar) bar.style.transform=`scaleX(${left/total})`;
-  setTimeout(tick,1000)})();
+  const t=`${pad(h)} : ${pad(m)} : ${pad(s)}`; if(timer) timer.textContent=t; if(mini) mini.textContent=t; setTimeout(tick,1000)})();
 
-/* Lock-in timer */
-const LOCK_KEY='iv_lock_start', LOCK_MS=10*60*1000;
-const lockTimer2=document.getElementById('lockTimer2');
-(function renderLock(){ let t=Number(localStorage.getItem(LOCK_KEY)); const now=Date.now();
-  if(!t || now-t>LOCK_MS){ t=now; localStorage.setItem(LOCK_KEY,String(t)); }
+/* lock-in timer */
+const LOCK_KEY='iv_lock_start', LOCK_MS=10*60*1000, lockTimer2=document.getElementById('lockTimer2');
+(function renderLock(){let t=Number(localStorage.getItem(LOCK_KEY));const now=Date.now();
+  if(!t||now-t>LOCK_MS){t=now;localStorage.setItem(LOCK_KEY,String(t))}
   const left=Math.max(0,(t+LOCK_MS)-Date.now()), m=Math.floor(left/6e4), s=Math.floor((left%6e4)/1e3);
-  if(lockTimer2) lockTimer2.textContent=`${String(m).padStart(2,'0')}M : ${String(s).padStart(2,'0')}S`; setTimeout(renderLock,250);
-})();
-
-/* HUD counters (fun) */
-(() => {
-  const e1=document.getElementById('hud1'), e2=document.getElementById('hud2'), e3=document.getElementById('hud3');
-  let a=132, b=48, c=19;
-  (function step(){ a+=Math.random()<.35?1:0; b+=Math.random()<.30?1:0; c+=Math.random()<.25?1:0;
-    e1.textContent=a; e2.textContent=b; e3.textContent=c; setTimeout(step,1100) })();
-})();
-
-/* open links */
-document.getElementById('discordBtn').href="https://discord.gg/G9TwqkwZ8G";
-document.getElementById('tgBtn').href="https://t.me/+0HpFhs9tme03NTM1";
-document.getElementById('monthlyBtn').href=document.getElementById('monthlyBtn2').href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true";
-document.getElementById('lifetimeBtn').href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true";
-
-/* Mobile summary toggle fix */
-document.querySelectorAll('#faq details > summary').forEach((s)=>{
-  s.addEventListener('click',(e)=>{ const d=s.parentElement; e.preventDefault(); d.open=!d.open; }, {passive:false});
-});
+  if(lockTimer2) lockTimer2.textContent=`${String(m).padStart(2,'0')}M : ${String(s).padStart(2,'0')}S`;
+  setTimeout(renderLock,250)})();
 </script>
 </body>
-</html>
+                                                                                                                                                     </html>
