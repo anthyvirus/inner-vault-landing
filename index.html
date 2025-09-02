@@ -3,36 +3,39 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Inner Vault — Money Making is a Mechanism.</title>
+<title>Inner Vault — Build With Chaos. Cash With Proof.</title>
 
-<meta name="description" content="South Pacific operators. Stripe from the islands. $5k–$15k AI prompts. IRL proof. Money mechanism: attention → emotion → proof → conversion."/>
-<meta property="og:title" content="Inner Vault — Money Making is a Mechanism."/>
+<meta name="description" content="Fans, Clippers, Warriors — welcome to the Engine. IRL streams → proof clips → offers. Stripe from the islands. Green & gold only."/>
+<meta property="og:title" content="Inner Vault — Build With Chaos. Cash With Proof."/>
 <meta property="og:description" content="Stripe anywhere. IRL + AI + Super UGC. The engine the Pacific was missing."/>
 <meta property="og:type" content="website"/>
-<meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
-<meta name="theme-color" content="#030906"/>
+<meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/ncs-emblem.jpg"/>
+<meta name="theme-color" content="#07110D"/>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬆️</text></svg>"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>"/>
 <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Palette & shadows -->
 <script>
 tailwind.config = {
   theme: {
     extend: {
       colors: {
         vault: {
-          bg:   '#030906',
-          card: '#06110E',
-          rim:  '#0C1915',
-          gold: '#D8BF6A',
-          goldh:'#C3AA58',
-          em:   '#00B36E',
-          mute: '#CDE7DD',
-          text: '#F2FBF7'
+          bg:   '#07110D',  /* deep jade */
+          card: '#0B1A14',  /* darker card */
+          rim:  '#14251D',  /* ring/outline */
+          gold: '#D4B74F',  /* warm gold */
+          goldh:'#C3A743',
+          em:   '#16F08B',  /* neon pulse green */
+          em2:  '#35C96C',
+          mute: '#CFE8DC',
+          text: '#F3FCF7'
         }
       },
       boxShadow:{
         soft:'0 12px 30px rgba(0,0,0,.30)',
-        glow:'0 0 26px rgba(216,191,106,.38)'
+        glow:'0 0 26px rgba(22,240,139,.35)'
       }
     }
   }
@@ -41,40 +44,36 @@ tailwind.config = {
 
 <style>
   html{scroll-behavior:smooth}
-  body{background:#030906; line-height:1.55; color:#F2FBF7}
+  body{background:#07110D; line-height:1.55; color:#F3FCF7}
 
   /* ===== BACKGROUND ===== */
   .void{position:fixed;inset:0;z-index:-6;pointer-events:none;background:
-    radial-gradient(85% 70% at 50% 6%,#08130F 0%,#05100C 55%,#030906 100%)}
-  .blood{position:fixed;inset:0;z-index:-5;pointer-events:none;background:
-    radial-gradient(1200px 520px at 50% 100%,rgba(120,14,18,.35),transparent 62%),
-    radial-gradient(900px 420px at 0% 100%,rgba(120,14,18,.22),transparent 60%),
-    radial-gradient(900px 420px at 100% 100%,rgba(120,14,18,.22),transparent 60%);mix-blend-mode:screen}
+    radial-gradient(85% 70% at 50% 6%,#0a1a14 0%,#081710 55%,#07110D 100%)}
   .volcano{position:fixed;inset:0;z-index:-4;pointer-events:none;background:
-    radial-gradient(900px 420px at 50% 105%,rgba(255,60,0,.18),transparent 65%);animation:lavaPulse 4.2s ease-in-out infinite;mix-blend-mode:screen}
-  @keyframes lavaPulse{0%,100%{opacity:.5}50%{opacity:.85}}
+    radial-gradient(900px 420px at 50% 105%,rgba(212,183,79,.14),transparent 65%);animation:lavaPulse 4.2s ease-in-out infinite;mix-blend-mode:screen}
+  @keyframes lavaPulse{0%,100%{opacity:.45}50%{opacity:.85}}
   canvas#embers, canvas#ash{position:fixed;inset:0;pointer-events:none}
   canvas#embers{z-index:-3} canvas#ash{z-index:-2}
 
   /* ===== CARDS ===== */
-  .card{position:relative;background:linear-gradient(180deg,rgba(6,17,14,.98),rgba(6,17,14,.94));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 10px 32px rgba(0,0,0,.38)}
-  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#0C1915,#2C3B32,#0C1915);opacity:.6;filter:saturate(120%)}
+  .card{position:relative;background:linear-gradient(180deg,rgba(11,26,20,.98),rgba(11,26,20,.94));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 10px 32px rgba(0,0,0,.38)}
+  .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#14251D,#2C3B32,#14251D);opacity:.6;filter:saturate(120%)}
 
   /* ===== BUTTONS ===== */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:14px;font-weight:800;letter-spacing:.2px;padding:.9rem 1.25rem;transition:transform .12s ease, box-shadow .2s ease, background .2s ease}
   .btn:active{transform:translateY(1px)}
   .btn-premium{color:#EEF6F3;background:linear-gradient(180deg,#0F1A17,#0A1411);border:1px solid #1E2A25;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 8px 24px rgba(0,0,0,.45)}
-  .btn-premium:hover{box-shadow:inset 0 0 0 1px rgba(216,191,106,.35),0 0 18px rgba(216,191,106,.22)}
+  .btn-premium:hover{box-shadow:inset 0 0 0 1px rgba(22,240,139,.35),0 0 18px rgba(22,240,139,.22)}
   .btn-premium .ico{opacity:.9}
-  .btn-outline{border:1px solid rgba(0,179,110,.6);color:#00B36E;background:transparent}
-  .btn-outline:hover{background:rgba(0,179,110,.10)}
+  .btn-outline{border:1px solid rgba(22,240,139,.6);color:#16F08B;background:transparent}
+  .btn-outline:hover{background:rgba(22,240,139,.10)}
 
   /* ===== TOP ===== */
-  .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.62)}
-  .deadlinebar{height:4px;background:linear-gradient(90deg,#D8BF6A,#00B36E);transform-origin:left center;transition:transform .4s linear}
+  .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(7,17,13,.62)}
+  .deadlinebar{height:4px;background:linear-gradient(90deg,#D4B74F,#16F08B);transform-origin:left center;transition:transform .4s linear}
 
   /* ===== HERO ===== */
-  .h1-hero{text-shadow:0 0 16px rgba(216,191,106,.28), 0 0 30px rgba(0,179,110,.18)}
+  .h1-hero{text-shadow:0 0 16px rgba(22,240,139,.25), 0 0 30px rgba(212,183,79,.18)}
   .center-copy{text-align:center}
   .center-copy *{text-align:inherit}
   .center-copy .checks,.center-copy .checks *{text-align:left!important}
@@ -84,49 +83,48 @@ tailwind.config = {
   .li-check span{flex:1}
 
   /* ===== FAQ tidy ===== */
-  details.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-radius:16px;background:rgba(6,17,14,.94);border:1px solid rgba(255,255,255,.10);cursor:pointer}
+  details.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-radius:16px;background:rgba(11,26,20,.94);border:1px solid rgba(255,255,255,.10);cursor:pointer}
   details.faq summary::-webkit-details-marker{display:none}
   .faq-plus{width:18px;text-align:center;opacity:.85;flex:none}
-  .faq-a{padding:.5rem 1.1rem 1rem 1.1rem;color:#CDE7DD}
+  .faq-a{padding:.5rem 1.1rem 1rem 1.1rem;color:#CFE8DC}
 
   /* floating CTA on home only */
   .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
   .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
 
-  /* ===== Skills / AI banner ===== */
-  .skill-card{background:linear-gradient(180deg,rgba(6,17,14,.98),rgba(6,17,14,.94));
+  /* Skills / AI banner */
+  .skill-card{background:linear-gradient(180deg,rgba(11,26,20,.98),rgba(11,26,20,.94));
     border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:18px}
-  .skill-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.35), 0 0 22px rgba(0,179,110,.12)}
+  .skill-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.35), 0 0 22px rgba(22,240,139,.12)}
   .skill-icon{display:grid;place-items:center;height:42px;width:42px;border-radius:12px;
-    background:radial-gradient(120% 120% at 30% 20%,#0f1a17,rgba(6,17,14,.6));
+    background:radial-gradient(120% 120% at 30% 20%,#0f1a17,rgba(11,26,20,.6));
     border:1px solid rgba(255,255,255,.08)}
   .ai-banner{position:relative;overflow:hidden;border-radius:18px;
     background:linear-gradient(180deg,#0F1A17,#0A1411);border:1px solid #1E2A25;
     box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 10px 30px rgba(0,0,0,.45)}
   .ai-banner:before{content:"";position:absolute;inset:-30%;
     background:
-      radial-gradient(800px 220px at 10% 0%,rgba(216,191,106,.12),transparent 60%),
-      radial-gradient(800px 220px at 90% 100%,rgba(0,179,110,.12),transparent 60%),
+      radial-gradient(800px 220px at 10% 0%,rgba(212,183,79,.12),transparent 60%),
+      radial-gradient(800px 220px at 90% 100%,rgba(22,240,139,.12),transparent 60%),
       repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 1px,transparent 1px 6px);
     filter:blur(20px);opacity:.55;pointer-events:none}
-  .badge-new{background:#D8BF6A;color:#0E140F;border-radius:999px;padding:.15rem .5rem;
+  .badge-new{background:#D4B74F;color:#0E140F;border-radius:999px;padding:.15rem .5rem;
     font-size:.65rem;font-weight:800;letter-spacing:.04em}
 
-  /* ===== Legacy Oath ===== */
+  /* Legacy Oath */
   .oath{position:relative;overflow:hidden;border-radius:18px;
-    background:linear-gradient(180deg,rgba(12,25,21,.85),rgba(6,17,14,.92));
+    background:linear-gradient(180deg,rgba(20,37,29,.85),rgba(11,26,20,.92));
     border:1px solid rgba(255,255,255,.08)}
   .oath:before{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
     background:
-      radial-gradient(900px 220px at 50% 100%,rgba(160,20,22,.20),transparent 60%),
-      radial-gradient(800px 180px at 0% 0%,rgba(216,191,106,.10),transparent 60%)}
+      radial-gradient(900px 220px at 50% 100%,rgba(22,240,139,.20),transparent 60%),
+      radial-gradient(800px 180px at 0% 0%,rgba(212,183,79,.10),transparent 60%)}
 </style>
 </head>
 <body class="bg-vault-bg">
 
   <!-- BACKGROUND LAYERS -->
   <div class="void"></div>
-  <div class="blood"></div>
   <div class="volcano"></div>
   <canvas id="embers"></canvas>
   <canvas id="ash"></canvas>
@@ -148,8 +146,8 @@ tailwind.config = {
   <!-- HEADER -->
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a class="flex items-center gap-3" href="#home">
-      <img id="logo" class="h-12 w-12 md:h-14 md:w-14 rounded-xl ring-1 ring-white/10 shadow-[0_0_28px_rgba(216,191,106,.32)]" alt="Inner Vault logo"/>
-      <span class="tracking-widest text-sm md:text-base text-vault-em">INNER VAULT</span>
+      <img id="logo" class="h-12 w-12 md:h-14 md:w-14 rounded-xl ring-1 ring-white/10 shadow-[0_0_28px_rgba(22,240,139,.28)]" alt="Inner Vault logo"/>
+      <span class="tracking-widest text-sm md:text-base text-vault-em">INNER VAULT • NCS</span>
     </a>
     <nav class="hidden md:flex items-center gap-6 text-sm text-vault-mute">
       <a data-route="home" class="hover:text-vault-em" href="#home">Home</a>
@@ -165,14 +163,25 @@ tailwind.config = {
       <!-- HERO -->
       <section class="relative overflow-hidden">
         <div class="mx-auto max-w-4xl px-5 pt-4 pb-12 md:pb-16 center-copy">
-          <h1 class="h1-hero text-4xl md:text-6xl font-extrabold leading-tight">Money Making is a Mechanism.</h1>
-          <p class="mt-3 text-lg text-vault-mute">We’ll teach you to run it from the islands.</p>
+          <h1 class="h1-hero text-4xl md:text-6xl font-extrabold leading-tight">
+            Money is a Mechanism. We run it in public.
+          </h1>
+          <p class="mt-3 text-lg text-vault-mute">
+            IRL chaos → proof clips → offers. Island-built. Global paid.
+          </p>
+
+          <!-- Tiny badge row -->
+          <div class="mt-4 flex items-center justify-center gap-3 text-[11px] sm:text-xs font-bold tracking-widest uppercase">
+            <span class="px-3 py-1 rounded-full border border-white/10 text-vault-em bg-white/5">Fans</span>
+            <span class="px-3 py-1 rounded-full border border-white/10 text-vault-em bg-white/5">Clippers</span>
+            <span class="px-3 py-1 rounded-full border border-white/10 text-vault-em bg-white/5">Warriors</span>
+          </div>
 
           <ul class="checks mt-6 space-y-3 text-lg">
-            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">$5k–$15k</b> AI prompt deals</span></li>
-            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga</span></li>
-            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">IRL Proof & Clips</b> — streams engineered to sell</span></li>
-            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">AI Prompt Catalog</b> — enterprise prompts you can resell</span></li>
+            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Stripe Anywhere</b> routes for PNG • Fiji • Samoa • Tonga</span></li>
+            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">IRL Proof Engine</b> — hooks, loops, and auto-clip system</span></li>
+            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">$5k–$15k Prompt Packs</b> — enterprise templates you can resell</span></li>
+            <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Phone-Only Ops</b> — DM macros, reply trees, close from the couch</span></li>
           </ul>
 
           <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -183,6 +192,22 @@ tailwind.config = {
           </div>
 
           <p class="mt-6 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
+
+          <!-- Audience quick-cards -->
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            <div class="card ringfx p-4">
+              <div class="text-sm tracking-[.28em] uppercase text-vault-em">Fans</div>
+              <p class="mt-1 text-vault-mute">Daily streams, wild moments, private drops. Watch the empire get built in real-time.</p>
+            </div>
+            <div class="card ringfx p-4">
+              <div class="text-sm tracking-[.28em] uppercase text-vault-em">Clippers</div>
+              <p class="mt-1 text-vault-mute">We supply chaos + assets. You cut. <span class="text-vault-gold font-semibold">40% lifetime</span> on what your clips convert.</p>
+            </div>
+            <div class="card ringfx p-4">
+              <div class="text-sm tracking-[.28em] uppercase text-vault-em">Warriors</div>
+              <p class="mt-1 text-vault-mute">Systems, prompts, Stripe setups. Build your own cash engine — island to world.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -190,9 +215,7 @@ tailwind.config = {
       <section class="mx-auto max-w-5xl px-5 pb-10">
         <div class="oath p-6 md:p-8">
           <p class="text-xs md:text-sm tracking-[.28em] uppercase text-vault-mute">Legacy Oath</p>
-          <h2 class="mt-2 text-2xl md:text-4xl font-extrabold leading-tight">
-            Your bloodline is counting on you.
-          </h2>
+          <h2 class="mt-2 text-2xl md:text-4xl font-extrabold leading-tight">Your bloodline is counting on you.</h2>
           <p class="mt-2 text-vault-mute text-base md:text-lg">
             If you started—finish it. If you died tomorrow, would your kid have lunch money?
             Be the warrior they remember. Build the engine that feeds your family.
@@ -210,7 +233,7 @@ tailwind.config = {
       <section id="proof" class="mx-auto max-w-5xl px-5 pb-12">
         <div class="card ringfx p-3">
           <video class="w-full rounded-xl" id="proofVideo" autoplay loop playsinline controls preload="metadata"
-            poster="https://placehold.co/960x540/06110E/F2FBF7?text=IRL+Stream+Proof">
+            poster="https://placehold.co/960x540/0B1A14/F3FCF7?text=IRL+Stream+Proof">
             <source src="/lv_0_20250808150232.mp4" type="video/mp4"/>
             <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250808150232.mp4" type="video/mp4"/>
           </video>
@@ -222,17 +245,16 @@ tailwind.config = {
         <div class="mx-auto max-w-5xl px-5 py-12">
           <div class="card ringfx p-8 text-center">
             <div class="mb-4 flex justify-center">
-              <img class="h-16 w-16 rounded-xl ring-1 ring-white/10 shadow-[0_0_26px_rgba(216,191,106,.30)]"
+              <img class="h-16 w-16 rounded-xl ring-1 ring-white/10 shadow-[0_0_26px_rgba(22,240,139,.30)]"
                    src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS crest"/>
             </div>
             <h3 class="text-2xl font-bold text-white">No Code Society</h3>
-            <p class="mt-2 text-vault-mute">Our clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
+            <p class="mt-2 text-vault-mute">The clan behind the chaos. Deal rooms, daily breakdowns, partner heatmap.</p>
 
             <ul class="checks mt-6 space-y-3 text-lg">
-              <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga</span></li>
-              <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Deal Rooms</b> — share wins, swap prompts, move faster</span></li>
-              <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions</span></li>
-              <li class="li-check"><svg xmlns="http://www.w3.org/0/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Prompt Drops</b> — enterprise packs you can resell</span></li>
+              <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Editors & Operators</b> — get briefs, assets, and rev-share links</span></li>
+              <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions</span></li>
+              <li class="li-check"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span><b class="text-white">Prompt Drops</b> — enterprise packs you can resell</span></li>
             </ul>
 
             <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
@@ -245,18 +267,17 @@ tailwind.config = {
         </div>
       </section>
 
-      <!-- ===== NEW SKILLS / CATEGORIES ===== -->
+      <!-- ===== SKILLS ===== -->
       <section id="skills" class="border-t border-white/10">
         <div class="mx-auto max-w-6xl px-5 py-12">
           <h3 class="text-center text-vault-mute tracking-[.28em] uppercase">New Skills</h3>
           <p class="mt-2 text-center text-3xl md:text-4xl font-extrabold text-white">Build the Empire</p>
 
-          <!-- AI integrated banner -->
           <div class="ai-banner mt-6 p-5 md:p-6">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div class="flex items-center gap-3">
                 <div class="skill-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8BF6A" stroke-width="2"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M3 10h2M3 14h2M19 10h2M19 14h2M10 3v2M14 3v2M10 19v2M14 19v2"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4B74F" stroke-width="2"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M3 10h2M3 14h2M19 10h2M19 14h2M10 3v2M14 3v2M10 19v2M14 19v2"/></svg>
                 </div>
                 <div>
                   <div class="text-white font-bold">Artificial Intelligence</div>
@@ -267,12 +288,11 @@ tailwind.config = {
             </div>
           </div>
 
-          <!-- category grid -->
           <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <div class="skill-card">
               <div class="flex items-start gap-3">
                 <div class="skill-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#16F08B" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
                 </div>
                 <div>
                   <div class="text-white font-semibold">Ready-to-Sell Prompts</div>
@@ -284,7 +304,7 @@ tailwind.config = {
             <div class="skill-card">
               <div class="flex items-start gap-3">
                 <div class="skill-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="15" height="10" rx="2"/><path d="M22 7l-5 3v4l5 3z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#16F08B" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="15" height="10" rx="2"/><path d="M22 7l-5 3v4l5 3z"/></svg>
                 </div>
                 <div>
                   <div class="text-white font-semibold">IRL Streamer Lab</div>
@@ -296,7 +316,7 @@ tailwind.config = {
             <div class="skill-card">
               <div class="flex items-start gap-3">
                 <div class="skill-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#16F08B" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
                 </div>
                 <div>
                   <div class="text-white font-semibold">UGC & Offer Funnels</div>
@@ -308,7 +328,7 @@ tailwind.config = {
             <div class="skill-card">
               <div class="flex items-start gap-3">
                 <div class="skill-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#16F08B" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                 </div>
                 <div>
                   <div class="text-white font-semibold">Build & Deploy Apps</div>
@@ -320,7 +340,7 @@ tailwind.config = {
             <div class="skill-card">
               <div class="flex items-start gap-3">
                 <div class="skill-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5V6.5a2 2 0 012-2h12M20 4.5v13m0 0H6a2 2 0 01-2-2"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#16F08B" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5V6.5a2 2 0 012-2h12M20 4.5v13m0 0H6a2 2 0 01-2-2"/></svg>
                 </div>
                 <div>
                   <div class="text-white font-semibold">AI Course OS</div>
@@ -332,7 +352,7 @@ tailwind.config = {
             <div class="skill-card">
               <div class="flex items-start gap-3">
                 <div class="skill-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#00B36E" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#16F08B" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
                 </div>
                 <div>
                   <div class="text-white font-semibold">Stripe & Payments</div>
@@ -342,10 +362,9 @@ tailwind.config = {
             </div>
           </div>
 
-          <!-- CTA -->
           <div class="mt-8 text-center">
             <a href="#join" class="btn btn-premium text-base md:text-lg px-6">ENTER THE VAULT</a>
-            <div class="text-sm text-vault-mute mt-2">Get access to all the secrets</div>
+            <div class="text-sm text-vault-mute mt-2">Not a spectator sport. Pick a side: Fan • Clipper • Warrior.</div>
           </div>
         </div>
       </section>
@@ -420,13 +439,12 @@ tailwind.config = {
       </footer>
     </section>
 
-    <!-- ===== VIEW: JOIN (separate page) ===== -->
+    <!-- ===== VIEW: JOIN ===== -->
     <section id="join" data-view="join" class="hidden">
       <main class="max-w-5xl mx-auto px-5 py-10 text-center">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Choose your path</h1>
         <p class="mt-2 text-vault-mute">No fluff. Plays that print on a 2025 internet.</p>
 
-        <!-- Aligned buttons on desktop -->
         <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2 items-stretch">
           <!-- Monthly -->
           <div class="card ringfx p-8 text-left flex flex-col h-full">
@@ -435,17 +453,15 @@ tailwind.config = {
             <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
 
             <ul class="mt-6 space-y-3 text-vault-mute text-sm">
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Stripe Anywhere setup &amp; support (PNG/Fiji/Samoa/Tonga)</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>AI Prompt Catalog — resellable enterprise prompts</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>IRL Hooks, retention loops &amp; Proof-clip templates</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Phone-Only Ops: DM macros, reply trees, scripts</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Weekly live breakdowns + Q&amp;A</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Members chat &amp; deal sharing</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Stripe Anywhere setup &amp; support (PNG/Fiji/Samoa/Tonga)</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>AI Prompt Catalog — resellable enterprise prompts</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>IRL Hooks, retention loops &amp; Proof-clip templates</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Phone-Only Ops: DM macros, reply trees, scripts</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Weekly live breakdowns + Q&amp;A</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Members chat &amp; deal sharing</span></li>
             </ul>
 
-            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-               class="btn btn-premium w-full mt-auto"
-               target="_blank" rel="noopener noreferrer">
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn btn-premium w-full mt-auto" target="_blank" rel="noopener noreferrer">
               <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
             </a>
@@ -459,16 +475,14 @@ tailwind.config = {
             <div class="mt-4 text-4xl font-extrabold text-white">$399<span class="text-base font-semibold text-vault-mute"> one-time</span></div>
 
             <ul class="mt-6 space-y-3 text-vault-mute text-sm">
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in WARRIOR</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime updates &amp; future modules</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Private deal rooms + partner heatmap</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>1× Prompt audit token (use anytime)</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#00B36E" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Super UGC license for your editors</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in WARRIOR</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime updates &amp; future modules</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Private deal rooms + partner heatmap</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>1× Prompt audit token (use anytime)</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#16F08B" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Super UGC license for your editors</span></li>
             </ul>
 
-            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true"
-               class="btn btn-premium w-full mt-auto"
-               target="_blank" rel="noopener noreferrer">
+            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="btn btn-premium w-full mt-auto" target="_blank" rel="noopener noreferrer">
               <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
             </a>
@@ -482,8 +496,7 @@ tailwind.config = {
           <div class="card ringfx p-6 mt-6 text-center">
             <div class="text-3xl font-extrabold text-white">LOCK-IN YOUR PRICE OF <span class="text-vault-gold">$39</span></div>
             <p class="text-vault-mute mt-2">Hold lasts <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>.</p>
-            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true"
-               class="btn btn-premium mt-5 inline-flex" target="_blank" rel="noopener noreferrer">
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn btn-premium mt-5 inline-flex" target="_blank" rel="noopener noreferrer">
               <svg class="ico" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               Join with Card
             </a>
@@ -505,10 +518,11 @@ tailwind.config = {
     </section>
   </main>
 
-  <!-- FLOATING CTA (only on home) -->
+  <!-- FLOATING CTA -->
   <div id="ctaBar" class="cta-bar">
     <a href="#join" class="btn btn-premium shadow-glow cta">
-      Enter the Vault before <span id="t-mini" class="ml-1 tabular-nums">00:00:00</span>
+      <span id="ctaText">Enter before the clock kills your price —</span>
+      <span id="t-mini" class="ml-1 tabular-nums">00:00:00</span>
     </a>
   </div>
 
@@ -528,13 +542,19 @@ tailwind.config = {
   const y2=document.getElementById('y2'); if(y2) y2.textContent=new Date().getFullYear();
 })();
 
-/* SPA router (home vs pricing) */
+/* SPA router (home vs join) + dynamic CTA text */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
   const ctaBar=document.getElementById('ctaBar');
+  const ctaText=document.getElementById('ctaText');
+
   function show(view){
     views.forEach(v=>v.classList.toggle('hidden', v.id!==view));
-    if(ctaBar) ctaBar.style.display = (view==='home') ? 'flex' : 'none';
+    if(ctaBar) ctaBar.style.display = (view==='home' || view==='join') ? 'flex' : 'none';
+    if(ctaText){
+      if(view==='home'){ ctaText.textContent='Enter before the clock kills your price —'; }
+      if(view==='join'){ ctaText.textContent='Finish checkout while your price is locked —'; }
+    }
     scrollTo(0,0);
   }
   function route(){
@@ -549,12 +569,12 @@ tailwind.config = {
   addEventListener('hashchange',route); route();
 })();
 
-/* particles / embers */
+/* embers */
 (() => {
   const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
   function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?180:260;
-    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.4+.35,o:Math.random()*.55+.26,b:Math.random()<.38}))}
-  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(160,20,22,.92)':'rgba(216,191,106,.95)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.35;a.x+=Math.sin(a.y/42)*.23;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
+    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.4+.35,o:Math.random()*.55+.26,g:Math.random()<.6}))}
+  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.g?'rgba(22,240,139,.90)':'rgba(212,183,79,.92)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.35;a.x+=Math.sin(a.y/42)*.23;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
 /* ash streaks */
@@ -562,7 +582,7 @@ tailwind.config = {
   const c=document.getElementById('ash'),x=c.getContext('2d');let W,H,p=[];
   function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?80:130;
     p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*46+22,sp:Math.random()*1.2+.6,o:Math.random()*.3+.08}))}
-  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(242,251,247,.16)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.32;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
+  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(243,252,247,.16)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.32;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
   rs();addEventListener('resize',rs);loop();
 })();
 
