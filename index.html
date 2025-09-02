@@ -2,43 +2,39 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Inner Vault — Money Making is a Mechanism.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Inner Vault — We print on chaos. Live.</title>
 
-<meta name="description" content="Fans • Clippers • Warriors. IRL chaos + AI systems. We farm money live from the islands."/>
-<meta property="og:title" content="Inner Vault — Money Making is a Mechanism."/>
-<meta property="og:description" content="Pick your class: Fan, Clipper, Warrior. Enter the Vault. Build the Empire."/>
+<meta name="description" content="Fans watch. Clippers print. Warriors build. IRL chaos + AI systems. Stripe from the islands. Enter the Vault."/>
+<meta property="og:title" content="Inner Vault — We print on chaos. Live."/>
+<meta property="og:description" content="Pick your class → Fan • Clipper • Warrior. Spawn in and cause problems on purpose."/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
 <meta name="theme-color" content="#030906"/>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
   theme: {
     extend: {
-      fontFamily:{ display:['Inter', 'ui-sans-serif', 'system-ui'] },
-      colors:{
-        vault:{ bg:'#030906', card:'#06110E', rim:'#0C1915', gold:'#D8BF6A', goldh:'#C3AA58', em:'#00B36E', mute:'#CDE7DD', text:'#F2FBF7', neon:'#27F4A8', mag:'#C87CFF', red:'#F56B6B' }
+      colors: {
+        vault: {
+          bg:   '#030906',
+          card: '#06110E',
+          rim:  '#0C1915',
+          gold: '#D8BF6A',
+          goldh:'#C3AA58',
+          em:   '#00B36E',
+          neon: '#21FD8E',
+          mute: '#CDE7DD',
+          text: '#F2FBF7'
+        }
       },
       boxShadow:{
         soft:'0 12px 30px rgba(0,0,0,.30)',
         glow:'0 0 26px rgba(216,191,106,.38)',
-        neon:'0 0 32px rgba(39,244,168,.25)',
-        neonMag:'0 0 32px rgba(200,124,255,.25)'
-      },
-      animation:{
-        float:'float 6s ease-in-out infinite',
-        pulsef:'pulsef 2.8s ease-in-out infinite',
-        scan:'scan 5s linear infinite',
-        shimmer:'shimmer 2.4s linear infinite'
-      },
-      keyframes:{
-        float:{ '0%,100%':{ transform:'translateY(-2px)' }, '50%':{ transform:'translateY(2px)' }},
-        pulsef:{ '0%,100%':{ opacity:.55 }, '50%':{ opacity:.95 }},
-        scan:{ '0%':{ transform:'translateY(-100%)' }, '100%':{ transform:'translateY(100%)' }},
-        shimmer:{ '0%':{ backgroundPosition:'-200% 0' }, '100%':{ backgroundPosition:'200% 0' } }
+        neon:'0 0 22px rgba(33,253,142,.25), 0 0 60px rgba(33,253,142,.12)'
       }
     }
   }
@@ -47,80 +43,81 @@ tailwind.config = {
 
 <style>
   html{scroll-behavior:smooth}
-  body{background:#030906;color:#F2FBF7;line-height:1.55;font-feature-settings:"ss01" on}
+  body{background:#030906; line-height:1.55; color:#F2FBF7}
 
   /* ===== LOBBY BACKGROUND ===== */
   .void{position:fixed;inset:0;z-index:-6;pointer-events:none;background:
     radial-gradient(85% 70% at 50% 6%,#08130F 0%,#05100C 55%,#030906 100%)}
-  /* parallax grid + neon fog */
-  .gridfx{position:fixed;inset:0;z-index:-5;pointer-events:none;
-    background:
-      linear-gradient(transparent 96%,rgba(0,179,110,.08)) 0 0/100% 22px,
-      linear-gradient(90deg,transparent 96%,rgba(0,179,110,.08)) 0 0/22px 100%}
-  .neonfog{position:fixed;inset:0;z-index:-4;pointer-events:none;mix-blend-mode:screen;
-    background:
-      radial-gradient(1200px 520px at 50% 110%,rgba(39,244,168,.18),transparent 65%),
-      radial-gradient(900px 420px at 10% 10%,rgba(200,124,255,.12),transparent 60%),
-      radial-gradient(900px 420px at 90% 90%,rgba(216,191,106,.14),transparent 60%)}
-  .scanline{position:fixed;inset:0;z-index:-3;pointer-events:none;opacity:.12;
-    background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,.25) 50%,rgba(255,255,255,0) 100%);
-    animation:scan 6.5s linear infinite}
+  /* holo grid */
+  .gridfx:before{content:"";position:fixed;inset:0;z-index:-5;pointer-events:none;opacity:.25;
+    background-image:
+      linear-gradient(to right, rgba(33,253,142,.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(33,253,142,.08) 1px, transparent 1px);
+    background-size:36px 36px,36px 36px; mix-blend-mode:screen}
+  /* floating particles */
+  canvas#embers, canvas#ash{position:fixed;inset:0;pointer-events:none}
+  canvas#embers{z-index:-4} canvas#ash{z-index:-3}
 
   /* ===== CARDS ===== */
   .card{position:relative;background:linear-gradient(180deg,rgba(6,17,14,.98),rgba(6,17,14,.94));border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 10px 32px rgba(0,0,0,.38)}
   .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;background:conic-gradient(from 210deg,#0C1915,#2C3B32,#0C1915);opacity:.6;filter:saturate(120%)}
-  .hud{position:relative;overflow:hidden}
-  .hud:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;border:1px solid rgba(39,244,168,.20);box-shadow:inset 0 0 36px rgba(39,244,168,.06)}
 
   /* ===== BUTTONS ===== */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;border-radius:14px;font-weight:800;letter-spacing:.2px;padding:.9rem 1.25rem;transition:transform .12s ease, box-shadow .2s ease, background .2s ease}
   .btn:active{transform:translateY(1px)}
   .btn-premium{color:#EEF6F3;background:linear-gradient(180deg,#0F1A17,#0A1411);border:1px solid #1E2A25;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04),0 8px 24px rgba(0,0,0,.45)}
   .btn-premium:hover{box-shadow:inset 0 0 0 1px rgba(216,191,106,.35),0 0 18px rgba(216,191,106,.22)}
-  .btn-outline{border:1px solid rgba(39,244,168,.6);color:#27F4A8;background:transparent}
-  .btn-outline:hover{background:rgba(39,244,168,.10)}
+  .btn-outline{border:1px solid rgba(33,253,142,.6);color:#21FD8E;background:transparent}
+  .btn-outline:hover{background:rgba(33,253,142,.10);box-shadow:var(--neon,0 0 0 rgba(0,0,0,0))}
+  .btn-glitch{position:relative;overflow:hidden}
+  .btn-glitch:hover{transform:translateY(-1px) skewX(-1deg);box-shadow:0 8px 30px rgba(0,0,0,.35), var(--neon)}
+  .btn-glitch:after,.btn-glitch:before{content:"";position:absolute;inset:0;border-radius:14px;opacity:.0;transition:opacity .2s ease}
+  .btn-glitch:before{border:1px dashed rgba(33,253,142,.45)}
+  .btn-glitch:after{box-shadow:0 0 26px rgba(33,253,142,.25)}
+  .btn-glitch:hover:after,.btn-glitch:hover:before{opacity:.7}
+
+  /* ===== TOP ===== */
+  .glass{backdrop-filter:saturate(160%) blur(10px);background:rgba(5,18,14,.62)}
+  .deadlinebar{height:4px;background:linear-gradient(90deg,#D8BF6A,#21FD8E);transform-origin:left center;transition:transform .4s linear}
 
   /* ===== HERO ===== */
-  .h1-hero{text-shadow:0 0 16px rgba(216,191,106,.28),0 0 30px rgba(39,244,168,.18)}
-  .badges{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
-  .badge{font-size:.7rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(255,255,255,.1);padding:.4rem .65rem;border-radius:999px;background:rgba(6,17,14,.6)}
-  .badge--fan{border-color:rgba(39,244,168,.4);box-shadow:0 0 0 1px rgba(39,244,168,.25),var(--sh,0 0 0 #000)}
-  .badge--clip{border-color:rgba(200,124,255,.35);box-shadow:0 0 0 1px rgba(200,124,255,.25)}
-  .badge--war{border-color:rgba(216,191,106,.35);box-shadow:0 0 0 1px rgba(216,191,106,.25)}
+  .h1-hero{text-shadow:0 0 16px rgba(216,191,106,.28), 0 0 30px rgba(33,253,142,.16)}
+  .badge{border:1px solid #1E2A25;background:linear-gradient(180deg,#0F1A17,#0A1411);padding:.35rem .7rem;border-radius:999px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.7rem}
+  .badge.on{border-color:rgba(33,253,142,.6);color:#21FD8E;box-shadow:0 0 16px rgba(33,253,142,.16) inset}
 
-  /* ===== FAQ ===== */
+  /* ===== FAQ tidy ===== */
   details.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-radius:16px;background:rgba(6,17,14,.94);border:1px solid rgba(255,255,255,.10);cursor:pointer}
   details.faq summary::-webkit-details-marker{display:none}
   .faq-plus{width:18px;text-align:center;opacity:.85;flex:none}
   .faq-a{padding:.5rem 1.1rem 1rem 1.1rem;color:#CDE7DD}
 
-  /* CTA mini */
+  /* HUD meters */
+  .hud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+  .hud .tile{border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,#0A1411,#0A1411);border-radius:12px;padding:.75rem 1rem}
+  .hud .n{font-feature-settings:"tnum" 1,"lnum" 1}
+
+  /* floating CTA on home only */
   .cta-bar{position:fixed;left:0;right:0;bottom:12px;z-index:30;display:flex;justify-content:center;transition:opacity .25s ease, transform .25s ease}
   .cta-bar.hide{opacity:0;transform:translateY(12px);pointer-events:none}
-
-  /* shimmer lines */
-  .shimmer{
-    background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(39,244,168,.15) 50%,rgba(255,255,255,0) 100%);
-    background-size:200% 100%;
-    animation:shimmer 2.8s infinite linear;
-  }
 </style>
 </head>
-<body class="font-display">
+<body class="bg-vault-bg gridfx">
 
-  <!-- LOBBY BACKDROP -->
+  <!-- BACKGROUND LAYERS -->
   <div class="void"></div>
-  <div class="gridfx"></div>
-  <div class="neonfog"></div>
-  <div class="scanline"></div>
+  <canvas id="embers"></canvas>
+  <canvas id="ash"></canvas>
 
-  <!-- TOP BAR -->
-  <div class="sticky top-0 z-50 border-b border-white/10 backdrop-blur-md bg-black/30">
+  <!-- STICKY TOP -->
+  <div class="sticky top-0 z-50 border-b border-white/10 glass">
+    <div class="mx-auto max-w-7xl px-4 pt-2"><div class="deadlinebar" id="deadlinebar"></div></div>
     <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
       <div>Seats Left: <span class="font-semibold text-vault-em">7</span></div>
       <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-vault-em"></span></div>
       <div class="hidden sm:flex items-center gap-3">
-        <a href="#join" class="btn btn-premium" id="ctaTop">Enter the Vault</a>
+        <a href="#join" class="btn btn-premium btn-glitch">Enter the Vault
+          <svg class="opacity-80" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -140,47 +137,61 @@ tailwind.config = {
   </header>
 
   <main id="app">
-    <!-- ===== HOME ===== -->
+    <!-- ===== VIEW: HOME ===== -->
     <section id="home" data-view="home">
       <!-- HERO -->
       <section class="relative overflow-hidden">
-        <div class="mx-auto max-w-4xl px-5 pt-4 pb-12 md:pb-16 text-center">
-          <h1 class="h1-hero text-4xl md:text-6xl font-extrabold leading-tight">Money is a mechanism. We farm it live.</h1>
-          <p class="mt-3 text-lg text-vault-mute">Pick your class. Spawn in. Fans watch • Clippers print • Warriors build.</p>
+        <div class="mx-auto max-w-4xl px-5 pt-4 pb-10 md:pb-12 text-center">
+          <h1 class="h1-hero text-4xl md:text-6xl font-extrabold leading-tight">We print on chaos. Live.</h1>
+          <p class="mt-3 text-lg text-vault-mute">Pick your class → Fan • Clipper • Warrior. Spawn in and cause problems on purpose.</p>
 
-          <!-- BADGES -->
-          <div class="badges mt-4">
-            <span class="badge badge--fan">Fans</span>
-            <span class="badge badge--clip">Clippers</span>
-            <span class="badge badge--war">Warriors</span>
+          <!-- class badges -->
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-2" id="classBadges">
+            <a href="#fan" class="badge">Fan</a>
+            <a href="#clipper" class="badge">Clipper</a>
+            <a href="#warrior" class="badge">Warrior</a>
           </div>
 
-          <ul class="mt-6 space-y-3 text-lg text-left max-w-xl mx-auto">
-            <li class="flex gap-3 items-start"><span class="text-vault-neon">✦</span><span><b class="text-white">IRL Proof & Clips</b> — chaos engineered to sell</span></li>
-            <li class="flex gap-3 items-start"><span class="text-vault-neon">✦</span><span><b class="text-white">$5k–$15k</b> AI prompt deals</span></li>
-            <li class="flex gap-3 items-start"><span class="text-vault-neon">✦</span><span><b class="text-white">Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga</span></li>
-            <li class="flex gap-3 items-start"><span class="text-vault-neon">✦</span><span><b class="text-white">Clip Farming</b> — edit my chaos → stack <b>40% lifetime</b></span></li>
+          <ul class="mt-6 space-y-3 text-lg text-left mx-auto max-w-[680px]">
+            <li class="flex gap-3"><span class="text-vault-neon">✦</span><span><b class="text-white">$5k–$15k</b> AI prompt deals</span></li>
+            <li class="flex gap-3"><span class="text-vault-neon">✦</span><span><b class="text-white">Stripe Anywhere</b> — PNG / Fiji / Samoa / Tonga</span></li>
+            <li class="flex gap-3"><span class="text-vault-neon">✦</span><span><b class="text-white">IRL Proof</b> — engineered chaos that sells</span></li>
+            <li class="flex gap-3"><span class="text-vault-neon">✦</span><span><b class="text-white">Clip Farming</b> — edit my chaos → stack <b>40%</b></span></li>
           </ul>
 
           <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <a href="#join" class="btn btn-premium" id="ctaHero">
-              Enter the Vault — <span id="ctaRole">Choose your lane</span>
-            </a>
-            <a href="#proof" class="btn btn-outline">See Proof ↓</a>
+            <a id="heroCta" href="#join" class="btn btn-premium btn-glitch">Enter the Vault — Take 40%</a>
+            <a href="#proof" class="btn btn-outline btn-glitch" style="--neon:var(--neon);">See Proof ↓</a>
+          </div>
+
+          <!-- socials -->
+          <div class="mt-4 flex items-center justify-center gap-3">
+            <a id="discordBtn" class="btn btn-outline btn-glitch" target="_blank" rel="noopener">Join Discord</a>
+            <a id="tgBtn" class="btn btn-outline btn-glitch" target="_blank" rel="noopener">Telegram</a>
+          </div>
+
+          <!-- HUD mini -->
+          <div class="hud mt-6 mx-auto max-w-3xl">
+            <div class="tile"><div class="text-xs text-vault-mute uppercase tracking-widest">War Room</div><div class="text-xl n" id="hud1">0</div></div>
+            <div class="tile"><div class="text-xs text-vault-mute uppercase tracking-widest">Clips Today</div><div class="text-xl n" id="hud2">0</div></div>
+            <div class="tile"><div class="text-xs text-vault-mute uppercase tracking-widest">Editors Online</div><div class="text-xl n" id="hud3">0</div></div>
           </div>
 
           <p class="mt-6 text-vault-mute">Access to <span class="text-vault-em font-semibold">No Code Society</span> is only through Inner Vault.</p>
         </div>
       </section>
 
-      <!-- LEGACY OATH -->
+      <!-- LEGACY Oath -->
       <section class="mx-auto max-w-5xl px-5 pb-10">
-        <div class="oath card hud p-6 md:p-8">
+        <div class="card ringfx p-6 md:p-8">
           <p class="text-xs md:text-sm tracking-[.28em] uppercase text-vault-mute">Legacy Oath</p>
           <h2 class="mt-2 text-2xl md:text-4xl font-extrabold leading-tight">Your bloodline is counting on you.</h2>
-          <p class="mt-2 text-vault-mute text-base md:text-lg">We build empires from $300 rooms with bedbugs. If I die tomorrow, my clan still eats because the systems print. Can yours?</p>
+          <p class="mt-2 text-vault-mute text-base md:text-lg">
+            We build empires from $300 rooms with bedbugs. If I disappear tomorrow, my clan still eats because the systems print.
+            <b class="text-white">No excuses.</b>
+          </p>
           <div class="mt-5">
-            <a href="#join" class="btn btn-premium">Swear the Oath — Enter</a>
+            <a href="#join" class="btn btn-premium btn-glitch">Swear the Oath — Enter</a>
           </div>
         </div>
       </section>
@@ -205,34 +216,34 @@ tailwind.config = {
                    src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/2b73fee5-73e8-4496-8f57-4203ce4ffabd_removalai_preview.png" alt="NCS crest"/>
             </div>
             <h3 class="text-2xl font-bold text-white">No Code Society</h3>
-            <p class="mt-2 text-vault-mute">Our clan. Daily breakdowns, deal rooms, and plays that print from the islands to the world.</p>
+            <p class="mt-2 text-vault-mute">Our clan. Daily breakdowns, deal rooms, and plays that print.</p>
 
-            <ul class="mt-6 space-y-3 text-lg text-left max-w-xl mx-auto">
-              <li class="flex gap-3 items-start"><span class="text-vault-neon">✦</span><span><b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga</span></li>
-              <li class="flex gap-3 items-start"><span class="text-vault-neon">✦</span><span><b class="text-white">Deal Rooms</b> — share wins, swap prompts, move faster</span></li>
-              <li class="flex gap-3 items-start"><span class="text-vault-neon">✦</span><span><b class="text-white">Live Sprints</b> — weekly IRL + AI working sessions</span></li>
-              <li class="flex gap-3 items-start"><span class="text-vault-neon">✦</span><span><b class="text-white">Prompt Drops</b> — enterprise packs you can resell</span></li>
+            <ul class="mt-6 space-y-3 text-lg text-left mx-auto max-w-[680px]">
+              <li class="flex gap-3"><span class="text-vault-neon">✦</span><span><b class="text-white">220+ members</b> across PNG / Fiji / Samoa / Tonga</span></li>
+              <li class="flex gap-3"><span class="text-vault-neon">✦</span><span><b class="text-white">Deal Rooms</b> — wins, prompts, speed</span></li>
+              <li class="flex gap-3"><span class="text-vault-neon">✦</span><span><b class="text-white">Live Sprints</b> — IRL + AI</span></li>
+              <li class="flex gap-3"><span class="text-vault-neon">✦</span><span><b class="text-white">Prompt Drops</b> — resell rights</span></li>
             </ul>
 
             <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
-              <a href="#join" class="btn btn-premium">Enter the Vault</a>
-              <a href="#reviews" class="btn btn-outline">See Reviews ↓</a>
+              <a href="#join" class="btn btn-premium btn-glitch">Enter the Vault</a>
+              <a href="#reviews" class="btn btn-outline btn-glitch">See Reviews ↓</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ===== NEW SKILLS / CATEGORIES ===== -->
+      <!-- ===== SKILLS ===== -->
       <section id="skills" class="border-t border-white/10">
         <div class="mx-auto max-w-6xl px-5 py-12">
           <h3 class="text-center text-vault-mute tracking-[.28em] uppercase">New Skills</h3>
           <p class="mt-2 text-center text-3xl md:text-4xl font-extrabold text-white">Build the Empire</p>
 
           <!-- AI integrated banner -->
-          <div class="ai-banner card hud mt-6 p-5 md:p-6">
+          <div class="mt-6 p-5 md:p-6 card ringfx">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div class="flex items-center gap-3">
-                <div class="skill-icon grid place-items-center h-10 w-10 rounded-lg border border-white/10 bg-[#0f1a17]">
+                <div class="h-[42px] w-[42px] grid place-items-center rounded-xl border border-white/10 bg-[#0f1a17]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D8BF6A" stroke-width="2"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M3 10h2M3 14h2M19 10h2M19 14h2M10 3v2M14 3v2M10 19v2M14 19v2"/></svg>
                 </div>
                 <div>
@@ -240,37 +251,25 @@ tailwind.config = {
                   <div class="text-sm text-vault-mute -mt-0.5">Integrated across all tracks — prompts, edits, funnels.</div>
                 </div>
               </div>
-              <span class="badge-new bg-vault-gold text-[#0E140F] rounded-full px-3 py-1 text-xs font-bold">NEW</span>
+              <span class="bg-vault-gold text-[#0E140F] rounded-full px-2.5 py-0.5 text-xs font-extrabold tracking-wider">NEW</span>
             </div>
           </div>
 
           <!-- category grid -->
           <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-
-            <!-- IRL Clip Farming -->
-            <div class="card hud p-5">
+            <div class="card ringfx p-5">
               <div class="flex items-start gap-3">
-                <div class="grid place-items-center h-10 w-10 rounded-lg border border-white/10 bg-[#0f1a17]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#27F4A8" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><path d="M10 20h4"/></svg>
-                </div>
+                <div class="h-[42px] w-[42px] grid place-items-center rounded-xl border border-white/10 bg-[#0f1a17]">🖼️</div>
                 <div>
                   <div class="text-white font-semibold">IRL Clip Farming</div>
-                  <p class="text-sm text-vault-mute">Hooks that hit, captions that slap, CTAs that print. Edit my chaos → post daily → stack <span class="text-white font-semibold">40% lifetime</span>.</p>
-                  <ul class="mt-2 text-xs text-vault-mute space-y-1">
-                    <li>• 0:03 hook packs • meme overlays • “save/DM” prompts</li>
-                    <li>• TikTok/Shorts presets (9:16, 1:1, 16:9)</li>
-                    <li>• A/B titles & thumbs with AI voting</li>
-                  </ul>
+                  <p class="text-sm text-vault-mute">Edit my chaos. Post daily. <span class="text-white font-semibold">Take 40% for life.</span></p>
                 </div>
               </div>
             </div>
 
-            <!-- Ready-to-Sell Prompts -->
-            <div class="card hud p-5">
+            <div class="card ringfx p-5">
               <div class="flex items-start gap-3">
-                <div class="grid place-items-center h-10 w-10 rounded-lg border border-white/10 bg-[#0f1a17]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#27F4A8" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
-                </div>
+                <div class="h-[42px] w-[42px] grid place-items-center rounded-xl border border-white/10 bg-[#0f1a17]">⚙️</div>
                 <div>
                   <div class="text-white font-semibold">Ready-to-Sell Prompts</div>
                   <p class="text-sm text-vault-mute">Enterprise packs ($5k–$15k) with resale rights.</p>
@@ -278,25 +277,19 @@ tailwind.config = {
               </div>
             </div>
 
-            <!-- UGC Funnels -->
-            <div class="card hud p-5">
+            <div class="card ringfx p-5">
               <div class="flex items-start gap-3">
-                <div class="grid place-items-center h-10 w-10 rounded-lg border border-white/10 bg-[#0f1a17]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#27F4A8" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="15" height="10" rx="2"/><path d="M22 7l-5 3v4l5 3z"/></svg>
-                </div>
+                <div class="h-[42px] w-[42px] grid place-items-center rounded-xl border border-white/10 bg-[#0f1a17]">🎥</div>
                 <div>
                   <div class="text-white font-semibold">UGC & Offer Funnels</div>
-                  <p class="text-sm text-vault-mute">Attention → emotion → proof → conversion. Rinse & repeat.</p>
+                  <p class="text-sm text-vault-mute">Attention → emotion → proof → conversion.</p>
                 </div>
               </div>
             </div>
 
-            <!-- Build & Deploy Apps -->
-            <div class="card hud p-5">
+            <div class="card ringfx p-5">
               <div class="flex items-start gap-3">
-                <div class="grid place-items-center h-10 w-10 rounded-lg border border-white/10 bg-[#0f1a17]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#27F4A8" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
-                </div>
+                <div class="h-[42px] w-[42px] grid place-items-center rounded-xl border border-white/10 bg-[#0f1a17]">🛠️</div>
                 <div>
                   <div class="text-white font-semibold">Build & Deploy Apps</div>
                   <p class="text-sm text-vault-mute">GPT-5 blueprints — ship a tool in a day.</p>
@@ -304,38 +297,31 @@ tailwind.config = {
               </div>
             </div>
 
-            <!-- AI Course OS -->
-            <div class="card hud p-5">
+            <div class="card ringfx p-5">
               <div class="flex items-start gap-3">
-                <div class="grid place-items-center h-10 w-10 rounded-lg border border-white/10 bg-[#0f1a17]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#27F4A8" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5V6.5a2 2 0 012-2h12M20 4.5v13m0 0H6a2 2 0 01-2-2"/></svg>
-                </div>
+                <div class="h-[42px] w-[42px] grid place-items-center rounded-xl border border-white/10 bg-[#0f1a17]">📚</div>
                 <div>
                   <div class="text-white font-semibold">AI Course OS</div>
-                  <p class="text-sm text-vault-mute">Outline → record → edit → publish with AI. Print while you sleep.</p>
+                  <p class="text-sm text-vault-mute">Outline → record → publish with AI.</p>
                 </div>
               </div>
             </div>
 
-            <!-- Stripe & Payments -->
-            <div class="card hud p-5">
+            <div class="card ringfx p-5">
               <div class="flex items-start gap-3">
-                <div class="grid place-items-center h-10 w-10 rounded-lg border border-white/10 bg-[#0f1a17]">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="#27F4A8" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-                </div>
+                <div class="h-[42px] w-[42px] grid place-items-center rounded-xl border border-white/10 bg-[#0f1a17]">💳</div>
                 <div>
                   <div class="text-white font-semibold">Stripe & Payments</div>
-                  <p class="text-sm text-vault-mute">PNG • Fiji • Samoa • Tonga — clean routes, no excuses.</p>
+                  <p class="text-sm text-vault-mute">Clean routes for PNG • Fiji • Samoa • Tonga.</p>
                 </div>
               </div>
             </div>
-
           </div>
 
           <!-- CTA -->
           <div class="mt-8 text-center">
-            <a href="#join" class="btn btn-premium text-base md:text-lg px-6">ENTER THE VAULT</a>
-            <div class="text-sm text-vault-mute mt-2">Pick your class: Fans • Clippers • Warriors</div>
+            <a href="#join" class="btn btn-premium btn-glitch text-base md:text-lg px-6">ENTER THE VAULT</a>
+            <div class="text-sm text-vault-mute mt-2">Get access to all the secrets</div>
           </div>
         </div>
       </section>
@@ -352,7 +338,7 @@ tailwind.config = {
                 <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">J</div>
                 <div><div class="font-semibold text-white">Jae — Port Moresby</div><div class="text-xs text-vault-mute">PNG • AI Prompts</div></div>
               </div>
-              <p class="mt-3 text-vault-mute">Closed first <b class="text-white">$15k</b> prompt package. The loop is unfair.</p>
+              <p class="mt-3 text-vault-mute">Closed <b class="text-white">$15k</b> prompt pack. “Loop feels illegal.”</p>
             </div>
             <div class="card ringfx p-6">
               <div class="flex items-center gap-3">
@@ -366,7 +352,7 @@ tailwind.config = {
                 <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
                 <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Ops Systems</div></div>
               </div>
-              <p class="mt-3 text-vault-mute">Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.</p>
+              <p class="mt-3 text-vault-mute">Stripe solved. Inbox = AI. <b class="text-white">Sales while I sleep.</b></p>
             </div>
           </div>
         </div>
@@ -379,11 +365,11 @@ tailwind.config = {
           <div class="mt-6 space-y-4">
             <details class="faq card p-0">
               <summary><span class="font-semibold">Can I do this from the islands?</span><span class="faq-plus">＋</span></summary>
-              <div class="faq-a">Yes. Legit Stripe routes and clean money flow for PNG/Fiji/Samoa/Tonga.</div>
+              <div class="faq-a">Yep. Real Stripe routes for PNG/Fiji/Samoa/Tonga.</div>
             </details>
             <details class="faq card p-0">
               <summary><span class="font-semibold">What if I hate “content”?</span><span class="faq-plus">＋</span></summary>
-              <div class="faq-a">Good. We don’t chase trends. We build proof engines that convert.</div>
+              <div class="faq-a">Perfect. We build proof engines, not dances.</div>
             </details>
             <details class="faq card p-0">
               <summary><span class="font-semibold">Do I need a laptop?</span><span class="faq-plus">＋</span></summary>
@@ -391,26 +377,26 @@ tailwind.config = {
             </details>
             <details class="faq card p-0">
               <summary><span class="font-semibold">How fast can this print?</span><span class="faq-plus">＋</span></summary>
-              <div class="faq-a">If you execute, most see movement in <b class="text-white">48–72 hours</b>.</div>
+              <div class="faq-a">Execute → see movement in <b class="text-white">48–72 hours</b>.</div>
             </details>
           </div>
         </div>
       </section>
 
-      <!-- FOOTER -->
+      <!-- FOOTER (home) -->
       <footer class="border-t border-white/10">
         <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-vault-mute flex items-center justify-between">
           <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
-          <div class="space-x-4">
-            <a class="hover:text-vault-em" href="#home">Home</a>
+          <p class="space-x-4">
+            <a class="hover:text-vault-em" href="#home">Back to Home</a>
             <a class="hover:text-vault-em" href="#faq">FAQ</a>
             <a class="hover:text-vault-em" href="#join">Pricing</a>
-          </div>
+          </p>
         </div>
       </footer>
     </section>
 
-    <!-- ===== JOIN ===== -->
+    <!-- ===== VIEW: JOIN ===== -->
     <section id="join" data-view="join" class="hidden">
       <main class="max-w-5xl mx-auto px-5 py-10 text-center">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Choose your path</h1>
@@ -422,15 +408,20 @@ tailwind.config = {
             <h3 class="text-xl font-bold text-white">WARRIOR — Monthly</h3>
             <p class="mt-1 text-vault-mute">Start now. Cancel anytime.</p>
             <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
+
             <ul class="mt-6 space-y-3 text-vault-mute text-sm">
-              <li class="flex gap-2">✦ <span>Stripe Anywhere setup &amp; support (PNG/Fiji/Samoa/Tonga)</span></li>
-              <li class="flex gap-2">✦ <span>AI Prompt Catalog — resellable enterprise prompts</span></li>
-              <li class="flex gap-2">✦ <span>IRL Hooks, retention loops &amp; Proof-clip templates</span></li>
-              <li class="flex gap-2">✦ <span>Phone-Only Ops: DM macros, reply trees, scripts</span></li>
-              <li class="flex gap-2">✦ <span>Weekly live breakdowns + Q&amp;A</span></li>
-              <li class="flex gap-2">✦ <span>Members chat &amp; deal sharing</span></li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>Stripe Anywhere setup &amp; support (PNG/Fiji/Samoa/Tonga)</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>AI Prompt Catalog — resellable enterprise prompts</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>IRL hooks &amp; proof-clip templates</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>Phone-Only Ops: DM macros, reply trees, scripts</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>Weekly live breakdowns + Q&amp;A</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>Members chat &amp; deal sharing</li>
             </ul>
-            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn btn-premium w-full mt-auto" target="_blank" rel="noopener noreferrer">Join with Card</a>
+
+            <a id="monthlyBtn" class="btn btn-premium btn-glitch w-full mt-auto" target="_blank" rel="noopener noreferrer">
+              <svg class="opacity-80" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              Join with Card
+            </a>
           </div>
 
           <!-- Lifetime -->
@@ -439,14 +430,19 @@ tailwind.config = {
             <h3 class="text-xl font-bold text-white">CHIEF — Lifetime</h3>
             <p class="mt-1 text-vault-mute">Own the systems. Own the results.</p>
             <div class="mt-4 text-4xl font-extrabold text-white">$399<span class="text-base font-semibold text-vault-mute"> one-time</span></div>
+
             <ul class="mt-6 space-y-3 text-vault-mute text-sm">
-              <li class="flex gap-2">✦ <span>Everything in WARRIOR</span></li>
-              <li class="flex gap-2">✦ <span>Lifetime updates &amp; future modules</span></li>
-              <li class="flex gap-2">✦ <span>Private deal rooms + partner heatmap</span></li>
-              <li class="flex gap-2">✦ <span>1× Prompt audit token (use anytime)</span></li>
-              <li class="flex gap-2">✦ <span>Super UGC license for your editors</span></li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>Everything in WARRIOR</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>Lifetime updates &amp; future modules</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>Private deal rooms + partner heatmap</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>1× Prompt audit token (use anytime)</li>
+              <li class="flex gap-2"><span class="text-vault-neon">✦</span>Super UGC license for your editors</li>
             </ul>
-            <a href="https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true" class="btn btn-premium w-full mt-auto" target="_blank" rel="noopener noreferrer">Join with Card</a>
+
+            <a id="lifetimeBtn" class="btn btn-premium btn-glitch w-full mt-auto" target="_blank" rel="noopener noreferrer">
+              <svg class="opacity-80" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              Join with Card
+            </a>
           </div>
         </div>
 
@@ -457,7 +453,10 @@ tailwind.config = {
           <div class="card ringfx p-6 mt-6 text-center">
             <div class="text-3xl font-extrabold text-white">LOCK-IN YOUR PRICE OF <span class="text-vault-gold">$39</span></div>
             <p class="text-vault-mute mt-2">Hold lasts <b class="text-white"><span id="lockTimer2">10M : 00S</span></b>.</p>
-            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn btn-premium mt-5 inline-flex" target="_blank" rel="noopener noreferrer">Join with Card</a>
+            <a id="monthlyBtn2" class="btn btn-premium btn-glitch mt-5 inline-flex" target="_blank" rel="noopener noreferrer">
+              <svg class="opacity-80" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              Join with Card
+            </a>
           </div>
           <p class="mt-6 text-sm text-vault-mute"><a href="#home" class="text-vault-em">← Back to Home</a></p>
         </section>
@@ -466,117 +465,158 @@ tailwind.config = {
       <footer class="border-t border-white/10">
         <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-vault-mute flex items-center justify-between">
           <p>© <span id="y2"></span> Inner Vault.</p>
-          <div class="space-x-4">
+          <p class="space-x-4">
             <a class="hover:text-vault-em" href="#home">Home</a>
             <a class="hover:text-vault-em" href="#faq">FAQ</a>
             <a class="hover:text-vault-em" href="#join">Pricing</a>
-          </div>
+          </p>
         </div>
       </footer>
     </section>
   </main>
 
-  <!-- FLOATING CTA -->
+  <!-- FLOATING CTA (only on home) -->
   <div id="ctaBar" class="cta-bar">
-    <a href="#join" class="btn btn-premium shadow-glow cta">
-      <span id="ctaMini">Enter the Vault before <span id="t-mini" class="ml-1 tabular-nums">00:00:00</span></span>
+    <a href="#join" class="btn btn-premium btn-glitch shadow-glow cta">
+      <span id="ctaMini">Enter the Vault</span> before <span id="t-mini" class="ml-1 tabular-nums">00:00:00</span>
     </a>
   </div>
 
-  <!-- BACKGROUND AUDIO -->
+  <!-- BACKGROUND AUDIO (loop) -->
   <audio id="bgAudio" preload="auto" loop playsinline crossorigin="anonymous">
     <source src="/lv_0_20250815112807.mp4" type="audio/mp4"/>
     <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250815112807.mp4" type="audio/mp4"/>
   </audio>
 
 <script>
-/* assets + year */
+/* ========= EDIT YOUR LINKS HERE ========= */
+const DISCORD_URL   = "https://discord.com/invite/your-code";   // <— replace
+const TELEGRAM_URL  = "https://t.me/your_channel";               // <— replace
+const WHOP_MONTHLY  = "https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true";
+const WHOP_LIFETIME = "https://whop.com/checkout/plan_wDNPbkOIBB5C1?d2c=true";
+/* ======================================= */
+
+/* assets + year + buttons */
 (() => {
   const logoSrc="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png";
   const fallback="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/941bd3fa-34b4-4192-9726-fc8455f8549f_removalai_preview.png";
   const logo=document.getElementById('logo'); if(logo){logo.src=logoSrc;logo.onerror=()=>logo.src=fallback;}
   const y=document.getElementById('y');  if(y)  y.textContent=new Date().getFullYear();
   const y2=document.getElementById('y2'); if(y2) y2.textContent=new Date().getFullYear();
+  // social + whop
+  document.getElementById('discordBtn').href = DISCORD_URL;
+  document.getElementById('tgBtn').href       = TELEGRAM_URL;
+  ['monthlyBtn','monthlyBtn2'].forEach(id=>{const a=document.getElementById(id); if(a) a.href=WHOP_MONTHLY;});
+  const lb=document.getElementById('lifetimeBtn'); if(lb) lb.href=WHOP_LIFETIME;
 })();
 
-/* mini router + dynamic CTA role text */
+/* simple SPA router (home vs pricing) + class hash (fan/clipper/warrior) */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
   const ctaBar=document.getElementById('ctaBar');
-  const ctaHero=document.getElementById('ctaHero');
-  const ctaTop=document.getElementById('ctaTop');
-  const roleSpan=document.getElementById('ctaRole');
+  const heroCta=document.getElementById('heroCta');
+  const ctaMini=document.getElementById('ctaMini');
+  const badges=document.getElementById('classBadges');
 
-  const roleMap={
-    fan:"Watch the chaos",
-    clipper:"Clip & earn 40%",
-    warrior:"Build the system",
-    default:"Choose your lane"
-  };
-
-  function setRoleFromHash(){
-    const h=(location.hash||"").toLowerCase();
-    let role='default';
-    if(h.includes('fan')) role='fan';
-    if(h.includes('clip')) role='clipper';
-    if(h.includes('war')) role='warrior';
-    if(roleSpan) roleSpan.textContent=roleMap[role]||roleMap.default;
-    if(ctaTop) ctaTop.textContent='Enter the Vault';
+  function applyClassCopy(role){
+    let text="Enter the Vault";
+    if(role==='fan')      text="Enter the Vault — Watch the mayhem";
+    if(role==='clipper')  text="Enter the Vault — Take 40%";
+    if(role==='warrior')  text="Enter the Vault — Build the machine";
+    if(heroCta) heroCta.textContent=text;
+    if(ctaMini) ctaMini.textContent=text;
+    // badge highlight
+    badges?.querySelectorAll('a').forEach(a=>{
+      a.classList.toggle('on', a.getAttribute('href')===`#${role}`);
+    });
   }
-
   function show(view){
     views.forEach(v=>v.classList.toggle('hidden', v.id!==view));
     if(ctaBar) ctaBar.style.display = (view==='home') ? 'flex' : 'none';
     scrollTo(0,0);
   }
   function route(){
-    const h=(location.hash.replace('#','')||'home').toLowerCase();
-    const view=['home','join'].includes(h)?h:'home';
-    show(view); setRoleFromHash();
+    const raw=(location.hash.replace('#','')||'home').toLowerCase();
+    const view= ['home','join'].includes(raw) ? raw : (raw.includes('join')?'join':'home');
+    show(view);
+    const role = raw.includes('fan')?'fan' : raw.includes('clipper')?'clipper' : raw.includes('warrior')?'warrior' : 'clipper';
+    applyClassCopy(role);
   }
-  addEventListener('hashchange',route);
-  route();
+  document.addEventListener('click',(e)=>{
+    const a=e.target.closest('a[href^="#"]'); if(!a) return;
+    const h=a.getAttribute('href').slice(1); if(!h) return;
+    e.preventDefault(); if(location.hash.slice(1)!==h){ location.hash='#'+h; } else { route(); }
+  });
+  addEventListener('hashchange',route); route();
+})();
+
+/* particles / embers */
+(() => {
+  const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,p=[];
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?180:260;
+    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,s:Math.random()*1.4+.35,o:Math.random()*.55+.26,b:Math.random()<.38}))}
+  function loop(){x.clearRect(0,0,W,H);for(const a of p){x.globalAlpha=a.o;x.fillStyle=a.b?'rgba(216,191,106,.92)':'rgba(33,253,142,.95)';x.beginPath();x.arc(a.x,a.y,a.s,0,6.283);x.fill();a.y-=a.s*.35;a.x+=Math.sin(a.y/42)*.23;if(a.y<-2){a.y=H+2;a.x=Math.random()*W}}requestAnimationFrame(loop)}
+  rs();addEventListener('resize',rs);loop();
+})();
+/* ash streaks */
+(() => {
+  const c=document.getElementById('ash'),x=c.getContext('2d');let W,H,p=[];
+  function rs(){W=c.width=innerWidth;H=c.height=innerHeight;const n=innerWidth<768?80:130;
+    p=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,l:Math.random()*46+22,sp:Math.random()*1.2+.6,o:Math.random()*.3+.08}))}
+  function loop(){x.clearRect(0,0,W,H);x.strokeStyle='rgba(242,251,247,.16)';x.lineWidth=1;for(const a of p){x.globalAlpha=a.o;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(a.x+8,a.y-a.l);x.stroke();a.y-=a.sp;a.x+=.32;if(a.y<-50||a.x>W+20){a.x=-20;a.y=H*Math.random()}}requestAnimationFrame(loop)}
+  rs();addEventListener('resize',rs);loop();
 })();
 
 /* countdowns */
 const COHORT_CLOSE_AT="2025-08-20T23:59:59+12:00";
 const startTs=Date.now(), endTs=new Date(COHORT_CLOSE_AT).getTime();
-const timer=document.getElementById('timer'), mini=document.getElementById('t-mini');
+const timer=document.getElementById('timer'), mini=document.getElementById('t-mini'), bar=document.getElementById('deadlinebar');
 const pad=n=>String(n).padStart(2,'0');
-function tick(){const left=Math.max(0,endTs-Date.now());
+function tick(){const left=Math.max(0,endTs-Date.now()), total=Math.max(1,endTs-startTs);
   const h=Math.floor(left/3.6e6), m=Math.floor((left%3.6e6)/6e4), s=Math.floor((left%6e4)/1e3);
   const t=`${pad(h)} : ${pad(m)} : ${pad(s)}`;
-  if(timer) timer.textContent=t; if(mini) mini.textContent=t;
+  if(timer) timer.textContent=t; if(mini) mini.textContent=t; if(bar) bar.style.transform=`scaleX(${left/total})`;
   setTimeout(tick,1000)} tick();
 
-/* bg audio polite */
+/* BG audio respectful fade vs video */
 (async () => {
   const A=document.getElementById('bgAudio'), V=document.getElementById('proofVideo');
-  async function tryPlay(){ try{A.volume=.18;await A.play();return true}catch{ return false } }
+  async function tryPlay(){ try{A.volume=.2;await A.play();return true}catch{ return false } }
   if(!await tryPlay()){
     const arm=()=>{tryPlay();['click','touchstart','pointerdown','keydown','scroll','mousemove','wheel'].forEach(ev=>removeEventListener(ev,arm));};
     ['click','touchstart','pointerdown','keydown','scroll','mousemove','wheel'].forEach(ev=>addEventListener(ev,arm,{once:true,passive:true}));
-    setTimeout(tryPlay,1200);
+    setTimeout(tryPlay,1600);
   }
   if(V){
     const fade=(to,ms=700)=>{const from=A.volume;const t0=performance.now();const step=(t)=>{const p=Math.min(1,(t-t0)/ms);A.volume=from+(to-from)*p; if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)};
-    const io=new IntersectionObserver(([e])=>{ if(e.isIntersecting && e.intersectionRatio>0.45){ fade(0.0,350); } else { fade(.18,650); } },{threshold:[0,0.45,0.6,1]});
-    io.observe(V); V.addEventListener('play', ()=>fade(0.0,300)); V.addEventListener('pause',()=>fade(.18,650)); V.addEventListener('ended',()=>fade(.18,650));
+    const io=new IntersectionObserver(([e])=>{ if(e.isIntersecting && e.intersectionRatio>0.45){ fade(0.0,400); } else { fade(.2,700); } },{threshold:[0,0.45,0.6,1]});
+    io.observe(V); V.addEventListener('play', ()=>fade(0.0,350)); V.addEventListener('pause',()=>fade(.2,700)); V.addEventListener('ended',()=>fade(.2,700));
   }
 })();
 
-/* lock-in timer (join page) */
+/* lock-in timer */
 const LOCK_KEY='iv_lock_start', LOCK_MS=10*60*1000;
 const lockTimer2=document.getElementById('lockTimer2');
 function renderLock(){
-  if(!lockTimer2) return;
   let t=Number(localStorage.getItem(LOCK_KEY)); const now=Date.now();
   if(!t || now-t>LOCK_MS){ t=now; localStorage.setItem(LOCK_KEY,String(t)); }
   const left=Math.max(0,(t+LOCK_MS)-Date.now()), m=Math.floor(left/6e4), s=Math.floor((left%6e4)/1e3);
-  lockTimer2.textContent=`${String(m).padStart(2,'0')}M : ${String(s).padStart(2,'0')}S`;
+  if(lockTimer2) lockTimer2.textContent=`${String(m).padStart(2,'0')}M : ${String(s).padStart(2,'0')}S`;
   setTimeout(renderLock,250);
 }
 renderLock();
+
+/* HUD counters */
+(() => {
+  const e1=document.getElementById('hud1'), e2=document.getElementById('hud2'), e3=document.getElementById('hud3');
+  let a=128, b=42, c=17; // fun fake lobby stats
+  function step(){
+    a+=Math.random()<.4?1:0; b+=Math.random()<.35?1:0; c+=Math.random()<.3?1:0;
+    e1.textContent=a; e2.textContent=b; e3.textContent=c;
+    setTimeout(step,800);
+  }
+  step();
+})();
 
 /* Mobile FAQ tap fix */
 (() => {
@@ -586,4 +626,5 @@ renderLock();
 })();
 </script>
 </body>
-  </html>
+</html>
+```0
