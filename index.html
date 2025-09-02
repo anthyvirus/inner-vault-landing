@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Inner Vault — Money Making is a Mechanism.</title>
 
-<meta name="description" content="Game lobby for the islands. Fans get closer. Clippers monetize chaos. Warriors build the engine. IRL proof. AI prompts. Stripe anywhere."/>
+<meta name="description" content="Game lobby for the islands. Join the Tribe — Fans, Clippers, Warriors. IRL chaos + AI + clean payments. Press start."/>
 <meta property="og:title" content="Inner Vault — Money Making is a Mechanism."/>
 <meta property="og:description" content="Stripe anywhere. IRL + AI + Super UGC. The engine the Pacific was missing."/>
 <meta property="og:type" content="website"/>
@@ -39,19 +39,19 @@ tailwind.config = {
   html{scroll-behavior:smooth}
   body{background:#030906;color:#F2FBF7;line-height:1.55}
 
-  /* background grid + soft lightning */
+  /* premium grid + soft lightning */
   .gridbg{position:fixed;inset:0;z-index:-6;pointer-events:none;background:
-    radial-gradient(60% 40% at 50% -10%, rgba(0,179,110,.22), transparent 60%),
-    radial-gradient(70% 50% at 50% 110%, rgba(227,204,123,.18), transparent 60%),
+    radial-gradient(60% 40% at 50% -10%, rgba(0,179,110,.20), transparent 60%),
+    radial-gradient(70% 50% at 50% 110%, rgba(227,204,123,.14), transparent 60%),
     linear-gradient(transparent 0,transparent calc(100% - 1px), rgba(255,255,255,.05) 0),
     linear-gradient(90deg, transparent 0,transparent calc(100% - 1px), rgba(255,255,255,.05) 0);
     background-size: 100% 100%,100% 100%, 48px 48px, 48px 48px;mix-blend-mode:soft-light}
-  .lightning{position:fixed;inset:0;z-index:-5;pointer-events:none;opacity:.22}
+  .lightning{position:fixed;inset:0;z-index:-5;pointer-events:none;opacity:.16}
   .lightning:before,.lightning:after{content:"";position:absolute;inset:0;background:
-    radial-gradient(620px 180px at 28% 8%, rgba(0,255,153,.32), transparent 60%),
-    radial-gradient(720px 200px at 70% 100%, rgba(0,255,153,.28), transparent 60%);
-    animation:zap 6s ease-in-out infinite;filter:blur(18px)}
-  @keyframes zap{0%,100%{opacity:.12}50%{opacity:.32}}
+    radial-gradient(620px 180px at 28% 8%, rgba(0,255,153,.28), transparent 60%),
+    radial-gradient(720px 200px at 70% 100%, rgba(0,255,153,.22), transparent 60%);
+    animation:zap 7s ease-in-out infinite;filter:blur(18px)}
+  @keyframes zap{0%,100%{opacity:.10}50%{opacity:.26}}
 
   /* glass cards */
   .card{position:relative;border-radius:18px;
@@ -61,14 +61,14 @@ tailwind.config = {
   .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;
     background:conic-gradient(from 210deg,#12221C,#263A31,#12221C);opacity:.7}
 
-  /* gold pill button (original) */
+  /* gold pill button (original look + edge glow on press) */
   .btn-vault{display:inline-flex;align-items:center;gap:.6rem;font-weight:900;
     padding:1rem 1.25rem;border-radius:16px;letter-spacing:.2px;
     color:#0E140F;background:linear-gradient(180deg,#EADFA5,#E3CC7B);
     box-shadow:0 12px 20px rgba(227,204,123,.18), inset 0 0 0 1px rgba(255,255,255,.45);
     border:1px solid rgba(14,20,15,.2); transition:transform .08s ease, box-shadow .18s ease, filter .18s ease}
   .btn-vault:hover{box-shadow:0 0 22px rgba(227,204,123,.35),0 10px 22px rgba(0,0,0,.35)}
-  .btn-vault:active{transform:translateY(1px); box-shadow:0 0 30px rgba(227,204,123,.45), inset 0 0 0 1px rgba(255,255,255,.55)}
+  .btn-vault:active{transform:translateY(1px); box-shadow:0 0 34px rgba(227,204,123,.55), inset 0 0 0 1px rgba(255,255,255,.6)}
   .btn-outline{display:inline-flex;align-items:center;gap:.6rem;font-weight:800;
     padding:.95rem 1.15rem;border-radius:14px;border:1px solid rgba(0,179,110,.6);
     color:#00D08A;background:rgba(0,179,110,.06)}
@@ -76,6 +76,7 @@ tailwind.config = {
 
   .chip{background:rgba(13,37,29,.65);border:1px solid rgba(255,255,255,.08);
     padding:.35rem .65rem;border-radius:999px;font-size:.75rem;letter-spacing:.08em}
+
   .ribbon{position:absolute;top:10px;right:-34px;transform:rotate(45deg);
     background:linear-gradient(180deg,#E3CC7B,#CFB861); color:#0E140F;
     font-weight:800;font-size:.65rem;letter-spacing:.06em;padding:.35rem 2.2rem;
@@ -145,36 +146,34 @@ tailwind.config = {
         </div>
       </section>
 
-      <!-- WHO ARE YOU? -->
+      <!-- JOIN THE TRIBE (universal) -->
       <section class="mx-auto max-w-6xl px-5 pb-10">
-        <h3 class="text-center text-vault-mute tracking-[.28em] uppercase">Pick your role</h3>
-        <div class="mt-6 grid gap-5 md:grid-cols-3">
-          <!-- Fans -->
-          <div class="card p-6">
-            <h4 class="text-xl font-extrabold">Fans</h4>
-            <p class="text-vault-mute mt-1">Get closer to Anth. Early drops, behind-the-scenes, polls that steer the chaos.</p>
-            <div class="mt-4 flex gap-2 flex-wrap">
-              <a class="btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">Join Discord</a>
-              <a class="btn-outline" href="https://t.me/+0HpFhs9tme03NTM1" target="_blank" rel="noopener">Telegram Channel</a>
+        <div class="card ringfx p-6 md:p-8">
+          <h3 class="text-2xl md:text-3xl font-extrabold">Join the Tribe</h3>
+          <p class="text-vault-mute mt-1">One door. Three playstyles. Pick how you roll — the system carries you.</p>
+
+          <div class="mt-5 grid gap-5 md:grid-cols-3">
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+              <div class="chip mb-2">FAN</div>
+              <p class="text-sm text-vault-mute">Get closer to Anth: drops, polls, backstage chaos.</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+              <div class="chip mb-2">CLIPPER</div>
+              <p class="text-sm text-vault-mute">Clip chaos → post daily → stack 40% lifetime. Templates included.</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+              <div class="chip mb-2">WARRIOR</div>
+              <p class="text-sm text-vault-mute">Operators. IRL + AI systems. Weekly sprints. Real receipts.</p>
             </div>
           </div>
-          <!-- Clippers -->
-          <div class="card p-6">
-            <h4 class="text-xl font-extrabold">Clippers</h4>
-            <p class="text-vault-mute mt-1">Clip chaos → post daily → stack 40% lifetime. Templates, titles, CTAs.</p>
-            <div class="mt-4 flex gap-2 flex-wrap">
-              <a class="btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">Clippers Hub (Discord)</a>
-              <a class="btn-outline" href="https://t.me/+0HpFhs9tme03NTM1" target="_blank" rel="noopener">Clippers Hub (Telegram)</a>
-            </div>
-          </div>
-          <!-- Warriors -->
-          <div class="card p-6">
-            <h4 class="text-xl font-extrabold">Warriors</h4>
-            <p class="text-vault-mute mt-1">Operators. IRL + AI systems. Weekly sprints. Real receipts.</p>
-            <div class="mt-4 flex gap-2 flex-wrap">
-              <a class="btn-outline" href="#join">Vault Access</a>
-              <a class="btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">War Room (Discord)</a>
-            </div>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a class="btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">Join Discord</a>
+            <a class="btn-outline" href="https://t.me/+0HpFhs9tme03NTM1" target="_blank" rel="noopener">Telegram Hub</a>
+            <a class="btn-vault" href="#join">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              VAULT ACCESS
+            </a>
           </div>
         </div>
       </section>
@@ -279,33 +278,24 @@ tailwind.config = {
           <h2 class="mt-2 text-center text-3xl md:text-4xl font-extrabold text-white">OUR STUDENTS ARE WINNING</h2>
 
           <div class="mt-8 grid gap-6 md:grid-cols-3">
-            <!-- FAN -->
             <div class="card p-6">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">M</div>
-                  <div><div class="font-semibold text-white">Meya — Lae</div><div class="text-xs text-vault-mute">PNG • <span class="chip">Fan</span></div></div>
-                </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">M</div>
+                <div><div class="font-semibold text-white">Meya — Lae</div><div class="text-xs text-vault-mute">PNG • <span class="chip">Fan</span></div></div>
               </div>
-              <p class="mt-3 text-vault-mute">“Got in the Discord. Daily updates + polls make it feel like I’m on set.”</p>
+              <p class="mt-3 text-vault-mute">“Discord feels like a live set. I vote, he does it. Addicted.”</p>
             </div>
-            <!-- CLIPPER -->
             <div class="card p-6">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">K</div>
-                  <div><div class="font-semibold text-white">Kalo — Suva</div><div class="text-xs text-vault-mute">Fiji • <span class="chip">Clipper</span></div></div>
-                </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">K</div>
+                <div><div class="font-semibold text-white">Kalo — Suva</div><div class="text-xs text-vault-mute">Fiji • <span class="chip">Clipper</span></div></div>
               </div>
               <p class="mt-3 text-vault-mute">“First week clipping Anth = brand DM + rev share unlocked.”</p>
             </div>
-            <!-- WARRIOR -->
             <div class="card p-6">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                  <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
-                  <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • <span class="chip">Warrior</span></div></div>
-                </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
+                <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • <span class="chip">Warrior</span></div></div>
               </div>
               <p class="mt-3 text-vault-mute">“Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.”</p>
             </div>
@@ -371,7 +361,7 @@ tailwind.config = {
 
         <div class="mx-auto mt-8 grid max-w-4xl gap-6 md:grid-cols-2 items-stretch">
           <!-- Monthly -->
-          <div class="card p-8 text-left flex flex-col h-full relative">
+          <div class="card p-8 text-left flex flex-col h-full">
             <h3 class="text-xl font-bold text-white">WARRIOR — Monthly</h3>
             <p class="mt-1 text-vault-mute">Start now. Cancel anytime.</p>
             <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
@@ -415,13 +405,13 @@ tailwind.config = {
           </div>
         </div>
 
-        <!-- social hubs -->
+        <!-- hubs -->
         <div class="mx-auto max-w-3xl mt-10 card p-6">
           <h4 class="text-xl font-extrabold">Hubs</h4>
           <p class="text-vault-mute mt-1">All paths start here.</p>
           <div class="mt-4 flex flex-wrap gap-3">
             <a class="btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">Join Discord</a>
-            <a class="btn-outline" href="https://t.me/+0HpFhs9tme03NTM1" target="_blank" rel="noopener">Telegram (Clippers & Warriors)</a>
+            <a class="btn-outline" href="https://t.me/+0HpFhs9tme03NTM1" target="_blank" rel="noopener">Telegram Hub</a>
           </div>
         </div>
       </main>
@@ -472,10 +462,8 @@ const pad=n=>String(n).padStart(2,'0');
   const h=Math.floor(left/3.6e6), m=Math.floor((left%3.6e6)/6e4), s=Math.floor((left%6e4)/1e3);
   const t=`${pad(h)} : ${pad(m)} : ${pad(s)}`; if(timer) timer.textContent=t; if(mini) mini.textContent=t; setTimeout(tick,1000)})();
 
-/* lock timer inside join page */
-const LOCK_KEY='iv_lock_start', LOCK_MS=10*60*1000;
-(function(){let t=Number(localStorage.getItem(LOCK_KEY));const now=Date.now();
-  if(!t||now-t>LOCK_MS){t=now;localStorage.setItem(LOCK_KEY,String(t))}})();
+/* lock seed (if you add a lock later) */
+localStorage.setItem('iv_lock_start', localStorage.getItem('iv_lock_start')||String(Date.now()));
 </script>
 </body>
-</html>
+  </html>
