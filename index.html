@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Inner Vault — Press Start.</title>
 
-<meta name="description" content="$10M game lobby run by a madman. Fans • Clippers • Warriors. IRL shenanigans + AI + clean payments. Press Start."/>
+<meta name="description" content="Shenanigans, receipts, and a mechanism that prints. Fans → included. Clippers → warriors. Stripe anywhere. Press Start."/>
 <meta property="og:title" content="Inner Vault — Press Start."/>
-<meta property="og:description" content="Stripe anywhere. IRL chaos + AI + Super UGC. Fans, Clippers, Warriors — one tribe."/>
+<meta property="og:description" content="IRL chaos + AI discipline. Two paths: Warrior (monthly) or Chief (lifetime). No fakery."/>
 <meta property="og:type" content="website"/>
 <meta property="og:image" content="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/129c4031-8c78-4567-aa7d-8aae32235c2f_removalai_preview.png"/>
 <meta name="theme-color" content="#07120F"/>
@@ -20,20 +20,19 @@ tailwind.config = {
     extend: {
       colors: {
         vault: {
-          bg:'#07120F',      /* deeper premium green */
+          bg:'#07120F',
           card:'#0C1A16',
           rim:'#132821',
           text:'#F2FBF7',
           mute:'#BFEFE0',
           gold:'#E8D37F',
           goldh:'#D6C06B',
-          /* neon matches your eye glow */
-          neon:'#38FFAA',    /* primary highlight */
-          neon2:'#17E08F'    /* secondary */
+          neon:'#38FFAA',
+          neon2:'#17E08F',
+          alert:'#FF4747' /* urgent red */
         }
       },
       boxShadow:{
-        soft:'0 12px 30px rgba(0,0,0,.30)',
         glass:'inset 0 1px 0 rgba(255,255,255,.06), 0 10px 28px rgba(0,0,0,.35)',
         neon:'0 0 26px rgba(56,255,170,.26)',
         gold:'0 0 26px rgba(232,211,127,.28)'
@@ -47,33 +46,29 @@ tailwind.config = {
   html{scroll-behavior:smooth}
   body{background:#07120F;color:#F2FBF7;line-height:1.55}
 
-  /* ——— Futuristic grid + subtle lightning (low strain) ——— */
   .gridbg{position:fixed;inset:0;z-index:-6;pointer-events:none;background:
     radial-gradient(60% 40% at 50% -10%, rgba(56,255,170,.18), transparent 60%),
     radial-gradient(70% 50% at 50% 110%, rgba(232,211,127,.12), transparent 60%),
     linear-gradient(transparent 0,transparent calc(100% - 1px), rgba(255,255,255,.05) 0),
     linear-gradient(90deg, transparent 0,transparent calc(100% - 1px), rgba(255,255,255,.05) 0);
-    background-size: 100% 100%,100% 100%, 46px 46px, 46px 46px;mix-blend-mode:soft-light}
-  .lightning{position:fixed;inset:0;z-index:-5;pointer-events:none;opacity:.13;filter:blur(14px)}
+    background-size:100% 100%,100% 100%,46px 46px,46px 46px;mix-blend-mode:soft-light}
+  .lightning{position:fixed;inset:0;z-index:-5;pointer-events:none;opacity:.12;filter:blur(14px)}
   .lightning:before,.lightning:after{content:"";position:absolute;inset:0;background:
-    radial-gradient(600px 180px at 25% 12%, rgba(56,255,170,.35), transparent 60%),
-    radial-gradient(600px 200px at 70% 92%, rgba(23,224,143,.28), transparent 60%);
+    radial-gradient(600px 180px at 25% 12%, rgba(56,255,170,.30), transparent 60%),
+    radial-gradient(600px 200px at 70% 92%, rgba(23,224,143,.22), transparent 60%);
     animation:zap 8s ease-in-out infinite}
-  @keyframes zap{0%,100%{opacity:.10}50%{opacity:.23}}
+  @keyframes zap{0%,100%{opacity:.10}50%{opacity:.22}}
 
-  /* ——— Premium glass cards ——— */
   .card{position:relative;border-radius:18px;background:
-    linear-gradient(180deg,rgba(12,26,22,.92),rgba(12,26,22,.88));
-    border:1px solid rgba(255,255,255,.08); box-shadow:var(--card-shadow,0 12px 30px rgba(0,0,0,.35))}
+    linear-gradient(180deg,rgba(12,26,22,.94),rgba(12,26,22,.90));
+    border:1px solid rgba(255,255,255,.08);box-shadow:var(--card-shadow,0 12px 30px rgba(0,0,0,.35))}
   .ringfx:before{content:"";position:absolute;inset:-1px;border-radius:inherit;z-index:-1;
     background:conic-gradient(from 220deg,#132821,#294C40,#132821);opacity:.7;filter:saturate(115%)}
 
-  /* ——— Buttons (center icon + text) ——— */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-weight:900;
-    border-radius:16px;letter-spacing:.2px;transition:transform .08s ease, box-shadow .18s ease, filter .18s ease}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-weight:900;border-radius:16px;letter-spacing:.2px;transition:transform .08s ease, box-shadow .18s ease}
   .btn:active{transform:translateY(1px)}
   .btn-gold{padding:.85rem 1.1rem;color:#0E140F;background:linear-gradient(180deg,#EEE5AC,#E8D37F);
-    border:1px solid rgba(14,20,15,.22); box-shadow:0 10px 18px rgba(232,211,127,.18), inset 0 0 0 1px rgba(255,255,255,.45)}
+    border:1px solid rgba(14,20,15,.22);box-shadow:0 10px 18px rgba(232,211,127,.18), inset 0 0 0 1px rgba(255,255,255,.45)}
   .btn-gold:hover{box-shadow:0 0 20px rgba(232,211,127,.38),0 10px 22px rgba(0,0,0,.35)}
   .btn-outline{padding:.8rem 1rem;border:1px solid rgba(56,255,170,.65);color:#38FFAA;background:rgba(56,255,170,.06)}
   .btn-outline:hover{box-shadow:0 0 20px rgba(56,255,170,.26)}
@@ -83,24 +78,28 @@ tailwind.config = {
     padding:.3rem .6rem;border-radius:999px;font-size:.72rem;letter-spacing:.08em}
 
   .ribbon{position:absolute;top:12px;right:-36px;transform:rotate(45deg);
-    background:linear-gradient(180deg,#E8D37F,#D6C06B); color:#0E140F;
+    background:linear-gradient(180deg,#E8D37F,#D6C06B);color:#0E140F;
     font-weight:800;font-size:.62rem;letter-spacing:.06em;padding:.35rem 2.2rem;
-    box-shadow:0 10px 24px rgba(232,211,127,.28); border:1px solid rgba(255,255,255,.45)}
+    box-shadow:0 10px 24px rgba(232,211,127,.28);border:1px solid rgba(255,255,255,.45)}
 
-  /* FAQ details tidy */
   details.faq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.1rem;border-radius:16px;background:rgba(12,26,22,.94);border:1px solid rgba(255,255,255,.10);cursor:pointer}
   details.faq summary::-webkit-details-marker{display:none}
+
+  /* ALERT BAR */
+  .alertbar{background:#FF4747;color:#0A0E0C;font-weight:900;letter-spacing:.02em}
 </style>
 </head>
 <body class="bg-vault-bg">
   <div class="gridbg"></div>
   <div class="lightning"></div>
 
-  <!-- TOP BAR -->
+  <!-- STICKY TOP: Seats + PRICE LOCK -->
   <div class="sticky top-0 z-50 border-b border-white/10 backdrop-blur-md bg-black/35">
+    <div class="alertbar text-center text-xs md:text-sm py-1">
+      PRICE LOCK ENDS IN <span id="timer" class="tabular-nums">00 : 00 : 00</span> — AFTER THAT, PRICES GO UP.
+    </div>
     <div class="mx-auto max-w-7xl px-4 py-2 flex items-center justify-between text-sm">
-      <div>Seats Left: <span class="font-semibold text-[color:var(--neon,#38FFAA)]">7</span></div>
-      <div class="flex items-center gap-2"><span>Cohort closes in</span><span id="timer" class="tabular-nums text-[color:var(--neon,#38FFAA)]"></span></div>
+      <div>Seats Left: <span class="font-semibold" style="color:#38FFAA">7</span></div>
       <div class="hidden sm:flex items-center gap-3">
         <a href="#join" class="btn btn-gold btn-sm">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
@@ -114,7 +113,7 @@ tailwind.config = {
   <header class="mx-auto max-w-7xl px-4 py-5 flex items-center justify-between">
     <a class="flex items-center gap-3" href="#home">
       <img id="logo" class="h-12 w-12 md:h-14 md:w-14 rounded-xl ring-1 ring-white/10 shadow-[0_0_26px_rgba(56,255,170,.35)]" alt="Inner Vault logo"/>
-      <span class="tracking-widest text-sm md:text-base text-[color:var(--neon,#38FFAA)]">INNER VAULT</span>
+      <span class="tracking-widest text-sm md:text-base" style="color:#38FFAA">INNER VAULT</span>
     </a>
     <nav class="hidden md:flex items-center gap-6 text-sm text-vault-mute">
       <a class="hover:text-[color:var(--neon,#38FFAA)]" href="#home">Home</a>
@@ -131,10 +130,10 @@ tailwind.config = {
       <section class="relative">
         <div class="mx-auto max-w-4xl px-5 pt-4 pb-8 text-center">
           <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Money Making is a Mechanism.</h1>
-          <p class="mt-3 text-lg text-vault-mute">IRL shenanigans + AI discipline. This is not content — it’s a game.</p>
+          <p class="mt-3 text-lg text-vault-mute">IRL shenanigans + AI discipline. Nothing is staged. This is a live game.</p>
 
           <div class="mt-4 flex items-center justify-center gap-2 text-xs">
-            <span class="chip">FANS</span><span class="chip">CLIPPERS</span><span class="chip">WARRIORS</span>
+            <span class="chip">WARRIORS</span><span class="chip">CHIEFS</span><span class="chip">TRIBE</span>
           </div>
 
           <ul class="mt-6 space-y-3 text-lg text-vault-mute max-w-xl mx-auto">
@@ -149,52 +148,54 @@ tailwind.config = {
               ENTER
             </a>
             <a href="#reviews" class="btn btn-outline">See Proof ↓</a>
+            <a href="https://streamlabs.com/anthluciancade/tip" class="btn btn-outline" target="_blank" rel="noopener">Tip for the chaos</a>
           </div>
-
-          <p class="mt-6 text-vault-mute">Access to <span class="text-[color:var(--neon,#38FFAA)] font-semibold">No Code Society</span> is only through Inner Vault.</p>
         </div>
       </section>
 
-      <!-- JOIN THE TRIBE (one card for all) -->
+      <!-- PROOF VIDEO -->
+      <section id="proof" class="mx-auto max-w-5xl px-5 pb-12">
+        <div class="card ringfx p-3">
+          <video class="w-full rounded-xl" autoplay loop playsinline controls preload="metadata"
+            poster="https://placehold.co/960x540/0C1A16/F2FBF7?text=IRL+Stream+Proof">
+            <source src="/lv_0_20250903123754 (1).mp4" type="video/mp4"/>
+            <source src="https://raw.githubusercontent.com/anthyvirus/inner-vault-landing/main/lv_0_20250903123754%20(1).mp4" type="video/mp4"/>
+          </video>
+        </div>
+      </section>
+
+      <!-- JOIN THE TRIBE (no extra CTA button here) -->
       <section class="mx-auto max-w-6xl px-5 pb-10">
-        <div class="card ringfx p-6 md:p-8" style="--card-shadow:var(--glass)">
+        <div class="card ringfx p-6 md:p-8">
           <h3 class="text-2xl md:text-3xl font-extrabold">Join the Tribe</h3>
-        <p class="text-vault-mute mt-1">One door, three roles. Pick your class — the loot is the same: receipts.</p>
+          <p class="text-vault-mute mt-1">Two roles. Same battlefield. Fans perks included by default.</p>
 
-        <div class="mt-5 grid gap-5 md:grid-cols-3">
-          <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-            <div class="chip mb-2">FAN</div>
-            <p class="text-sm text-vault-mute">Get closer to Anth: early drops, polls, backstage chaos.</p>
+          <div class="mt-5 grid gap-5 md:grid-cols-2">
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+              <div class="chip mb-2">WARRIOR</div>
+              <p class="text-sm text-vault-mute">You clip, you ship, you sell. IRL + AI systems, weekly sprints, real receipts.</p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+              <div class="chip mb-2">CHIEF</div>
+              <p class="text-sm text-vault-mute">Lifetime. All modules, all plays, all future chaos unlocked.</p>
+            </div>
           </div>
-          <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-            <div class="chip mb-2">CLIPPER</div>
-            <p class="text-sm text-vault-mute">Clip chaos → post daily → stack 40% lifetime. Templates included.</p>
-          </div>
-          <div class="rounded-xl border border-white/10 bg-black/20 p-4">
-            <div class="chip mb-2">WARRIOR</div>
-            <p class="text-sm text-vault-mute">Operators. IRL + AI systems. Weekly sprints. Real receipts.</p>
-          </div>
-        </div>
 
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a class="btn btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">Join Discord</a>
-          <a class="btn btn-outline" href="https://t.me/+0HpFhs9tme03NTM1" target="_blank" rel="noopener">Telegram Hub</a>
-          <a class="btn btn-gold" href="#join">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-            PRESS PLAY
-          </a>
-        </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a class="btn btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">Join Discord</a>
+            <a class="btn btn-outline" href="https://t.me/+0HpFhs9tme03NTM1" target="_blank" rel="noopener">Telegram Hub</a>
+          </div>
         </div>
       </section>
 
       <!-- LEGACY OATH -->
       <section class="mx-auto max-w-5xl px-5 pb-10">
-        <div class="card ringfx p-6 md:p-8">
+        <div class="card ringfx p-6 md:p-8 text-center">
           <p class="text-xs md:text-sm tracking-[.28em] uppercase text-vault-mute">Legacy Oath</p>
           <h2 class="mt-2 text-2xl md:text-4xl font-extrabold leading-tight">Your bloodline is counting on you.</h2>
           <p class="mt-2 text-vault-mute text-base md:text-lg">If you started—finish it. If you died tomorrow, would your kid have lunch money? Be the warrior they remember. Build the engine that feeds your family.</p>
           <div class="mt-5">
-            <a href="#join" class="btn btn-gold btn-sm">
+            <a href="#join" class="btn btn-gold">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
               ENTER
             </a>
@@ -287,28 +288,24 @@ tailwind.config = {
             <div class="card p-6">
               <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">M</div>
-                <div><div class="font-semibold text-white">Meya — Lae</div><div class="text-xs text-vault-mute">PNG • <span class="chip">Fan</span></div></div>
+                <div><div class="font-semibold text-white">Meya — Lae</div><div class="text-xs text-vault-mute">PNG • Fan perks included</div></div>
               </div>
               <p class="mt-3 text-vault-mute">“Discord feels like a live set. I vote, he does it. Addicted.”</p>
             </div>
             <div class="card p-6">
               <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">K</div>
-                <div><div class="font-semibold text-white">Kalo — Suva</div><div class="text-xs text-vault-mute">Fiji • <span class="chip">Clipper</span></div></div>
+                <div><div class="font-semibold text-white">Kalo — Suva</div><div class="text-xs text-vault-mute">Fiji • Warrior</div></div>
               </div>
               <p class="mt-3 text-vault-mute">“First week clipping Anth = brand DM + rev share unlocked.”</p>
             </div>
             <div class="card p-6">
               <div class="flex items-center gap-3">
                 <div class="h-10 w-10 rounded-full ring-1 ring-white/15 grid place-items-center bg-[#0a1814] text-white/90 font-semibold">T</div>
-                <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • <span class="chip">Warrior</span></div></div>
+                <div><div class="font-semibold text-white">Toma — Apia</div><div class="text-xs text-vault-mute">Samoa • Chief</div></div>
               </div>
               <p class="mt-3 text-vault-mute">“Stripe solved. Inbox runs on AI. <b class="text-white">Sales while I sleep</b>.”</p>
             </div>
-          </div>
-
-          <div class="mt-6 text-center">
-            <a class="btn btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">JOIN DISCORD</a>
           </div>
         </div>
       </section>
@@ -323,12 +320,12 @@ tailwind.config = {
               <div class="px-4 pb-4 text-vault-mute">Yes. Legit Stripe routes and clean money flow for PNG/Fiji/Samoa/Tonga.</div>
             </details>
             <details class="faq card p-0">
-              <summary><span class="font-semibold">What if I hate “content”?</span><span class="opacity-75">＋</span></summary>
-              <div class="px-4 pb-4 text-vault-mute">Good. We don’t chase trends. We build proof engines that convert.</div>
+              <summary><span class="font-semibold">Is any of this staged?</span><span class="opacity-75">＋</span></summary>
+              <div class="px-4 pb-4 text-vault-mute">No. IRL chaos only. Sitcom energy, real consequences.</div>
             </details>
             <details class="faq card p-0">
               <summary><span class="font-semibold">Do I need a laptop?</span><span class="opacity-75">＋</span></summary>
-              <div class="px-4 pb-4 text-vault-mute">No. Phone-first plays. Desktop optional.</div>
+              <div class="px-4 pb-4 text-vault-mute">Phone-first plays. Desktop optional.</div>
             </details>
             <details class="faq card p-0">
               <summary><span class="font-semibold">How fast can this print?</span><span class="opacity-75">＋</span></summary>
@@ -338,8 +335,8 @@ tailwind.config = {
         </div>
       </section>
 
-      <!-- FOOTER -->
-      <footer class="border-t border-white/10">
+      <!-- FOOTER (home) -->
+      <footer class="border-top border-white/10">
         <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-vault-mute flex items-center justify-between">
           <p>© <span id="y"></span> Inner Vault. All rights reserved.</p>
           <p class="space-x-4">
@@ -351,7 +348,7 @@ tailwind.config = {
       </footer>
     </section>
 
-    <!-- JOIN -->
+    <!-- JOIN PAGE -->
     <section id="join" data-view="join" class="hidden">
       <main class="max-w-5xl mx-auto px-5 py-10 text-center">
         <h1 class="text-3xl md:text-4xl font-bold text-white">Choose your path</h1>
@@ -365,12 +362,12 @@ tailwind.config = {
             <div class="mt-4 text-4xl font-extrabold text-white">$39<span class="text-base font-semibold text-vault-mute">/mo</span></div>
 
             <ul class="mt-6 space-y-3 text-vault-mute text-sm">
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Stripe Anywhere setup &amp; support</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Clip → Post → Collect (40% lifetime on rev-share plays)</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>AI Prompt Catalog (resellable)</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>IRL hooks &amp; proof-clip templates</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Phone-Only Ops</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Weekly live breakdowns + Q&amp;A</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Members chat &amp; deal sharing</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>IRL hooks & proof-clip templates (9:16, 1:1, 16:9)</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Phone-Only Ops: macros, reply trees, scripts</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Weekly live breakdowns + Q&A</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Members chat & deal sharing</span></li>
             </ul>
 
             <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" target="_blank" rel="noopener noreferrer"
@@ -389,7 +386,7 @@ tailwind.config = {
 
             <ul class="mt-6 space-y-3 text-vault-mute text-sm">
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Everything in WARRIOR</span></li>
-              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime updates &amp; future modules</span></li>
+              <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Lifetime updates & future modules</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Private deal rooms + partner heatmap</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>1× Prompt audit token</span></li>
               <li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#38FFAA" stroke-width="3" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg><span>Super UGC license for your editors</span></li>
@@ -403,15 +400,18 @@ tailwind.config = {
           </div>
         </div>
 
-        <!-- HUBS -->
-        <div class="mx-auto max-w-3xl mt-10 card ringfx p-6">
-          <h4 class="text-xl font-extrabold">Hubs</h4>
-          <p class="text-vault-mute mt-1">All paths start here.</p>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <a class="btn btn-outline" href="https://discord.gg/G9TwqkwZ8G" target="_blank" rel="noopener">Join Discord</a>
-            <a class="btn btn-outline" href="https://t.me/+0HpFhs9tme03NTM1" target="_blank" rel="noopener">Telegram Hub</a>
+        <!-- Netflix roast -->
+        <section class="mx-auto max-w-3xl mt-12">
+          <div class="card ringfx p-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white">OR GO WATCH NETFLIX…</h2>
+            <p class="text-vault-mute mt-2">Cry about the algorithm. Post nothing. Change nothing. <b class="text-white">Price lock holds for <span id="lockTimer2">10M : 00S</span>.</b></p>
+            <a href="https://whop.com/checkout/plan_UtQuW8ZJc4xm5?d2c=true" class="btn btn-gold mt-5 inline-flex" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="#0E140F" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+              LOCK IN & START
+            </a>
           </div>
-        </div>
+          <p class="mt-6 text-sm text-vault-mute"><a href="#home" class="text-[color:#38FFAA]">← Back to Home</a></p>
+        </section>
       </main>
 
       <footer class="border-t border-white/10">
@@ -444,24 +444,33 @@ tailwind.config = {
   ;['y','y2'].forEach(id=>{const n=document.getElementById(id); if(n) n.textContent=new Date().getFullYear();});
 })();
 
-/* simple router */
+/* SPA router */
 (() => {
   const views=[...document.querySelectorAll('[data-view]')];
   function route(){const v=(location.hash.replace('#','')||'home').toLowerCase(); views.forEach(el=>el.classList.toggle('hidden',el.id!==v)); scrollTo(0,0);}
   addEventListener('hashchange',route); route();
 })();
 
-/* cohort countdown */
-const COHORT_CLOSE_AT="2025-08-20T23:59:59+12:00";
-const startTs=Date.now(), endTs=new Date(COHORT_CLOSE_AT).getTime();
+/* global price-lock countdown (top + floating) */
+const CLOSE_AT="2025-08-20T23:59:59+12:00";
+const startTs=Date.now(), endTs=new Date(CLOSE_AT).getTime();
 const timer=document.getElementById('timer'), mini=document.getElementById('t-mini');
 const pad=n=>String(n).padStart(2,'0');
 (function tick(){const left=Math.max(0,endTs-Date.now());
   const h=Math.floor(left/3.6e6), m=Math.floor((left%3.6e6)/6e4), s=Math.floor((left%6e4)/1e3);
   const t=`${pad(h)} : ${pad(m)} : ${pad(s)}`; if(timer) timer.textContent=t; if(mini) mini.textContent=t; setTimeout(tick,1000)})();
 
-/* lock seed (future use) */
-localStorage.setItem('iv_lock_start', localStorage.getItem('iv_lock_start')||String(Date.now()));
+/* 10-minute local lock for the Netflix card */
+const LOCK_KEY='iv_lock_start', LOCK_MS=10*60*1000;
+const lockTimer2=document.getElementById('lockTimer2');
+function renderLock(){
+  let t=Number(localStorage.getItem(LOCK_KEY)); const now=Date.now();
+  if(!t || now-t>LOCK_MS){ t=now; localStorage.setItem(LOCK_KEY,String(t)); }
+  const left=Math.max(0,(t+LOCK_MS)-Date.now()), m=Math.floor(left/6e4), s=Math.floor((left%6e4)/1e3);
+  if(lockTimer2) lockTimer2.textContent=`${String(m).padStart(2,'0')}M : ${String(s).padStart(2,'0')}S`;
+  setTimeout(renderLock,250);
+}
+renderLock();
 </script>
 </body>
-</html>
+  </html>
