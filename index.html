@@ -27,25 +27,16 @@ tailwind.config = {
       },
       colors: {
         vault: {
-          bg:   '#06110E',
-          grid: '#0A1A15',
-          glass:'#0C1E18',
-          card:'#0E221C',
-          ring: '#163026',
-          gold:'#D8BF6A',
-          em:   '#15E37A',
-          neon: '#00FF9C',
-          text:'#F3FBF7',
-          mute:'#CDE7DD',
-          warn:'#E24A4A',
-          pulse:'#7C3AED' /* purple accent */
+          bg:'#06110E', grid:'#0A1A15', glass:'#0C1E18', card:'#0E221C', ring:'#163026',
+          gold:'#D8BF6A', em:'#15E37A', neon:'#00FF9C', text:'#F3FBF7', mute:'#CDE7DD',
+          warn:'#E24A4A', pulse:'#7C3AED'
         }
       },
       boxShadow:{
-        glass: '0 12px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)',
-        edge:  '0 0 0 1px rgba(255,255,255,.06), 0 0 28px rgba(21,227,122,.18)',
-        gold:  '0 10px 28px rgba(0,0,0,.35), 0 0 22px rgba(216,191,106,.28)',
-        press: '0 0 0 2px rgba(216,191,106,.45), 0 0 40px rgba(216,191,106,.35)'
+        glass:'0 12px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06)',
+        edge:'0 0 0 1px rgba(255,255,255,.06), 0 0 28px rgba(21,227,122,.18)',
+        gold:'0 10px 28px rgba(0,0,0,.35), 0 0 22px rgba(216,191,106,.28)',
+        press:'0 0 0 2px rgba(216,191,106,.45), 0 0 40px rgba(216,191,106,.35)'
       }
     }
   }
@@ -59,6 +50,7 @@ tailwind.config = {
   }
   html,body{height:100%}
   body{background:var(--bg); color:#F3FBF7; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+
   /* ---- premium grid bg ---- */
   .grid-bg:before{
     content:""; position:fixed; inset:0; z-index:-3;
@@ -72,18 +64,13 @@ tailwind.config = {
     background-color: var(--bg);
     filter: saturate(120%);
   }
-  /* ---- soft lightning ---- */
-  .lightning{
-    position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.35; mix-blend-mode:screen;
+  .lightning{position:fixed; inset:0; z-index:-2; pointer-events:none; opacity:.35; mix-blend-mode:screen;
     background:
       radial-gradient(600px 160px at 50% 0%, rgba(21,227,122,.22), transparent 60%),
       radial-gradient(800px 220px at 30% 100%, rgba(124,58,237,.16), transparent 65%),
       radial-gradient(800px 220px at 70% 100%, rgba(226,74,74,.10), transparent 65%);
-    animation: pulse 6s ease-in-out infinite;
-  }
+    animation: pulse 6s ease-in-out infinite;}
   @keyframes pulse {0%,100%{opacity:.26}50%{opacity:.5}}
-
-  /* ---- particles ---- */
   canvas#particles{position:fixed; inset:0; z-index:-1; pointer-events:none;}
 
   /* ---- glass cards ---- */
@@ -103,36 +90,52 @@ tailwind.config = {
 
   /* ---- buttons ---- */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
-    padding: .95rem 1.25rem; border-radius:14px; font-weight:800; letter-spacing:.18px;
-    transition: transform .1s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-  }
+    padding: .92rem 1.15rem; border-radius:14px; font-weight:800; letter-spacing:.18px;
+    transition: transform .1s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;}
   .btn:active{ transform: translateY(1px) }
   .btn-primary{
     color:#0E140F; background:linear-gradient(180deg,#EBDFA9,#D8BF6A);
-    border:1px solid rgba(255,255,255,.25); box-shadow: var(--shadow, 0 8px 24px rgba(0,0,0,.45));
-  }
+    border:1px solid rgba(255,255,255,.25); box-shadow: 0 8px 24px rgba(0,0,0,.45);}
   .btn-primary:hover{ box-shadow: 0 8px 28px rgba(0,0,0,.5), 0 0 28px rgba(216,191,106,.35)}
-  .btn-outline{
-    color:var(--g); border:1px solid rgba(21,227,122,.6); background:rgba(21,227,122,.06);
-  }
+  .btn-outline{ color:var(--g); border:1px solid rgba(21,227,122,.6); background:rgba(21,227,122,.06);}
   .btn-outline:hover{ box-shadow: 0 6px 20px rgba(21,227,122,.18) }
   .btn-ghost{ color:#F3FBF7; border:1px solid rgba(255,255,255,.10); background:transparent }
   .btn-ghost:hover{ border-color: rgba(216,191,106,.4); box-shadow: 0 0 18px rgba(216,191,106,.22) }
-
   .card-icon{ width:20px; height:20px; opacity:.9 }
 
-  /* ---- sticky top urgency ---- */
+  /* ---- NEW polished sticky top urgency ---- */
   .urgent{
-    position:sticky; top:0; z-index:60; backdrop-filter: blur(8px) saturate(160%);
+    position:sticky; top:0; z-index:60; backdrop-filter: blur(10px) saturate(160%);
     background:linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.55));
     border-bottom:1px solid rgba(255,255,255,.08);
   }
-  .urgent .band{
-    display:flex; gap:.6rem; align-items:center; color:#fff; font-weight:800;
-    background: linear-gradient(90deg, var(--red), #ff9a9a); padding:.4rem .7rem; border-radius:10px;
-    text-transform:uppercase; letter-spacing:.06em; font-family:Orbitron,system-ui;
+  .urg-wrap{
+    display:grid; grid-template-columns: auto 1fr auto;
+    gap:.9rem; align-items:center; min-height:58px;
   }
+  .lock-pill{
+    display:flex; align-items:center; justify-content:center; height:42px; min-width:120px;
+    padding: .3rem .85rem; border-radius:14px;
+    background:linear-gradient(180deg,#FF7F7F,#E24A4A);
+    box-shadow: 0 6px 18px rgba(226,74,74,.35);
+    color:#fff; font-weight:900; text-transform:uppercase; letter-spacing:.06em;
+    font-family:Orbitron,system-ui; border:1px solid rgba(255,255,255,.22);
+  }
+  .urg-stats{
+    display:flex; align-items:center; gap:1rem; justify-content:center; flex-wrap:wrap;
+    font-weight:700;
+  }
+  .urg-stats .label{opacity:.8}
+  .urg-stats .val{color:#15E37A}
   .timer { font-family: "Share Tech Mono", monospace; letter-spacing:.06em }
+  .urg-start .btn-primary{ padding:.9rem 1.15rem }
+  @media (max-width:640px){
+    .urg-wrap{ grid-template-columns: 1fr auto; grid-template-areas:
+      "lock start" "stats stats"; row-gap:.5rem; padding-top:.35rem; padding-bottom:.55rem;}
+    .lock-pill{ grid-area: lock; height:38px }
+    .urg-stats{ grid-area: stats; font-size:.9rem }
+    .urg-start{ grid-area: start }
+  }
 
   .badge-row{ font-family:Orbitron,system-ui; letter-spacing:.22em }
 
@@ -140,7 +143,6 @@ tailwind.config = {
   .cta-float{ position:fixed; left:0; right:0; bottom:16px; z-index:55; display:flex; justify-content:center }
   .cta-float .btn-primary{ box-shadow: 0 10px 30px rgba(0,0,0,.55), 0 0 38px rgba(216,191,106,.30) }
 
-  /* section headers */
   .section-eyebrow{ letter-spacing:.28em; text-transform:uppercase; color:#CDE7DD }
   .h1{font-family:Orbitron,system-ui}
   .h2{font-family:Orbitron,system-ui}
@@ -152,23 +154,29 @@ tailwind.config = {
   <div class="lightning"></div>
   <canvas id="particles"></canvas>
 
-  <!-- URGENCY BAR -->
+  <!-- URGENCY BAR (polished) -->
   <div class="urgent">
-    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between text-sm">
-      <div class="band">
-        <span>LOCK IN PRICE</span>
+    <div class="max-w-7xl mx-auto px-4 urg-wrap">
+      <!-- Left: lock pill -->
+      <div class="lock-pill">LOCK IN PRICE</div>
+
+      <!-- Center: stats -->
+      <div class="urg-stats">
+        <span class="label">Slots open:</span>
+        <span class="val">47</span>
+        <span class="label">• Timer</span>
+        <span id="topTimer" class="timer val">00:00:00:00</span>
       </div>
-      <div class="flex items-center gap-6">
-        <div><span class="opacity-80">Slots open:</span> <b class="text-vault-em">47</b></div>
-        <div class="flex items-center gap-2">
-          <span class="opacity-80">Timer</span>
-          <span id="topTimer" class="timer text-vault-em">00:00:00:00</span>
-        </div>
+
+      <!-- Right: START button (icon centered with label) -->
+      <div class="urg-start">
+        <a href="#join" class="btn btn-primary">
+          <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>
+          </svg>
+          START
+        </a>
       </div>
-      <a href="#join" class="btn btn-primary">
-        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-        START
-      </a>
     </div>
   </div>
 
@@ -216,7 +224,7 @@ tailwind.config = {
       <p class="mt-2 text-sm text-vault-mute">Nothing is faked. It’s real life. We just play it like a game.</p>
     </section>
 
-    <!-- JOIN THE TRIBE (unified) -->
+    <!-- JOIN THE TRIBE -->
     <section class="max-w-5xl mx-auto px-5 pb-10">
       <div class="card ringfx p-6 md:p-8">
         <h2 class="h2 text-3xl font-extrabold">Join the Tribe</h2>
@@ -495,7 +503,7 @@ tick();
     const n = innerWidth<768?100:160;
     P = Array.from({length:n},() => ({
       x:Math.random()*W, y:Math.random()*H, r:Math.random()*1.6+.5,
-      s:Math.random()*.6+.2, hue: Math.random()<.5? 140 : 280 /* green/purple */
+      s:Math.random()*.6+.2, hue: Math.random()<.5? 140 : 280
     }));
   }
   function loop(){
